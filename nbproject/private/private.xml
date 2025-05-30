@@ -3,12 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/VroomVroom1/src/LoginPage/LoginForm.java</file>
             <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/VroomVroom1/src/LoginPage/RegisterForm.java</file>
             <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/VroomVroom1/src/LoginPage/ForgotPasswordForm.java</file>
             <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/VroomVroom1/src/LoginPage/VroomVroom.java</file>
             <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/VroomVroom1/src/LoginPage/Screenshot%20(166)%20(2).png</file>
             <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/VroomVroom1/src/LoginPage.java</file>
+=======
+            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/VroomVroom/src/LoginPage/LoginForm.java</file>
+            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/VroomVroom/src/LoginPage/VroomVroom.java</file>
+            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/VroomVroom/src/LoginPage/RegisterForm.java</file>
+            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/VroomVroom/src/Dashboard/dashboardView.java</file>
+            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/VroomVroom/src/Dashboard/f05ec82f6ef58f8a570902f0adbb0b65.png</file>
+>>>>>>> b1f9a73 (Dashboard-UI)
         </group>
     </open-files>
 </project-private>

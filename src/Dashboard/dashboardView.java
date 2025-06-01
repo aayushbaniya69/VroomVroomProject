@@ -70,7 +70,7 @@ public class dashboardView extends javax.swing.JFrame {
 
         jButton5.setText("jButton5");
 
-        jPanel3.setBackground(new java.awt.Color(255, 247, 210));
+        jPanel3.setBackground(new java.awt.Color(255, 0, 0));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -108,6 +108,8 @@ public class dashboardView extends javax.swing.JFrame {
             LamboLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 240, Short.MAX_VALUE)
         );
+
+        jPanel6.setBackground(new java.awt.Color(255, 255, 0));
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);

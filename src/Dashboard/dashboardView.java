@@ -32,11 +32,20 @@ public class dashboardView extends javax.swing.JFrame {
 
         panelBoarders1 = new Dashboard.swing.PanelBoarders();
         menu2 = new DashboardComponents.menu();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
         panelBoarders1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jButton1.setText("jButton1");
+
+        jButton2.setText("jButton2");
+
+        jButton3.setText("jButton3");
 
         javax.swing.GroupLayout panelBoarders1Layout = new javax.swing.GroupLayout(panelBoarders1);
         panelBoarders1.setLayout(panelBoarders1Layout);
@@ -44,11 +53,23 @@ public class dashboardView extends javax.swing.JFrame {
             panelBoarders1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBoarders1Layout.createSequentialGroup()
                 .addComponent(menu2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 996, Short.MAX_VALUE))
+                .addGap(220, 220, 220)
+                .addComponent(jButton1)
+                .addGap(57, 57, 57)
+                .addComponent(jButton2)
+                .addGap(70, 70, 70)
+                .addComponent(jButton3)
+                .addGap(0, 531, Short.MAX_VALUE))
         );
         panelBoarders1Layout.setVerticalGroup(
             panelBoarders1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(menu2, javax.swing.GroupLayout.PREFERRED_SIZE, 646, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(panelBoarders1Layout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addGroup(panelBoarders1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2)
+                    .addComponent(jButton3)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -102,6 +123,9 @@ public class dashboardView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private DashboardComponents.menu menu2;
     private Dashboard.swing.PanelBoarders panelBoarders1;
     // End of variables declaration//GEN-END:variables

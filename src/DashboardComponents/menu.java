@@ -6,6 +6,10 @@ import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
+import javax.swing.JFrame;
 
 public class menu extends javax.swing.JPanel {
 
@@ -64,6 +68,32 @@ public class menu extends javax.swing.JPanel {
         g2.fillRoundRect(0, 0,getWidth(), getHeight(), 15, 15);
         g2.fillRect(getWidth()-20, 0, getWidth(), getHeight());
         super.paintComponent(g); 
+    }
+    private int x;
+    private int y;
+    
+    public void initMoving(JFrame fram) {
+        PanelMoving.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                x=e.getX();
+                y=e.getY();
+                
+            }
+          
+        }) ;
+        PanelMoving.addMouseMotionListener(new MouseMotionAdapter() {
+            @Override
+            public void mouseDragged(MouseEvent e) {
+                fram.setLocation(e.getXOnScreen()-x, e.getYOnScreen()-y);
+                
+               
+            }
+            
+        });
+        
+    
+      
     }
 
     

@@ -18,6 +18,7 @@ public class dashboardView extends javax.swing.JFrame {
     public dashboardView() {
         initComponents();
         setBackground(new Color(0, 0, 0, 0));
+    
     }
 
     /**

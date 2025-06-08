@@ -4,6 +4,8 @@
  */
 package vroomproject1.view;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author Dell
@@ -187,4 +189,20 @@ public class Reset extends javax.swing.JPanel {
     private javax.swing.JButton ResetPasswordButton;
     private javax.swing.JLabel SameLabel;
     // End of variables declaration//GEN-END:variables
+
+    public javax.swing.JTextField getEmailTextField(){
+        return  EmailTextField;
+    }
+    public javax.swing.JPasswordField getNewPasswordField(){
+        return NewPasswordField;
+    }
+    public javax.swing.JPasswordField getConfirmPasswordField(){
+        return ConfirmPasswordField;
+    }
+    public void resetUser(ActionListener listener){
+        ResetPasswordButton.addActionListener(listener);
+    }
+    public void loginBack(ActionListener listener){
+        BackToLoginButton.addActionListener(listener);
+    }
 }

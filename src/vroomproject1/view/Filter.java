@@ -37,16 +37,18 @@ public class Filter extends javax.swing.JPanel {
         NextButton = new javax.swing.JButton();
         DateTextField = new javax.swing.JTextField();
 
-        setBackground(new java.awt.Color(204, 204, 204));
+        setBackground(new java.awt.Color(0, 153, 153));
 
+        FilterLabel.setBackground(new java.awt.Color(0, 204, 255));
         FilterLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        FilterLabel.setForeground(new java.awt.Color(255, 255, 255));
         FilterLabel.setText("Filter ");
 
+        BrandLabel.setBackground(new java.awt.Color(255, 255, 255));
         BrandLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         BrandLabel.setText("Brand");
 
-        BrandComboBox.setBackground(new java.awt.Color(102, 102, 102));
-        BrandComboBox.setForeground(new java.awt.Color(255, 255, 255));
+        BrandComboBox.setForeground(new java.awt.Color(51, 51, 51));
         BrandComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         BrandComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -57,25 +59,21 @@ public class Filter extends javax.swing.JPanel {
         VechileTypeLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         VechileTypeLabel.setText("Vechile Type");
 
-        TypeComboBox.setBackground(new java.awt.Color(102, 102, 102));
-        TypeComboBox.setForeground(new java.awt.Color(255, 255, 255));
+        TypeComboBox.setForeground(new java.awt.Color(51, 51, 51));
         TypeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         RangeLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         RangeLabel.setText("Range");
 
-        RangeTextField.setBackground(new java.awt.Color(102, 102, 102));
-
         DateLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         DateLabel.setText("Date");
 
-        NextButton.setBackground(new java.awt.Color(102, 102, 102));
+        NextButton.setBackground(new java.awt.Color(74, 85, 104));
         NextButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         NextButton.setForeground(new java.awt.Color(255, 255, 255));
         NextButton.setText("Next");
 
-        DateTextField.setBackground(new java.awt.Color(102, 102, 102));
-        DateTextField.setForeground(new java.awt.Color(255, 255, 255));
+        DateTextField.setForeground(new java.awt.Color(51, 51, 51));
         DateTextField.setText("yy/mm/dd");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

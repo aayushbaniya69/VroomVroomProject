@@ -37,14 +37,12 @@ public class Filter extends javax.swing.JPanel {
         NextButton = new javax.swing.JButton();
         DateTextField = new javax.swing.JTextField();
 
-        setBackground(new java.awt.Color(30, 30, 47));
+        setBackground(new java.awt.Color(204, 204, 204));
 
         FilterLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        FilterLabel.setForeground(new java.awt.Color(255, 255, 255));
         FilterLabel.setText("Filter ");
 
         BrandLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        BrandLabel.setForeground(new java.awt.Color(255, 255, 255));
         BrandLabel.setText("Brand");
 
         BrandComboBox.setBackground(new java.awt.Color(102, 102, 102));
@@ -57,7 +55,6 @@ public class Filter extends javax.swing.JPanel {
         });
 
         VechileTypeLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        VechileTypeLabel.setForeground(new java.awt.Color(255, 255, 255));
         VechileTypeLabel.setText("Vechile Type");
 
         TypeComboBox.setBackground(new java.awt.Color(102, 102, 102));
@@ -65,13 +62,11 @@ public class Filter extends javax.swing.JPanel {
         TypeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         RangeLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        RangeLabel.setForeground(new java.awt.Color(255, 255, 255));
         RangeLabel.setText("Range");
 
         RangeTextField.setBackground(new java.awt.Color(102, 102, 102));
 
         DateLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        DateLabel.setForeground(new java.awt.Color(255, 255, 255));
         DateLabel.setText("Date");
 
         NextButton.setBackground(new java.awt.Color(102, 102, 102));
@@ -88,7 +83,7 @@ public class Filter extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 263, Short.MAX_VALUE)
                 .addComponent(NextButton)
                 .addGap(91, 91, 91))
             .addGroup(layout.createSequentialGroup()
@@ -107,9 +102,9 @@ public class Filter extends javax.swing.JPanel {
                             .addComponent(RangeTextField)
                             .addComponent(DateTextField)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(164, 164, 164)
+                        .addGap(170, 170, 170)
                         .addComponent(FilterLabel)))
-                .addContainerGap(198, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

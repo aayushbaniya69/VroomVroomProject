@@ -4,6 +4,8 @@
  */
 package vroomproject1.view;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author Dell
@@ -148,4 +150,15 @@ public class Filter extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> TypeComboBox;
     private javax.swing.JLabel VechileTypeLabel;
     // End of variables declaration//GEN-END:variables
+
+    public javax.swing.JTextField getDateTextField(){
+        return DateTextField;
+    }
+    public javax.swing.JTextField getRangeTextField(){
+        return RangeTextField;
+    }
+    public void filterUser(ActionListener listener){
+        NextButton.addActionListener(listener);
+    }
+    
 }

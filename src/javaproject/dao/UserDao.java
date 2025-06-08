@@ -18,6 +18,10 @@ import javaproject.model.UserData;
  * @author ACER
  */
 public class UserDao {
+
+    public static boolean registration(UserData userData) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     MySqlConnection mySql=new MySqlConnection();
     public boolean register(UserData user){
         String query="insert into users(FirstName,LastName,Address,email,Contact Number,password,Confirm Pasword,Security Answer)values(?,?,?,?,?,?,?,?)";

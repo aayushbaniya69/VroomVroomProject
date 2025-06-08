@@ -20,7 +20,7 @@ public class UserData {
     private String contactNumber;
     private String securityAnswer;
     //Constructor
-    public UserData(String firstName,String lastName,String address, String email, String password,String rePassword,String contactNumber,String securityAnswer){
+    public UserData(String firstName, String lastName, String address, String email, String password, String rePassword, String contactNumber){
         this.firstName=firstName;
         this.lastName=lastName;
         this.address=address;

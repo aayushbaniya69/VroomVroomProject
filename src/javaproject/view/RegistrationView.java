@@ -390,4 +390,7 @@ if (RePasswordField.getEchoChar() != (char) 0) {
      public void RegistrationUser(ActionListener listener){
          RegisterButton.addActionListener(listener);
      }
+     public javax.swing.JButton getBackToLogin(){
+         return BackToLogin;
+     }
 }

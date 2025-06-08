@@ -1,0 +1,45 @@
+[33mcommit c9ebe22514fbebd37caed6952442b3139f24429e[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: Bibash <bibash8@gmail.com>
+Date:   Sun Jun 8 11:11:20 2025 +0545
+
+    Register controller modified
+
+[33mcommit bad72dee6fffdd67ece24fc73539fb1aab080f9d[m
+Merge: 49d4314 1330a02
+Author: Bibash <bibash8@gmail.com>
+Date:   Fri Jun 6 20:29:55 2025 +0545
+
+    Login Controller changes
+
+[33mcommit 1330a02f8ff7aecf3d8d19488f2f2b69ab10619a[m[33m ([m[1;31morigin/newAayush[m[33m)[m
+Author: aayushbaniya69 <theaayush1209@gmail.com>
+Date:   Wed Jun 4 10:26:45 2025 +0545
+
+    Merged
+
+[33mcommit 49d4314aa8f5c9e239b4559c072273e14689bb3d[m[33m ([m[1;32mBibash[m[33m)[m
+Author: Bibash <bibash8@gmail.com>
+Date:   Wed Jun 4 09:48:56 2025 +0545
+
+    changes
+
+[33mcommit 04d9cf847f74ef49b4fb9498ee7324d6055f8378[m
+Merge: f8b99a5 e373049
+Author: aayushbaniya69 <theaayush1209@gmail.com>
+Date:   Wed Jun 4 09:32:28 2025 +0545
+
+    Merge pull request #1 from aayushbaniya69/newAayush
+    
+    dashboard changes
+
+[33mcommit e373049d1aa97c92c5df4965fe591328c7a9833e[m
+Author: aayushbaniya69 <theaayush1209@gmail.com>
+Date:   Wed Jun 4 09:29:49 2025 +0545
+
+    dashboard changes
+
+[33mcommit f8b99a52acbd22e869cd4f0c2595b9222b2ad0a2[m
+Author: Bibash <bibash8@gmail.com>
+Date:   Tue Jun 3 20:13:07 2025 +0545
+
+    Initial Commit

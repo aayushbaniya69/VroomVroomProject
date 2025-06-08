@@ -6,6 +6,9 @@ package javaproject.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javaproject.dao.UserDao;
+import javaproject.model.LoginRequest;
+import javaproject.model.UserData;
 import javaproject.view.RegistrationView;
 import javax.swing.JOptionPane;
 
@@ -60,8 +63,11 @@ public class RegistrationController {
                                                         if (!rePassword.isEmpty()) {
                                                             if (password.equals(rePassword)) {
                                                                 if (!securityAnswer.isEmpty()) {
-                                                                    JOptionPane.showMessageDialog(registration, "All fields are validated successfully!");
-                                                                    // Proceed to save data
+                                                                    
+                                                                   JOptionPane.showMessageDialog(registration, "All fields are validated successfully!");
+                                                                   LoginRequest loginData=new LoginRequest(email,password);
+                                                                   UserDao userDao=new UserDao();
+                                                                     UserData user=userDao.login(loginData);
                                                                 } else {
                                                                     JOptionPane.showMessageDialog(registration, "Security answer is required.");
                                                                 }

@@ -11,9 +11,11 @@ package vroomproject1.Model;
 public class UserData {
     private String newPassword;
     private String confirmPassword;
-    public UserData(String newPassword, String confirmPassword) {
+    private String email;
+    public UserData(String newPassword, String confirmPassword, String email) {
         this.newPassword = newPassword;
         this.confirmPassword = confirmPassword;
+        this.email=email;
     }
 
     public static UserData withNewPassword(String newPassword) {
@@ -34,5 +36,8 @@ public class UserData {
 
     public String getConfirmPassword() {
         return this.confirmPassword;
-    }    
+    } 
+    public String getEmail(){
+        return this.email;
+    }
 }

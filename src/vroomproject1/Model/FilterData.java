@@ -14,6 +14,10 @@ public class FilterData {
     private final String vechileType;
     private final String date;
     private final String range;
+
+    public String getVehicleType() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     public class filterData{
         private String brand;
         private String vechileType;

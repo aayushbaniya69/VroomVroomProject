@@ -19,11 +19,11 @@ public class UserData {
     }
 
     public static UserData withNewPassword(String newPassword) {
-        return new UserData(newPassword, null);
+        return   (newPassword, null);
     }
 
     public static UserData withConfirmPassword(String confirmPassword) {
-        return new UserData(null, confirmPassword);
+        return  UserData(null, confirmPassword);
     }
 
     public void setPassword(String newPassword) {
@@ -39,5 +39,13 @@ public class UserData {
     } 
     public String getEmail(){
         return this.email;
+    }
+
+    public String getdate() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public String getrange() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

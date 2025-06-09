@@ -24,7 +24,7 @@ public class UserDao {
     }
     MySqlConnection mySql=new MySqlConnection();
     public boolean register(UserData user){
-        String query="insert into users(FirstName,LastName,Address,email,Contact Number,password,Confirm Pasword,Security Answer)values(?,?,?,?,?,?,?,?)";
+        String query="insert into users(First_Name,Last_Name,Address,Email,Phone_Number,Password,Re_Pasword,Security_Answer)values(?,?,?,?,?,?,?,?)";
         Connection conn=mySql.openConnection();
         try{
             PreparedStatement stmnt=conn.prepareStatement(query);

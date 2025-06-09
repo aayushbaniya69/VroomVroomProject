@@ -13,15 +13,11 @@ public class RegistrationController {
 
     public RegistrationController(RegistrationView registration) {
         this.registration = registration;
-        registration.RegistrationUser(new RegistrationUser());
-    }
-
-    public void open() {
-        this.registration.setVisible(true);
-    }
-
-    public void close() {
-        this.registration.dispose();
+        RegistrationUser register=new RegistrationUser();
+        this.registration.registeruser(register);
+        BackLogin backLogin=new BackLogin();
+        this.registration.backLogin(backLogin);
+        
     }
 
     class RegistrationUser implements ActionListener {
@@ -102,6 +98,24 @@ public class RegistrationController {
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(registration, "Database error: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
+    }
+}
+    class BackLogin implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+           LoginForm login=new LoginForm();
+           LoginController loginController=new LoginController(login);
+           loginController.open();
+           close();
         }
+        
+    }
+    public void open() {
+        this.registration.setVisible(true);
+    }
+
+    public void close() {
+        this.registration.dispose();
     }
 }

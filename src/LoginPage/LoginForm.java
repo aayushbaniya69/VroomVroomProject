@@ -4,6 +4,8 @@
  */
 package LoginPage;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author ASUS
@@ -30,7 +32,7 @@ public class LoginForm extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        UsernameField = new javax.swing.JTextField();
+        EmailField = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         Password_Field = new javax.swing.JPasswordField();
         LoginButton = new javax.swing.JButton();
@@ -56,10 +58,10 @@ public class LoginForm extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Username:");
 
-        UsernameField.setBackground(new java.awt.Color(102, 102, 102));
-        UsernameField.addActionListener(new java.awt.event.ActionListener() {
+        EmailField.setBackground(new java.awt.Color(102, 102, 102));
+        EmailField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UsernameFieldActionPerformed(evt);
+                EmailFieldActionPerformed(evt);
             }
         });
 
@@ -117,7 +119,7 @@ public class LoginForm extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(UsernameField)
+                                .addComponent(EmailField)
                                 .addComponent(Password_Field, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE))
                             .addComponent(ShowButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(38, Short.MAX_VALUE))
@@ -128,7 +130,7 @@ public class LoginForm extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(UsernameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(EmailField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -227,7 +229,7 @@ public class LoginForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
-        String username = UsernameField.getText();
+        String username = EmailField.getText();
     String password = new String(Password_Field.getPassword());
 
     // Example check (replace with actual DB validation later)
@@ -247,9 +249,9 @@ public class LoginForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Password_FieldActionPerformed
 
-    private void UsernameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsernameFieldActionPerformed
+    private void EmailFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmailFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_UsernameFieldActionPerformed
+    }//GEN-LAST:event_EmailFieldActionPerformed
 private boolean isPasswordVisible = false;
     private void ShowButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowButtonActionPerformed
         if (isPasswordVisible) {
@@ -308,12 +310,12 @@ private boolean isPasswordVisible = false;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField EmailField;
     private javax.swing.JLabel ForgotPassword;
     private javax.swing.JButton LoginButton;
     private javax.swing.JPasswordField Password_Field;
     private javax.swing.JLabel RegisterForm;
     private javax.swing.JButton ShowButton;
-    private javax.swing.JTextField UsernameField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -324,4 +326,15 @@ private boolean isPasswordVisible = false;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
+
+    public javax.swing.JTextField getEmailTextField(){
+        return EmailField;
+    }
+    public javax.swing.JPasswordField getPasswordField(){
+        return Password_Field;
+    }
+    public void LoginUser(ActionListener listener){
+         LoginButton.addActionListener(listener);
+     }
+    
 }

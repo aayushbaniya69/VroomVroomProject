@@ -146,7 +146,7 @@
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="jLabel1" min="-2" pref="67" max="-2" attributes="0"/>
                                       <Component id="jLabel3" alignment="0" min="-2" pref="67" max="-2" attributes="0"/>
-                                      <Component id="UsernameField" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="EmailField" alignment="0" max="32767" attributes="0"/>
                                       <Component id="Password_Field" alignment="0" pref="193" max="32767" attributes="0"/>
                                   </Group>
                                   <Component id="ShowButton" alignment="1" min="-2" pref="61" max="-2" attributes="0"/>
@@ -163,7 +163,7 @@
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="UsernameField" min="-2" max="-2" attributes="0"/>
+                      <Component id="EmailField" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -188,14 +188,14 @@
                 <Property name="text" type="java.lang.String" value="Username:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="UsernameField">
+            <Component class="javax.swing.JTextField" name="EmailField">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="66" green="66" red="66" type="rgb"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UsernameFieldActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EmailFieldActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel3">

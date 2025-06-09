@@ -10,13 +10,13 @@ package vroomproject1.Model;
  */
 public class FilterData {
     private String brand;
-    private String vechileType;
+    private String vehicleType;
     private String range;
     private String date;
     
-    public FilterData(String brand,String vechileType, String range, String date){
+    public FilterData(String brand,String vehicleType, String range, String date){
         this.brand=brand;
-        this.vechileType=vechileType;
+        this.vehicleType=vehicleType;
         this.range=range;
         this.date=date;
     }
@@ -29,12 +29,12 @@ public class FilterData {
         this.brand = brand;
     }
 
-    public String getVechileType() {
-        return vechileType;
+    public String getVehicleType() {
+        return vehicleType;
     }
 
-    public void setVechileType(String vechileType) {
-        this.vechileType = vechileType;
+    public void setVehicleType(String vehicleType) {
+        this.vehicleType = vehicleType;
     }
 
     public String getRange() {
@@ -52,5 +52,7 @@ public class FilterData {
     public void setDate(String date) {
         this.date = date;
     }
+
+    
     
 }

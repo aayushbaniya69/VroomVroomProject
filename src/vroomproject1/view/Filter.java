@@ -151,14 +151,27 @@ public class Filter extends javax.swing.JPanel {
     private javax.swing.JLabel VechileTypeLabel;
     // End of variables declaration//GEN-END:variables
 
-    public javax.swing.JTextField getDateTextField(){
-        return DateTextField;
+    public javax.swing.JComboBox<String> getBrandComboBox() {
+      return BrandComboBox;
     }
-    public javax.swing.JTextField getRangeTextField(){
+
+    public javax.swing.JComboBox<String> getVehicleTypeComboBox() {
+        return TypeComboBox;
+    }
+
+    public javax.swing.JTextField getRangeTextField() {
         return RangeTextField;
     }
-    public void filterUser(ActionListener listener){
-        NextButton.addActionListener(listener);
+
+    public javax.swing.JTextField getDateTextField() {
+        return DateTextField;
     }
-    
+
+    public void setFilterListener(ActionListener listener) {
+        NextButton.addActionListener(listener);
+    }   
+
+    public void dispose() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

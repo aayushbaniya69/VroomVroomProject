@@ -18,14 +18,6 @@ public class UserData {
         this.email=email;
     }
 
-    public static UserData withNewPassword(String newPassword) {
-        return   (newPassword, null);
-    }
-
-    public static UserData withConfirmPassword(String confirmPassword) {
-        return  UserData(null, confirmPassword);
-    }
-
     public void setPassword(String newPassword) {
         this.newPassword = newPassword;
     }

@@ -39,7 +39,6 @@
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="CountryLabel" min="-2" max="-2" attributes="0"/>
                                           <Component id="AddressLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="CityTxtField" alignment="0" min="-2" pref="166" max="-2" attributes="0"/>
                                       </Group>
@@ -89,6 +88,7 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="AddressTxtField" min="-2" pref="220" max="-2" attributes="0"/>
                                   <Component id="CountryTxtField" min="-2" pref="166" max="-2" attributes="0"/>
+                                  <Component id="CountryLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
@@ -147,11 +147,11 @@
                   <Component id="CityTxtField" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="StateTxtField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="CountryLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="CountryTxtField" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
+              <Component id="CountryTxtField" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="PayButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
           </Group>

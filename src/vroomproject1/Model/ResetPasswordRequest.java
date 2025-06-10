@@ -9,14 +9,19 @@ package vroomproject1.Model;
  * @author Dell
  */
 public class ResetPasswordRequest {
+    //Attributes
     private String email;
     private String newPassword;
     private String confirmPassword;
+    
+    //Constructor
     public ResetPasswordRequest(String email,String newPassword, String confirmPassword){
         this.email=email;
         this.newPassword=newPassword;
         this.confirmPassword=confirmPassword;
     }
+    
+    //getter setter
     public void setEmail(String email){
         this.email=email;
     }

@@ -9,18 +9,20 @@ package vroomproject1.Model;
  * @author Dell
  */
 public class FilterData {
+    //Attributes
     private String brand;
     private String vehicleType;
     private String range;
     private String date;
     
+    //Constructor
     public FilterData(String brand,String vehicleType, String range, String date){
         this.brand=brand;
         this.vehicleType=vehicleType;
         this.range=range;
         this.date=date;
     }
-
+    //Getter setter 
     public String getBrand() {
         return brand;
     }
@@ -51,8 +53,5 @@ public class FilterData {
 
     public void setDate(String date) {
         this.date = date;
-    }
-
-    
-    
+    } 
 }

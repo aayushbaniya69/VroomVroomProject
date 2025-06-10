@@ -22,10 +22,10 @@ public class BookingController {
     private BookingView view;
     private UserData user;
 
+    //Controller
     public BookingController(BookingView view, UserData user) {
         this.view = view;
         this.user = user;
-
         this.view.BookButton(new BookVehicleListener());
         this.view.BackToDashbord(new BackListener());
         this.view.Logout(new LogoutListener());
@@ -33,6 +33,9 @@ public class BookingController {
 
     public void open() {
         view.setVisible(true);
+    }
+    public void close(){
+        view.dispose();
     }
 
     class BookVehicleListener implements ActionListener {
@@ -47,12 +50,12 @@ public class BookingController {
 
                 double total = numVehicles * pricePerVehicle;
                 Booking booking = new Booking();
-                booking.setUserId(user.getId());
-                booking.setVehicleInfo(vehicleInfo);
-                booking.setStartDate(startDate);
-                booking.setEndDate(endDate);
-                booking.setNumberOfVehicles(numVehicles);
-                booking.setTotalAmount(total);
+//                booking.setUserId(user.getuserId());
+//                booking.setVehicleInfo(vehicleInfo);
+//                booking.setStartDate(startDate);
+//                booking.setEndDate(endDate);
+//                booking.setNumberOfVehicles(numVehicles);
+//                booking.setTotalAmount(total);
 
                 BookingDao dao = new BookingDao();
                 boolean success = dao.insertBooking(booking);

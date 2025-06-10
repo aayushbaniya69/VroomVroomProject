@@ -11,6 +11,7 @@ package javaproject.model;
 public class UserData {
        // private attribute
     //public methods
+    private int userId;
     private String firstName;
     private String lastName;
     private String address;
@@ -31,6 +32,9 @@ public class UserData {
         this.securityAnswer= securityAnswer;
     }
     //setters
+    public void setUserId(int userId){
+        this.userId=userId;
+    }
     public void setFirstName(String firstName){
         this.firstName=firstName;
     }
@@ -57,6 +61,9 @@ public class UserData {
     }
    
     //getters
+    public int getUserId(){
+        return userId;
+    }
     public String getFirstName(){
         return this.firstName;
     }

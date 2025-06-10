@@ -27,7 +27,7 @@ public class RegistrationController {
             String lastName = registration.getLastNameTextField().getText();
             String address = registration.getAddressTextField().getText();
             String email = registration.getEmailTextField().getText();
-            String phoneNumber = registration.getPhoneNumberTextField().getText();
+            String contactNumber = registration.getPhoneNumberTextField().getText();
             String password = String.valueOf(registration.getPasswordTextField().getPassword());
             String rePassword = String.valueOf(registration.getRePasswordTextField().getPassword());
             String securityAnswer = registration.getSecurityAnswerTextField().getText();
@@ -58,7 +58,7 @@ public class RegistrationController {
                 return;
             }
 
-            if (phoneNumber.isEmpty() || !phoneNumber.matches(phoneNumberPattern)) {
+            if (contactNumber.isEmpty() || !contactNumber.matches(phoneNumberPattern)) {
                 JOptionPane.showMessageDialog(registration, "Phone number must be exactly 10 digits.");
                 return;
             }
@@ -81,7 +81,7 @@ public class RegistrationController {
             // All validations passed
             JOptionPane.showMessageDialog(registration, "All fields are validated successfully!");
 
-            UserData userData = new UserData(firstName, lastName, address, email, password, phoneNumber, securityAnswer);
+            UserData userData = new UserData(firstName, lastName, address, email, password, contactNumber, securityAnswer);
 
             try {
                 boolean success = UserDao.registration(userData);

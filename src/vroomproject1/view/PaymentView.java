@@ -4,6 +4,8 @@
  */
 package vroomproject1.view;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author Dell
@@ -26,7 +28,7 @@ public class PaymentView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        logoPanel = new javax.swing.JPanel();
         PaymentMethodLabel = new javax.swing.JLabel();
         CreditDebitButton = new javax.swing.JButton();
         ESewaButton = new javax.swing.JButton();
@@ -34,12 +36,12 @@ public class PaymentView extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         CardNumberLabel = new javax.swing.JLabel();
         ExpDateLabel = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        NameLabel = new javax.swing.JLabel();
+        AddressLabel = new javax.swing.JLabel();
+        CityLabel = new javax.swing.JLabel();
+        StateLabel = new javax.swing.JLabel();
+        CountryLabel = new javax.swing.JLabel();
+        CVCLabel = new javax.swing.JLabel();
         CardNumTxtField = new javax.swing.JTextField();
         ExpDateTxtField = new javax.swing.JTextField();
         CVCTxtField = new javax.swing.JTextField();
@@ -52,16 +54,16 @@ public class PaymentView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+        logoPanel.setBackground(new java.awt.Color(102, 102, 102));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout logoPanelLayout = new javax.swing.GroupLayout(logoPanel);
+        logoPanel.setLayout(logoPanelLayout);
+        logoPanelLayout.setHorizontalGroup(
+            logoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 197, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        logoPanelLayout.setVerticalGroup(
+            logoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
@@ -81,17 +83,17 @@ public class PaymentView extends javax.swing.JFrame {
 
         ExpDateLabel.setText("Expiry Date");
 
-        jLabel4.setText("Name on Card");
+        NameLabel.setText("Name on Card");
 
-        jLabel5.setText("Address");
+        AddressLabel.setText("Address");
 
-        jLabel6.setText("City");
+        CityLabel.setText("City");
 
-        jLabel7.setText("State");
+        StateLabel.setText("State");
 
-        jLabel8.setText("Country");
+        CountryLabel.setText("Country");
 
-        jLabel2.setText("CVC");
+        CVCLabel.setText("CVC");
 
         CardNumTxtField.setText("000-000-000");
         CardNumTxtField.addActionListener(new java.awt.event.ActionListener() {
@@ -114,22 +116,22 @@ public class PaymentView extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(logoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel6)
+                                .addComponent(CityLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel7)
+                                .addComponent(StateLabel)
                                 .addGap(125, 125, 125))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel8)
-                                            .addComponent(jLabel5)
+                                            .addComponent(CountryLabel)
+                                            .addComponent(AddressLabel)
                                             .addComponent(CityTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(StateTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -144,20 +146,20 @@ public class PaymentView extends javax.swing.JFrame {
                                                 .addGroup(layout.createSequentialGroup()
                                                     .addComponent(ExpDateLabel)
                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(jLabel2))
+                                                    .addComponent(CVCLabel))
                                                 .addGroup(layout.createSequentialGroup()
                                                     .addComponent(ESewaButton)
                                                     .addGap(18, 18, 18)
                                                     .addComponent(BankButton)))
                                             .addGroup(layout.createSequentialGroup()
-                                                .addComponent(ExpDateTxtField, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
+                                                .addComponent(ExpDateTxtField)
                                                 .addGap(33, 33, 33)
                                                 .addComponent(CVCTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(PaymentMethodLabel)
                                             .addComponent(jLabel1)
-                                            .addComponent(jLabel4)
+                                            .addComponent(NameLabel)
                                             .addComponent(NameTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(0, 0, Short.MAX_VALUE)))
                                 .addGap(21, 21, 21))
@@ -173,7 +175,7 @@ public class PaymentView extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(logoPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(93, 93, 93)
                 .addComponent(PaymentMethodLabel)
@@ -188,33 +190,33 @@ public class PaymentView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CardNumberLabel)
                     .addComponent(ExpDateLabel)
-                    .addComponent(jLabel2))
+                    .addComponent(CVCLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CardNumTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ExpDateTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CVCTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
-                .addComponent(jLabel4)
+                .addComponent(NameLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(NameTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
-                .addComponent(jLabel5)
+                .addComponent(AddressLabel)
                 .addGap(3, 3, 3)
                 .addComponent(AddressTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7))
+                    .addComponent(CityLabel)
+                    .addComponent(StateLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CityTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(StateTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
-                .addComponent(jLabel8)
+                .addComponent(CountryLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(CountryTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(PayButton)
                 .addGap(21, 21, 21))
         );
@@ -263,28 +265,68 @@ public class PaymentView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel AddressLabel;
     private javax.swing.JTextField AddressTxtField;
     private javax.swing.JButton BankButton;
+    private javax.swing.JLabel CVCLabel;
     private javax.swing.JTextField CVCTxtField;
     private javax.swing.JTextField CardNumTxtField;
     private javax.swing.JLabel CardNumberLabel;
+    private javax.swing.JLabel CityLabel;
     private javax.swing.JTextField CityTxtField;
+    private javax.swing.JLabel CountryLabel;
     private javax.swing.JTextField CountryTxtField;
     private javax.swing.JButton CreditDebitButton;
     private javax.swing.JButton ESewaButton;
     private javax.swing.JLabel ExpDateLabel;
     private javax.swing.JTextField ExpDateTxtField;
+    private javax.swing.JLabel NameLabel;
     private javax.swing.JTextField NameTxtField;
     private javax.swing.JButton PayButton;
     private javax.swing.JLabel PaymentMethodLabel;
+    private javax.swing.JLabel StateLabel;
     private javax.swing.JTextField StateTxtField;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel logoPanel;
     // End of variables declaration//GEN-END:variables
+
+    public javax.swing.JTextField getAddressTxtField(){
+        return AddressTxtField;
+    }
+    public javax.swing.JTextField getCVCTxtField(){
+        return CVCTxtField ;
+    }
+    public javax.swing.JTextField getCardNumTxtField(){
+        return CardNumTxtField;
+    }
+    public javax.swing.JTextField getCityTxtField(){
+        return CityTxtField;
+    }
+    public javax.swing.JTextField getCountryTxtField(){
+        return CountryTxtField;
+    }
+    public javax.swing.JTextField getExpDateTxtField(){
+        return ExpDateTxtField;
+    }
+    public javax.swing.JTextField getNameTxtField(){
+        return NameTxtField;
+    }
+    public javax.swing.JTextField getStateTxtField(){
+        return StateTxtField;
+    }
+    public void setPayButtonListener(ActionListener listener) {
+        PayButton.addActionListener(listener);
+    }
+    public javax.swing.JButton getPayButton() {
+        return PayButton;
+    }
+    public javax.swing.JButton getBankButton(){
+        return BankButton;
+    }
+    public javax.swing.JButton getCreditDebitButton(){
+        return CreditDebitButton;
+    }
+    public javax.swing.JButton getESewaButton(){
+        return ESewaButton;
+    }
 }

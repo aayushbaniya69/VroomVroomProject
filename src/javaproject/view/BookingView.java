@@ -215,7 +215,7 @@ public class BookingView extends javax.swing.JFrame {
     private javax.swing.JButton BackToDashboardButton;
     private javax.swing.JTextField EndDateField;
     private javax.swing.JButton LogoutButton;
-    private javax.swing.JTextField NumberOfVehicleField;
+    public javax.swing.JTextField NumberOfVehicleField;
     private javax.swing.JTextField StartDateField;
     private javax.swing.JTextField TotalAmountField;
     private javax.swing.JTextField VehicleInfoField;
@@ -237,6 +237,9 @@ public class BookingView extends javax.swing.JFrame {
     }
     public javax.swing.JTextField getVehicleInfo(){
         return VehicleInfoField;
+    }
+    public javax.swing.JTextField getNumberOfVehicle(){
+        return NumberOfVehicleField;
     }
     public javax.swing.JTextField getTotalAmountField(){
         return TotalAmountField;

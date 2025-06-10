@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package LoginPage;
+package javaproject.view;
 
 /**
  *
- * @author ASUS
+ * @author ACER
  */
 public class VroomVroom extends javax.swing.JFrame {
 

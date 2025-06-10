@@ -7,6 +7,7 @@ package javaproject.view;
 import LoginPage.ForgotPasswordForm;
 import LoginPage.RegisterForm;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
 
 /**
  *
@@ -338,5 +339,10 @@ private boolean isPasswordVisible = false;
     public void LoginUser(ActionListener listener){
          LoginButton.addActionListener(listener);
      }
-    
+    public void forgotPassword(MouseListener listener){ //forgot password is label so mouselistener is added
+    ForgotPassword.addMouseListener(listener);
+}
+    public void registerPage(MouseListener listener){ //forgot password is label so mouselistener is added
+    RegisterForm.addMouseListener(listener);
+}
 }

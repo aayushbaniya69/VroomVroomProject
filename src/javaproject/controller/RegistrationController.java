@@ -1,6 +1,6 @@
 package javaproject.controller;
 
-import LoginPage.LoginForm;
+import javaproject.view.LoginForm;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javaproject.dao.UserDao;

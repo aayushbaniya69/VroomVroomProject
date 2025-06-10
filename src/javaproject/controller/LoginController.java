@@ -5,7 +5,6 @@
 package javaproject.controller;
 
 import LoginPage.ForgotPasswordForm;
-import LoginPage.LoginForm;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -14,6 +13,7 @@ import javaproject.dao.UserDao;
 import javaproject.model.LoginRequest;
 import javaproject.model.UserData;
 import javaproject.view.DashboardView;
+import javaproject.view.LoginForm;
 import javaproject.view.RegistrationView;
 import javax.swing.JOptionPane;
 
@@ -29,6 +29,8 @@ public class LoginController {
         this.view.LoginUser(loginUser);
         ResetPassword forgotPassword=new ResetPassword();
         this.view.forgotPassword(forgotPassword) ;
+        Register registerPage=new Register();
+        this.view.registerPage(registerPage);
     }
     public void open(){
         view.setVisible(true);

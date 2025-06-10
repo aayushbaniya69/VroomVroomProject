@@ -8,11 +8,11 @@ package vroomproject1.Model;
  *
  * @author Dell
  */
-public class UserData {
+public class ResetData {
     private String newPassword;
     private String confirmPassword;
     private String email;
-    public UserData(String newPassword, String confirmPassword, String email) {
+    public ResetData(String newPassword, String confirmPassword, String email) {
         this.newPassword = newPassword;
         this.confirmPassword = confirmPassword;
         this.email=email;

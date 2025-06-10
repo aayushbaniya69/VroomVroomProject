@@ -9,13 +9,13 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import vroomproject1.Database.MySqlConnection;
 import vroomproject1.Model.FilterData;
-import vroomproject1.Model.UserData;
+import vroomproject1.Model.ResetData;
 
 /**
  *
  * @author Dell
  */
-public class UserDao {
+public class FilterDao {
     MySqlConnection mySql=new MySqlConnection();
     public boolean filter(FilterData data) {
     String query = "INSERT INTO filters(brand, vehicle_type, range_value, date) VALUES (?, ?, ?, ?)";
@@ -37,7 +37,7 @@ public class UserDao {
     }
 }
 
-    public boolean reset(UserData user){ //function banako insert garnu lai
+    public boolean reset(ResetData user){ //function banako insert garnu lai
         String query="INSERT INTO users(newPassword,email,confirmPassword)VALUES(?,?,?)"; //yeta chai database sanga match hunu paro
         Connection conn=mySql.openConnection();
         try{

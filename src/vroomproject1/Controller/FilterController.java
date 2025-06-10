@@ -3,7 +3,7 @@ package vroomproject1.Controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
-import vroomproject1.Dao.UserDao;
+import vroomproject1.Dao.FilterDao;
 import vroomproject1.Model.FilterData;
 import vroomproject1.view.Filter;
 
@@ -45,7 +45,7 @@ public class FilterController {
                 JOptionPane.showMessageDialog(filter, "Fill in all the fields");
             } else {
                 FilterData data = new FilterData(brand, vehicleType, range, date);
-                UserDao userDao = new UserDao();
+                FilterDao userDao = new FilterDao();
                 boolean result = userDao.filter(data);
 
                 if (result) {

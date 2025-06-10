@@ -6,7 +6,9 @@ package vroomproject1;
 
 import javax.swing.JFrame;
 import vroomproject1.Controller.FilterController;
+import vroomproject1.Controller.PaymentController;
 import vroomproject1.view.Filter;
+import vroomproject1.view.PaymentView;
 
 /**
  *
@@ -35,6 +37,13 @@ public class VroomProject1 {
             // Connect controller
             FilterController controller = new FilterController(view);
         });
+        
+        PaymentView paymentView = new PaymentView();
+        PaymentController controller = new PaymentController(paymentView);
+        paymentView.setVisible(true);
+
     }
+    
+
 }
 

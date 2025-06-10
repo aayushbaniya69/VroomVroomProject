@@ -15,6 +15,8 @@ public class Dashboard_ui extends javax.swing.JFrame {
      */
     public Dashboard_ui() {
         initComponents();
+        
+       
     }
 
     /**

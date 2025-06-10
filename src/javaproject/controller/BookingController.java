@@ -10,6 +10,7 @@ import javaproject.dao.BookingDao;
 import javaproject.model.Booking;
 import javaproject.model.UserData;
 import javaproject.view.BookingView;
+import javaproject.view.LoginForm;
 import javax.swing.JOptionPane;
 
 /**

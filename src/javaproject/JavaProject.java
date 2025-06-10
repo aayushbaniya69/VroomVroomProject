@@ -25,3 +25,4 @@ public class JavaProject {
         controller.open();
     }
 }
+  

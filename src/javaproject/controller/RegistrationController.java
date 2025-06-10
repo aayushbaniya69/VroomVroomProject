@@ -1,32 +1,23 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package javaproject.controller;
 
+import LoginPage.LoginForm;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javaproject.dao.UserDao;
+import javaproject.model.UserData;
 import javaproject.view.RegistrationView;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author ACER
- */
 public class RegistrationController {
-    private RegistrationView registration = new RegistrationView();
+    private RegistrationView registration;
 
     public RegistrationController(RegistrationView registration) {
         this.registration = registration;
-        registration.RegistrationUser(new RegistrationUser());
-    }
-
-    public void open() {
-        this.registration.setVisible(true);
-    }
-
-    public void close() {
-        this.registration.dispose();
+        RegistrationUser register=new RegistrationUser();
+        this.registration.registeruser(register);
+        BackLogin backLogin=new BackLogin();
+        this.registration.backLogin(backLogin);
+        
     }
 
     class RegistrationUser implements ActionListener {
@@ -46,64 +37,85 @@ public class RegistrationController {
             String emailPattern = "^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$";
             String phoneNumberPattern = "^\\d{10}$";
 
-            if (!firstName.isEmpty()) {
-                if (firstName.matches(namePattern)) {
-                    if (!lastName.isEmpty()) {
-                        if (lastName.matches(namePattern)) {
-                            if (!address.isEmpty()) {
-                                if (!email.isEmpty()) {
-                                    if (email.matches(emailPattern)) {
-                                        if (!phoneNumber.isEmpty()) {
-                                            if (phoneNumber.matches(phoneNumberPattern)) {
-                                                if (!password.isEmpty()) {
-                                                    if (password.length() >= 6) {
-                                                        if (!rePassword.isEmpty()) {
-                                                            if (password.equals(rePassword)) {
-                                                                if (!securityAnswer.isEmpty()) {
-                                                                    JOptionPane.showMessageDialog(registration, "All fields are validated successfully!");
-                                                                    // Proceed to save data
-                                                                } else {
-                                                                    JOptionPane.showMessageDialog(registration, "Security answer is required.");
-                                                                }
-                                                            } else {
-                                                                JOptionPane.showMessageDialog(registration, "Passwords do not match.");
-                                                            }
-                                                        } else {
-                                                            JOptionPane.showMessageDialog(registration, "Please re-enter your password.");
-                                                        }
-                                                    } else {
-                                                        JOptionPane.showMessageDialog(registration, "Password must be at least 6 characters long.");
-                                                    }
-                                                } else {
-                                                    JOptionPane.showMessageDialog(registration, "Password is required.");
-                                                }
-                                            } else {
-                                                JOptionPane.showMessageDialog(registration, "Phone number must be exactly 10 digits and contain only numbers.");
-                                            }
-                                        } else {
-                                            JOptionPane.showMessageDialog(registration, "Phone number is required.");
-                                        }
-                                    } else {
-                                        JOptionPane.showMessageDialog(registration, "Invalid email format.");
-                                    }
-                                } else {
-                                    JOptionPane.showMessageDialog(registration, "Email is required.");
-                                }
-                            } else {
-                                JOptionPane.showMessageDialog(registration, "Address is required.");
-                            }
-                        } else {
-                            JOptionPane.showMessageDialog(registration, "Last name should only contain letters.");
-                        }
-                    } else {
-                        JOptionPane.showMessageDialog(registration, "Last name is required.");
-                    }
-                } else {
-                    JOptionPane.showMessageDialog(registration, "First name should only contain letters.");
-                }
-            } else {
-                JOptionPane.showMessageDialog(registration, "First name is required.");
+            // Validate inputs using guard clauses
+            if (firstName.isEmpty() || !firstName.matches(namePattern)) {
+                JOptionPane.showMessageDialog(registration, "First name is required and must contain only letters.");
+                return;
             }
+
+            if (lastName.isEmpty() || !lastName.matches(namePattern)) {
+                JOptionPane.showMessageDialog(registration, "Last name is required and must contain only letters.");
+                return;
+            }
+
+            if (address.isEmpty()) {
+                JOptionPane.showMessageDialog(registration, "Address is required.");
+                return;
+            }
+
+            if (email.isEmpty() || !email.matches(emailPattern)) {
+                JOptionPane.showMessageDialog(registration, "A valid email is required.");
+                return;
+            }
+
+            if (phoneNumber.isEmpty() || !phoneNumber.matches(phoneNumberPattern)) {
+                JOptionPane.showMessageDialog(registration, "Phone number must be exactly 10 digits.");
+                return;
+            }
+
+            if (password.isEmpty() || password.length() < 6) {
+                JOptionPane.showMessageDialog(registration, "Password must be at least 6 characters long.");
+                return;
+            }
+
+            if (rePassword.isEmpty() || !password.equals(rePassword)) {
+                JOptionPane.showMessageDialog(registration, "Passwords do not match.");
+                return;
+            }
+
+            if (securityAnswer.isEmpty()) {
+                JOptionPane.showMessageDialog(registration, "Security answer is required.");
+                return;
+            }
+
+            // All validations passed
+            JOptionPane.showMessageDialog(registration, "All fields are validated successfully!");
+
+            UserData userData = new UserData(firstName, lastName, address, email, password, phoneNumber, securityAnswer);
+
+            try {
+                boolean success = UserDao.registration(userData);
+
+                if (success) {
+                    JOptionPane.showMessageDialog(registration, "Registration Successful", "Success", JOptionPane.INFORMATION_MESSAGE);
+                    LoginForm loginView = new LoginForm();
+                    LoginController loginController = new LoginController(loginView);
+                    loginController.open();
+                    close();
+                } else {
+                    JOptionPane.showMessageDialog(registration, "Registration failed", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(registration, "Database error: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+    }
+}
+    class BackLogin implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+           LoginForm login=new LoginForm();
+           LoginController loginController=new LoginController(login);
+           loginController.open();
+           close();
         }
+        
+    }
+    public void open() {
+        this.registration.setVisible(true);
+    }
+
+    public void close() {
+        this.registration.dispose();
     }
 }

@@ -104,6 +104,7 @@ public class RegistrationController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+           System.out.println("Navigating");
            LoginForm login=new LoginForm();
            LoginController loginController=new LoginController(login);
            loginController.open();

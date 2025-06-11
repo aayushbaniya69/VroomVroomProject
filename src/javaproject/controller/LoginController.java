@@ -70,10 +70,10 @@ class ResetPassword implements MouseListener{
 
      @Override
         public void mouseClicked(MouseEvent e) {
-            view.dispose();
             ForgotPasswordForm forgotpassword = new ForgotPasswordForm();
             ForgotPasswordController forgotController = new ForgotPasswordController(forgotpassword);
             forgotController.open();
+            close();
 }
 
         @Override
@@ -100,10 +100,10 @@ class Register implements MouseListener{
 
         @Override
         public void mouseClicked(MouseEvent e) {
-            view.dispose();
             RegistrationView reisterView = new RegistrationView();
             RegistrationController registerController = new RegistrationController(reisterView);
             registerController.open();
+            close();
         }
 
         @Override

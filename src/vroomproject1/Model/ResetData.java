@@ -18,8 +18,16 @@ public class ResetData {
         this.email=email;
     }
 
-    public void setPassword(String newPassword) {
+    public void setNewPassword(String newPassword) {
         this.newPassword = newPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getNewPassword() {

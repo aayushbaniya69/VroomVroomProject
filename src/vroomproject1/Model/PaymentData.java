@@ -98,8 +98,5 @@ public class PaymentData {
     public void setCountry(String country) {
         this.country = country;
     }
-
-    
-    
 }
 

@@ -4,6 +4,8 @@
  */
 package javaproject.view;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author ACER
@@ -261,7 +263,7 @@ public javax.swing.JTextField getContactNumber(){
 public javax.swing.JTextField getPanNumber(){
     return PanNumberField;
 }
-public javax.swing.JPasswordField qetPassword(){
+public javax.swing.JPasswordField getPassword(){
     return PasswordField;
 }
 public javax.swing.JPasswordField getRePassword(){
@@ -273,4 +275,10 @@ public javax.swing.JButton getBackToLogin(){
 public javax.swing.JButton getRegister(){
     return RegisterButton;
 }
+public void sellerRegisterUser(ActionListener listener){
+         RegisterButton.addActionListener(listener);
+     }
+public void backToLogin(ActionListener listener){
+         BackToLoginButton.addActionListener(listener);
+     }
 }

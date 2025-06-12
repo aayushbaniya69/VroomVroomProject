@@ -10,7 +10,7 @@ package javaproject.model;
  */
 public class SellerData {
     // private attribute
-    private int sellerId;
+    private String sellerId;
     private String fullName;
     private String location;
     private String email;
@@ -28,8 +28,22 @@ public class SellerData {
         this.contactNumber=contactNumber;
         this.panNumber= panNumber;
     }
+    public SellerData(String fullName,String location, String email, String password, String panNumber,String contactNumber){
+        this.fullName=fullName;
+        this.location=location;
+        this.email=email;
+        this.password=password;
+        this.contactNumber=contactNumber;
+        this.panNumber= panNumber;
+    }
+    public SellerData(String sellerId,String fullName,String email,String password){
+        this.sellerId=sellerId;
+        this.fullName=fullName;
+        this.email=email;
+        this.password=password;
+    }
     //setters
-    public void setUserId(int sellerId){
+    public void setUserId(String sellerId){
         this.sellerId=sellerId;
     }
     public void setFirstName(String fullName){
@@ -55,7 +69,7 @@ public class SellerData {
     }
    
     //getters
-    public int getSellerId(){
+    public String getSellerId(){
         return this.sellerId;
     }
     public String getFullName(){

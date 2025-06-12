@@ -35,7 +35,7 @@ public class SellerRegistration extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         EmailField = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        LocationField = new javax.swing.JTextField();
+        LocationFields = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         ContactNumberField = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
@@ -111,7 +111,7 @@ public class SellerRegistration extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(FullNameField, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
                             .addComponent(EmailField)
-                            .addComponent(LocationField)))
+                            .addComponent(LocationFields)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -148,7 +148,7 @@ public class SellerRegistration extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(LocationField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(LocationFields, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -232,7 +232,7 @@ public class SellerRegistration extends javax.swing.JFrame {
     private javax.swing.JTextField ContactNumberField;
     private javax.swing.JTextField EmailField;
     private javax.swing.JTextField FullNameField;
-    private javax.swing.JTextField LocationField;
+    private javax.swing.JTextField LocationFields;
     private javax.swing.JTextField PanNumberField;
     private javax.swing.JPasswordField PasswordField;
     private javax.swing.JPasswordField RePasswordField;
@@ -254,9 +254,9 @@ public javax.swing.JTextField getFullName(){
 public javax.swing.JTextField getEmail(){
     return EmailField;
 }
-//public javax.swing.JTextField getLocation(){
-//    return LocationField;
-//}
+public javax.swing.JTextField getLocations(){
+    return LocationFields;
+}
 public javax.swing.JTextField getContactNumber(){
     return ContactNumberField;
 }

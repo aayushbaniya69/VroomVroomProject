@@ -11,7 +11,7 @@ package javaproject.model;
 public class UserData {
        // private attribute
     //public methods
-    private int userId;
+    private String userId;
     private String firstName;
     private String lastName;
     private String address;
@@ -21,7 +21,7 @@ public class UserData {
     private String contactNumber;
     private String securityAnswer;
     //Constructor
-    public UserData(String firstName, String lastName, String address, String email, String password, String rePassword, String contactNumber){
+    public UserData(String firstName, String lastName, String address, String email, String password, String rePassword, String contactNumber,String securityAnswer){
         this.firstName=firstName;
         this.lastName=lastName;
         this.address=address;
@@ -31,8 +31,23 @@ public class UserData {
         this.contactNumber=contactNumber;
         this.securityAnswer= securityAnswer;
     }
+    public UserData(String firstName, String lastName, String address, String email, String password, String contactNumber,String securityAnswer){
+        this.firstName=firstName;
+        this.lastName=lastName;
+        this.address=address;
+        this.email=email;
+        this.password=password;
+        this.contactNumber=contactNumber;
+        this.securityAnswer= securityAnswer;
+    }
+    public UserData(String userId,String firstName,String lastName,String password){
+    this.userId=userId;
+    this.firstName=firstName;
+    this.lastName=lastName;
+    this.password=password;
+}
     //setters
-    public void setUserId(int userId){
+    public void setUserId(String userId){
         this.userId=userId;
     }
     public void setFirstName(String firstName){
@@ -61,7 +76,7 @@ public class UserData {
     }
    
     //getters
-    public int getUserId(){
+    public String getUserId(){
         return userId;
     }
     public String getFirstName(){

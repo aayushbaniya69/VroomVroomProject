@@ -1,57 +1,49 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package javaproject.controller;
 
 import javaproject.view.LoginForm;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javaproject.dao.UserDao;
-import javaproject.model.UserData;
-import javaproject.view.RegistrationView;
+import javaproject.dao.SellerDao;
+import javaproject.model.SellerData;
 import javaproject.view.SellerRegistration;
 import javax.swing.JOptionPane;
-/**
- *
- * @author ACER
- */
+
 public class SellerRegistrationController {
-    private SellerRegistration registration;
+    private final SellerRegistration registration;
 
     public SellerRegistrationController(SellerRegistration registration) {
         this.registration = registration;
-        RegistrationUser register=new RegistrationUser();
-        this.registration.sellerRegisterUser(register);
-        BackLogin backLogin=new BackLogin();
-        this.registration.backToLogin(backLogin);
-        
+
+        // Attach action listeners
+        this.registration.sellerRegisterUser(new RegistrationUser());
+        this.registration.backToLogin(new BackLogin());
     }
 
     class RegistrationUser implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            String fullName = registration.getFullName().getText();
-            String email = registration.getEmail().getText();
-            String location=registration.getLocation().getText();
-            String contactNumber = registration.getContactNumber().getText();
-            String password = String.valueOf(registration.getPassword().getPassword());
-            String rePassword = String.valueOf(registration.getRePassword().getPassword());
-            String panNumber = registration.getPanNumber().getText();
+            // Fetch data from 
+            String fullName = registration.getFullName().getText().trim();
+            String email = registration.getEmail().getText().trim();
+            String location = registration.getLocations().getText().trim();
+            String contactNumber = registration.getContactNumber().getText().trim();
+            String password = new String(registration.getPassword().getPassword()).trim();
+            String rePassword = new String(registration.getRePassword().getPassword()).trim();
+            String panNumber = registration.getPanNumber().getText().trim();
 
             // Regex patterns
-            String namePattern = "^[a-zA-Z]+$";
+            String namePattern = "^[a-zA-Z ]+$";
             String emailPattern = "^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$";
             String phoneNumberPattern = "^\\d{10}$";
 
-            // Validate inputs using guard clauses
+            // Validate fields
             if (fullName.isEmpty() || !fullName.matches(namePattern)) {
-                JOptionPane.showMessageDialog(registration, "First name is required and must contain only letters.");
+                JOptionPane.showMessageDialog(registration, "Full name must contain only letters.");
                 return;
             }
 
             if (location.isEmpty()) {
-                JOptionPane.showMessageDialog(registration, "Address is required.");
+                JOptionPane.showMessageDialog(registration, "Location is required.");
                 return;
             }
 
@@ -61,7 +53,7 @@ public class SellerRegistrationController {
             }
 
             if (contactNumber.isEmpty() || !contactNumber.matches(phoneNumberPattern)) {
-                JOptionPane.showMessageDialog(registration, "Phone number must be exactly 10 digits.");
+                JOptionPane.showMessageDialog(registration, "Contact number must be exactly 10 digits.");
                 return;
             }
 
@@ -70,23 +62,22 @@ public class SellerRegistrationController {
                 return;
             }
 
-            if (rePassword.isEmpty() || !password.equals(rePassword)) {
+            if (!password.equals(rePassword)) {
                 JOptionPane.showMessageDialog(registration, "Passwords do not match.");
                 return;
             }
 
             if (panNumber.isEmpty()) {
-                JOptionPane.showMessageDialog(registration, "Security answer is required.");
+                JOptionPane.showMessageDialog(registration, "PAN number is required.");
                 return;
             }
 
             // All validations passed
-            JOptionPane.showMessageDialog(registration, "All fields are validated successfully!");
-
-            UserData userData = new UserData(fullname, lastName, address, email, password, contactNumber, securityAnswer);
+            SellerData sellerData = new SellerData(fullName, email, location, contactNumber, password, panNumber);
 
             try {
-                boolean success = UserDao.registration(userData);
+                SellerDao sellerDao=new SellerDao();
+                boolean success = sellerDao.sellerRegister(sellerData);
 
                 if (success) {
                     JOptionPane.showMessageDialog(registration, "Registration Successful", "Success", JOptionPane.INFORMATION_MESSAGE);
@@ -100,20 +91,19 @@ public class SellerRegistrationController {
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(registration, "Database error: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
+        }
     }
-}
-    class BackLogin implements ActionListener{
 
+    class BackLogin implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-           System.out.println("Navigating");
-           LoginForm login=new LoginForm();
-           LoginController loginController=new LoginController(login);
-           loginController.open();
-           close();
+            LoginForm login = new LoginForm();
+            LoginController loginController = new LoginController(login);
+            loginController.open();
+            close();
         }
-        
     }
+
     public void open() {
         this.registration.setVisible(true);
     }

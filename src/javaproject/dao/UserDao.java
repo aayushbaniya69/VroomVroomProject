@@ -18,10 +18,6 @@ import javaproject.model.UserData;
  * @author ACER
  */
 public class UserDao {
-
-    public static boolean registration(UserData userData) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
     MySqlConnection mySql=new MySqlConnection();
     public boolean register(UserData user){
         String query="insert into users(First_Name,Last_Name,Address,Email,Phone_Number,Password,Re_Pasword,Security_Answer)values(?,?,?,?,?,?,?,?)";
@@ -59,8 +55,8 @@ public class UserDao {
                 String name=result.getString("name");
                 String password=result.getString("password");
                 String id=result.getString("Id");
-                //UserData user=new UserData(id,name,email,password); //
-                //return user;
+                UserData user=new UserData(id,name,email,password); 
+                return user;
             }
             else{
                 return null;
@@ -72,7 +68,6 @@ public class UserDao {
         finally{
             mySql.closeConnection(conn);
         }
-        return null;
     }
     public boolean checkEmail(String email){
         String query="Select * from users where email=?";

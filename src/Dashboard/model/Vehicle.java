@@ -9,20 +9,25 @@ package Dashboard.model;
  * @author ASUS
  */
 public class Vehicle {
-    private int id;
     private String name;
     private String type;
     private double pricePerDay;
-    private String status; // Available / Booked
+    private String status;
     private String imagePath;
 
-    // Constructor
-    public Vehicle(int id, String name, String type, double pricePerDay, String status, String imagePath) {
-        this.id = id;
+    public Vehicle(String name, String type, double price, String status, String imagePath) {
         this.name = name;
         this.type = type;
-        this.pricePerDay = pricePerDay;
+        this.pricePerDay = price;
         this.status = status;
         this.imagePath = imagePath;
     }
+
+    public String getName() { return name; }
+    public String getType() { return type; }
+    public double getPricePerDay() { return pricePerDay; }
+    public String getStatus() { return status; }
+    public String getImagePath() { return imagePath; }
 }
+
+

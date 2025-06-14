@@ -11,21 +11,28 @@ import java.util.ArrayList;
  *
  * @author ASUS
  */
+import java.util.ArrayList;
+import java.util.stream.Collectors;
+
 public class VehicleController {
+    private ArrayList<Vehicle> allVehicles;
+
+    public VehicleController() {
+        allVehicles = new ArrayList<>();
+        allVehicles.add(new Vehicle("Honda City", "Car", 50, "Available", "images/car.png"));
+        allVehicles.add(new Vehicle("Suzuki Bike", "Bike", 20, "Booked", "images/bike.png"));
+        allVehicles.add(new Vehicle("Tata Van", "Van", 40, "Available", "images/van.png"));
+    }
+
     public ArrayList<Vehicle> getAllVehicles() {
-        ArrayList<Vehicle> list = new ArrayList<>();
-        list.add(new Vehicle(1, "Toyota Prius", "Sedan", 50.0, "Available", "images/prius.jpg"));
-        list.add(new Vehicle(2, "Yamaha R15", "Bike", 20.0, "Booked", "images/r15.jpg"));
-        return list;
+        return allVehicles;
     }
 
     public ArrayList<Vehicle> filterByType(String type) {
-        ArrayList<Vehicle> filtered = new ArrayList<>();
-        for (Vehicle v : getAllVehicles()) {
-            if (v.getType().equalsIgnoreCase(type)) {
-                filtered.add(v);
-            }
-        }
-        return filtered;
+        return (ArrayList<Vehicle>) allVehicles.stream()
+                .filter(v -> v.getType().equalsIgnoreCase(type))
+                .collect(Collectors.toList());
     }
 }
+
+

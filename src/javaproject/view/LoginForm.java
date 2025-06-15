@@ -31,6 +31,7 @@ public class LoginForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jColorChooser1 = new javax.swing.JColorChooser();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -319,6 +320,9 @@ private boolean isPasswordVisible = false;
     private javax.swing.JPasswordField Password_Field;
     private javax.swing.JLabel RegisterForm;
     private javax.swing.JButton ShowButton;
+    private javax.swing.JTextField UsernameField;
+    private javax.swing.JColorChooser jColorChooser1;
+
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;

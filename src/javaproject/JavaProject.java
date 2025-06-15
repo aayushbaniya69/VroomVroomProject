@@ -5,7 +5,9 @@
 package javaproject;
 
 import javaproject.controller.LoginController;
+import javaproject.controller.RegistrationController;
 import javaproject.view.LoginForm;
+import javaproject.view.RegistrationView;
 
 
 
@@ -20,8 +22,8 @@ public class JavaProject {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        LoginForm registrationView=new LoginForm();
-        LoginController controller = new LoginController(registrationView);
+        RegistrationView registrationView=new RegistrationView();
+        RegistrationController controller = new RegistrationController(registrationView);
         controller.open();
     }
 }

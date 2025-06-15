@@ -10,6 +10,15 @@
             <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/view/SellerRegistration.java</file>
             <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/view/RegistrationView.java</file>
             <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/controller/SellerRegistrationController.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/dao/SellerDao.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/dao/UserDao.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/model/SellerData.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/model/UserData.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/model/LoginRequest.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/dao/BookingDao.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/database/MySqlConnection.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/database/DbConnection.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/controller/BookingController.java</file>
         </group>
     </open-files>
 </project-private>

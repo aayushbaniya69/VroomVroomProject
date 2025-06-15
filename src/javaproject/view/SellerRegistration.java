@@ -270,15 +270,15 @@ public javax.swing.JPasswordField getRePassword(){
     return RePasswordField;
 }
 public javax.swing.JButton getBackToLogin(){
-         return BackToLoginButton;
+    return BackToLoginButton;
      }
 public javax.swing.JButton getRegister(){
     return RegisterButton;
 }
 public void sellerRegisterUser(ActionListener listener){
-         RegisterButton.addActionListener(listener);
+    RegisterButton.addActionListener(listener);
      }
 public void backToLogin(ActionListener listener){
-         BackToLoginButton.addActionListener(listener);
+    BackToLoginButton.addActionListener(listener);
      }
 }

@@ -17,10 +17,23 @@ public class VehicleController {
         allVehicles.add(new Vehicle("Tata Van", "Van", 40, "Available", "images/van.png"));
     }
 
-    /**
-     * Returns all available vehicles.
-     * @return list of all vehicles
-     */
+    public void addVehicle(Vehicle vehicle) {
+    allVehicles.add(vehicle);
+    }
+
+    public void updateVehicle(String originalName, Vehicle updatedVehicle) {
+    for (int i = 0; i < allVehicles.size(); i++) {
+        if (allVehicles.get(i).getName().equalsIgnoreCase(originalName)) {
+            allVehicles.set(i, updatedVehicle);
+            break;
+            }
+        }
+    }
+
+    public void deleteVehicle(String name) {
+    allVehicles.removeIf(v -> v.getName().equalsIgnoreCase(name));
+    }
+
     public ArrayList<Vehicle> getAllVehicles() {
         return new ArrayList<>(allVehicles); // return a copy to avoid accidental modification
     }

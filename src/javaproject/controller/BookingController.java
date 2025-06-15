@@ -12,25 +12,31 @@ import javaproject.dao.BookingDao;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javaproject.view.DashboardView;
+import javaproject.view.LoginForm;
 
 public class BookingController {
     private BookingView view;
     private BookingDao dao;
     private int loggedInUserId;
 
-    public BookingController(BookingView view, BookingDao dao, int userId) {
+    public BookingController(BookingView view) {
         this.view = view;
-        this.dao = dao;
-        this.loggedInUserId = userId;
+        BookButton bookButton=new BookButton();
+        this.view.BookButton(bookButton);
+        Logout logout=new Logout();
+        this.view.Logout(logout);
+        BackToDashboard dashboard=new BackToDashboard();
+        this.view.BackToDashboard(dashboard);
 
         // Register listeners
 //        this.view.BookButton(new BookButtonListener());
 //        this.view.BackToDashbord(e ->backToDashboard());
 //        this.view.Logout(e -> logout());
+    
     }
-
     // Inner class to handle book button click
-    class BookButtonListener implements ActionListener {
+    class BookButton implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
@@ -72,11 +78,33 @@ public class BookingController {
         return numVehicles * pricePerVehicle;
     }
 
-    private void backToDashboard() {
-        // Code to go back to dashboard
-    }
+class Logout implements ActionListener{
 
-    private void logout() {
-        // Code to logout and show login screen
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        LoginForm login=new LoginForm();
+        LoginController loginController=new LoginController(login);
+        loginController.open();
+        close();
     }
+    
 }
+class BackToDashboard implements ActionListener{
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        DashboardView dashboard=new DashboardView();
+        DashboardController dashboardController=new DashboardController(dashboard);
+        dashboardController.open();
+        close();
+    }
+    
+}
+public void open(){
+    view.setVisible(true);
+}
+public void close(){
+    view.dispose();
+}
+}
+

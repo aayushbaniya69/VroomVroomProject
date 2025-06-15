@@ -71,48 +71,41 @@
                           </Group>
                           <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="RePasswordField" alignment="0" max="32767" attributes="0"/>
-                              <Component id="SecurityQuestionField" alignment="0" pref="207" max="32767" attributes="0"/>
+                              <Component id="SecurityQuestionField" alignment="0" max="32767" attributes="0"/>
                               <Component id="RegisterButton" alignment="1" max="32767" attributes="0"/>
                               <Component id="BackToLogin" alignment="0" max="32767" attributes="0"/>
+                              <Component id="RePasswordField" alignment="0" min="-2" pref="207" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="ShowButton2" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                          <Component id="LastName" min="-2" max="-2" attributes="0"/>
-                                          <Component id="FirstName" min="-2" max="-2" attributes="0"/>
-                                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                              <Component id="Email" min="-2" pref="72" max="-2" attributes="0"/>
-                                              <Component id="Address" min="-2" pref="75" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="Password" min="-2" pref="79" max="-2" attributes="0"/>
-                                              <Component id="PhoneNumber" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="AddressFiled" max="32767" attributes="0"/>
-                                      <Component id="LastNameFiled" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="FirstNameFiled" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="PhoneNumberField" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="PasswordField" alignment="0" max="32767" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                  <Component id="LastName" min="-2" max="-2" attributes="0"/>
+                                  <Component id="FirstName" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                      <Component id="Email" min="-2" pref="72" max="-2" attributes="0"/>
+                                      <Component id="Address" min="-2" pref="75" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="206" max="-2" attributes="0"/>
-                                  <Component id="EmailFiled" max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="Password" min="-2" pref="79" max="-2" attributes="0"/>
+                                      <Component id="PhoneNumber" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="FirstNameFiled" max="32767" attributes="0"/>
+                              <Component id="LastNameFiled" alignment="1" max="32767" attributes="0"/>
+                              <Component id="AddressFiled" alignment="1" max="32767" attributes="0"/>
+                              <Component id="PhoneNumberField" alignment="1" max="32767" attributes="0"/>
+                              <Component id="PasswordField" max="32767" attributes="0"/>
+                              <Component id="EmailFiled" alignment="1" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="ShowButton1" min="-2" max="-2" attributes="0"/>
@@ -123,9 +116,9 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="SecurityAnswer" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                   <Component id="SecurityAnswerField" max="32767" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -179,11 +172,11 @@
                       <Component id="SecurityAnswerField" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="SecurityAnswer" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="30" max="32767" attributes="0"/>
+                  <EmptySpace pref="24" max="32767" attributes="0"/>
                   <Component id="RegisterButton" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="BackToLogin" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

@@ -247,7 +247,7 @@ public class BookingView extends javax.swing.JFrame {
     public void BookButton(ActionListener listener){
        bookButton.addActionListener(listener); 
     }
-    public void BackToDashbord(ActionListener listener){
+    public void BackToDashboard(ActionListener listener){
         BackToDashboardButton.addActionListener(listener);
     }
     public void Logout(ActionListener listener){

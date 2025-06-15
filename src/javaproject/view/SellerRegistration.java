@@ -46,6 +46,8 @@ public class SellerRegistration extends javax.swing.JFrame {
         RePasswordField = new javax.swing.JPasswordField();
         RegisterButton = new javax.swing.JButton();
         BackToLoginButton = new javax.swing.JButton();
+        ShowButton1 = new javax.swing.JButton();
+        ShowButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -94,6 +96,22 @@ public class SellerRegistration extends javax.swing.JFrame {
         BackToLoginButton.setForeground(new java.awt.Color(255, 255, 255));
         BackToLoginButton.setText("Back To Login");
 
+        ShowButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        ShowButton1.setText("Show");
+        ShowButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ShowButton1ActionPerformed(evt);
+            }
+        });
+
+        ShowButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        ShowButton2.setText("Show");
+        ShowButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ShowButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -124,7 +142,10 @@ public class SellerRegistration extends javax.swing.JFrame {
                             .addComponent(PanNumberField)
                             .addComponent(PasswordField)
                             .addComponent(RePasswordField))))
-                .addGap(21, 21, 21))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ShowButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ShowButton2)))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -160,11 +181,13 @@ public class SellerRegistration extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(PasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(PasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ShowButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(RePasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(RePasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ShowButton2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addComponent(RegisterButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -177,20 +200,42 @@ public class SellerRegistration extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(214, Short.MAX_VALUE)
+                .addContainerGap(129, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+                .addGap(102, 102, 102))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void ShowButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowButton1ActionPerformed
+if (PasswordField.getEchoChar() != (char) 0) {
+    PasswordField.setEchoChar((char) 0); // Unmask password
+    ShowButton1.setText("Hide");
+} else {
+    PasswordField.setEchoChar('\u2022'); // Mask password again
+    ShowButton1.setText("Show");
+}         
+// TODO add your handling code here:
+    }//GEN-LAST:event_ShowButton1ActionPerformed
+
+    private void ShowButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowButton2ActionPerformed
+if (PasswordField.getEchoChar() != (char) 0) {
+    PasswordField.setEchoChar((char) 0); // Unmask password
+    ShowButton2.setText("Hide");
+} else {
+    PasswordField.setEchoChar('\u2022'); // Mask password again
+    ShowButton2.setText("Show");
+}        
+// TODO add your handling code here:
+    }//GEN-LAST:event_ShowButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -237,6 +282,8 @@ public class SellerRegistration extends javax.swing.JFrame {
     private javax.swing.JPasswordField PasswordField;
     private javax.swing.JPasswordField RePasswordField;
     private javax.swing.JButton RegisterButton;
+    private javax.swing.JButton ShowButton1;
+    private javax.swing.JButton ShowButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

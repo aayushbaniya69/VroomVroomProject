@@ -21,6 +21,9 @@ public class DashboardController {
         //this.firstName=firstname;
         this.view.getWelcomeLable().setText("Welcome ");
     }
+    public DashboardController(DashboardView view){
+        this.view=view;
+    }
     public void open(){
        view.setVisible(true); 
     }

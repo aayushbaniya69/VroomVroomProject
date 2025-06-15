@@ -4,9 +4,11 @@
  */
 package javaproject;
 
+import javaproject.controller.BookingController;
 import javaproject.controller.LoginController;
 import javaproject.controller.RegistrationController;
 import javaproject.controller.SellerRegistrationController;
+import javaproject.view.BookingView;
 import javaproject.view.LoginForm;
 import javaproject.view.RegistrationView;
 import javaproject.view.SellerRegistration;
@@ -24,8 +26,8 @@ public class JavaProject {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        LoginForm registrationView=new LoginForm();
-        LoginController controller = new LoginController(registrationView);
+        BookingView registrationView=new BookingView();
+        BookingController controller = new BookingController(registrationView);
         controller.open();
     }
 }

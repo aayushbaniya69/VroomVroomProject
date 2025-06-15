@@ -34,7 +34,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="Dashboard.swing.PanelBoarders" name="panelBoarders1">
+    <Container class="org.netbeans.modules.form.InvalidComponent" name="panelBoarders1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>

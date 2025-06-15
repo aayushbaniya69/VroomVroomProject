@@ -23,11 +23,21 @@ public class Vehicle {
         this.imagePath = imagePath;
     }
 
-    public String getName() { return name; }
-    public String getType() { return type; }
-    public double getPricePerDay() { return pricePerDay; }
-    public String getStatus() { return status; }
-    public String getImagePath() { return imagePath; }
+    public String getName() { 
+        return name; 
+    }
+    public String getType() { 
+        return type;
+    }
+    public double getPricePerDay() {
+        return pricePerDay;
+    }
+    public String getStatus() { 
+        return status;
+    }
+    public String getImagePath() {
+        return imagePath;
+    }
 }
 
 

@@ -4,6 +4,7 @@
  */
 package javaproject.view;
 
+import Dashboard.DashboardView;
 import LoginPage.ForgotPasswordForm;
 import LoginPage.RegisterForm;
 import java.awt.event.ActionListener;
@@ -84,11 +85,6 @@ public class LoginForm extends javax.swing.JFrame {
         LoginButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         LoginButton.setForeground(new java.awt.Color(255, 255, 255));
         LoginButton.setText("Login");
-        LoginButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LoginButtonActionPerformed(evt);
-            }
-        });
 
         ForgotPassword.setForeground(new java.awt.Color(255, 0, 51));
         ForgotPassword.setText("Forget Password?");
@@ -232,23 +228,6 @@ public class LoginForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
-        String username = EmailField.getText();
-    String password = new String(Password_Field.getPassword());
-
-    // Example check (replace with actual DB validation later)
-    if (username.equals("admin") && password.equals("1234")) {
-        // Open new window
-        javax.swing.JOptionPane.showMessageDialog(this, "Login Successful");
-
-        // Open another JFrame
-        new VroomVroom().setVisible(true); // Make sure VroomVroom is a JFrame
-        this.dispose(); // Close current login form
-    } else {
-        javax.swing.JOptionPane.showMessageDialog(this, "Invalid credentials", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
-    }// TODO add your handling code here:
-    }//GEN-LAST:event_LoginButtonActionPerformed
-
     private void Password_FieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Password_FieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Password_FieldActionPerformed
@@ -320,9 +299,7 @@ private boolean isPasswordVisible = false;
     private javax.swing.JPasswordField Password_Field;
     private javax.swing.JLabel RegisterForm;
     private javax.swing.JButton ShowButton;
-    private javax.swing.JTextField UsernameField;
     private javax.swing.JColorChooser jColorChooser1;
-
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;

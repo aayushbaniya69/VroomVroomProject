@@ -42,13 +42,14 @@ public class LoginController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            
+            System.out.println("Inside controller");
         String email=view.getEmailTextField().getText();
         String password=String.valueOf(view.getPasswordField().getPassword());
         if(email.isEmpty()||password.isEmpty()){
             JOptionPane.showMessageDialog(view,"Fill all the field.");
         }
         else{
+            System.out.println("Validation checked");
             LoginRequest loginData=new LoginRequest(email,password);
             UserDao userDao=new UserDao();
             UserData user=userDao.login(loginData);

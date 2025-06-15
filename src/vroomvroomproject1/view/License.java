@@ -1,5 +1,9 @@
 package vroomvroomproject1.view;
 
+import java.awt.Color;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -140,10 +144,17 @@ public class License extends javax.swing.JFrame {
        private JLable uploadStatusLabel;
        
        //Colors for UI
-       private static final Color TEAL_COLOR =new color(0,128,128);
+       private static final Color TEAL_COLOR =new Color(0,128,128);
        private static final Color ORANGE_BORDER =new Color (255,165,0);
        private static final Color LIGHT_GRAY = new Color(245,245,245);
        
        private static final String UPLOAD_DIR = "uploads/licenses/";
+       private static final int MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
+    
+    public License() {
+        uploadedFiles = new ArrayList<>();
+        initializeComponents();
+        setupLayout();
+        setupEventHandlers(
    }
-}
+    }

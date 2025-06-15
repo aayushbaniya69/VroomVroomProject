@@ -15,8 +15,10 @@ public class SellerRegistrationController {
         this.registration = registration;
 
         // Attach action listeners
-        this.registration.sellerRegisterUser(new RegistrationUser());
-        this.registration.backToLogin(new BackLogin());
+        RegistrationUser register=new RegistrationUser();
+        this.registration.sellerRegisterUser(register);
+        BackLogin backLogin=new BackLogin();
+        this.registration.backToLogin(backLogin);
     }
 
     class RegistrationUser implements ActionListener {

@@ -100,7 +100,7 @@ public class RegistrationController {
                 JOptionPane.showMessageDialog(registration, "Database error: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
     }
-}
+} 
     class BackLogin implements ActionListener{
 
         @Override

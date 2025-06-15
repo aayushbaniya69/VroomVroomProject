@@ -20,7 +20,7 @@ import javaproject.model.UserData;
 public class UserDao {
     MySqlConnection mySql=new MySqlConnection();
     public boolean register(UserData user){
-        String query="insert into users(First_Name,Last_Name,Address,Email,Phone_Number,Password,Re_Pasword,Security_Answer)values(?,?,?,?,?,?,?,?)";
+        String query="insert into users(First_Name,Last_Name,Address,Email,Phone_Number,Password,Re_Password,Security_Answer)values(?,?,?,?,?,?,?,?)";
         Connection conn=mySql.openConnection();
         try{
             PreparedStatement stmnt=conn.prepareStatement(query);
@@ -36,6 +36,7 @@ public class UserDao {
             return result>0;
         }
         catch(SQLException e){
+            e.printStackTrace(); // Add this line
             return false;
         }
         finally{
@@ -51,18 +52,19 @@ public class UserDao {
             stmnt.setString(2,loginReq.getPassword());
             ResultSet result=stmnt.executeQuery();
             if(result.next()){
-                String email=result.getString("email"); // To get the email
-                String name=result.getString("name");
-                String password=result.getString("password");
+                String email=result.getString("Email"); // To get the email
+                String First_Name=result.getString("First_name");
+                String password=result.getString("Password");
                 String id=result.getString("Id");
-                UserData user=new UserData(id,name,email,password); 
+                UserData user=new UserData(id,First_Name,email,password); 
                 return user;
             }
             else{
                 return null;
             }
         }
-        catch(Exception e){
+        catch(SQLException e){
+            e.printStackTrace();
             return null;
         }
         finally{
@@ -75,7 +77,8 @@ public class UserDao {
         try{
             PreparedStatement stmnt=conn.prepareStatement(query);
             stmnt.setString(1,email);
-            ResultSet result=stmnt.executeQuery(); // Return selected rows
+            ResultSet result=stmnt.executeQuery();// Return selected rows
+            
             if(result.next()){ // Check whether rows return or not
                 return true;
             }
@@ -83,7 +86,8 @@ public class UserDao {
                 return false;
             }
         }
-        catch(Exception e){
+        catch(SQLException e){
+            e.printStackTrace();
             return false;
         }
         finally{
@@ -100,7 +104,8 @@ public class UserDao {
             int result=stmnt.executeUpdate(); //Return updated rows
             return result>0; //Return rows then true otherwise false
         }
-        catch(Exception e){
+        catch(SQLException e){
+            e.printStackTrace();// Print the actual SQL error
             return false;
         }
         finally{

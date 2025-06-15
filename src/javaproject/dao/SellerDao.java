@@ -12,7 +12,6 @@ import javaproject.database.MySqlConnection;
 import javaproject.model.LoginRequest;
 import javaproject.model.ResetPasswordRequest;
 import javaproject.model.SellerData;
-import javaproject.model.UserData;
 
 /**
  *
@@ -62,7 +61,7 @@ public class SellerDao {
                 return null;
             }
         }
-        catch(Exception e){
+        catch(SQLException e){
             return null;
         }
         finally{
@@ -83,7 +82,7 @@ public class SellerDao {
                 return false;
             }
         }
-        catch(Exception e){
+        catch(SQLException e){
             return false;
         }
         finally{
@@ -100,7 +99,7 @@ public class SellerDao {
             int result=stmnt.executeUpdate(); //Return updated rows
             return result>0; //Return rows then true otherwise false
         }
-        catch(Exception e){
+        catch(SQLException e){
             return false;
         }
         finally{

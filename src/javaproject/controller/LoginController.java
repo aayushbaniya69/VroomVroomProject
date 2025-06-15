@@ -4,7 +4,6 @@
  */
 package javaproject.controller;
 
-import LoginPage.ForgotPasswordForm;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -13,6 +12,7 @@ import javaproject.dao.UserDao;
 import javaproject.model.LoginRequest;
 import javaproject.model.UserData;
 import javaproject.view.DashboardView;
+import javaproject.view.ForgotPasswordView;
 import javaproject.view.LoginForm;
 import javaproject.view.RegistrationView;
 import javax.swing.JOptionPane;
@@ -27,7 +27,7 @@ public class LoginController {
         this.view=view;
         LoginUser loginUser=new LoginUser();
         this.view.LoginUser(loginUser);
-        ResetPassword forgotPassword=new ResetPassword();
+        ForgotPassword forgotPassword=new ForgotPassword();
         this.view.forgotPassword(forgotPassword) ;
         Register registerPage=new Register();
         this.view.registerPage(registerPage);
@@ -66,34 +66,30 @@ public class LoginController {
     }
     }
          
-class ResetPassword implements MouseListener{
+class ForgotPassword implements MouseListener{
 
      @Override
         public void mouseClicked(MouseEvent e) {
-            ForgotPasswordForm forgotpassword = new ForgotPasswordForm();
-            ForgotPasswordController forgotController = new ForgotPasswordController(forgotpassword);
-            forgotController.open();
+            ForgotPasswordView forgotPassword=new ForgotPasswordView();
+            ForgotPasswordController forgotPasswordController=new ForgotPasswordController(forgotPassword);
+            forgotPasswordController.open();
             close();
 }
-
+                                                                  
         @Override
-        public void mousePressed(MouseEvent e) {
-            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        public void mousePressed(MouseEvent e) {   
         }
 
         @Override
-        public void mouseReleased(MouseEvent e) {
-            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        public void mouseReleased(MouseEvent e) {    
         }
 
         @Override
-        public void mouseEntered(MouseEvent e) {
-            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        public void mouseEntered(MouseEvent e) {   
         }
 
         @Override
-        public void mouseExited(MouseEvent e) {
-            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        public void mouseExited(MouseEvent e) {    
         }
 }
 class Register implements MouseListener{

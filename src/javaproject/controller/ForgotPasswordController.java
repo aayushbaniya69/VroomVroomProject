@@ -4,18 +4,21 @@
  */
 package javaproject.controller;
 
+import javaproject.view.ForgotPasswordView;
+
 /**
  *
  * @author ACER
  */
 public class ForgotPasswordController {
-
-    ForgotPasswordController(LoginPage.ForgotPasswordForm forgotpassword) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    ForgotPasswordView forgotPassword=new ForgotPasswordView();
+    public ForgotPasswordController(ForgotPasswordView forgotPassword){
+        this.forgotPassword=forgotPassword;
     }
-
-    void open() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void open(){
+       forgotPassword.setVisible(true); 
     }
-    
+    public void close(){
+        forgotPassword.dispose();
+    }
 }

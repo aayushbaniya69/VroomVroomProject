@@ -85,7 +85,7 @@ public class RegistrationController {
 
             try {
                 UserDao userDao=new UserDao();
-                boolean success = userDao.register(userData);
+                boolean success = userDao.Registration(userData);
 
                 if (success) {
                     JOptionPane.showMessageDialog(registration, "Registration Successful", "Success", JOptionPane.INFORMATION_MESSAGE);

@@ -19,8 +19,9 @@ import javaproject.model.UserData;
  */
 public class UserDao {
     MySqlConnection mySql=new MySqlConnection();
-    public boolean register(UserData user){
-        String query="insert into users(First_Name,Last_Name,Address,Email,Phone_Number,Password,Re_Password,Security_Answer)values(?,?,?,?,?,?,?,?)";
+    public boolean Registration(UserData user){
+        
+        String query="insert into Registration(First_Name,Last_Name,Address,Email,Phone_Number,Password,Re_Password,Security_Answer)values(?,?,?,?,?,?,?,?)";
         Connection conn=mySql.openConnection();
         try{
             PreparedStatement stmnt=conn.prepareStatement(query);

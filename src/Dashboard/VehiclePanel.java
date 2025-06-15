@@ -144,7 +144,7 @@ public class VehiclePanel extends JPanel {
         vehicleListPanel.revalidate();
         vehicleListPanel.repaint();
     }
-}
+
 
 
     /**

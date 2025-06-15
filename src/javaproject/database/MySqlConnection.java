@@ -6,37 +6,40 @@ package javaproject.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 
+import java.sql.ResultSet;
+import java.sql.*;
+import java.sql.SQLException;
 /**
  *
  * @author ACER
  */
 public class MySqlConnection implements DbConnection {
-    public Connection openConnection() {
-       String username="root";
-       String password="brbprssssrbss@8";
-       String database="vroomvroom";
+    private static final String URL = "jdbc:mysql://localhost:3306/";
+    private static final String username="root";
+    private static final String password="brbprssssrbss@8";
+    public Connection getConnection() throws ClassNotFoundException, java.sql.SQLException {
        try{
            Class.forName("com.mysql.jdbc.Driver");
-           Connection conn;
-           conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/"+database,username,password);
-           return conn;
-       }
-       catch(Exception e){
-          return null;
-       }
+       } catch(ClassNotFoundException e){
+        throw new SQLException("Jdbc not found", e);   
+    }
+        
+       return DriverManager.getConnection(URL, username, password);
     }
 
+    @Override
+    public Connection openConnection() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
     public void closeConnection(Connection conn) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
+    @Override
     public ResultSet runQuery(Connection conn, String query) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public int executeUpdate(Connection conn, String query) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
@@ -44,4 +47,6 @@ public class MySqlConnection implements DbConnection {
     public int executeQuery(Connection conn, String query) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    
 }

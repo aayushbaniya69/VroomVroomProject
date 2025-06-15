@@ -133,4 +133,17 @@ public class License extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
+   public class License  extends Jframe{
+       private JPanel uploadArea;
+       private JButton submitButton;
+       private List<File>uploadfiles;
+       private JLable uploadStatusLabel;
+       
+       //Colors for UI
+       private static final Color TEAL_COLOR =new color(0,128,128);
+       private static final Color ORANGE_BORDER =new Color (255,165,0);
+       private static final Color LIGHT_GRAY = new Color(245,245,245);
+       
+       private static final String UPLOAD_DIR = "uploads/licenses/";
+   }
 }

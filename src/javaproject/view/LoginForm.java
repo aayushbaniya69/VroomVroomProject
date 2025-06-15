@@ -320,11 +320,9 @@ private boolean isPasswordVisible = false;
     private javax.swing.JPasswordField Password_Field;
     private javax.swing.JLabel RegisterForm;
     private javax.swing.JButton ShowButton;
-<<<<<<< HEAD:src/LoginPage/LoginForm.java
     private javax.swing.JTextField UsernameField;
     private javax.swing.JColorChooser jColorChooser1;
-=======
->>>>>>> 57dfb112340e253da7bd84617fd6428fc09f4a2c:src/javaproject/view/LoginForm.java
+
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;

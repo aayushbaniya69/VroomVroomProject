@@ -4,76 +4,148 @@
  */
 package Dashboard;
 
-/**
- *
- * @author ASUS
- */
-import Dashboard.model.Vehicle;
-import javax.swing.*;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import java.awt.Image;
 import java.util.ArrayList;
-import javaproject.controller.VehicleController;
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
 
-public class VehiclePanel extends javax.swing.JPanel {
 
-    private JPanel vehiclePanel;
+
+// Mock Vehicle class for demo (replace with your actual Vehicle model)
+class Vehicle {
+    private String name, type, status;
+    private String imagePath;
+    private double pricePerDay;
+
+    public Vehicle(String name, String type, double pricePerDay, String status, String imagePath) {
+        this.name = name;
+        this.type = type;
+        this.pricePerDay = pricePerDay;
+        this.status = status;
+        this.imagePath = imagePath;
+    }
+
+    public String getName() { return name; }
+    public String getType() { return type; }
+    public double getPricePerDay() { return pricePerDay; }
+    public String getStatus() { return status; }
+    public String getImagePath() { return imagePath; }
+}
+
+public class VehiclePanel extends JPanel {
+
     private JComboBox<String> vehicleTypeCombo;
-    private VehicleController controller = new VehicleController();  // Simulated controller
+    private JPanel vehicleListPanel;
+    private JScrollPane scrollPane;
+
+    // Mock data method: Replace with your controller logic
+    private ArrayList<Vehicle> getAllVehicles() {
+        ArrayList<Vehicle> vehicles = new ArrayList<>();
+        vehicles.add(new Vehicle("Honda Civic", "Car", 50, "Available", "/images/civic.png"));
+        vehicles.add(new Vehicle("Yamaha R15", "Bike", 30, "Booked", "/images/r15.png"));
+        vehicles.add(new Vehicle("Toyota Corolla", "Car", 55, "Available", "/images/corolla.png"));
+        vehicles.add(new Vehicle("Kawasaki Ninja", "Bike", 70, "Available", "/images/ninja.png"));
+        // Add more vehicles as needed
+        return vehicles;
+    }
 
     public VehiclePanel() {
-        initComponents();
-        loadVehicleList(controller.getAllVehicles());
+        setLayout(new BorderLayout(10,10));
+        setBorder(new EmptyBorder(10,10,10,10));
 
+        // Top filter panel
+        JPanel filterPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        filterPanel.add(new JLabel("Select Vehicle Type:"));
+
+        vehicleTypeCombo = new JComboBox<>(new String[]{"All", "Car", "Bike", "Truck"});
+        filterPanel.add(vehicleTypeCombo);
+        add(filterPanel, BorderLayout.NORTH);
+
+        // Vehicle list panel inside scroll pane
+        vehicleListPanel = new JPanel();
+        vehicleListPanel.setLayout(new GridLayout(0, 3, 15, 15)); // 3 cards per row with gaps
+
+        scrollPane = new JScrollPane(vehicleListPanel);
+        scrollPane.getVerticalScrollBar().setUnitIncrement(16);
+        add(scrollPane, BorderLayout.CENTER);
+
+        // Load all vehicles initially
+        loadVehicleList(getAllVehicles());
+
+        // Combo box listener to filter vehicles
         vehicleTypeCombo.addActionListener(e -> {
             String selectedType = (String) vehicleTypeCombo.getSelectedItem();
             if (selectedType.equals("All")) {
-                loadVehicleList(controller.getAllVehicles());
+                loadVehicleList(getAllVehicles());
             } else {
-                loadVehicleList(controller.filterByType(selectedType));
+                loadVehicleList(filterVehiclesByType(selectedType));
             }
         });
     }
 
-    private void initComponents() {
-        this.setLayout(new BorderLayout());
-
-        // Top filter bar
-        JPanel topPanel = new JPanel();
-        topPanel.add(new JLabel("Select Type:"));
-        vehicleTypeCombo = new JComboBox<>(new String[]{"All", "Car", "Bike", "Van"});
-        topPanel.add(vehicleTypeCombo);
-
-        this.add(topPanel, BorderLayout.NORTH);
-
-        // Scrollable panel for vehicles
-        vehiclePanel = new JPanel();
-        vehiclePanel.setLayout(new BoxLayout(vehiclePanel, BoxLayout.Y_AXIS));
-        JScrollPane scrollPane = new JScrollPane(vehiclePanel);
-        this.add(scrollPane, BorderLayout.CENTER);
+    // Filter vehicles by type (mock logic)
+    private ArrayList<Vehicle> filterVehiclesByType(String type) {
+        ArrayList<Vehicle> filtered = new ArrayList<>();
+        for (Vehicle v : getAllVehicles()) {
+            if (v.getType().equalsIgnoreCase(type)) {
+                filtered.add(v);
+            }
+        }
+        return filtered;
     }
 
+    // Load vehicles and create cards
     private void loadVehicleList(ArrayList<Vehicle> vehicles) {
-        vehiclePanel.removeAll();
+        vehicleListPanel.removeAll();
+
         for (Vehicle v : vehicles) {
-            JPanel card = new JPanel();
-            card.setLayout(new BorderLayout());
-            card.setBorder(BorderFactory.createTitledBorder(v.getName()));
+            JPanel card = new JPanel(new BorderLayout());
+            card.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1, true));
+            card.setBackground(Color.WHITE);
 
-            JLabel imgLabel = new JLabel(new ImageIcon(v.getImagePath()));
-            JLabel details = new JLabel("<html>Type: " + v.getType() + "<br/>Price: $" + v.getPricePerDay() + "/day<br/>Status: " + v.getStatus() + "</html>");
-            JButton bookButton = new JButton("Book Now");
-            bookButton.setEnabled(v.getStatus().equalsIgnoreCase("Available"));
+            // Image label (scaled)
+            ImageIcon icon = new ImageIcon(getClass().getResource(v.getImagePath()));
+            Image img = icon.getImage().getScaledInstance(200, 120, Image.SCALE_SMOOTH);
+            JLabel imgLabel = new JLabel(new ImageIcon(img));
+            imgLabel.setHorizontalAlignment(SwingConstants.CENTER);
+            card.add(imgLabel, BorderLayout.NORTH);
 
-            card.add(imgLabel, BorderLayout.CENTER);
-            card.add(details, BorderLayout.SOUTH);
-            card.add(bookButton, BorderLayout.EAST);
+            // Details panel
+            JPanel detailsPanel = new JPanel(new GridLayout(0,1));
+            detailsPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+            detailsPanel.add(new JLabel("<html><b>" + v.getName() + "</b></html>"));
+            detailsPanel.add(new JLabel("Type: " + v.getType()));
+            detailsPanel.add(new JLabel(String.format("Price: $%.2f/day", v.getPricePerDay())));
+            detailsPanel.add(new JLabel("Status: " + v.getStatus()));
 
-            vehiclePanel.add(card);
+            card.add(detailsPanel, BorderLayout.CENTER);
+
+            // Book button panel
+            JButton bookBtn = new JButton("Book Now");
+            bookBtn.setEnabled(v.getStatus().equalsIgnoreCase("Available"));
+            JPanel btnPanel = new JPanel();
+            btnPanel.add(bookBtn);
+            card.add(btnPanel, BorderLayout.SOUTH);
+
+            vehicleListPanel.add(card);
         }
-        vehiclePanel.revalidate();
-        vehiclePanel.repaint();
+
+        vehicleListPanel.revalidate();
+        vehicleListPanel.repaint();
     }
 }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -84,106 +156,19 @@ public class VehiclePanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel3 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
-
-        jPanel3.setBackground(new java.awt.Color(102, 102, 102));
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 120, Short.MAX_VALUE)
-        );
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel1.setText("ID:");
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel2.setText("Name:");
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel3.setText("Logo:");
-
-        jSpinner1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(25, 25, 25)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 502, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGap(0, 746, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(44, 44, 44)
-                                .addComponent(jLabel1))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel3)))
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGap(0, 534, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

@@ -11,27 +11,27 @@ import java.sql.SQLException;
 import javaproject.database.MySqlConnection;
 import javaproject.model.LoginRequest;
 import javaproject.model.ResetPasswordRequest;
+import javaproject.model.SellerData;
 import javaproject.model.UserData;
 
 /**
  *
  * @author ACER
  */
-public class UserDao {
+public class SellerDao {
     MySqlConnection mySql=new MySqlConnection();
-    public boolean register(UserData user){
-        String query="insert into users(First_Name,Last_Name,Address,Email,Phone_Number,Password,Re_Pasword,Security_Answer)values(?,?,?,?,?,?,?,?)";
+    public boolean sellerRegister(SellerData seller){
+        String query="insert into users(fullName,location,Email,contactNumber,password,rePasword,panNumber)values(?,?,?,?,?,?,?)";
         Connection conn=mySql.openConnection();
         try{
             PreparedStatement stmnt=conn.prepareStatement(query);
-            stmnt.setString(1, user.getFirstName());
-            stmnt.setString(2,user.getLastName());
-            stmnt.setString(3,user.getAddress());
-            stmnt.setString(4, user.getEmail());
-            stmnt.setString(5,user.getContactNumber());
-            stmnt.setString(6,user.getPassword());
-            stmnt.setString(7,user.getRePassword());
-            stmnt.setString(8, user.getSecurityAnswer());
+            stmnt.setString(1, seller.getFullName());
+            stmnt.setString(2,seller.getLocation());
+            stmnt.setString(3, seller.getEmail());
+            stmnt.setString(4,seller.getContactNumber());
+            stmnt.setString(5,seller.getPassword());
+            stmnt.setString(6,seller.getRePassword());
+            stmnt.setString(7, seller.getPanNumber());
             int result=stmnt.executeUpdate();
             return result>0;
         }
@@ -42,7 +42,7 @@ public class UserDao {
             mySql.closeConnection(conn);
         }
     }
-     public UserData login(LoginRequest loginReq){
+     public SellerData login(LoginRequest loginReq){
         String query="Select * from users where email=? and password=?";
         Connection conn=mySql.openConnection();
         try{
@@ -52,11 +52,11 @@ public class UserDao {
             ResultSet result=stmnt.executeQuery();
             if(result.next()){
                 String email=result.getString("email"); // To get the email
-                String name=result.getString("name");
+                String name=result.getString("fullName");
                 String password=result.getString("password");
-                String id=result.getString("Id");
-                UserData user=new UserData(id,name,email,password); 
-                return user;
+                String id=result.getString("sellerId");
+                SellerData seller=new SellerData(id,name,email,password); //
+                return seller;
             }
             else{
                 return null;

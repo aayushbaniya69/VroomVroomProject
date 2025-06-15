@@ -4,7 +4,9 @@
  */
 package javaproject;
 
+import javaproject.controller.LoginController;
 import javaproject.controller.RegistrationController;
+import javaproject.view.LoginForm;
 import javaproject.view.RegistrationView;
 
 
@@ -25,3 +27,4 @@ public class JavaProject {
         controller.open();
     }
 }
+  

@@ -1,8 +1,5 @@
 package vroomvroomproject1.view;
 
-import java.awt.Color;
-import javax.swing.JButton;
-import javax.swing.JPanel;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -96,38 +93,7 @@ public class License extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(License.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(License.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(License.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(License.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new License().setVisible(true);
-            }
-        });
-    }
-
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
@@ -137,24 +103,4 @@ public class License extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
-   public class License  extends Jframe{
-       private JPanel uploadArea;
-       private JButton submitButton;
-       private List<File>uploadfiles;
-       private JLable uploadStatusLabel;
-       
-       //Colors for UI
-       private static final Color TEAL_COLOR =new Color(0,128,128);
-       private static final Color ORANGE_BORDER =new Color (255,165,0);
-       private static final Color LIGHT_GRAY = new Color(245,245,245);
-       
-       private static final String UPLOAD_DIR = "uploads/licenses/";
-       private static final int MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
-    
-    public License() {
-        uploadedFiles = new ArrayList<>();
-        initializeComponents();
-        setupLayout();
-        setupEventHandlers(
-   }
-    }
+ }

@@ -52,7 +52,9 @@ public class booking extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 102, 102));
         jLabel1.setText("Booking History");
 
+        jTable2.setBackground(new java.awt.Color(153, 153, 153));
         jTable2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jTable2.setForeground(new java.awt.Color(0, 102, 102));
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},

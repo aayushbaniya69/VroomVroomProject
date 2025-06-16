@@ -46,6 +46,9 @@ public class UserData {
     this.lastName=lastName;
     this.password=password;
 }
+     public String getId() {
+        return userId;
+    }
     //setters
     public void setUserId(String userId){
         this.userId=userId;

@@ -26,8 +26,8 @@ public class JavaProject {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        BookingView registrationView=new BookingView();
-        BookingController controller = new BookingController(registrationView);
+        SellerRegistration registrationView=new SellerRegistration();
+        SellerRegistrationController controller = new SellerRegistrationController(registrationView);
         controller.open();
     }
 }

@@ -27,13 +27,7 @@ public class BookingController {
         Logout logout=new Logout();
         this.view.Logout(logout);
         BackToDashboard dashboard=new BackToDashboard();
-        this.view.BackToDashboard(dashboard);
-
-        // Register listeners
-//        this.view.BookButton(new BookButtonListener());
-//        this.view.BackToDashbord(e ->backToDashboard());
-//        this.view.Logout(e -> logout());
-    
+        this.view.BackToDashboard(dashboard);    
     }
     // Inner class to handle book button click
     class BookButton implements ActionListener {
@@ -59,7 +53,10 @@ public class BookingController {
                 boolean success = dao.insertBooking(booking);
                 if (success) {
                     JOptionPane.showMessageDialog(null, "Booking Successful!");
-                    view.dispose(); // or navigate back
+                    DashboardView dashboardView=new DashboardView();
+                    DashboardController dashboardController=new DashboardController(dashboardView);
+                    dashboardController.open();
+                close();
                 } else {
                     JOptionPane.showMessageDialog(null, "Booking Failed!");
                 }

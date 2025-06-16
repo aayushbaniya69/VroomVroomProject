@@ -4,44 +4,54 @@
  */
 package vroomproject1.Controller;
 
-import javax.swing.JOptionPane;
-import vroomproject1.Model.PaymentData;
+
+import vroomproject1.Model.StripePaymentModel;
+import com.stripe.exception.StripeException;
+
+import javax.swing.*;
 import vroomproject1.view.PaymentView;
 
 /**
  *
  * @author Dell
  */
-
-
 public class PaymentController {
-    private PaymentView view;
+     private PaymentView view;
+    private StripePaymentModel paymentModel;
 
     public PaymentController(PaymentView view) {
         this.view = view;
-
-        view.getPayButton().addActionListener(e -> processPayment());
+        this.paymentModel = new StripePaymentModel();
     }
 
-    private void processPayment() {
-        String cardNumber = view.getCardNumTxtField().getText();
-        String expDate = view.getExpDateTxtField().getText();
-        String cvc = view.getCVCTxtField().getText();
-        String name = view.getNameTxtField().getText();
-        String address = view.getAddressTxtField().getText();
-        String city = view.getCityTxtField().getText();
-        String state = view.getStateTxtField().getText();
-        String country = view.getCountryTxtField().getText();
+    public void payWithCreditDebit() {
+        String cardNumber = view.CardNumTxtField.getText();
+        String expiryDate = view.ExpiryDateTxtField.getText();
+        String cvc = view.CVCTxtField.getText();
+        String name = view.NameTxtField.getText();
 
-        if (cardNumber.isEmpty() || expDate.isEmpty() || cvc.isEmpty() || name.isEmpty()) {
-            JOptionPane.showMessageDialog(view, "Please fill in all required fields.");
+        // Basic validation
+        if (cardNumber.isEmpty() || expiryDate.isEmpty() || cvc.isEmpty() || name.isEmpty()) {
+            JOptionPane.showMessageDialog(view, "Please fill in all card details.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
-        PaymentData payment = new PaymentData(cardNumber, expDate, cvc, name, address, city, state, country);
+        // For demo, you would generate token from card details via Stripe Elements or Stripe SDK (not included here)
+        String fakeToken = "tok_visa"; // Replace with real token in production
 
-        // Here you could save to DB or call a payment API
-        JOptionPane.showMessageDialog(view, "Payment processed successfully!");
+        try {
+            paymentModel.createCharge(fakeToken, 2000, "usd", "Vehicle rental payment");
+            JOptionPane.showMessageDialog(view, "Payment Successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
+        } catch (StripeException e) {
+            JOptionPane.showMessageDialog(view, "Payment failed: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public void payWithESewa() {
+        JOptionPane.showMessageDialog(view, "eSewa payment integration not implemented yet.");
+    }
+
+    public void payWithBank() {
+        JOptionPane.showMessageDialog(view, "Bank payment integration not implemented yet.");
     }
 }
-

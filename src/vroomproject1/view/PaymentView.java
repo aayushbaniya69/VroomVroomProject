@@ -6,16 +6,16 @@ package vroomproject1.view;
 
 import java.awt.event.ActionListener;
 
+
 /**
  *
  * @author Dell
  */
 public class PaymentView extends javax.swing.JFrame {
-
     /**
-     * Creates new form Payment
+     * Creates new form PaymentView
      */
-    public PaymentView() {
+    public PaymentView(){
         initComponents();
     }
 
@@ -253,6 +253,12 @@ public class PaymentView extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(PaymentView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 

@@ -6,8 +6,11 @@ package vroomproject1;
 
 import javax.swing.JFrame;
 import vroomproject1.Controller.FilterController;
-import vroomproject1.Controller.PaymentController;
+import vroomproject1.Controller.StripePaymentController;
+//import vroomproject1.Controller.PaymentController;
+import vroomproject1.Model.StripePaymentModel;
 import vroomproject1.view.Filter;
+//import vroomproject1.view.PaymentView;
 import vroomproject1.view.PaymentView;
 
 /**
@@ -20,6 +23,7 @@ public class VroomProject1 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+    
         javax.swing.SwingUtilities.invokeLater(() -> {
             // Create JFrame
             JFrame frame = new JFrame("Filter Form");
@@ -38,12 +42,24 @@ public class VroomProject1 {
             FilterController controller = new FilterController(view);
         });
         
-        PaymentView paymentView = new PaymentView();
-        PaymentController controller = new PaymentController(paymentView);
-        paymentView.setVisible(true);
-
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new PaymentView().setVisible(true);
+            }
+        });
+        
+        
     }
     
+      
+//        PaymentView paymentView = new PaymentView();
+//        PaymentController controller = new PaymentController(paymentView);
+//        paymentView.setVisible(true);
+//
+//    }
+    
+    }
 
-}
+
 

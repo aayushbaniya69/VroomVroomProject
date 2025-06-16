@@ -14,9 +14,10 @@ public class VehicleController {
 
     public VehicleController() {
         allVehicles = new ArrayList<>();
-        allVehicles.add(new Vehicle("Honda City", "Car", 50, "Available", "images/car.png"));
-        allVehicles.add(new Vehicle("Suzuki Bike", "Bike", 20, "Booked", "images/bike.png"));
-        allVehicles.add(new Vehicle("Tata Van", "Van", 40, "Available", "images/van.png"));
+        allVehicles.add(new Vehicle("V001", "Honda City", "Car", 50.0, "Available", "images/car.png"));
+        allVehicles.add(new Vehicle("V002", "Suzuki Bike", "Bike", 20.0, "Booked", "images/bike.png"));
+        allVehicles.add(new Vehicle("V003", "Tata Van", "Van", 40.0, "Available", "images/van.png"));
+
     }
 
     public void addVehicle(Vehicle vehicle) {

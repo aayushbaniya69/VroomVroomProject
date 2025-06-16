@@ -7,6 +7,7 @@ package Dashboard;
 import Dashboard.model.Vehicle;
 import java.awt.Image;
 import java.io.File;
+import java.util.ArrayList;
 import javaproject.controller.VehicleController;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -21,19 +22,21 @@ import javax.swing.table.DefaultTableModel;
 public class AdminVehiclePanel extends javax.swing.JPanel {
     private File selectedImageFile;
     private VehicleController controller;
-    
-    private void loadVehicleList(java.util.List<Vehicle> vehicles) {
+    DefaultTableModel tableModel;
+    private void loadVehicleList(ArrayList<Vehicle> vehicleList) {
     DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-    model.setRowCount(0); // clear old data
+    model.setRowCount(0); // clear old rows
 
-    for (Vehicle v : vehicles) {
-        model.addRow(new Object[]{
+    for (Vehicle v : vehicleList) {
+        Object[] row = {
+            v.getVehicleId(),
             v.getName(),
             v.getType(),
-            v.getPricePerDay(),
+            v.getPrice(),
             v.getStatus(),
-            v.getImagePath()
-        });
+            v.getImagePath() // this shows full path; you can hide later if needed
+        };
+        model.addRow(row);
     }
 }
 
@@ -44,6 +47,7 @@ public class AdminVehiclePanel extends javax.swing.JPanel {
     public AdminVehiclePanel() {
         initComponents();
         controller = new VehicleController();
+        tableModel = (DefaultTableModel) jTable1.getModel();
         loadVehicleList(controller.getAllVehicles()); 
 
     }
@@ -59,7 +63,6 @@ public class AdminVehiclePanel extends javax.swing.JPanel {
 
         jLabel3 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -88,9 +91,6 @@ public class AdminVehiclePanel extends javax.swing.JPanel {
 
         jPanel3.setBackground(new java.awt.Color(30, 30, 47));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Dashboard/images/Screenshot (166) (2) (1).png"))); // NOI18N
-        jLabel7.setText("jLabel7");
-
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("VroomVroom");
@@ -100,32 +100,28 @@ public class AdminVehiclePanel extends javax.swing.JPanel {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addGap(39, 39, 39)
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
-                .addContainerGap())
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jLabel8)
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         jTable1.setBackground(new java.awt.Color(204, 204, 204));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Vehicle Id", "Name", "Type", "Price", "Status", "Image"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -137,7 +133,6 @@ public class AdminVehiclePanel extends javax.swing.JPanel {
         jLabel1.setText("Vehicle Id:");
 
         numberField.setBackground(new java.awt.Color(102, 102, 102));
-        numberField.setText("Enter Vehicle Id");
         numberField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 numberFieldActionPerformed(evt);
@@ -150,7 +145,6 @@ public class AdminVehiclePanel extends javax.swing.JPanel {
         jLabel2.setText("Name:");
 
         nameField.setBackground(new java.awt.Color(102, 102, 102));
-        nameField.setText("Enter Vehicle Name");
         nameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nameFieldActionPerformed(evt);
@@ -162,7 +156,6 @@ public class AdminVehiclePanel extends javax.swing.JPanel {
         jLabel4.setText("Type:");
 
         typeField.setBackground(new java.awt.Color(102, 102, 102));
-        typeField.setText("Enter Vehicle Type");
         typeField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 typeFieldActionPerformed(evt);
@@ -174,7 +167,6 @@ public class AdminVehiclePanel extends javax.swing.JPanel {
         jLabel5.setText("Price:");
 
         priceField.setBackground(new java.awt.Color(102, 102, 102));
-        priceField.setText("Enter Vehicle Price");
         priceField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 priceFieldActionPerformed(evt);
@@ -186,7 +178,6 @@ public class AdminVehiclePanel extends javax.swing.JPanel {
         jLabel6.setText("Status:");
 
         statusField.setBackground(new java.awt.Color(102, 102, 102));
-        statusField.setText("Enter Avaibility Status");
         statusField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 statusFieldActionPerformed(evt);
@@ -217,7 +208,7 @@ public class AdminVehiclePanel extends javax.swing.JPanel {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Choose Image:");
 
-        selectImage.setBackground(new java.awt.Color(0, 204, 0));
+        selectImage.setBackground(new java.awt.Color(0, 102, 0));
         selectImage.setForeground(new java.awt.Color(255, 255, 255));
         selectImage.setText("Select Image");
         selectImage.addActionListener(new java.awt.event.ActionListener() {
@@ -230,7 +221,8 @@ public class AdminVehiclePanel extends javax.swing.JPanel {
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Image Preview:");
 
-        imagePreview.setText("jLabel12");
+        imagePreview.setForeground(new java.awt.Color(255, 255, 255));
+        imagePreview.setText("Image");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -267,7 +259,7 @@ public class AdminVehiclePanel extends javax.swing.JPanel {
                                 .addGap(73, 73, 73)
                                 .addComponent(editButton))
                             .addComponent(imagePreview, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(111, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -321,8 +313,8 @@ public class AdminVehiclePanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 609, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 722, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38))
         );
         layout.setVerticalGroup(
@@ -340,18 +332,19 @@ public class AdminVehiclePanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-       try {
+        try {
+        String vehicleId = numberField.getText(); // NEW
         String name = nameField.getText();
         String type = typeField.getText();
         double price = Double.parseDouble(priceField.getText());
         String status = statusField.getText();
         String imagePath = selectedImageFile != null ? selectedImageFile.getAbsolutePath() : null;
 
-        Vehicle vehicle = new Vehicle(name, type, price, status, imagePath);
+        Vehicle vehicle = new Vehicle(vehicleId, name, type, price, status, imagePath); // PASS ID TOO
 
-        controller.addVehicle(vehicle); 
+        controller.addVehicle(vehicle);
         loadVehicleList(controller.getAllVehicles()); // Refresh the table
-        clearForm(); // Optional: clears inputs
+        clearForm();
     } catch (Exception ex) {
         JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
     }
@@ -362,6 +355,7 @@ public class AdminVehiclePanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_deleteButtonActionPerformed
     private void clearForm() {
+        numberField.setText("");
         nameField.setText("");
         typeField.setText("");
         priceField.setText("");
@@ -418,7 +412,6 @@ JFileChooser fileChooser = new JFileChooser();
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;

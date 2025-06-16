@@ -9,20 +9,26 @@ package Dashboard.model;
  * @author ASUS
  */
 public class Vehicle {
+    private String vehicleId;
     private String name;
     private String type;
-    private double pricePerDay;
+    private double price;
     private String status;
     private String imagePath;
     
     
 
-    public Vehicle(String name, String type, double price, String status, String imagePath) {
+    public Vehicle(String vehicleId, String name, String type, double price, String status, String imagePath) {
+        this.vehicleId = vehicleId;
         this.name = name;
         this.type = type;
-        this.pricePerDay = price;
+        this.price = price;
         this.status = status;
         this.imagePath = imagePath;
+    }
+    
+    public String getVehicleId() {
+        return vehicleId;
     }
 
     public String getName() { 
@@ -31,8 +37,8 @@ public class Vehicle {
     public String getType() { 
         return type;
     }
-    public double getPricePerDay() {
-        return pricePerDay;
+    public double getPrice() {
+        return price;
     }
     public String getStatus() { 
         return status;

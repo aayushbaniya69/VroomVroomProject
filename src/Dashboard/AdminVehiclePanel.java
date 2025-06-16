@@ -4,17 +4,48 @@
  */
 package Dashboard;
 
+import Dashboard.model.Vehicle;
+import java.awt.Image;
+import java.io.File;
+import javaproject.controller.VehicleController;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author ASUS
  */
 public class AdminVehiclePanel extends javax.swing.JPanel {
+    private File selectedImageFile;
+    private VehicleController controller;
+    
+    private void loadVehicleList(java.util.List<Vehicle> vehicles) {
+    DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+    model.setRowCount(0); // clear old data
+
+    for (Vehicle v : vehicles) {
+        model.addRow(new Object[]{
+            v.getName(),
+            v.getType(),
+            v.getPricePerDay(),
+            v.getStatus(),
+            v.getImagePath()
+        });
+    }
+}
+
 
     /**
      * Creates new form AdminVehiclePanel
      */
     public AdminVehiclePanel() {
         initComponents();
+        controller = new VehicleController();
+        loadVehicleList(controller.getAllVehicles()); 
+
     }
 
     /**
@@ -46,6 +77,10 @@ public class AdminVehiclePanel extends javax.swing.JPanel {
         addButton = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
         editButton = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        selectImage = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        imagePreview = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(153, 153, 153));
 
@@ -65,9 +100,9 @@ public class AdminVehiclePanel extends javax.swing.JPanel {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(23, 23, 23)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(32, 32, 32)
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -178,35 +213,61 @@ public class AdminVehiclePanel extends javax.swing.JPanel {
 
         editButton.setText("Edit");
 
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Choose Image:");
+
+        selectImage.setText("Select Image");
+        selectImage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectImageActionPerformed(evt);
+            }
+        });
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Image Preview:");
+
+        imagePreview.setText("jLabel12");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel6)
                             .addComponent(jLabel5)
                             .addComponent(jLabel4)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel1))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(numberField)
-                            .addComponent(nameField)
-                            .addComponent(typeField)
-                            .addComponent(priceField)
-                            .addComponent(statusField, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel11))
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addComponent(addButton)
-                        .addGap(63, 63, 63)
+                        .addGap(31, 31, 31)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(numberField)
+                        .addComponent(nameField)
+                        .addComponent(typeField)
+                        .addComponent(priceField)
+                        .addComponent(statusField, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
+                        .addComponent(selectImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(21, 21, 21)
+                            .addComponent(imagePreview, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
                         .addComponent(deleteButton)
-                        .addGap(56, 56, 56)
-                        .addComponent(editButton)
-                        .addGap(67, 67, 67))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                        .addComponent(editButton)))
+                .addGap(0, 95, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -231,12 +292,20 @@ public class AdminVehiclePanel extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(statusField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(selectImage))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11)
+                    .addComponent(imagePreview, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addButton)
                     .addComponent(deleteButton)
                     .addComponent(editButton))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(47, 47, 47))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -251,9 +320,9 @@ public class AdminVehiclePanel extends javax.swing.JPanel {
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(35, 35, 35)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 666, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 609, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38))
         );
         layout.setVerticalGroup(
@@ -261,23 +330,45 @@ public class AdminVehiclePanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 441, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(86, 86, 86)
                 .addComponent(jLabel3)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        // TODO add your handling code here:
+       try {
+        String name = nameField.getText();
+        String type = typeField.getText();
+        double price = Double.parseDouble(priceField.getText());
+        String status = statusField.getText();
+        String imagePath = selectedImageFile != null ? selectedImageFile.getAbsolutePath() : null;
+
+        Vehicle vehicle = new Vehicle(name, type, price, status, imagePath);
+
+        controller.addVehicle(vehicle); 
+        loadVehicleList(controller.getAllVehicles()); // Refresh the table
+        clearForm(); // Optional: clears inputs
+    } catch (Exception ex) {
+        JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
+    }
+    
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_deleteButtonActionPerformed
-
+    private void clearForm() {
+        nameField.setText("");
+        typeField.setText("");
+        priceField.setText("");
+        statusField.setText("");
+        selectedImageFile = null;
+        imagePreview.setIcon(null);
+    }
     private void priceFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_priceFieldActionPerformed
@@ -298,12 +389,30 @@ public class AdminVehiclePanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_typeFieldActionPerformed
 
+    private void selectImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectImageActionPerformed
+JFileChooser fileChooser = new JFileChooser();
+    FileNameExtensionFilter filter = new FileNameExtensionFilter("Image Files", "jpg", "png", "jpeg");
+    fileChooser.setFileFilter(filter);
+
+    int result = fileChooser.showOpenDialog(this);
+    if (result == JFileChooser.APPROVE_OPTION) {
+        selectedImageFile = fileChooser.getSelectedFile();
+
+        // Preview in imagePreview JLabel (scaled to fit nicely)
+        ImageIcon icon = new ImageIcon(selectedImageFile.getAbsolutePath());
+        Image scaledImage = icon.getImage().getScaledInstance(imagePreview.getWidth(), imagePreview.getHeight(), Image.SCALE_SMOOTH);
+        imagePreview.setIcon(new ImageIcon(scaledImage));
+    }        // TODO add your handling code here:
+    }//GEN-LAST:event_selectImageActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
     private javax.swing.JButton deleteButton;
     private javax.swing.JButton editButton;
+    private javax.swing.JLabel imagePreview;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -311,6 +420,7 @@ public class AdminVehiclePanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
@@ -318,6 +428,7 @@ public class AdminVehiclePanel extends javax.swing.JPanel {
     private javax.swing.JTextField nameField;
     private javax.swing.JTextField numberField;
     private javax.swing.JTextField priceField;
+    private javax.swing.JButton selectImage;
     private javax.swing.JTextField statusField;
     private javax.swing.JTextField typeField;
     // End of variables declaration//GEN-END:variables

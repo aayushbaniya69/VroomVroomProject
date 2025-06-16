@@ -14,6 +14,8 @@ public class Vehicle {
     private double pricePerDay;
     private String status;
     private String imagePath;
+    
+    
 
     public Vehicle(String name, String type, double price, String status, String imagePath) {
         this.name = name;

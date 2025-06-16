@@ -10,6 +10,8 @@ import java.util.ArrayList;
 public class VehicleController {
     private final ArrayList<Vehicle> allVehicles;
 
+
+
     public VehicleController() {
         allVehicles = new ArrayList<>();
         allVehicles.add(new Vehicle("Honda City", "Car", 50, "Available", "images/car.png"));

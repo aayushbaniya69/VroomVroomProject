@@ -20,10 +20,11 @@ import javaproject.model.SellerData;
 public class SellerDao {
     MySqlConnection mySql=new MySqlConnection();
     public boolean sellerRegister(SellerData seller){
-        String query="insert into users(fullName,location,Email,contactNumber,password,rePasword,panNumber)values(?,?,?,?,?,?,?)";
+        String query="insert into SellerRegistration(fullName,location,Email,contactNumber,password,rePassword,panNumber)values(?,?,?,?,?,?,?)";
         Connection conn=mySql.openConnection();
         try{
             PreparedStatement stmnt=conn.prepareStatement(query);
+            System.out.println("ps");
             stmnt.setString(1, seller.getFullName());
             stmnt.setString(2,seller.getLocation());
             stmnt.setString(3, seller.getEmail());
@@ -35,6 +36,7 @@ public class SellerDao {
             return result>0;
         }
         catch(SQLException e){
+            e.printStackTrace();
             return false;
         }
         finally{

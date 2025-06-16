@@ -19,20 +19,12 @@ public class SellerData {
     private String contactNumber;
     private String panNumber;
     //Constructor
-    public SellerData(String fullName,String location, String email, String password, String rePassword, String panNumber,String contactNumber){
+    public SellerData(String fullName, String email,String location, String password, String rePassword, String panNumber,String contactNumber){
         this.fullName=fullName;
         this.location=location;
         this.email=email;
         this.password=password;
         this.rePassword=rePassword;
-        this.contactNumber=contactNumber;
-        this.panNumber= panNumber;
-    }
-    public SellerData(String fullName,String location, String email, String password, String panNumber,String contactNumber){
-        this.fullName=fullName;
-        this.location=location;
-        this.email=email;
-        this.password=password;
         this.contactNumber=contactNumber;
         this.panNumber= panNumber;
     }

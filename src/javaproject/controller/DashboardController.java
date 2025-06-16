@@ -4,6 +4,7 @@
  */
 package javaproject.controller;
 
+import javaproject.model.SellerData;
 import javaproject.model.UserData;
 import javaproject.view.DashboardView;
 

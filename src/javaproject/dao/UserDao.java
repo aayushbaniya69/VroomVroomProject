@@ -21,10 +21,11 @@ public class UserDao {
     MySqlConnection mySql=new MySqlConnection();
     public boolean Registration(UserData user){
         
-        String query="insert into Registration(First_Name,Last_Name,Address,Email,Phone_Number,Password,Re_Password,Security_Answer)values(?,?,?,?,?,?,?,?)";
+        String query="insert into Registration(firstName,lastName,address,email,contactNumber,password,rePassword,securityAnswer)values(?,?,?,?,?,?,?,?)";
         Connection conn=mySql.openConnection();
         try{
             PreparedStatement stmnt=conn.prepareStatement(query);
+            
             stmnt.setString(1, user.getFirstName());
             stmnt.setString(2,user.getLastName());
             stmnt.setString(3,user.getAddress());
@@ -45,19 +46,21 @@ public class UserDao {
         }
     }
      public UserData login(LoginRequest loginReq){
-        String query="Select * from users where email=? and password=?";
+        String query="Select * from Registration where email=? and password=?";
         Connection conn=mySql.openConnection();
         try{
             PreparedStatement stmnt=conn.prepareStatement(query);
+            System.out.println("QUEEERY");
             stmnt.setString(1,loginReq.getEmail()); // To get email and set email to insert
             stmnt.setString(2,loginReq.getPassword());
             ResultSet result=stmnt.executeQuery();
             if(result.next()){
-                String email=result.getString("Email"); // To get the email
-                String First_Name=result.getString("First_name");
-                String password=result.getString("Password");
-                String id=result.getString("Id");
-                UserData user=new UserData(id,First_Name,email,password); 
+                System.out.println("Data found");
+                String email=result.getString("email"); // To get the email
+                String firstName=result.getString("firstName");
+                String password=result.getString("password");
+                String registrationId=result.getString("id");
+                UserData user=new UserData(registrationId,firstName,email,password); 
                 return user;
             }
             else{
@@ -73,7 +76,7 @@ public class UserDao {
         }
     }
     public boolean checkEmail(String email){
-        String query="Select * from users where email=?";
+        String query="Select * from Registration where email=?";
         Connection conn=mySql.openConnection();
         try{
             PreparedStatement stmnt=conn.prepareStatement(query);
@@ -96,7 +99,7 @@ public class UserDao {
         }
     }
     public boolean resetPassword(ResetPasswordRequest reset){
-        String query="Update users set password=? where email=?";
+        String query="Update Registration set password=? where email=?";
         Connection conn=mySql.openConnection();
         try{
             PreparedStatement stmnt=conn.prepareStatement(query); //PrepareStatement more secure 

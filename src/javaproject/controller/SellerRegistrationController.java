@@ -9,29 +9,29 @@ import javaproject.view.SellerRegistration;
 import javax.swing.JOptionPane;
 
 public class SellerRegistrationController {
-    private final SellerRegistration registration;
+    private final SellerRegistration view;
 
     public SellerRegistrationController(SellerRegistration registration) {
-        this.registration = registration;
+        this.view = registration;
 
         // Attach action listeners
         RegistrationUser register=new RegistrationUser();
-        this.registration.sellerRegisterUser(register);
+        this.view.sellerRegisterUser(register);
         BackLogin backLogin=new BackLogin();
-        this.registration.backToLogin(backLogin);
+        this.view.backToLogin(backLogin);
     }
 
     class RegistrationUser implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             // Fetch data from 
-            String fullName = registration.getFullName().getText().trim();
-            String email = registration.getEmail().getText().trim();
-            String location = registration.getLocations().getText().trim();
-            String contactNumber = registration.getContactNumber().getText().trim();
-            String password = new String(registration.getPassword().getPassword()).trim();
-            String rePassword = new String(registration.getRePassword().getPassword()).trim();
-            String panNumber = registration.getPanNumber().getText().trim();
+            String fullName = view.getFullName().getText().trim();
+            String email = view.getEmail().getText().trim();
+            String location = view.getLocations().getText().trim();
+            String contactNumber = view.getContactNumber().getText().trim();
+            String password =  String.valueOf(view.getPassword().getPassword());
+            String rePassword = String.valueOf(view.getRePassword().getPassword());
+            String panNumber = view.getPanNumber().getText().trim();
 
             // Regex patterns
             String namePattern = "^[a-zA-Z ]+$";
@@ -40,58 +40,59 @@ public class SellerRegistrationController {
 
             // Validate fields
             if (fullName.isEmpty() || !fullName.matches(namePattern)) {
-                JOptionPane.showMessageDialog(registration, "Full name must contain only letters.");
+                JOptionPane.showMessageDialog(view, "Full name must contain only letters.");
                 return;
             }
 
             if (location.isEmpty()) {
-                JOptionPane.showMessageDialog(registration, "Location is required.");
+                JOptionPane.showMessageDialog(view, "Location is required.");
                 return;
             }
 
             if (email.isEmpty() || !email.matches(emailPattern)) {
-                JOptionPane.showMessageDialog(registration, "A valid email is required.");
+                JOptionPane.showMessageDialog(view, "A valid email is required.");
                 return;
             }
 
             if (contactNumber.isEmpty() || !contactNumber.matches(phoneNumberPattern)) {
-                JOptionPane.showMessageDialog(registration, "Contact number must be exactly 10 digits.");
+                JOptionPane.showMessageDialog(view, "Contact number must be exactly 10 digits.");
                 return;
             }
 
             if (password.isEmpty() || password.length() < 6) {
-                JOptionPane.showMessageDialog(registration, "Password must be at least 6 characters long.");
+                JOptionPane.showMessageDialog(view, "Password must be at least 6 characters long.");
                 return;
             }
 
             if (!password.equals(rePassword)) {
-                JOptionPane.showMessageDialog(registration, "Passwords do not match.");
+                JOptionPane.showMessageDialog(view, "Passwords do not match.");
                 return;
             }
 
             if (panNumber.isEmpty()) {
-                JOptionPane.showMessageDialog(registration, "PAN number is required.");
+                JOptionPane.showMessageDialog(view, "PAN number is required.");
                 return;
             }
 
             // All validations passed
-            SellerData sellerData = new SellerData(fullName, email, location, contactNumber, password, panNumber);
+            SellerData sellerData = new SellerData(fullName, email, location, contactNumber, password,rePassword, panNumber);
 
             try {
+                System.out.println("hello");
                 SellerDao sellerDao=new SellerDao();
                 boolean success = sellerDao.sellerRegister(sellerData);
 
                 if (success) {
-                    JOptionPane.showMessageDialog(registration, "Registration Successful", "Success", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(view, "Registration Successful", "Success", JOptionPane.INFORMATION_MESSAGE);
                     LoginForm loginView = new LoginForm();
                     LoginController loginController = new LoginController(loginView);
                     loginController.open();
                     close();
                 } else {
-                    JOptionPane.showMessageDialog(registration, "Registration failed", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(view, "Registration failed", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             } catch (Exception ex) {
-                JOptionPane.showMessageDialog(registration, "Database error: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(view, "Database error: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
     }
@@ -107,10 +108,10 @@ public class SellerRegistrationController {
     }
 
     public void open() {
-        this.registration.setVisible(true);
+        this.view.setVisible(true);
     }
 
     public void close() {
-        this.registration.dispose();
+        this.view.dispose();
     }
 }

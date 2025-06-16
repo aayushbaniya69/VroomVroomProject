@@ -14,6 +14,22 @@
             <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/LoginPage/ForgotPasswordForm.java</file>
             <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/Dashboard/Dashboard_ui.java</file>
             <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/model/UserData.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/database/MySqlConnection.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/model/LoginRequest.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/model/Booking.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/dao/UserDao.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/database/DbConnection.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/controller/SellerRegistrationController.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/view/SellerRegistration.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/view/RegistrationView.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/dao/SellerDao.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/model/SellerData.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/controller/SellerLoginController.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/controller/SellerDashboardController.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/view/SellerDashboardView.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/model/ResetPasswordRequest.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/controller/ForgotPasswordController.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/controller/VehicleController.java</file>
         </group>
     </open-files>
 </project-private>

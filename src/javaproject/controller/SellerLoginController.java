@@ -9,25 +9,23 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javaproject.dao.SellerDao;
-import javaproject.dao.UserDao;
 import javaproject.model.LoginRequest;
 import javaproject.model.SellerData;
-import javaproject.model.UserData;
-import javaproject.view.DashboardView;
 import javaproject.view.ForgotPasswordView;
 import javaproject.view.LoginForm;
 import javaproject.view.RegistrationView;
+import javaproject.view.SellerDashboardView;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author ACER
  */
-public class LoginController {
+public class SellerLoginController {
     LoginForm view=new LoginForm();
-    public LoginController(LoginForm view){
+    public SellerLoginController(LoginForm view){
         this.view=view;
-        LoginUser loginUser=new LoginUser();
+        LoginSeller loginUser=new LoginSeller();
         this.view.LoginUser(loginUser);
         ForgotPassword forgotPassword=new ForgotPassword();
         this.view.forgotPassword(forgotPassword) ;
@@ -40,7 +38,7 @@ public class LoginController {
     public void close(){
         view.dispose();
     }
-    class LoginUser implements ActionListener{
+    class LoginSeller implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -52,15 +50,15 @@ public class LoginController {
         }
         else{
             LoginRequest loginData=new LoginRequest(email,password);
-            UserDao userDao=new UserDao();
-            UserData user=userDao.login(loginData);
-            if(user==null){
+            SellerDao sellerDao=new SellerDao();
+            SellerData seller=sellerDao.login(loginData);
+            if(seller==null){
                 JOptionPane.showMessageDialog(view,"Login failed");
             }
             else{
                 JOptionPane.showMessageDialog(view, "Login Successful", "Success", JOptionPane.INFORMATION_MESSAGE);
-                DashboardView dashboardView=new DashboardView();
-                DashboardController dashboardController=new DashboardController(dashboardView,user);
+                SellerDashboardView dashboardView=new SellerDashboardView();
+                SellerDashboardController dashboardController=new SellerDashboardController(dashboardView,seller);
                 dashboardController.open();
                 close();
             }
@@ -121,5 +119,4 @@ class Register implements MouseListener{
         }
         
     }
-    
 }

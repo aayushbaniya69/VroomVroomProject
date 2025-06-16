@@ -93,6 +93,11 @@ public class LoginForm extends javax.swing.JFrame {
         ShowButton.setBackground(new java.awt.Color(0, 0, 51));
         ShowButton.setForeground(new java.awt.Color(255, 255, 255));
         ShowButton.setText("Show");
+        ShowButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ShowButtonActionPerformed(evt);
+            }
+        });
 
         ForgotPassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         ForgotPassword.setForeground(new java.awt.Color(255, 0, 51));
@@ -237,6 +242,16 @@ public class LoginForm extends javax.swing.JFrame {
     private void EmailFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmailFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_EmailFieldActionPerformed
+
+    private void ShowButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowButtonActionPerformed
+    if (Password_Field.getEchoChar() != (char) 0) {
+    Password_Field.setEchoChar((char) 0); // Unmask password
+    ShowButton.setText("Hide");
+} else {
+    Password_Field.setEchoChar('\u2022'); // Mask password again
+    ShowButton.setText("Show");
+}         // TODO add your handling code here:
+    }//GEN-LAST:event_ShowButtonActionPerformed
 private boolean isPasswordVisible = false;
     /**
      * @param args the command line arguments

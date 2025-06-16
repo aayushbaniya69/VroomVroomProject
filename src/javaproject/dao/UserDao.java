@@ -59,7 +59,7 @@ public class UserDao {
                 String email=result.getString("email"); // To get the email
                 String firstName=result.getString("firstName");
                 String password=result.getString("password");
-                String registrationId=result.getString("id");
+                String registrationId=result.getString("registrationId");
                 UserData user=new UserData(registrationId,firstName,email,password); 
                 return user;
             }

@@ -13,6 +13,10 @@ import vroomproject1.Model.StripePaymentModel;
 
 
 public class StripePaymentController {
+    static {
+        // Your Stripe API key
+        com.stripe.Stripe.apiKey = "<your_api_key>";
+    }
 
     // This method will create a checkout and then hopefully launch the browser
     public void payWithStripe(){

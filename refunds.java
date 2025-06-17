@@ -318,7 +318,7 @@ public class refunds extends javax.swing.JFrame {
 
         jLabel51.setText("SUV");
 
-        jLabel52.setText("SUV");
+        jLabel52.setText("SuV");
 
         jLabel53.setText("26 - may");
 

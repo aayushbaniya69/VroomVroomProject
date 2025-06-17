@@ -1,5 +1,5 @@
 
-package Dashboard.model;
+package javaproject.model;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;

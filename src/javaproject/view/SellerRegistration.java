@@ -227,11 +227,11 @@ if (PasswordField.getEchoChar() != (char) 0) {
     }//GEN-LAST:event_ShowButton1ActionPerformed
 
     private void ShowButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowButton2ActionPerformed
-if (PasswordField.getEchoChar() != (char) 0) {
-    PasswordField.setEchoChar((char) 0); // Unmask password
+if (RePasswordField.getEchoChar() != (char) 0) {
+    RePasswordField.setEchoChar((char) 0); // Unmask password
     ShowButton2.setText("Hide");
 } else {
-    PasswordField.setEchoChar('\u2022'); // Mask password again
+    RePasswordField.setEchoChar('\u2022'); // Mask password again
     ShowButton2.setText("Show");
 }        
 // TODO add your handling code here:

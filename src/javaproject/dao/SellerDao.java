@@ -43,8 +43,8 @@ public class SellerDao {
             mySql.closeConnection(conn);
         }
     }
-     public SellerData login(LoginRequest loginReq){
-        String query="Select * from users where email=? and password=?";
+     public SellerData loginSeller(LoginRequest loginReq){
+        String query="Select * from SellerRegistration where email=? and password=?";
         Connection conn=mySql.openConnection();
         try{
             PreparedStatement stmnt=conn.prepareStatement(query);
@@ -71,7 +71,7 @@ public class SellerDao {
         }
     }
     public boolean checkEmail(String email){
-        String query="Select * from users where email=?";
+        String query="Select * from SellerRegistration where email=?";
         Connection conn=mySql.openConnection();
         try{
             PreparedStatement stmnt=conn.prepareStatement(query);
@@ -92,7 +92,7 @@ public class SellerDao {
         }
     }
     public boolean resetPassword(ResetPasswordRequest reset){
-        String query="Update users set password=? where email=?";
+        String query="Update SellerRegistration set password=? where email=?";
         Connection conn=mySql.openConnection();
         try{
             PreparedStatement stmnt=conn.prepareStatement(query); //PrepareStatement more secure 

@@ -1,5 +1,5 @@
 
-package Dashboard.model;
+package javaproject.model;
 
 public class Model_Menu {
 

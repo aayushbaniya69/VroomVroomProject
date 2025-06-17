@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Dashboard;
+package javaproject.view;
 
+import Dashboard.AdminVehiclePanel;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 

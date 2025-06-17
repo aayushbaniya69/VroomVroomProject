@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javaproject.dao.SellerDao;
 import javaproject.model.SellerData;
+import javaproject.view.SellerLoginForm;
 import javaproject.view.SellerRegistration;
 import javax.swing.JOptionPane;
 
@@ -84,9 +85,9 @@ public class SellerRegistrationController {
 
                 if (success) {
                     JOptionPane.showMessageDialog(view, "Registration Successful", "Success", JOptionPane.INFORMATION_MESSAGE);
-                    LoginForm loginView = new LoginForm();
-                    LoginController loginController = new LoginController(loginView);
-                    loginController.open();
+                    SellerLoginForm loginView = new SellerLoginForm();
+                    SellerLoginController sellerLoginController = new SellerLoginController(loginView);
+                    sellerLoginController.open();
                     close();
                 } else {
                     JOptionPane.showMessageDialog(view, "Registration failed", "Error", JOptionPane.ERROR_MESSAGE);
@@ -100,8 +101,8 @@ public class SellerRegistrationController {
     class BackLogin implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            LoginForm login = new LoginForm();
-            LoginController loginController = new LoginController(login);
+            SellerLoginForm login = new SellerLoginForm();
+            SellerLoginController loginController = new SellerLoginController(login);
             loginController.open();
             close();
         }

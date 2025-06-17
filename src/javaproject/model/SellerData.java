@@ -19,7 +19,7 @@ public class SellerData {
     private String contactNumber;
     private String panNumber;
     //Constructor
-    public SellerData(String fullName, String email,String location, String password, String rePassword, String panNumber,String contactNumber){
+    public SellerData(String fullName, String email,String location,String contactNumber, String password, String rePassword, String panNumber){
         this.fullName=fullName;
         this.location=location;
         this.email=email;

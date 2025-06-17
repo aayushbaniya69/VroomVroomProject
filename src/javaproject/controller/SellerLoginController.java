@@ -12,9 +12,9 @@ import javaproject.dao.SellerDao;
 import javaproject.model.LoginRequest;
 import javaproject.model.SellerData;
 import javaproject.view.ForgotPasswordView;
-import javaproject.view.LoginForm;
-import javaproject.view.RegistrationView;
 import javaproject.view.SellerDashboardView;
+import javaproject.view.SellerLoginForm;
+import javaproject.view.SellerRegistration;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,11 +22,11 @@ import javax.swing.JOptionPane;
  * @author ACER
  */
 public class SellerLoginController {
-    LoginForm view=new LoginForm();
-    public SellerLoginController(LoginForm view){
+    SellerLoginForm view=new SellerLoginForm();
+    public SellerLoginController(SellerLoginForm view){
         this.view=view;
         LoginSeller loginUser=new LoginSeller();
-        this.view.LoginUser(loginUser);
+        this.view.LoginSeller(loginUser);
         ForgotPassword forgotPassword=new ForgotPassword();
         this.view.forgotPassword(forgotPassword) ;
         Register registerPage=new Register();
@@ -50,8 +50,10 @@ public class SellerLoginController {
         }
         else{
             LoginRequest loginData=new LoginRequest(email,password);
+            System.out.println("hi");
             SellerDao sellerDao=new SellerDao();
-            SellerData seller=sellerDao.login(loginData);
+            SellerData seller=sellerDao.loginSeller(loginData);
+            System.out.println("hi guys");
             if(seller==null){
                 JOptionPane.showMessageDialog(view,"Login failed");
             }
@@ -96,8 +98,8 @@ class Register implements MouseListener{
 
         @Override
         public void mouseClicked(MouseEvent e) {
-            RegistrationView reisterView = new RegistrationView();
-            RegistrationController registerController = new RegistrationController(reisterView);
+            SellerRegistration reisterView = new SellerRegistration();
+            SellerRegistrationController registerController = new SellerRegistrationController(reisterView);
             registerController.open();
             close();
         }

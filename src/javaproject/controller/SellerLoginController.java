@@ -11,8 +11,8 @@ import java.awt.event.MouseListener;
 import javaproject.dao.SellerDao;
 import javaproject.model.LoginRequest;
 import javaproject.model.SellerData;
+import javaproject.view.AdminDashboardView;
 import javaproject.view.ForgotPasswordView;
-import javaproject.view.SellerDashboardView;
 import javaproject.view.SellerLoginForm;
 import javaproject.view.SellerRegistration;
 import javax.swing.JOptionPane;
@@ -59,7 +59,7 @@ public class SellerLoginController {
             }
             else{
                 JOptionPane.showMessageDialog(view, "Login Successful", "Success", JOptionPane.INFORMATION_MESSAGE);
-                SellerDashboardView dashboardView=new SellerDashboardView();
+                AdminDashboardView dashboardView=new AdminDashboardView();
                 SellerDashboardController dashboardController=new SellerDashboardController(dashboardView,seller);
                 dashboardController.open();
                 close();

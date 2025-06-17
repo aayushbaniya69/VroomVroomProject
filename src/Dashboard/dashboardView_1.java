@@ -262,7 +262,7 @@ public class dashboardView_1 extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new DashboardView().setVisible(true);
+            new dashboardView().setVisible(true);
         });
     }
 

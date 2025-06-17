@@ -6,6 +6,7 @@ package javaproject.view;
 
 import Dashboard.AdminVehiclePanel;
 import java.awt.CardLayout;
+import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 
 
@@ -68,11 +69,6 @@ public class AdminDashboardView extends javax.swing.JFrame {
         adVehicleButton.setText("Vehicles");
         adVehicleButton.setBorder(null);
         adVehicleButton.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        adVehicleButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                adVehicleButtonActionPerformed(evt);
-            }
-        });
 
         adBookingsButton.setBackground(new java.awt.Color(44, 47, 54));
         adBookingsButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -80,11 +76,6 @@ public class AdminDashboardView extends javax.swing.JFrame {
         adBookingsButton.setText("Bookings");
         adBookingsButton.setBorder(null);
         adBookingsButton.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        adBookingsButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                adBookingsButtonActionPerformed(evt);
-            }
-        });
 
         adManageUsers.setBackground(new java.awt.Color(44, 47, 54));
         adManageUsers.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -92,11 +83,6 @@ public class AdminDashboardView extends javax.swing.JFrame {
         adManageUsers.setText("Manage Users");
         adManageUsers.setBorder(null);
         adManageUsers.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        adManageUsers.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                adManageUsersActionPerformed(evt);
-            }
-        });
 
         adPaymentHistory.setBackground(new java.awt.Color(44, 47, 54));
         adPaymentHistory.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -104,22 +90,12 @@ public class AdminDashboardView extends javax.swing.JFrame {
         adPaymentHistory.setText("Payment History");
         adPaymentHistory.setBorder(null);
         adPaymentHistory.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        adPaymentHistory.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                adPaymentHistoryActionPerformed(evt);
-            }
-        });
 
         adLogoutButton.setBackground(new java.awt.Color(44, 47, 54));
         adLogoutButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         adLogoutButton.setForeground(new java.awt.Color(241, 245, 249));
         adLogoutButton.setText("Logout");
         adLogoutButton.setBorder(null);
-        adLogoutButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                adLogoutButtonActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout adminMenuBarLayout = new javax.swing.GroupLayout(adminMenuBar);
         adminMenuBar.setLayout(adminMenuBarLayout);
@@ -153,9 +129,9 @@ public class AdminDashboardView extends javax.swing.JFrame {
                 .addComponent(adManageUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(adPaymentHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 370, Short.MAX_VALUE)
+                .addGap(33, 33, 33)
                 .addComponent(adLogoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46))
+                .addContainerGap(383, Short.MAX_VALUE))
         );
 
         adminContentPanel.setLayout(new java.awt.CardLayout());
@@ -212,26 +188,6 @@ public class AdminDashboardView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void adVehicleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adVehicleButtonActionPerformed
-       contentCardLayout.show(adminContentPanel, "Vehicle");
-    }//GEN-LAST:event_adVehicleButtonActionPerformed
-
-    private void adBookingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adBookingsButtonActionPerformed
-    
-    }//GEN-LAST:event_adBookingsButtonActionPerformed
-
-    private void adManageUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adManageUsersActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_adManageUsersActionPerformed
-
-    private void adPaymentHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adPaymentHistoryActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_adPaymentHistoryActionPerformed
-
-    private void adLogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adLogoutButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_adLogoutButtonActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -277,4 +233,33 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JPanel adminMenuBar;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
+
+ public javax.swing.JButton getBackToLogin(){
+    return adLogoutButton;
+     }
+ public javax.swing.JButton getVehicle(){
+     return adVehicleButton;
+ }
+ public javax.swing.JButton getPaymentHistory(){
+     return adPaymentHistory;
+ }
+ public javax.swing.JButton getManagerUser(){
+     return adManageUsers;
+ }
+ public javax.swing.JButton getBooking(){
+     return adBookingsButton;
+ }
+ public void BackLogin(ActionListener listener){
+    adLogoutButton.addActionListener(listener);
+     }
+ public void booking(ActionListener listener){
+     adBookingsButton.addActionListener(listener);
+ }
+ public void manageUsers(ActionListener listener){
+     adManageUsers.addActionListener(listener);
+ }
+ public void paymentHistory(ActionListener listener){
+     adPaymentHistory.addActionListener(listener);
+ }
+ 
 }

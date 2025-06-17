@@ -4,7 +4,6 @@
  */
 package javaproject.controller;
 
-import Dashboard.model.Vehicle;
 import java.util.ArrayList;
 
 public class VehicleController {

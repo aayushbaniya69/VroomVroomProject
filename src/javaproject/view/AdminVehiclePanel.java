@@ -4,7 +4,7 @@
  */
 package Dashboard;
 
-import Dashboard.model.Vehicle;
+import javaproject.controller.Vehicle;
 import java.awt.Image;
 import java.io.File;
 import java.util.ArrayList;
@@ -102,7 +102,7 @@ public class AdminVehiclePanel extends javax.swing.JPanel {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(1054, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -313,7 +313,7 @@ public class AdminVehiclePanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 722, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38))
         );
@@ -425,4 +425,32 @@ JFileChooser fileChooser = new JFileChooser();
     private javax.swing.JTextField statusField;
     private javax.swing.JTextField typeField;
     // End of variables declaration//GEN-END:variables
+
+public javax.swing.JButton getAddButton(){
+    return addButton;
+     }
+public javax.swing.JButton getDeleteButton(){
+    return deleteButton;
+}
+public javax.swing.JButton getEditButton(){
+    return editButton;
+}
+public javax.swing.JButton getSelectImage(){
+    return selectImage;
+}
+public javax.swing.JTextField getNameField(){
+    return nameField;
+}
+public javax.swing.JTextField getNumberField(){
+    return numberField;
+}
+public javax.swing.JTextField getPriceField(){
+    return priceField;
+}
+public javax.swing.JTextField getStatusField(){
+    return statusField;
+}
+public javax.swing.JTextField getTypeField(){
+    return typeField;
+}
 }

@@ -90,6 +90,11 @@ public class SellerRegistration extends javax.swing.JFrame {
         RegisterButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         RegisterButton.setForeground(new java.awt.Color(255, 255, 255));
         RegisterButton.setText("Register");
+        RegisterButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegisterButtonActionPerformed(evt);
+            }
+        });
 
         BackToLoginButton.setBackground(new java.awt.Color(0, 0, 255));
         BackToLoginButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -236,6 +241,10 @@ if (RePasswordField.getEchoChar() != (char) 0) {
 }        
 // TODO add your handling code here:
     }//GEN-LAST:event_ShowButton2ActionPerformed
+
+    private void RegisterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RegisterButtonActionPerformed
 
     /**
      * @param args the command line arguments

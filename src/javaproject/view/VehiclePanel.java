@@ -418,4 +418,26 @@ public class VehiclePanel extends JPanel {
     private javax.swing.JTextField statusField;
     private javax.swing.JTextField typeField;
     // End of variables declaration//GEN-END:variables
-// }
+
+public javax.swing.JButton getAddButton(){
+    return addButton;
+}
+public javax.swing.JButton getDeleteButton(){
+    return deleteButton;
+}
+public javax.swing.JTextField getNameField(){
+    return nameField;
+} 
+public javax.swing.JTextField getNumberField(){
+    return numberField;
+}
+public javax.swing.JTextField getPriceField(){
+    return priceField;
+}
+public javax.swing.JTextField getStatusField(){
+    return statusField;
+}
+public javax.swing.JTextField getTypeField(){
+    return typeField;
+}
+}

@@ -3,41 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/view/VehiclePanel.java</file>
             <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/view/AdminDashboardView.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/view/AdminVehiclePanel.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/Dashboard/Dashboard_ui.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/Dashboard/Form_Category.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/Dashboard/Screenshot%20(166)%20(2)%20(1).png</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/Dashboard/dashboardView_1.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/Dashboard/dashboardView.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/Dashboard/f05ec82f6ef58f8a570902f0adbb0b65.png</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/Dashboard/JavaClasses/DB.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/model/MenuType.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/model/Model_Menu.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/Dashboard/model/Vehicle.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/Dashboard/swing/PanelBoarders.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/view/RegistrationView.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/controller/LoginController.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/view/VroomVroom.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/view/SellerRegistration.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/view/LoginForm.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/view/SellerLoginForm.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/controller/SellerLoginController.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/controller/SellerRegistrationController.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/model/SellerData.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/model/LoginRequest.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/model/Booking.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/JavaProject.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/dao/UserDao.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/dao/SellerDao.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/model/UserData.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/controller/BookingController.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/controller/DashboardController.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/controller/ForgotPasswordController.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/controller/RegistrationController.java</file>
             <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/controller/SellerDashboardController.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/controller/VehicleController.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/view/SellerRegistration.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/controller/SellerRegistrationController.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/view/SellerLoginForm.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/Dashboard/dashboardView.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/Dashboard/dashboardView_1.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/view/DashboardView.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/controller/DashboardController.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/JavaProject.java</file>
         </group>
     </open-files>
 </project-private>

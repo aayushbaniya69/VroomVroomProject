@@ -4,7 +4,6 @@
  */
 package javaproject.view;
 
-import Dashboard.DashboardView;
 import LoginPage.ForgotPasswordForm;
 import LoginPage.RegisterForm;
 import java.awt.event.ActionListener;

@@ -142,9 +142,9 @@
                           <Component id="adManageUsers" min="-2" pref="38" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="adPaymentHistory" min="-2" pref="38" max="-2" attributes="0"/>
-                          <EmptySpace pref="370" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                           <Component id="adLogoutButton" min="-2" pref="38" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                          <EmptySpace pref="383" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -174,9 +174,6 @@
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="10"/>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="adVehicleButtonActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="adBookingsButton">
                   <Properties>
@@ -195,9 +192,6 @@
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="10"/>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="adBookingsButtonActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="adManageUsers">
                   <Properties>
@@ -216,9 +210,6 @@
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="10"/>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="adManageUsersActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="adPaymentHistory">
                   <Properties>
@@ -237,9 +228,6 @@
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="10"/>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="adPaymentHistoryActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="adLogoutButton">
                   <Properties>
@@ -257,9 +245,6 @@
                       <Border info="null"/>
                     </Property>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="adLogoutButtonActionPerformed"/>
-                  </Events>
                 </Component>
               </SubComponents>
             </Container>

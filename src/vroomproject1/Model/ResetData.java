@@ -18,6 +18,11 @@ public class ResetData {
         this.email=email;
     }
 
+    public ResetData() {
+    }
+
+    
+
     public void setNewPassword(String newPassword) {
         this.newPassword = newPassword;
     }
@@ -39,5 +44,11 @@ public class ResetData {
     } 
     public String getEmail(){
         return this.email;
+    }
+
+    public boolean resetData(String email, String password) {
+        // Implement password reset in your database
+        // Returning true to indicate success
+        return true;
     }
 }

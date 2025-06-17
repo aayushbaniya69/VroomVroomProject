@@ -5,6 +5,7 @@
 package vroomproject1.view;
 
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -241,6 +242,12 @@ public class Reset extends javax.swing.JPanel {
     public javax.swing.JButton getEnterButton(){
         return EnterButton;
     }
+    public void sendOtpListener(ActionListener listener){
+        OtpsendButton.addActionListener(listener);
+    }
+    public void VerifyOtpListener(ActionListener listener){
+        EnterButton.addActionListener(listener);
+    }
     public void resetUser(ActionListener listener){
         ResetPasswordButton.addActionListener(listener);
     }
@@ -255,5 +262,8 @@ public class Reset extends javax.swing.JPanel {
         NewPasswordField.setEnabled(true);
         ResetPasswordButton.setEnabled(true);
         
+    }
+    public void showMessage(String msg){
+        JOptionPane.showMessageDialog(EnterButton, msg);
     }
 }

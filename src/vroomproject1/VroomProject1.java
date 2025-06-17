@@ -6,12 +6,14 @@ package vroomproject1;
 
 import javax.swing.JFrame;
 import vroomproject1.Controller.FilterController;
+import vroomproject1.Controller.ResetPasswordController;
 //import vroomproject1.Controller.StripePaymentController;
 //import vroomproject1.Controller.PaymentController;
 //import vroomproject1.Model.StripePaymentModel;
 import vroomproject1.view.Filter;
 //import vroomproject1.view.PaymentView;
 import vroomproject1.view.PaymentView;
+import vroomproject1.view.Reset;
 
 /**
  *
@@ -49,8 +51,17 @@ public class VroomProject1 {
             }
         });
         
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                Reset resetView = new Reset();
+//                ResetPasswordController controller= new ResetPasswordController(resetView);
+                resetView.setVisible(true);
+            }
+            
+        });
         
-    }
+    
     
       
 //        PaymentView paymentView = new PaymentView();
@@ -60,6 +71,7 @@ public class VroomProject1 {
 //    }
     
     }
+}
 
 
 

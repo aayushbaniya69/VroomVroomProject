@@ -46,7 +46,7 @@ public class Reset extends javax.swing.JPanel {
         OTPTextField = new javax.swing.JTextField();
         OtpsendButton = new javax.swing.JButton();
         EnterButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        EnterOtpLabel = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(102, 0, 102));
 
@@ -61,6 +61,7 @@ public class Reset extends javax.swing.JPanel {
         NewPasswordLabel.setText("New Password");
 
         NewPasswordField.setText("jPasswordField1");
+        NewPasswordField.setEnabled(false);
 
         CharacterLabel.setText("Password must be atleast 8 character. ");
 
@@ -68,6 +69,7 @@ public class Reset extends javax.swing.JPanel {
         ConfirmPasswordLabel.setText("Confirm Password");
 
         ConfirmPasswordField.setText("jPasswordField1");
+        ConfirmPasswordField.setEnabled(false);
 
         SameLabel.setText("Both password must be same.");
 
@@ -81,15 +83,19 @@ public class Reset extends javax.swing.JPanel {
 
         ResetPasswordButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         ResetPasswordButton.setText("Reset Password");
+        ResetPasswordButton.setEnabled(false);
 
         OTPlabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         OTPlabel.setText("OTP");
 
+        OTPTextField.setEnabled(false);
+
         OtpsendButton.setText("Send ");
 
         EnterButton.setText("Enter");
+        EnterButton.setEnabled(false);
 
-        jLabel1.setText("Enter you OTP.");
+        EnterOtpLabel.setText("Enter you OTP.");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -127,7 +133,7 @@ public class Reset extends javax.swing.JPanel {
                                     .addGap(6, 6, 6)))
                             .addComponent(EnterButton))
                         .addComponent(OTPlabel)
-                        .addComponent(jLabel1))
+                        .addComponent(EnterOtpLabel))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(BackToLoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -156,7 +162,7 @@ public class Reset extends javax.swing.JPanel {
                     .addComponent(EnterButton)
                     .addComponent(OTPTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
+                .addComponent(EnterOtpLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(NewPasswordLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -205,6 +211,7 @@ public class Reset extends javax.swing.JPanel {
     private javax.swing.JLabel EmailLabel;
     private javax.swing.JTextField EmailTextField;
     private javax.swing.JButton EnterButton;
+    private javax.swing.JLabel EnterOtpLabel;
     private javax.swing.JLabel ForOtpLabel;
     private javax.swing.JPasswordField NewPasswordField;
     private javax.swing.JLabel NewPasswordLabel;
@@ -213,7 +220,6 @@ public class Reset extends javax.swing.JPanel {
     private javax.swing.JButton OtpsendButton;
     private javax.swing.JButton ResetPasswordButton;
     private javax.swing.JLabel SameLabel;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
@@ -226,10 +232,28 @@ public class Reset extends javax.swing.JPanel {
     public javax.swing.JPasswordField getConfirmPasswordField(){
         return ConfirmPasswordField;
     }
+    public javax.swing.JTextField getOTPTextField(){
+        return OTPTextField;
+    }
+    public javax.swing.JButton getOtpsendButton(){
+        return OtpsendButton;
+    }
+    public javax.swing.JButton getEnterButton(){
+        return EnterButton;
+    }
     public void resetUser(ActionListener listener){
         ResetPasswordButton.addActionListener(listener);
     }
     public void loginBack(ActionListener listener){
         BackToLoginButton.addActionListener(listener);
+    }
+    public void enableOTPInputs(){
+        OTPTextField.setEnabled(true);
+    }
+    public void enablePasswordInputs(){
+        ConfirmPasswordField.setEnabled(true);
+        NewPasswordField.setEnabled(true);
+        ResetPasswordButton.setEnabled(true);
+        
     }
 }

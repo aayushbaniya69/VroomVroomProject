@@ -89,7 +89,7 @@
                               <Component id="EnterButton" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="OTPlabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="EnterOtpLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -126,7 +126,7 @@
                       <Component id="OTPTextField" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <Component id="EnterOtpLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="NewPasswordLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -173,6 +173,7 @@
         <Component class="javax.swing.JPasswordField" name="NewPasswordField">
           <Properties>
             <Property name="text" type="java.lang.String" value="jPasswordField1"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="CharacterLabel">
@@ -191,6 +192,7 @@
         <Component class="javax.swing.JPasswordField" name="ConfirmPasswordField">
           <Properties>
             <Property name="text" type="java.lang.String" value="jPasswordField1"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="SameLabel">
@@ -227,6 +229,7 @@
               <Font name="Segoe UI" size="12" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Reset Password"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="OTPlabel">
@@ -238,6 +241,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="OTPTextField">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="OtpsendButton">
           <Properties>
@@ -247,9 +253,10 @@
         <Component class="javax.swing.JButton" name="EnterButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Enter"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel1">
+        <Component class="javax.swing.JLabel" name="EnterOtpLabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="Enter you OTP."/>
           </Properties>

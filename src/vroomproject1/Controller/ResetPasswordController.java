@@ -4,40 +4,64 @@
  */
 package vroomproject1.Controller;
 
+
 import vroomproject1.view.Reset;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
+import vroomproject1.Dao.ResetDao;
+import vroomproject1.Model.ResetData;
 
 public class ResetPasswordController {
     Reset view;
 
     public ResetPasswordController(Reset view) {
-        this.view = view;
+         ResetDao resetDao = new ResetDao();
 
-        // Attach action listener to the reset password button
-        this.view.resetUser(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // Logic to handle reset password action
-                String newPassword = new String(view.getNewPasswordField().getPassword());
-                String confirmPassword = new String(view.getConfirmPasswordField().getPassword());
-                String email = view.getEmailTextField().getText();
+    // Send OTP to user email
+    public String sendOtpToEmail(String email) {
+        boolean emailExists = resetDao.checkEmail(email);
+        if (!emailExists) {
+            return "Email not registered.";
+        }
 
-                if (!newPassword.equals(confirmPassword)) {
-                    System.out.println("Passwords do not match!");
-                    return;
-                }
+        String otp = resetDao.generateOtp();
 
-                if (newPassword.length() < 8) {
-                    System.out.println("Password must be at least 8 characters.");
-                    return;
-                }
+        // Save OTP to DB
+        boolean saved = resetDao.saveOtp(email, otp);
+        if (saved) {
+            // TODO: Replace this with actual email sending logic (e.g., JavaMail)
+            System.out.println("OTP for " + email + " is: " + otp); // For testing
+            return "OTP sent to your email.";
+        } else {
+            return "Failed to send OTP. Try again.";
+        }
+    }
 
-                // Continue with password reset logic
-                System.out.println("Password reset for: " + email);
-                }
-            }
-        );
+    // Verify the OTP entered by user
+    public boolean verifyOtp(String email, String enteredOtp) {
+        return resetDao.verifyOtp(email, enteredOtp);
+    }
+
+    // Reset the password
+    public String resetPassword(String email, String newPassword, String confirmPassword) {
+        if (!newPassword.equals(confirmPassword)) {
+            return "Passwords do not match.";
+        }
+
+        if (newPassword.length() < 8) {
+            return "Password must be at least 8 characters.";
+        }
+
+        ResetData resetReq = new ResetData();
+        resetReq.setEmail(email);
+        resetReq.setPassword(newPassword);
+
+        boolean success = restDao.resetPassword(resetReq);
+        if (success) {
+            ResetDao.deleteOtp(email); // Clean up OTP
+            return "Password reset successful.";
+        } else {
+            return "Failed to reset password.";
+        }
     }
 }
 

@@ -42,6 +42,11 @@ public class Reset extends javax.swing.JPanel {
         ForOtpLabel = new javax.swing.JLabel();
         BackToLoginButton = new javax.swing.JButton();
         ResetPasswordButton = new javax.swing.JButton();
+        OTPlabel = new javax.swing.JLabel();
+        OTPTextField = new javax.swing.JTextField();
+        OtpsendButton = new javax.swing.JButton();
+        EnterButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(102, 0, 102));
 
@@ -77,6 +82,15 @@ public class Reset extends javax.swing.JPanel {
         ResetPasswordButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         ResetPasswordButton.setText("Reset Password");
 
+        OTPlabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        OTPlabel.setText("OTP");
+
+        OtpsendButton.setText("Send ");
+
+        EnterButton.setText("Enter");
+
+        jLabel1.setText("Enter you OTP.");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -85,14 +99,14 @@ public class Reset extends javax.swing.JPanel {
                 .addContainerGap(108, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(ForOtpLabel)
-                        .addComponent(EmailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(EmailLabel)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(EmailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(OtpsendButton))
                         .addComponent(SameLabel)
                         .addComponent(ConfirmPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(ConfirmPasswordLabel)
                         .addComponent(CharacterLabel)
-                        .addComponent(NewPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(NewPasswordLabel)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -100,7 +114,20 @@ public class Reset extends javax.swing.JPanel {
                                 .addGap(156, 156, 156))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(DifferentLabel)
-                                .addGap(115, 115, 115))))
+                                .addGap(115, 115, 115)))
+                        .addComponent(EmailLabel)
+                        .addComponent(ForOtpLabel)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(NewPasswordField, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                    .addComponent(OTPTextField)
+                                    .addGap(6, 6, 6)))
+                            .addComponent(EnterButton))
+                        .addComponent(OTPlabel)
+                        .addComponent(jLabel1))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(BackToLoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -114,7 +141,23 @@ public class Reset extends javax.swing.JPanel {
                 .addComponent(CreateNewPasswordLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(DifferentLabel)
-                .addGap(38, 38, 38)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(EmailLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(OtpsendButton)
+                    .addComponent(EmailTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ForOtpLabel)
+                .addGap(7, 7, 7)
+                .addComponent(OTPlabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(EnterButton)
+                    .addComponent(OTPTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(NewPasswordLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(NewPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -127,16 +170,10 @@ public class Reset extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(SameLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(EmailLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(EmailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ForOtpLabel)
-                .addGap(18, 18, 18)
                 .addComponent(ResetPasswordButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BackToLoginButton)
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -167,11 +204,16 @@ public class Reset extends javax.swing.JPanel {
     private javax.swing.JLabel DifferentLabel;
     private javax.swing.JLabel EmailLabel;
     private javax.swing.JTextField EmailTextField;
+    private javax.swing.JButton EnterButton;
     private javax.swing.JLabel ForOtpLabel;
     private javax.swing.JPasswordField NewPasswordField;
     private javax.swing.JLabel NewPasswordLabel;
+    private javax.swing.JTextField OTPTextField;
+    private javax.swing.JLabel OTPlabel;
+    private javax.swing.JButton OtpsendButton;
     private javax.swing.JButton ResetPasswordButton;
     private javax.swing.JLabel SameLabel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 

@@ -26,7 +26,7 @@ public class PaymentController {
 
     public void payWithCreditDebit() {
         String cardNumber = view.CardNumTxtField.getText();
-        String expiryDate = view.ExpiryDateTxtField.getText();
+        String expiryDate = view.ExpDateTxtField.getText();
         String cvc = view.CVCTxtField.getText();
         String name = view.NameTxtField.getText();
 

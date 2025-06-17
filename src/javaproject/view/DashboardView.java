@@ -207,5 +207,8 @@ public javax.swing.JButton getVehicleButton(){
 public void BackButton(ActionListener listener){
     LogoutButton.addActionListener(listener);
 }
+public void bookings(ActionListener listener){
+    BookingButton.addActionListener(listener);
+}
 }
 

@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javaproject.model.SellerData;
 import javaproject.view.AdminDashboardView;
+import javaproject.view.BookingView;
 import javaproject.view.SellerLoginForm;
 
 /**
@@ -43,9 +44,9 @@ public class SellerDashboardController {
   class Booking implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            System.out.println("Back button");
-            SellerLoginForm login = new SellerLoginForm();
-            SellerLoginController loginController = new SellerLoginController(login);
+            System.out.println("Booking Page");
+            BookingView login = new BookingView();
+            BookingController loginController = new BookingController(login);
             loginController.open();
             close();
         }

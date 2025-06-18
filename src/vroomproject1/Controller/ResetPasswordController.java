@@ -27,13 +27,13 @@ public class ResetPasswordController {
         resetUser ResetPassword = new resetUser();
         this.view.ResetPassword(ResetPassword);
 
-        LoginBack loginBack = new LoginBack();
-        this.view.loginBack(loginBack);
-        
-        this.view.sendOtpListener(new SendOtpHandler());
-        this.view.VerifyOtpListener(new VerifyOtpHandler());
-        this.view.getNPshow().addActionListener(new ToggleNewPassword());
-        this.view.getCPshow().addActionListener(new ToggleConfirmPassword());
+//        LoginBack loginBack = new LoginBack();
+//        this.view.loginBack(loginBack);
+//        
+//        this.view.sendOtpListener(new SendOtpHandler());
+//        this.view.VerifyOtpListener(new VerifyOtpHandler());
+//        this.view.getNPshow().addActionListener(new ToggleNewPassword());
+//        this.view.getCPshow().addActionListener(new ToggleConfirmPassword());
 
     }
     public void open() {
@@ -185,5 +185,7 @@ public class ResetPasswordController {
 
         }
         
+    }
+        }
     }
 }

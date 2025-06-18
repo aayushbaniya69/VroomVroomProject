@@ -47,12 +47,12 @@ public class VroomProject1 {
                 resetView.setVisible(true);
         });
         
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new PaymentView().setVisible(true);
-            }
-        });
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            @Override
+//            public void run() {
+//                new PaymentView().setVisible(true);
+//            }
+//        });
         
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override

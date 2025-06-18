@@ -387,7 +387,13 @@ if (RePasswordField.getEchoChar() != (char) 0) {
     public javax.swing.JTextField getSecurityAnswerTextField(){
         return SecurityAnswerField;
     }
-     public void RegistrationUser(ActionListener listener){
+     public void registeruser(ActionListener listener){
          RegisterButton.addActionListener(listener);
+     }
+     public javax.swing.JButton getBackToLogin(){
+         return BackToLogin;
+     }
+     public void backLogin(ActionListener listener){
+         BackToLogin.addActionListener(listener);
      }
 }

@@ -5,200 +5,113 @@
 package vroomproject1.Controller;
 
 import java.awt.event.ActionEvent;
-import vroomproject1.view.Reset;
-import vroomproject1.Model.ResetData;
 import java.awt.event.ActionListener;
+import java.util.Random;
+import javax.swing.JOptionPane;
 
-
+import vroomproject1.Dao.ResetDao;
+import vroomproject1.Model.ResetData;
+import vroomproject1.view.Reset;
+import vroomproject1.Controller.Mail.SMTPSMailSender;
 
 public class ResetPasswordController {
+
     private Reset view;
-    private ResetData model;
-//    private String generatedOtp;
-//    private ResetDao dao;
-    private String generatedOtp = "";
-    private boolean isOtpVerified =false;
-    
-    //constructor
-    public ResetPasswordController(Reset view, ResetData model) {
+    private ResetDao dao;
+    private String generatedOTP;
+
+    public ResetPasswordController(Reset view) {
         this.view = view;
-        this.model = new ResetData();
-//        this.dao=new ResetDao();
-        
-        //Attach listeners
-        this.view.sendOtpListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                sendOtp();
-            }  
+        this.dao = new ResetDao();
 
-            private void sendOtp() {
-                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.view.sendOtpListener(new SendOTP());
+        this.view.VerifyOtpListener(new VerifyOTP());
+        this.view.resetUser(new ResetUser());
+        this.view.loginBack(new BackToLogin());
+    }
+
+    class SendOTP implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            String email = view.getEmailTextField().getText().trim();
+            if (email.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please enter your email.");
+                return;
             }
 
-            
-        });
-        
-        this.view.VerifyOtpListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                verifyOtp();
+            if (!dao.checkEmail(email)) {
+                JOptionPane.showMessageDialog(null, "Email not registered.");
+                return;
             }
 
-            private void verifyOtp() {
-                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            generatedOTP = String.format("%06d", new Random().nextInt(999999));
+            if (dao.saveOtp(email, generatedOTP)) {
+                boolean sent = SMTPSMailSender.sendMail(email, "Your OTP", "Your OTP is: " + generatedOTP);
+                if (sent) {
+                    JOptionPane.showMessageDialog(null, "OTP sent successfully.");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Failed to send OTP.");
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Failed to generate OTP.");
+            }
+        }
+    }
+
+    class VerifyOTP implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            String email = view.getEmailTextField().getText().trim();
+            String otp = view.getOTPTextField().getText().trim();
+
+            if (otp.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please enter the OTP.");
+                return;
             }
 
-            
-        });
-        
-        this.view.loginBack(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                resetPassword();
-            } 
-        });
-    }
-    private void resetPassword(){
-        if(!isOtpVerified){
-            view.showMessage("Please verify your otp first.");
-            return;
-        }
-        
-        String password = new String(view.getNewPasswordField().getPassword());
-        String confirm = new String(view.getConfirmPasswordField().getPassword());
-        String email = view.getEmailTextField().getText().trim();
-        
-        if (password.length() < 8){
-            view.showMessage("Password must be at least 8 letters.");
-            return;
-        }
-        if (!password.equals(confirm)){
-            view.showMessage("Passwords do not match.");
-            return;
-        }
-        
-        boolean updated = model.resetData(email,password);
-        if ((updated)){
-            view.showMessage("Your password has been reset successfully.");
-        } else {
-            view.showMessage("Failed to reset password.");
+            if (dao.verifyOtp(email, otp)) {
+                JOptionPane.showMessageDialog(null, "OTP verified.");
+            } else {
+                JOptionPane.showMessageDialog(null, "Invalid or expired OTP.");
+            }
         }
     }
-        
-    private void backToLogin(){
-        view.showMessage("Going back to login.");
-        //Implement back to login action
+
+    class ResetUser implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            String email = view.getEmailTextField().getText().trim();
+            String newPassword = new String(view.getNewPasswordField().getPassword());
+            String confirmPassword = new String(view.getConfirmPasswordField().getPassword());
+
+            if (!newPassword.equals(confirmPassword)) {
+                JOptionPane.showMessageDialog(null, "Passwords do not match.");
+                return;
+            }
+
+            if (newPassword.length() < 8) {
+                JOptionPane.showMessageDialog(null, "Password must be at least 8 characters.");
+                return;
+            }
+
+            ResetData data = new ResetData();
+            data.setEmail(email);
+            data.setNewPassword(newPassword);
+
+            if (dao.resetPassword(data)) {
+                dao.deleteOtp(email);
+                JOptionPane.showMessageDialog(null, "Password reset successful.");
+            } else {
+                JOptionPane.showMessageDialog(null, "Failed to reset password.");
+            }
+        }
     }
-    
+
+    class BackToLogin implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            JOptionPane.showMessageDialog(null, "Returning to login screen...");
+            // Add code here if needed to switch views
+        }
+    }
 }
-    
-//    ForgetUser resetUser= new ForgetUser();
-//    this.view.resetUser(resetUser);
-//    
-//    LoginBack loginBack= new LoginBack();
-//    this.view.loginBack(loginBack);
-//    
-//    this.view.sendOtpListener(new SendOtpHandler());
-//    this.view.VerifyOtpListener(new VerifyOtpHandler());
-//        
-//    }
-//    public void open(){
-//        view.setVisible(true);
-//    }
-//    public void close(){
-//        view.dispose();
-//    }
-//    
-//    private class SendOtpHandler implements ActionListener{
-//
-//        @Override
-//        public void actionPerformed(ActionEvent e) {
-//            String email= view.getEmail().getText();
-//            if
-//        }
-//    }
-//    
-//
-////    SubmitOtp SendOtpHandler = new SubmitOtp();
-////    this.view.SubmitOtp(SendOtpHandler);
-////    
-////    ResetAction resetPasswordHandler= new ResetAction();
-////    this.view.resetPasswordAction(resetPasswordHandler);
-//
-//}
-//    //Send Otp to email
-//    class ForgetUser implements ActionListener{
-//
-//        @Override
-//        public void actionPerformed(ActionEvent e) {
-//            String email= view.getEmailTextField(.getText();
-//            if (!dao.checkEmail(email)){
-//                view.showMessage("Email not registered.");
-//                return;
-//            }
-//            generatedOtp = dao.generateOtp(email);
-//            view.showMessage("Otp has been sent to your email.");
-//        }
-//    }
-//    //Verify OTP
-//    class SubmitOtp implements ActionListener{
-//
-//        @Override
-//        public void actionPerformed(ActionEvent e) {
-//            String enteredOtp = view.getOtpsendButton();
-//            String email = view.getEmail();
-//            
-//            boolean isValid = dao.verifyOtp(email, enteredOtp);
-//            
-//            if (isValid){
-//                view.showMessage("Otp verified. Plese enter your new password.");
-//            } else {
-//                view.showMessage("Invalid OTP.");
-//            }
-//        }
-//    }
-//    //Reset Password
-//    class ResetAction implements ActionListener{
-//
-//        @Override
-//        public void actionPerformed(ActionEvent e) {
-//            String email= view.getEmail();
-//            String newPassword= view.getNewPassword();
-//            String confirmPassword = view.getConfirmPassword();
-//            
-//            if (!newPassword.equals(confirmPassword)){
-//                view.showMessage("Passwords do not match.");
-//                return;
-//            }
-//            if (newPassword.length() < 8){
-//                view.showMessage("Password must be at least 8 characters.");
-//                return;
-//            }
-//            
-//            ResetData data = new ResetData();
-//            data.setEmail(email);
-//            data.setNewPassword(newPassword);
-//            
-//            boolean success = dao.resetPassword(data);
-//            
-//            if (success){
-//                dao.deleteOtp(email); //optional cleanup
-//                view.showMessage("Password reset successful.");
-//                
-//            }else{
-//                view.showMessage("Failed to reset Password.");
-//            }
-//        }
-//    }
-//    
-//    //Back to login
-//    class LoginBack implements ActionListener{
-//
-//        @Override
-//        public void actionPerformed(ActionEvent e) {
-//            view.backToLogin();
-//        }
-//    }
-
-

@@ -53,16 +53,6 @@
                   <EmptySpace pref="108" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="EmailTextField" min="-2" pref="252" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="OtpsendButton" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="SameLabel" min="-2" max="-2" attributes="0"/>
-                          <Component id="ConfirmPasswordField" min="-2" pref="252" max="-2" attributes="0"/>
-                          <Component id="ConfirmPasswordLabel" min="-2" max="-2" attributes="0"/>
-                          <Component id="CharacterLabel" min="-2" max="-2" attributes="0"/>
-                          <Component id="NewPasswordLabel" min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="CreateNewPasswordLabel" min="-2" max="-2" attributes="0"/>
@@ -73,23 +63,47 @@
                                   <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Component id="EmailLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="ForOtpLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Component id="NewPasswordField" pref="252" max="32767" attributes="0"/>
+                                      <Component id="ConfirmPasswordField" min="-2" pref="252" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="CPshow" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="OTPTextField" max="32767" attributes="0"/>
-                                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                  <Component id="ConfirmPasswordLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="CharacterLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="NewPasswordLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="EmailLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ForOtpLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="OTPlabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="SameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="EnterOtpLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="OTPTextField" alignment="0" min="-2" pref="252" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="EnterButton" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="SecurityQuestionLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="SerucityAnswer" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="SecurityAnswerTextField" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jComboBox1" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="EmailTextField" alignment="0" pref="252" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="OtpsendButton" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="NewPasswordField" min="-2" pref="252" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Component id="EnterButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="OTPlabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="EnterOtpLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -111,39 +125,53 @@
                   <Component id="DifferentLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="EmailLabel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="OtpsendButton" min="-2" max="-2" attributes="0"/>
-                      <Component id="EmailTextField" alignment="1" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                  <Component id="EmailTextField" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="ForOtpLabel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="SecurityQuestionLabel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="SerucityAnswer" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="10" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="SecurityAnswerTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="OtpsendButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="OTPlabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="EnterButton" min="-2" max="-2" attributes="0"/>
-                      <Component id="OTPTextField" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="OTPTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="EnterButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="EnterOtpLabel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="NewPasswordLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="NewPasswordField" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="NewPasswordField" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="CharacterLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="ConfirmPasswordLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="ConfirmPasswordField" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="ConfirmPasswordField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="CPshow" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="SameLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="ResetPasswordButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="BackToLoginButton" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="77" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -259,6 +287,49 @@
         <Component class="javax.swing.JLabel" name="EnterOtpLabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="Enter you OTP."/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="SecurityQuestionLabel">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Security Questions"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="jComboBox1">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="4">
+                <StringItem index="0" value="Item 1"/>
+                <StringItem index="1" value="Item 2"/>
+                <StringItem index="2" value="Item 3"/>
+                <StringItem index="3" value="Item 4"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="SerucityAnswer">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Security Answers"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="SecurityAnswerTextField">
+        </Component>
+        <Component class="javax.swing.JButton" name="jButton1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Show"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="CPshow">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Show"/>
           </Properties>
         </Component>
       </SubComponents>

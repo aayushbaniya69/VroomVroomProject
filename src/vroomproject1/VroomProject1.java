@@ -28,20 +28,23 @@ public class VroomProject1 {
     
         javax.swing.SwingUtilities.invokeLater(() -> {
             // Create JFrame
-            JFrame frame = new JFrame("Filter Form");
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-            // Create the Filter panel
-            Filter view = new Filter();
-            
-            // Add panel to frame
-            frame.setContentPane(view);
-            frame.pack(); // Fit size to preferred size of components
-            frame.setLocationRelativeTo(null); // Center on screen
-            frame.setVisible(true);
+//            JFrame frame = new JFrame("Filter Form");
+//            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//
+//            // Create the Filter panel
+//            Filter view = new Filter();
+//            
+//            // Add panel to frame
+//            frame.setContentPane(view);
+//            frame.pack(); // Fit size to preferred size of components
+//            frame.setLocationRelativeTo(null); // Center on screen
+//            frame.setVisible(true);
 
             // Connect controller
-            FilterController controller = new FilterController(view);
+//            FilterController controller = new FilterController(view);
+   Reset resetView = new Reset();
+                ResetPasswordController controller= new ResetPasswordController(resetView);
+                resetView.setVisible(true);
         });
         
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -55,7 +58,7 @@ public class VroomProject1 {
             @Override
             public void run() {
                 Reset resetView = new Reset();
-//                ResetPasswordController controller= new ResetPasswordController(resetView);
+                ResetPasswordController controller= new ResetPasswordController(resetView);
                 resetView.setVisible(true);
             }
             

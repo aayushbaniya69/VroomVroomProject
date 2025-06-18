@@ -41,9 +41,9 @@ public class ResetDao {
     }
 
     // Generate OTP
-    public String generateOtp() {
-        return String.format("%06d", new Random().nextInt(999999));
-    }
+//    public String generateOtp() {
+//        return String.format("%06d", new Random().nextInt(999999));
+//    }
 
     // Verify OTP
     public boolean verifyOtp(String email, String otp) {

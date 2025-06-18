@@ -90,7 +90,7 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                           <Component id="SecurityAnswerTextField" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jComboBox1" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="SecurityQuestionComboBox" alignment="0" max="32767" attributes="0"/>
                                           <Component id="EmailTextField" alignment="0" pref="252" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
@@ -99,7 +99,7 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="NewPasswordField" min="-2" pref="252" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="NPshow" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
@@ -132,7 +132,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="SecurityQuestionLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
+                  <Component id="SecurityQuestionComboBox" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="SerucityAnswer" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="10" max="32767" attributes="0"/>
@@ -154,7 +154,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="NewPasswordField" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <Component id="NPshow" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="CharacterLabel" min="-2" max="-2" attributes="0"/>
@@ -297,7 +297,7 @@
             <Property name="text" type="java.lang.String" value="Security Questions"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox1">
+        <Component class="javax.swing.JComboBox" name="SecurityQuestionComboBox">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="4">
@@ -322,7 +322,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="SecurityAnswerTextField">
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="NPshow">
           <Properties>
             <Property name="text" type="java.lang.String" value="Show"/>
           </Properties>

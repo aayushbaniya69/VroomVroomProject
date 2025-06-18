@@ -49,10 +49,10 @@ public class Reset extends javax.swing.JPanel {
         EnterButton = new javax.swing.JButton();
         EnterOtpLabel = new javax.swing.JLabel();
         SecurityQuestionLabel = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        SecurityQuestionComboBox = new javax.swing.JComboBox<>();
         SerucityAnswer = new javax.swing.JLabel();
         SecurityAnswerTextField = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        NPshow = new javax.swing.JButton();
         CPshow = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(102, 0, 102));
@@ -107,12 +107,12 @@ public class Reset extends javax.swing.JPanel {
         SecurityQuestionLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         SecurityQuestionLabel.setText("Security Questions");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        SecurityQuestionComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         SerucityAnswer.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         SerucityAnswer.setText("Security Answers");
 
-        jButton1.setText("Show");
+        NPshow.setText("Show");
 
         CPshow.setText("Show");
 
@@ -155,14 +155,14 @@ public class Reset extends javax.swing.JPanel {
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addComponent(SecurityAnswerTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(SecurityQuestionComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(EmailTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(OtpsendButton))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(NewPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jButton1)))
+                                    .addComponent(NPshow)))
                             .addGap(34, 34, 34)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,7 +186,7 @@ public class Reset extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(SecurityQuestionLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(SecurityQuestionComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(SerucityAnswer)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
@@ -206,7 +206,7 @@ public class Reset extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(NewPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(NPshow))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(CharacterLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -298,6 +298,7 @@ public class Reset extends javax.swing.JPanel {
     private javax.swing.JButton EnterButton;
     private javax.swing.JLabel EnterOtpLabel;
     private javax.swing.JLabel ForOtpLabel;
+    private javax.swing.JButton NPshow;
     private javax.swing.JPasswordField NewPasswordField;
     private javax.swing.JLabel NewPasswordLabel;
     private javax.swing.JTextField OTPTextField;
@@ -306,10 +307,9 @@ public class Reset extends javax.swing.JPanel {
     private javax.swing.JButton ResetPasswordButton;
     private javax.swing.JLabel SameLabel;
     private javax.swing.JTextField SecurityAnswerTextField;
+    private javax.swing.JComboBox<String> SecurityQuestionComboBox;
     private javax.swing.JLabel SecurityQuestionLabel;
     private javax.swing.JLabel SerucityAnswer;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
@@ -325,11 +325,34 @@ public class Reset extends javax.swing.JPanel {
     public javax.swing.JTextField getOTPTextField(){
         return OTPTextField;
     }
+    public javax.swing.JTextField getSecurityAnswerTextField(){
+        return SecurityAnswerTextField;
+    }
+    public javax.swing.JComboBox<String> getSecurityQuestionComboBox(){
+        return SecurityQuestionComboBox;
+    }
     public javax.swing.JButton getOtpsendButton(){
         return OtpsendButton;
     }
     public javax.swing.JButton getEnterButton(){
         return EnterButton;
+    }
+    public javax.swing. JButton getNPshow(){
+        return NPshow;
+    }
+    public javax.swing.JButton getCPshow(){
+        return CPshow;
+    }
+    public javax.swing.JButton getResetPasswordButton(){
+        return ResetPasswordButton;
+    }
+    
+    public void addPasswordToggleListeners(ActionListener npListener, ActionListener cpListener) {
+        NPshow.addActionListener(npListener);
+        CPshow.addActionListener(cpListener);
+    }
+    public void ResetPassword(ActionListener listener){
+        ResetPasswordButton.addActionListener(listener);
     }
     public void sendOtpListener(ActionListener listener){
         OtpsendButton.addActionListener(listener);

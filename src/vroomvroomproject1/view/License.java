@@ -30,9 +30,9 @@ public class License extends javax.swing.JFrame {
 
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        ImageUpload = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        SubmitButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -48,9 +48,9 @@ public class License extends javax.swing.JFrame {
         setBackground(new java.awt.Color(0, 51, 102));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        ImageUpload.setColumns(20);
+        ImageUpload.setRows(5);
+        jScrollPane1.setViewportView(ImageUpload);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 318, 155));
 
@@ -59,16 +59,16 @@ public class License extends javax.swing.JFrame {
         jLabel2.setText("Upload Your License Image");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 161, -1));
 
-        jButton3.setBackground(new java.awt.Color(0, 102, 102));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("SUBMIT");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        SubmitButton.setBackground(new java.awt.Color(0, 102, 102));
+        SubmitButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        SubmitButton.setForeground(new java.awt.Color(255, 255, 255));
+        SubmitButton.setText("SUBMIT");
+        SubmitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                SubmitButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, 137, -1));
+        getContentPane().add(SubmitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, 137, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 102, 102));
@@ -91,22 +91,28 @@ public class License extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void SubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_SubmitButtonActionPerformed
 
     /**
      * @param args the command line arguments
      */
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea ImageUpload;
+    private javax.swing.JButton SubmitButton;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
- }
+ public javax.swing.JTextArea getImageUpload(){
+        return ImageUpload;
+    }
+    public javax.swing.JButton SubmitButton(){
+        return SubmitButton;
+    }
+    }

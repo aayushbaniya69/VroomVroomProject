@@ -11,6 +11,7 @@ package javaproject.model;
 public class UserData {
        // private attribute
     //public methods
+    private String registrationId;
     private String firstName;
     private String lastName;
     private String address;
@@ -20,7 +21,7 @@ public class UserData {
     private String contactNumber;
     private String securityAnswer;
     //Constructor
-    public UserData(String firstName, String lastName, String address, String email, String password, String rePassword, String contactNumber){
+    public UserData(String firstName, String lastName, String address, String email,String contactNumber, String password, String rePassword, String securityAnswer){
         this.firstName=firstName;
         this.lastName=lastName;
         this.address=address;
@@ -30,7 +31,19 @@ public class UserData {
         this.contactNumber=contactNumber;
         this.securityAnswer= securityAnswer;
     }
+    public UserData(String registrationId,String firstName,String lastName,String password){
+    this.registrationId=registrationId;
+    this.firstName=firstName;
+    this.lastName=lastName;
+    this.password=password;
+}
+     public String getId() {
+        return registrationId;
+    }
     //setters
+    public void setRegistrationId(String registrationId){
+        this.registrationId=registrationId;
+    }
     public void setFirstName(String firstName){
         this.firstName=firstName;
     }
@@ -57,6 +70,9 @@ public class UserData {
     }
    
     //getters
+    public String getRegistrationId(){
+        return this.registrationId;
+    }
     public String getFirstName(){
         return this.firstName;
     }

@@ -4,8 +4,12 @@
  */
 package javaproject.controller;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javaproject.model.UserData;
+import javaproject.view.BookingView;
 import javaproject.view.DashboardView;
+import javaproject.view.LoginForm;
 
 /**
  *
@@ -19,7 +23,14 @@ public class DashboardController {
         this.view=view;
         this.user=user;
         //this.firstName=firstname;
-        this.view.getWelcomeLable().setText("Welcome ");
+        //this.view.getWelcomeLable().setText("Welcome ");
+        BackLogin BackButton=new BackLogin();
+        this.view.BackButton(BackButton);
+        Booking booking=new Booking();
+        this.view.bookings(booking);
+    }
+    public DashboardController(DashboardView view){
+        this.view=view;
     }
     public void open(){
        view.setVisible(true); 
@@ -28,4 +39,25 @@ public class DashboardController {
         view.dispose();
     }
     
+    class BackLogin implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            System.out.println("Back button");
+            LoginForm login = new LoginForm();
+            LoginController loginController = new LoginController(login);
+            loginController.open();
+            close();
+        }
+    }
+    class Booking implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            System.out.println("Booking button");
+            BookingView booking = new BookingView();
+            BookingController bookingController = new BookingController(booking);
+            bookingController.open();
+            close();
+        }
+    }
 }
+

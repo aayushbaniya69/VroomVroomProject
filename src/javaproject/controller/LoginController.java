@@ -4,8 +4,6 @@
  */
 package javaproject.controller;
 
-import LoginPage.ForgotPasswordForm;
-import LoginPage.LoginForm;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -14,6 +12,8 @@ import javaproject.dao.UserDao;
 import javaproject.model.LoginRequest;
 import javaproject.model.UserData;
 import javaproject.view.DashboardView;
+import javaproject.view.ForgotPasswordView;
+import javaproject.view.LoginForm;
 import javaproject.view.RegistrationView;
 import javax.swing.JOptionPane;
 
@@ -27,8 +27,10 @@ public class LoginController {
         this.view=view;
         LoginUser loginUser=new LoginUser();
         this.view.LoginUser(loginUser);
-        ResetPassword forgotPassword=new ResetPassword();
+        ForgotPassword forgotPassword=new ForgotPassword();
         this.view.forgotPassword(forgotPassword) ;
+        Register registerPage=new Register();
+        this.view.registerPage(registerPage);
     }
     public void open(){
         view.setVisible(true);
@@ -40,13 +42,14 @@ public class LoginController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            
+            System.out.println("Inside controller");
         String email=view.getEmailTextField().getText();
         String password=String.valueOf(view.getPasswordField().getPassword());
         if(email.isEmpty()||password.isEmpty()){
             JOptionPane.showMessageDialog(view,"Fill all the field.");
         }
         else{
+            System.out.println("Validation checked");
             LoginRequest loginData=new LoginRequest(email,password);
             UserDao userDao=new UserDao();
             UserData user=userDao.login(loginData);
@@ -64,44 +67,40 @@ public class LoginController {
     }
     }
          
-class ResetPassword implements MouseListener{
+class ForgotPassword implements MouseListener{
 
      @Override
         public void mouseClicked(MouseEvent e) {
-            view.dispose();
-            ForgotPasswordForm forgotpassword = new ForgotPasswordForm();
-            ForgotPasswordController forgotController = new ForgotPasswordController(forgotpassword);
-            forgotController.open();
+            ForgotPasswordView forgotPassword=new ForgotPasswordView();
+            ForgotPasswordController forgotPasswordController=new ForgotPasswordController(forgotPassword);
+            forgotPasswordController.open();
+            close();
 }
-
+                                                                  
         @Override
-        public void mousePressed(MouseEvent e) {
-            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        public void mousePressed(MouseEvent e) {   
         }
 
         @Override
-        public void mouseReleased(MouseEvent e) {
-            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        public void mouseReleased(MouseEvent e) {    
         }
 
         @Override
-        public void mouseEntered(MouseEvent e) {
-            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        public void mouseEntered(MouseEvent e) {   
         }
 
         @Override
-        public void mouseExited(MouseEvent e) {
-            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        public void mouseExited(MouseEvent e) {    
         }
 }
 class Register implements MouseListener{
 
         @Override
         public void mouseClicked(MouseEvent e) {
-            view.dispose();
             RegistrationView reisterView = new RegistrationView();
             RegistrationController registerController = new RegistrationController(reisterView);
             registerController.open();
+            close();
         }
 
         @Override

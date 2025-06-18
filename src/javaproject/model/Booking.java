@@ -19,7 +19,10 @@ public class Booking {
     private double totalAmount;
 
     // Constructors
-     public Booking(int id,int userId,String vehicleInfo, String startDate, String endDate,int numberOfVehicles,double totalAmount){
+    public Booking(){
+        
+    }
+     public Booking(int id, int userId, String vehicleInfo, String startDate, String endDate, int numberOfVehicles, double totalAmount){
         this.id=id;
         this.userId=userId;
         this.vehicleInfo=vehicleInfo;

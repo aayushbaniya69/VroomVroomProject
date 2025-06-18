@@ -4,84 +4,104 @@
  */
 package javaproject.controller;
 
+
+import javaproject.model.Booking;
+import javaproject.view.BookingView;
+import javaproject.dao.BookingDao;
+
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javaproject.dao.BookingDao;
-import javaproject.model.Booking;
-import javaproject.model.UserData;
-import javaproject.view.BookingView;
+import javaproject.view.DashboardView;
 import javaproject.view.LoginForm;
-import javax.swing.JOptionPane;
 
-/**
- *
- * @author ACER
- */
 public class BookingController {
     private BookingView view;
-    private UserData user;
+    private BookingDao dao;
+    private int loggedInUserId;
 
-    public BookingController(BookingView view, UserData user) {
+    public BookingController(BookingView view) {
         this.view = view;
-        this.user = user;
-
-        this.view.BookButton(new BookVehicleListener());
-        this.view.BackToDashbord(new BackListener());
-        this.view.Logout(new LogoutListener());
+        BookButton bookButton=new BookButton();
+        this.view.BookButton(bookButton);
+        Logout logout=new Logout();
+        this.view.Logout(logout);
+        BackToDashboard dashboard=new BackToDashboard();
+        this.view.BackToDashboard(dashboard);    
     }
-
-    public void open() {
-        view.setVisible(true);
-    }
-
-    class BookVehicleListener implements ActionListener {
+    // Inner class to handle book button click
+    class BookButton implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
+                String vehicleInfo = view.getVehicleInfo().getText();
                 String startDate = view.getStartDateField().getText();
                 String endDate = view.getEndDateField().getText();
-                int numVehicles = Integer.parseInt(view.getNumberOfVehicle().getText());
-                String vehicleInfo = view.getVehicleInfo().getText();
-                double pricePerVehicle = 5000.0; // Example
+                int numVehicles = Integer.parseInt(view.NumberOfVehicleField.getText());
+                double total = calculateTotal(numVehicles); // example total calculation
 
-                double total = numVehicles * pricePerVehicle;
-                Booking booking = new Booking();
-                booking.setUserId(user.getId());
-                booking.setVehicleInfo(vehicleInfo);
-                booking.setStartDate(startDate);
-                booking.setEndDate(endDate);
-                booking.setNumberOfVehicles(numVehicles);
-                booking.setTotalAmount(total);
+                Booking booking = new Booking(
+                        0, // ID will be auto-incremented by DB
+                        loggedInUserId,
+                        vehicleInfo,
+                        startDate,
+                        endDate,
+                        numVehicles,
+                        total
+                );
 
-                BookingDao dao = new BookingDao();
                 boolean success = dao.insertBooking(booking);
-
                 if (success) {
-                    JOptionPane.showMessageDialog(view, "Booking successful. Total: Rs " + total);
+                    JOptionPane.showMessageDialog(null, "Booking Successful!");
+                    DashboardView dashboardView=new DashboardView();
+                    DashboardController dashboardController=new DashboardController(dashboardView);
+                    dashboardController.open();
+                close();
                 } else {
-                    JOptionPane.showMessageDialog(view, "Booking failed. Please try again.");
+                    JOptionPane.showMessageDialog(null, "Booking Failed!");
                 }
+
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(null, "Please enter a valid number of vehicles.");
             } catch (Exception ex) {
-                JOptionPane.showMessageDialog(view, "Invalid input: " + ex.getMessage());
+                ex.printStackTrace();
+                JOptionPane.showMessageDialog(null, "Something went wrong!");
             }
         }
     }
 
-    class BackListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            view.dispose();
-            DashboardView dashboard = new DashboardView();
-            new DashboardController(dashboard, user).open();
-        }
+    private double calculateTotal(int numVehicles) {
+        double pricePerVehicle = 5000.00;
+        return numVehicles * pricePerVehicle;
     }
 
-    class LogoutListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            view.dispose();
-            LoginForm login = new LoginForm();
-            new LoginController(login).open();
-        }
+class Logout implements ActionListener{
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        LoginForm login=new LoginForm();
+        LoginController loginController=new LoginController(login);
+        loginController.open();
+        close();
     }
+    
 }
+class BackToDashboard implements ActionListener{
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        DashboardView dashboard=new DashboardView();
+        DashboardController dashboardController=new DashboardController(dashboard);
+        dashboardController.open();
+        close();
+    }
+    
+}
+public void open(){
+    view.setVisible(true);
+}
+public void close(){
+    view.dispose();
+}
+}
+

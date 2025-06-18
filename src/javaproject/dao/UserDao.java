@@ -18,16 +18,14 @@ import javaproject.model.UserData;
  * @author ACER
  */
 public class UserDao {
-
-    public static boolean registration(UserData userData) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
     MySqlConnection mySql=new MySqlConnection();
-    public boolean register(UserData user){
-        String query="insert into users(First_Name,Last_Name,Address,Email,Phone_Number,Password,Re_Pasword,Security_Answer)values(?,?,?,?,?,?,?,?)";
+    public boolean Registration(UserData user){
+        
+        String query="insert into Registration(firstName,lastName,address,email,contactNumber,password,rePassword,securityAnswer)values(?,?,?,?,?,?,?,?)";
         Connection conn=mySql.openConnection();
         try{
             PreparedStatement stmnt=conn.prepareStatement(query);
+            
             stmnt.setString(1, user.getFirstName());
             stmnt.setString(2,user.getLastName());
             stmnt.setString(3,user.getAddress());
@@ -40,6 +38,7 @@ public class UserDao {
             return result>0;
         }
         catch(SQLException e){
+            e.printStackTrace(); // Add this line
             return false;
         }
         finally{
@@ -47,40 +46,43 @@ public class UserDao {
         }
     }
      public UserData login(LoginRequest loginReq){
-        String query="Select * from users where email=? and password=?";
+        String query="Select * from Registration where email=? and password=?";
         Connection conn=mySql.openConnection();
         try{
             PreparedStatement stmnt=conn.prepareStatement(query);
+            System.out.println("QUEEERY");
             stmnt.setString(1,loginReq.getEmail()); // To get email and set email to insert
             stmnt.setString(2,loginReq.getPassword());
             ResultSet result=stmnt.executeQuery();
             if(result.next()){
+                System.out.println("Data found");
                 String email=result.getString("email"); // To get the email
-                String name=result.getString("name");
+                String firstName=result.getString("firstName");
                 String password=result.getString("password");
-                String id=result.getString("Id");
-                //UserData user=new UserData(id,name,email,password); //
-                //return user;
+                String registrationId=result.getString("registrationId");
+                UserData user=new UserData(registrationId,firstName,email,password); 
+                return user;
             }
             else{
                 return null;
             }
         }
-        catch(Exception e){
+        catch(SQLException e){
+            e.printStackTrace();
             return null;
         }
         finally{
             mySql.closeConnection(conn);
         }
-        return null;
     }
     public boolean checkEmail(String email){
-        String query="Select * from users where email=?";
+        String query="Select * from Registration where email=?";
         Connection conn=mySql.openConnection();
         try{
             PreparedStatement stmnt=conn.prepareStatement(query);
             stmnt.setString(1,email);
-            ResultSet result=stmnt.executeQuery(); // Return selected rows
+            ResultSet result=stmnt.executeQuery();// Return selected rows
+            
             if(result.next()){ // Check whether rows return or not
                 return true;
             }
@@ -88,7 +90,8 @@ public class UserDao {
                 return false;
             }
         }
-        catch(Exception e){
+        catch(SQLException e){
+            e.printStackTrace();
             return false;
         }
         finally{
@@ -96,7 +99,7 @@ public class UserDao {
         }
     }
     public boolean resetPassword(ResetPasswordRequest reset){
-        String query="Update users set password=? where email=?";
+        String query="Update Registration set password=? where email=?";
         Connection conn=mySql.openConnection();
         try{
             PreparedStatement stmnt=conn.prepareStatement(query); //PrepareStatement more secure 
@@ -105,7 +108,8 @@ public class UserDao {
             int result=stmnt.executeUpdate(); //Return updated rows
             return result>0; //Return rows then true otherwise false
         }
-        catch(Exception e){
+        catch(SQLException e){
+            e.printStackTrace();// Print the actual SQL error
             return false;
         }
         finally{

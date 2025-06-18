@@ -4,6 +4,8 @@
  */
 package javaproject.view;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author ACER
@@ -26,27 +28,116 @@ public class DashboardView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        WelcomeLabel = new javax.swing.JLabel();
+        contentPanel = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        HomeButton = new javax.swing.JButton();
+        VehicleButton = new javax.swing.JButton();
+        BookingButton = new javax.swing.JButton();
+        PaymentHistoryButton = new javax.swing.JButton();
+        LogoutButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        WelcomeLabel.setText("jLabel1");
+        contentPanel.setLayout(new java.awt.CardLayout());
+
+        jPanel3.setBackground(new java.awt.Color(44, 47, 54));
+        jPanel3.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Dashboard/Screenshot (166) (2) (1).png"))); // NOI18N
+
+        HomeButton.setBackground(new java.awt.Color(44, 47, 54));
+        HomeButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        HomeButton.setForeground(new java.awt.Color(241, 245, 249));
+        HomeButton.setText("Home");
+        HomeButton.setBorder(null);
+        HomeButton.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+
+        VehicleButton.setBackground(new java.awt.Color(44, 47, 54));
+        VehicleButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        VehicleButton.setForeground(new java.awt.Color(241, 245, 249));
+        VehicleButton.setText("Vehicles");
+        VehicleButton.setBorder(null);
+        VehicleButton.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+
+        BookingButton.setBackground(new java.awt.Color(44, 47, 54));
+        BookingButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        BookingButton.setForeground(new java.awt.Color(241, 245, 249));
+        BookingButton.setText("My Bookings");
+        BookingButton.setBorder(null);
+        BookingButton.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+
+        PaymentHistoryButton.setBackground(new java.awt.Color(44, 47, 54));
+        PaymentHistoryButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        PaymentHistoryButton.setForeground(new java.awt.Color(241, 245, 249));
+        PaymentHistoryButton.setText("Payment History");
+        PaymentHistoryButton.setBorder(null);
+        PaymentHistoryButton.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+
+        LogoutButton.setBackground(new java.awt.Color(44, 47, 54));
+        LogoutButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        LogoutButton.setForeground(new java.awt.Color(241, 245, 249));
+        LogoutButton.setText("Logout");
+        LogoutButton.setBorder(null);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(LogoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(HomeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(PaymentHistoryButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(VehicleButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(BookingButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(66, 66, 66)
+                .addComponent(HomeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(VehicleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(BookingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(PaymentHistoryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
+                .addComponent(LogoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(178, 178, 178)
-                .addComponent(WelcomeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(185, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(contentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(WelcomeLabel)
-                .addContainerGap(253, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(contentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         pack();
@@ -88,10 +179,36 @@ public class DashboardView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel WelcomeLabel;
+    private javax.swing.JButton BookingButton;
+    private javax.swing.JButton HomeButton;
+    private javax.swing.JButton LogoutButton;
+    private javax.swing.JButton PaymentHistoryButton;
+    private javax.swing.JButton VehicleButton;
+    private javax.swing.JPanel contentPanel;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 
-public javax.swing.JLabel getWelcomeLable(){
-        return WelcomeLabel;
-    }
+public javax.swing.JButton getBookingButton(){
+    return BookingButton;
 }
+public javax.swing.JButton getHomeButton(){
+    return HomeButton;
+}
+public javax.swing.JButton getLogoutButton(){
+    return LogoutButton;
+}
+public javax.swing.JButton getPaymentHistoryButton(){
+    return PaymentHistoryButton;
+}
+public javax.swing.JButton getVehicleButton(){
+    return VehicleButton;
+}
+public void BackButton(ActionListener listener){
+    LogoutButton.addActionListener(listener);
+}
+public void bookings(ActionListener listener){
+    BookingButton.addActionListener(listener);
+}
+}
+

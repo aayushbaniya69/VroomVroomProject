@@ -7,41 +7,72 @@ package javaproject.database;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.PreparedStatement;
 
+
+
+import java.sql.SQLException;
 /**
  *
  * @author ACER
  */
 public class MySqlConnection implements DbConnection {
-    public Connection openConnection() {
-       String username="root";
-       String password="brbprssssrbss@8";
-       String database="vroomvroom";
+    private static final String URL = "jdbc:mysql://localhost:3306/vroomvroom";
+    private static final String USER="root";
+    private static final String PASSWORD="brbprssssrbss@8";
+    public Connection getConnection() throws ClassNotFoundException, java.sql.SQLException {
        try{
            Class.forName("com.mysql.jdbc.Driver");
-           Connection conn;
-           conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/"+database,username,password);
-           return conn;
-       }
-       catch(Exception e){
-          return null;
-       }
+       } catch(ClassNotFoundException e){
+        throw new SQLException("Jdbc not found", e);   
+    }
+        
+       return DriverManager.getConnection(URL, USER, PASSWORD);
     }
 
-    public void closeConnection(Connection conn) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+   @Override
+public Connection openConnection() {
+    try {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        return DriverManager.getConnection(URL, USER, PASSWORD);
+    } catch (ClassNotFoundException | SQLException e) {
+        e.printStackTrace();
+        return null;
     }
+}
 
-    public ResultSet runQuery(Connection conn, String query) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+@Override
+public void closeConnection(Connection conn) {
+    if (conn != null) {
+        try {
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
+}
 
-    public int executeUpdate(Connection conn, String query) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+@Override
+public ResultSet runQuery(Connection conn, String query) {
+    try {
+        PreparedStatement stmt = conn.prepareStatement(query);
+        return stmt.executeQuery();
+    } catch (SQLException e) {
+        e.printStackTrace();
+        return null;
     }
+}
 
-    @Override
-    public int executeQuery(Connection conn, String query) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+@Override
+public int executeQuery(Connection conn, String query) {
+    try {
+        PreparedStatement stmt = conn.prepareStatement(query);
+        return stmt.executeUpdate();
+    } catch (SQLException e) {
+        e.printStackTrace();
+        return 0;
     }
+}
+    
+    
 }

@@ -148,25 +148,25 @@ public class ResetPasswordController {
             }
 
 
-//            JOptionPane.showMessageDialog(view, "Password changed successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
-//            LoginView loginView = new LoginView();
-//            LoginController loginController = new LoginController(loginView);
-//            loginController.open();
-//            close();
-//        }
-//    }
+            JOptionPane.showMessageDialog(view, "Password changed successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+            LoginView loginView = new LoginView();
+            LoginController loginController = new LoginController(loginView);
+            loginController.open();
+            close();
+        }
+    }
     
 
-//    class LoginBack implements ActionListener {
-//        @Override
-//        public void actionPerformed(ActionEvent e) {
-//            LoginView loginView = new LoginView();
-//            LoginController loginController = new LoginController(loginView);
-//            loginController.open();
-//            ResetPasswordController.this.close();
-//        }
-//    }
-    class ToggleNewPassword implements ActionListener{
+    class LoginBack implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            LoginView loginView = new LoginView();
+            LoginController loginController = new LoginController(loginView);
+            loginController.open();
+            ResetPasswordController.this.close();
+        }
+    }
+    class NewPassword implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -176,7 +176,7 @@ public class ResetPasswordController {
         }
         
     }
-    class ToggleConfirmPassword implements ActionListener{
+    class ConfirmPassword implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -187,5 +187,4 @@ public class ResetPasswordController {
         
     }
         }
-    }
-}
+

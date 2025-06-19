@@ -84,6 +84,11 @@ public class History extends javax.swing.JFrame {
         jTextField3.setBackground(new java.awt.Color(166, 222, 177));
         jTextField3.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
         jTextField3.setText("Returned");
+        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField3ActionPerformed(evt);
+            }
+        });
 
         jLabel14.setText("Name");
 
@@ -403,8 +408,8 @@ public class History extends javax.swing.JFrame {
                         .addContainerGap(14, Short.MAX_VALUE))))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -453,6 +458,10 @@ public class History extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

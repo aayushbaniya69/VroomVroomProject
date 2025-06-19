@@ -45,7 +45,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="215" max="32767" attributes="0"/>
+              <EmptySpace pref="233" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -237,7 +237,7 @@
                       <Component id="jLabel23" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel24" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="225" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jTextField7" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel26" alignment="0" min="-2" max="-2" attributes="0"/>

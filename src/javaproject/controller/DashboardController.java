@@ -24,8 +24,8 @@ public class DashboardController {
         this.user=user;
         //this.firstName=firstname;
         //this.view.getWelcomeLable().setText("Welcome ");
-        BackLogin BackButton=new BackLogin();
-        this.view.BackButton(BackButton);
+        BackLogin backButton=new BackLogin();
+        this.view.BackButton(backButton);
         Booking booking=new Booking();
         this.view.bookings(booking);
     }
@@ -59,5 +59,5 @@ public class DashboardController {
             close();
         }
     }
-}
+}             
 

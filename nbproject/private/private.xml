@@ -3,31 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/view/AdminDashboardView.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/controller/SellerDashboardController.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/view/SellerRegistration.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/controller/SellerRegistrationController.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/view/SellerLoginForm.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/Dashboard/dashboardView.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/Dashboard/dashboardView_1.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/view/DashboardView.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/controller/DashboardController.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/JavaProject.java</file>
-            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/view/BookingView.java</file>
-        </group>
-    </open-files>
-</project-private>
-
-
-<?xml version="1.0" encoding="UTF-8"?>
-<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
             <file>file:/C:/Users/Dell/OneDrive/문서/NetBeansProjects/VroomProject1/src/vroomproject1/view/Reset.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/문서/NetBeansProjects/VroomProject1/src/vroomproject1/view/Filter.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/문서/NetBeansProjects/VroomProject1/src/vroomproject1/Model/ResetPasswordRequest.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/문서/NetBeansProjects/VroomProject1/src/vroomproject1/Model/UserData.java</file>
+            <file>file:/C:/Users/Dell/OneDrive/문서/NetBeansProjects/VroomProject1/src/vroomproject1/Controller/ResetPasswordController.java</file>
+            <file>file:/C:/Users/Dell/OneDrive/문서/NetBeansProjects/VroomProject1/src/vroomproject1/VroomProject1.java</file>
+            <file>file:/C:/Users/Dell/OneDrive/문서/NetBeansProjects/VroomProject1/src/Dashboard/dashboardView.java</file>
+            <file>file:/C:/Users/Dell/OneDrive/문서/NetBeansProjects/VroomProject1/src/Dashboard/dashboardView_1.java</file>
         </group>
     </open-files>
 </project-private>

@@ -82,13 +82,19 @@ public class Adminpage extends javax.swing.JFrame {
 
         jTextField5.setText("Enter your Email");
 
+        ChangePassword.setBackground(new java.awt.Color(0, 0, 0));
         ChangePassword.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        ChangePassword.setForeground(new java.awt.Color(255, 255, 255));
         ChangePassword.setText("Change your Password");
 
+        DeleteAccount.setBackground(new java.awt.Color(0, 0, 0));
         DeleteAccount.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        DeleteAccount.setForeground(new java.awt.Color(255, 255, 255));
         DeleteAccount.setText("Delete your Account");
 
+        jTextField6.setBackground(new java.awt.Color(0, 0, 0));
         jTextField6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jTextField6.setForeground(new java.awt.Color(255, 255, 255));
         jTextField6.setText("Back To Dashboard");
         jTextField6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

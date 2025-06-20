@@ -2,6 +2,7 @@
 package Dashboard;
 
 import java.awt.CardLayout;
+import javaproject.view.VehiclePanel;
 
 
 public class DashboardView extends javax.swing.JFrame {

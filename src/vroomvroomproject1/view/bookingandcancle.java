@@ -35,10 +35,10 @@ public class bookingandcancle extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        day = new javax.swing.JTextField();
+        time = new javax.swing.JTextField();
+        wheeler = new javax.swing.JTextField();
+        sumbit = new javax.swing.JToggleButton();
         jTextField6 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -78,30 +78,30 @@ public class bookingandcancle extends javax.swing.JFrame {
         });
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 130, -1));
 
-        jTextField2.setText("          Day ");
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, 120, -1));
+        day.setText("          Day ");
+        getContentPane().add(day, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, 120, -1));
 
-        jTextField3.setText("         Time");
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        time.setText("         Time");
+        time.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                timeActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, 120, -1));
+        getContentPane().add(time, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, 120, -1));
 
-        jTextField5.setText("4 Wheeler");
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        wheeler.setText("4 Wheeler");
+        wheeler.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                wheelerActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 110, -1));
+        getContentPane().add(wheeler, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 110, -1));
 
-        jToggleButton1.setBackground(new java.awt.Color(0, 102, 102));
-        jToggleButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jToggleButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton1.setText("SUBMIT");
-        getContentPane().add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, 120, -1));
+        sumbit.setBackground(new java.awt.Color(0, 102, 102));
+        sumbit.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        sumbit.setForeground(new java.awt.Color(255, 255, 255));
+        sumbit.setText("SUBMIT");
+        getContentPane().add(sumbit, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, 120, -1));
         getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 260, 70));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -122,13 +122,13 @@ public class bookingandcancle extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void timeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_timeActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void wheelerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wheelerActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_wheelerActionPerformed
 
     /**
      * @param args the command line arguments
@@ -166,6 +166,7 @@ public class bookingandcancle extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField day;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -178,10 +179,23 @@ public class bookingandcancle extends javax.swing.JFrame {
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JSpinner jSpinner2;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
-    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JToggleButton sumbit;
+    private javax.swing.JTextField time;
+    private javax.swing.JTextField wheeler;
     // End of variables declaration//GEN-END:variables
+public javax.swing.JTextField wheeler(){
+        return wheeler;
+    }
+    public javax.swing.JPasswordField getPasswordField(){
+        return Password_Field;
+    }
+    public void LoginUser(ActionListener listener){
+         LoginButton.addActionListener(listener);
+     }
+    public void forgotPassword(MouseListener listener){ //forgot password is label so mouselistener is added
+    ForgotPassword.addMouseListener(listener);
 }
+    public void registerPage(MouseListener listener){ //forgot password is label so mouselistener is added
+    RegisterForm.addMouseListener(listener);
+}}

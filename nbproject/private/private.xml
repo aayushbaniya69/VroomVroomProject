@@ -6,7 +6,6 @@
             <file>file:/C:/Users/ASUS/VroomVroomProject/src/Dashboard/f05ec82f6ef58f8a570902f0adbb0b65.png</file>
             <file>file:/C:/Users/ASUS/VroomVroomProject/src/Dashboard/Form_Category.java</file>
             <file>file:/C:/Users/ASUS/VroomVroomProject/src/javaproject/controller/VehicleController.java</file>
-            <file>file:/C:/Users/ASUS/VroomVroomProject/src/Dashboard/Dashboard_ui.java</file>
             <file>file:/C:/Users/ASUS/VroomVroomProject/src/Dashboard/Screenshot%20(166)%20(2)%20(1).png</file>
             <file>file:/C:/Users/ASUS/VroomVroomProject/src/javaproject/view/LoginForm.java</file>
             <file>file:/C:/Users/ASUS/VroomVroomProject/src/javaproject/view/RegistrationView.java</file>
@@ -21,9 +20,10 @@
             <file>file:/C:/Users/ASUS/VroomVroomProject/src/Dashboard/dashboardView_1.java</file>
             <file>file:/C:/Users/ASUS/VroomVroomProject/src/Dashboard/DashboardView.java</file>
             <file>file:/C:/Users/ASUS/VroomVroomProject/src/javaproject/view/AdminDashboardView.java</file>
-            <file>file:/C:/Users/ASUS/VroomVroomProject/src/javaproject/view/VehiclePanel.java</file>
             <file>file:/C:/Users/ASUS/VroomVroomProject/src/Panels/VehicleCardPanel.java</file>
             <file>file:/C:/Users/ASUS/VroomVroomProject/src/javaproject/model/Vehicle.java</file>
+            <file>file:/C:/Users/ASUS/VroomVroomProject/src/javaproject/view/UserDashboardView.java</file>
+            <file>file:/C:/Users/ASUS/VroomVroomProject/src/javaproject/view/UserVehiclePanel.java</file>
         </group>
     </open-files>
 </project-private>

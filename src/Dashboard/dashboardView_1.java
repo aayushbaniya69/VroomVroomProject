@@ -1,8 +1,8 @@
 
 package Dashboard;
 
-import javaproject.view.VehiclePanel;
 import java.awt.CardLayout;
+import javaproject.view.VehiclePanel;
 
 
 public class dashboardView_1 extends javax.swing.JFrame {
@@ -27,8 +27,6 @@ public class dashboardView_1 extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
-        panelBoarders1 = new org.netbeans.modules.form.InvalidComponent();
         jPanel2 = new javax.swing.JPanel();
         mainPanel = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -184,30 +182,6 @@ public class dashboardView_1 extends javax.swing.JFrame {
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout panelBoarders1Layout = new javax.swing.GroupLayout(panelBoarders1);
-        panelBoarders1.setLayout(panelBoarders1Layout);
-        panelBoarders1Layout.setHorizontalGroup(
-            panelBoarders1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        panelBoarders1Layout.setVerticalGroup(
-            panelBoarders1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelBoarders1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelBoarders1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelBoarders1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -277,6 +251,6 @@ public class dashboardView_1 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel mainPanel;
-    private org.netbeans.modules.form.InvalidComponent panelBoarders1;
+
     // End of variables declaration//GEN-END:variables
 }

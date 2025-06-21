@@ -30,6 +30,10 @@ public class AdminDashboardView extends javax.swing.JFrame {
 
 // Show dummy at start
         contentCardLayout.show(adminContentPanel, "Dummy");
+        
+        adVehicleButton.addActionListener(e -> {
+        contentCardLayout.show(adminContentPanel, "Vehicle");
+    });
     }
 
     /**

@@ -13,6 +13,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -25,29 +26,53 @@ public class AdminVehiclePanel extends javax.swing.JPanel {
     
     private DefaultTableModel tableModel;
     public AdminVehiclePanel() {
-        initComponents();  // This is auto-generated, don't modify it
+        initComponents(); 
         controller = VehicleController.getInstance(); 
 
-        tableModel = (DefaultTableModel) jTable1.getModel();
-        loadVehicleList(controller.getAllVehicles());  // Load the vehicles into the table
+        tableModel = (DefaultTableModel) jTable1.getModel();// Load the vehicles into the table
+        loadVehicleList(controller.getAllVehicles()); 
+        jTable1.setRowHeight(150); // Set row height to 80 pixels (you can adjust this as needed)
 
-        // Add row selection listener to fill the form with vehicle details
+        
+        jTable1.getColumnModel().getColumn(5).setCellRenderer(new DefaultTableCellRenderer() {
+    @Override
+    public void setValue(Object value) {
+        if (value instanceof ImageIcon) {
+            setIcon((ImageIcon) value);
+            setText("");  // Hide text, only show image
+        } else {
+            super.setValue(value);
+        }
+    }
+});
+
+        
+
+        // ✅ Add row selection listener to fill form with vehicle details
         jTable1.getSelectionModel().addListSelectionListener(e -> {
             if (!e.getValueIsAdjusting()) {
                 int selectedRow = jTable1.getSelectedRow();
                 if (selectedRow != -1) {
-                    // Populate the form with the selected vehicle's details
-                    numberField.setText((String) jTable1.getValueAt(selectedRow, 0));
-                    nameField.setText((String) jTable1.getValueAt(selectedRow, 1));
-                    typeField.setText((String) jTable1.getValueAt(selectedRow, 2));
-                    priceField.setText(String.valueOf(jTable1.getValueAt(selectedRow, 3)));
-                    statusField.setText((String) jTable1.getValueAt(selectedRow, 4));
+                    // Get selected vehicle object from controller
+                    Vehicle selectedVehicle = controller.getAllVehicles().get(selectedRow);
 
-                    // Preview the image if it exists
-                    String imagePath = (String) jTable1.getValueAt(selectedRow, 5);
+                    numberField.setText(selectedVehicle.getVehicleId());
+                    nameField.setText(selectedVehicle.getName());
+                    typeField.setText(selectedVehicle.getType());
+                    priceField.setText(String.valueOf(selectedVehicle.getPrice()));
+                    statusField.setText(selectedVehicle.getStatus());
+
+                    // Preview the image using the image path from Vehicle
+                    String imagePath = selectedVehicle.getImagePath();
                     if (imagePath != null && !imagePath.isEmpty()) {
                         File imgFile = new File(imagePath);
-                        updateImagePreview(imgFile);  // Update the image preview
+                        if (imgFile.exists()) {
+                            updateImagePreview(imgFile);
+                        } else {
+                            imagePreview.setIcon(null);
+                        }
+                    } else {
+                        imagePreview.setIcon(null);
                     }
                 }
             }
@@ -55,21 +80,34 @@ public class AdminVehiclePanel extends javax.swing.JPanel {
     }
     
     private void loadVehicleList(List<Vehicle> vehicleList) {
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        model.setRowCount(0);  // Clear existing rows
+    DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+    model.setRowCount(0);  // Clear existing rows
 
-        for (Vehicle v : vehicleList) {
-            Object[] row = {
-                v.getVehicleId(),
-                v.getName(),
-                v.getType(),
-                v.getPrice(),
-                v.getStatus(),
-                v.getImagePath()  // Shows full path (you can choose to hide it later)
-            };
-            model.addRow(row);
+    for (Vehicle v : vehicleList) {
+        // Load and scale image
+        ImageIcon icon = null;
+        if (v.getImagePath() != null && !v.getImagePath().isEmpty()) {
+            File imgFile = new File(v.getImagePath());
+            if (imgFile.exists()) {
+                ImageIcon originalIcon = new ImageIcon(v.getImagePath());
+                Image scaledImage = originalIcon.getImage().getScaledInstance(145, 145, Image.SCALE_SMOOTH); // Scale to fit row height
+                icon = new ImageIcon(scaledImage);
+            }
         }
+
+        Object[] row = {
+            v.getVehicleId(),
+            v.getName(),
+            v.getType(),
+            v.getPrice(),
+            v.getStatus(),
+            icon  // Display image icon in table
+        };
+        model.addRow(row);
     }
+}
+
+
 private void updateImagePreview(File imageFile) {
         ImageIcon icon = new ImageIcon(imageFile.getAbsolutePath());
         Image scaledImage = icon.getImage().getScaledInstance(imagePreview.getWidth(), imagePreview.getHeight(), Image.SCALE_SMOOTH);

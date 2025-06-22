@@ -4,6 +4,8 @@
  */
 package vroomvroomproject1.view;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author dell
@@ -34,7 +36,7 @@ public class bookingandcancle extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        model = new javax.swing.JTextField();
         day = new javax.swing.JTextField();
         time = new javax.swing.JTextField();
         wheeler = new javax.swing.JTextField();
@@ -71,12 +73,12 @@ public class bookingandcancle extends javax.swing.JFrame {
         jLabel9.setText("Vehicle Model");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 110, -1));
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        model.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                modelActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 130, -1));
+        getContentPane().add(model, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 130, -1));
 
         day.setText("          Day ");
         getContentPane().add(day, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, 120, -1));
@@ -118,9 +120,9 @@ public class bookingandcancle extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void modelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modelActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_modelActionPerformed
 
     private void timeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timeActionPerformed
         // TODO add your handling code here:
@@ -178,8 +180,8 @@ public class bookingandcancle extends javax.swing.JFrame {
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JSpinner jSpinner2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField model;
     private javax.swing.JToggleButton sumbit;
     private javax.swing.JTextField time;
     private javax.swing.JTextField wheeler;
@@ -187,15 +189,17 @@ public class bookingandcancle extends javax.swing.JFrame {
 public javax.swing.JTextField wheeler(){
         return wheeler;
     }
-    public javax.swing.JPasswordField getPasswordField(){
-        return Password_Field;
+    public javax.swing.JTextField time(){
+        return time;
     }
-    public void LoginUser(ActionListener listener){
-         LoginButton.addActionListener(listener);
+    public javax.swing.JTextField day(){
+        return day;
+    }
+    public javax.swing.JTextField model(){
+        return model;
+    }
+    public void sumbit(ActionListener listener){
+         sumbit.addActionListener(listener);
      }
-    public void forgotPassword(MouseListener listener){ //forgot password is label so mouselistener is added
-    ForgotPassword.addMouseListener(listener);
+    
 }
-    public void registerPage(MouseListener listener){ //forgot password is label so mouselistener is added
-    RegisterForm.addMouseListener(listener);
-}}

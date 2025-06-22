@@ -4,19 +4,40 @@
  */
 package javaproject.view;
 
+import java.awt.CardLayout;
 import java.awt.event.ActionListener;
+import javax.swing.JPanel;
 
 /**
  *
  * @author ACER
  */
 public class DashboardView extends javax.swing.JFrame {
+     private CardLayout contentCardLayout;
+
+    // Add your panels and buttons (make sure they're initialized in initComponents)
+    private UserVehiclePanel userVehiclePanel;
+    
 
     /**
      * Creates new form DashboardView
      */
     public DashboardView() {
         initComponents();
+        contentCardLayout = new CardLayout();
+        userContentPanel.setLayout(contentCardLayout);
+
+// Create and add your panels
+        userVehiclePanel = new UserVehiclePanel(); // this should be your admin vehicle management panel
+        userContentPanel.add(new JPanel(), "Dummy");  // Optional default panel
+        userContentPanel.add(userVehiclePanel, "Vehicle");
+
+// Show dummy at start
+        contentCardLayout.show(userContentPanel, "Dummy");
+        
+        userVehicleButton.addActionListener(e -> {
+        contentCardLayout.show(userContentPanel, "Vehicle");
+    });
     }
 
     /**
@@ -28,18 +49,18 @@ public class DashboardView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        contentPanel = new javax.swing.JPanel();
+        userContentPanel = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         HomeButton = new javax.swing.JButton();
-        VehicleButton = new javax.swing.JButton();
+        userVehicleButton = new javax.swing.JButton();
         BookingButton = new javax.swing.JButton();
         PaymentHistoryButton = new javax.swing.JButton();
         LogoutButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        contentPanel.setLayout(new java.awt.CardLayout());
+        userContentPanel.setLayout(new java.awt.CardLayout());
 
         jPanel3.setBackground(new java.awt.Color(44, 47, 54));
         jPanel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -53,12 +74,12 @@ public class DashboardView extends javax.swing.JFrame {
         HomeButton.setBorder(null);
         HomeButton.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
 
-        VehicleButton.setBackground(new java.awt.Color(44, 47, 54));
-        VehicleButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        VehicleButton.setForeground(new java.awt.Color(241, 245, 249));
-        VehicleButton.setText("Vehicles");
-        VehicleButton.setBorder(null);
-        VehicleButton.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        userVehicleButton.setBackground(new java.awt.Color(44, 47, 54));
+        userVehicleButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        userVehicleButton.setForeground(new java.awt.Color(241, 245, 249));
+        userVehicleButton.setText("Vehicles");
+        userVehicleButton.setBorder(null);
+        userVehicleButton.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
 
         BookingButton.setBackground(new java.awt.Color(44, 47, 54));
         BookingButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -70,7 +91,7 @@ public class DashboardView extends javax.swing.JFrame {
         PaymentHistoryButton.setBackground(new java.awt.Color(44, 47, 54));
         PaymentHistoryButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         PaymentHistoryButton.setForeground(new java.awt.Color(241, 245, 249));
-        PaymentHistoryButton.setText("Payment History");
+        PaymentHistoryButton.setText("User Profile");
         PaymentHistoryButton.setBorder(null);
         PaymentHistoryButton.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
 
@@ -95,7 +116,7 @@ public class DashboardView extends javax.swing.JFrame {
                             .addComponent(HomeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(PaymentHistoryButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(VehicleButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(userVehicleButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(BookingButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
@@ -107,7 +128,7 @@ public class DashboardView extends javax.swing.JFrame {
                 .addGap(66, 66, 66)
                 .addComponent(HomeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(VehicleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(userVehicleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(BookingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -125,15 +146,15 @@ public class DashboardView extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(contentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(userContentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1033, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(contentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(userContentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -183,10 +204,10 @@ public class DashboardView extends javax.swing.JFrame {
     private javax.swing.JButton HomeButton;
     private javax.swing.JButton LogoutButton;
     private javax.swing.JButton PaymentHistoryButton;
-    private javax.swing.JButton VehicleButton;
-    private javax.swing.JPanel contentPanel;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel userContentPanel;
+    private javax.swing.JButton userVehicleButton;
     // End of variables declaration//GEN-END:variables
 
 public javax.swing.JButton getBookingButton(){
@@ -202,7 +223,7 @@ public javax.swing.JButton getPaymentHistoryButton(){
     return PaymentHistoryButton;
 }
 public javax.swing.JButton getVehicleButton(){
-    return VehicleButton;
+    return userVehicleButton;
 }
 public void BackButton(ActionListener listener){
     LogoutButton.addActionListener(listener);

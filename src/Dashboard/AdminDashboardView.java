@@ -2,11 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package javaproject.view;
-
+package Dashboard;
 
 import java.awt.CardLayout;
-import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 
 
@@ -30,10 +28,6 @@ public class AdminDashboardView extends javax.swing.JFrame {
 
 // Show dummy at start
         contentCardLayout.show(adminContentPanel, "Dummy");
-        
-        adVehicleButton.addActionListener(e -> {
-        contentCardLayout.show(adminContentPanel, "Vehicle");
-    });
     }
 
     /**
@@ -85,6 +79,11 @@ public class AdminDashboardView extends javax.swing.JFrame {
         adBookingsButton.setText("Bookings");
         adBookingsButton.setBorder(null);
         adBookingsButton.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        adBookingsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                adBookingsButtonActionPerformed(evt);
+            }
+        });
 
         adManageUsers.setBackground(new java.awt.Color(44, 47, 54));
         adManageUsers.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -92,13 +91,23 @@ public class AdminDashboardView extends javax.swing.JFrame {
         adManageUsers.setText("Manage Users");
         adManageUsers.setBorder(null);
         adManageUsers.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        adManageUsers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                adManageUsersActionPerformed(evt);
+            }
+        });
 
         adPaymentHistory.setBackground(new java.awt.Color(44, 47, 54));
         adPaymentHistory.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         adPaymentHistory.setForeground(new java.awt.Color(241, 245, 249));
-        adPaymentHistory.setText("AdminProfile");
+        adPaymentHistory.setText("Payment History");
         adPaymentHistory.setBorder(null);
         adPaymentHistory.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        adPaymentHistory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                adPaymentHistoryActionPerformed(evt);
+            }
+        });
 
         adLogoutButton.setBackground(new java.awt.Color(44, 47, 54));
         adLogoutButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -116,15 +125,18 @@ public class AdminDashboardView extends javax.swing.JFrame {
         adminMenuBarLayout.setHorizontalGroup(
             adminMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(adminMenuBarLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
                 .addGroup(adminMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(adLogoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(adminMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(adVehicleButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(adPaymentHistory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(adBookingsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(adManageUsers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(adminMenuBarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(adLogoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(adminMenuBarLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(adminMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(adVehicleButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(adPaymentHistory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(adBookingsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(adManageUsers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
         adminMenuBarLayout.setVerticalGroup(
@@ -140,9 +152,9 @@ public class AdminDashboardView extends javax.swing.JFrame {
                 .addComponent(adManageUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(adPaymentHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 162, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 370, Short.MAX_VALUE)
                 .addComponent(adLogoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44))
+                .addGap(46, 46, 46))
         );
 
         adminContentPanel.setLayout(new java.awt.CardLayout());
@@ -154,14 +166,14 @@ public class AdminDashboardView extends javax.swing.JFrame {
             .addGroup(adminMainPanelLayout.createSequentialGroup()
                 .addComponent(adminMenuBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(adminContentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(adminContentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1117, Short.MAX_VALUE))
         );
         adminMainPanelLayout.setVerticalGroup(
             adminMainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(adminMenuBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(adminMainPanelLayout.createSequentialGroup()
-                .addComponent(adminContentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(adminMainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(adminContentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(adminMenuBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -172,14 +184,14 @@ public class AdminDashboardView extends javax.swing.JFrame {
             .addGroup(adimnBorderPanelLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(adminMainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         adimnBorderPanelLayout.setVerticalGroup(
             adimnBorderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(adimnBorderPanelLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(adminMainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -192,19 +204,31 @@ public class AdminDashboardView extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(adimnBorderPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 6, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void adVehicleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adVehicleButtonActionPerformed
+       contentCardLayout.show(adminContentPanel, "Vehicle");
+    }//GEN-LAST:event_adVehicleButtonActionPerformed
+
+    private void adBookingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adBookingsButtonActionPerformed
+    
+    }//GEN-LAST:event_adBookingsButtonActionPerformed
+
+    private void adManageUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adManageUsersActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_adManageUsersActionPerformed
+
+    private void adPaymentHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adPaymentHistoryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_adPaymentHistoryActionPerformed
+
     private void adLogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adLogoutButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_adLogoutButtonActionPerformed
-
-    private void adVehicleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adVehicleButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_adVehicleButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -251,33 +275,4 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JPanel adminMenuBar;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
-
- public javax.swing.JButton getBackToLogin(){
-    return adLogoutButton;
-     }
- public javax.swing.JButton getVehicle(){
-     return adVehicleButton;
- }
- public javax.swing.JButton getPaymentHistory(){
-     return adPaymentHistory;
- }
- public javax.swing.JButton getManagerUser(){
-     return adManageUsers;
- }
- public javax.swing.JButton getBooking(){
-     return adBookingsButton;
- }
- public void BackLogin(ActionListener listener){
-    adLogoutButton.addActionListener(listener);
-     }
- public void booking(ActionListener listener){
-     adBookingsButton.addActionListener(listener);
- }
- public void manageUsers(ActionListener listener){
-     adManageUsers.addActionListener(listener);
- }
- public void paymentHistory(ActionListener listener){
-     adPaymentHistory.addActionListener(listener);
- }
- 
 }

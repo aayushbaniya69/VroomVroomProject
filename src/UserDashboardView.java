@@ -7,6 +7,7 @@ package javaproject.view;
 import java.awt.CardLayout;
 import java.awt.event.ActionListener;
 import javaproject.view.UserVehiclePanel;
+import javax.swing.JPanel;
 
 /**
  *
@@ -17,34 +18,29 @@ public class UserDashboardView extends javax.swing.JFrame {
     /**
      * Creates new form UserDashboardView
      */
+    private CardLayout contentCardLayout;
+
+    // Add your panels and buttons (make sure they're initialized in initComponents)
+    private UserVehiclePanel userVehiclePanel;
+    private javax.swing.JPanel userContentPanel;
+    private javax.swing.JButton vehicleButton;
+
     public UserDashboardView() {
         initComponents();
-        // Initialize CardLayout for the main content panel
+
         contentCardLayout = new CardLayout();
-        userContentPanel.setLayout(contentCardLayout); // Apply CardLayout to the container
+        userContentPanel.setLayout(contentCardLayout);
 
-        // Create the UserVehiclePanel (you need to have this panel created separately)
-        userVehiclePanel = new UserVehiclePanel();  // Your custom User Vehicle Panel
-
-        // Add the UserVehiclePanel to the content panel with a unique name "Vehicle"
+        userVehiclePanel = new UserVehiclePanel();
+        userContentPanel.add(new JPanel(), "Dummy"); // Default panel
         userContentPanel.add(userVehiclePanel, "Vehicle");
 
-        // Optionally, add a dummy or default panel to show initially
-        userContentPanel.add(new JPanel(), "Dummy");
-
-        // Set the default view
         contentCardLayout.show(userContentPanel, "Dummy");
 
-        // Set up action for the Vehicle button
-        vehicleButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // Switch to the "Vehicle" panel when the button is clicked
-                contentCardLayout.show(userContentPanel, "Vehicle");
-            }
-        });
+        
+        
     }
-    }
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -61,7 +57,7 @@ public class UserDashboardView extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         vehicleButton = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        userProfileButton = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -109,15 +105,15 @@ public class UserDashboardView extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(44, 47, 54));
-        jButton4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(241, 245, 249));
-        jButton4.setText("Payment History");
-        jButton4.setBorder(null);
-        jButton4.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        userProfileButton.setBackground(new java.awt.Color(44, 47, 54));
+        userProfileButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        userProfileButton.setForeground(new java.awt.Color(241, 245, 249));
+        userProfileButton.setText("User Profile");
+        userProfileButton.setBorder(null);
+        userProfileButton.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        userProfileButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                userProfileButtonActionPerformed(evt);
             }
         });
 
@@ -146,7 +142,7 @@ public class UserDashboardView extends javax.swing.JFrame {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(userProfileButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(vehicleButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(23, Short.MAX_VALUE))
@@ -163,7 +159,7 @@ public class UserDashboardView extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(userProfileButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46))
@@ -195,16 +191,16 @@ public class UserDashboardView extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void vehicleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleButtonActionPerformed
-    
+      contentCardLayout.show(userContentPanel, "Vehicle");
     }//GEN-LAST:event_vehicleButtonActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void userProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userProfileButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_userProfileButtonActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
@@ -248,11 +244,11 @@ public class UserDashboardView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel userContentPanel;
+    private javax.swing.JButton userProfileButton;
     private javax.swing.JButton vehicleButton;
     // End of variables declaration//GEN-END:variables
 }

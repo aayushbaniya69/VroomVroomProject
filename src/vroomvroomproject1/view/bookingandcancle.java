@@ -4,6 +4,8 @@
  */
 package vroomvroomproject1.view;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author dell
@@ -11,7 +13,7 @@ package vroomvroomproject1.view;
 public class bookingandcancle extends javax.swing.JFrame {
 
     /**
-     * Creates new form bookingandcancle
+     * Creates new form
      */
     public bookingandcancle() {
         initComponents();
@@ -34,12 +36,12 @@ public class bookingandcancle extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        vehicleModelField = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jTextField6 = new javax.swing.JTextField();
+        SubmitButton = new javax.swing.JToggleButton();
+        DescriptionArea = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jSpinner2 = new javax.swing.JSpinner();
@@ -71,12 +73,12 @@ public class bookingandcancle extends javax.swing.JFrame {
         jLabel9.setText("Vehicle Model");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 110, -1));
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        vehicleModelField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                vehicleModelFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 130, -1));
+        getContentPane().add(vehicleModelField, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 130, -1));
 
         jTextField2.setText("          Day ");
         getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, 120, -1));
@@ -97,12 +99,18 @@ public class bookingandcancle extends javax.swing.JFrame {
         });
         getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 110, -1));
 
-        jToggleButton1.setBackground(new java.awt.Color(0, 102, 102));
-        jToggleButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jToggleButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton1.setText("SUBMIT");
-        getContentPane().add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, 120, -1));
-        getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 260, 70));
+        SubmitButton.setBackground(new java.awt.Color(0, 102, 102));
+        SubmitButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        SubmitButton.setForeground(new java.awt.Color(255, 255, 255));
+        SubmitButton.setText("SUBMIT");
+        getContentPane().add(SubmitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, 120, -1));
+
+        DescriptionArea.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DescriptionAreaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(DescriptionArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 260, 70));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 102, 102));
@@ -118,9 +126,9 @@ public class bookingandcancle extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void vehicleModelFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleModelFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_vehicleModelFieldActionPerformed
 
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
         // TODO add your handling code here:
@@ -129,6 +137,10 @@ public class bookingandcancle extends javax.swing.JFrame {
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField5ActionPerformed
+
+    private void DescriptionAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DescriptionAreaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DescriptionAreaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -166,6 +178,8 @@ public class bookingandcancle extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField DescriptionArea;
+    private javax.swing.JToggleButton SubmitButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -177,11 +191,22 @@ public class bookingandcancle extends javax.swing.JFrame {
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JSpinner jSpinner2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JTextField vehicleModelField;
     // End of variables declaration//GEN-END:variables
+
+public javax.swing.JTextField getDescription(){
+    return DescriptionArea;
+}
+public javax.swing.JTextField getVehicleModel(){
+    return vehicleModelField;
+}
+public javax.swing.JToggleButton getSubmitButton(){
+    return SubmitButton;
+}
+public void Submit(ActionListener listener){
+    SubmitButton.addActionListener(listener);
+}
 }

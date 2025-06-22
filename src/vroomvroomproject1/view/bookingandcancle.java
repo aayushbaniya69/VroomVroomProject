@@ -36,12 +36,21 @@ public class bookingandcancle extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+<<<<<<< HEAD
         vehicleModelField = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
         SubmitButton = new javax.swing.JToggleButton();
         DescriptionArea = new javax.swing.JTextField();
+=======
+        model = new javax.swing.JTextField();
+        day = new javax.swing.JTextField();
+        time = new javax.swing.JTextField();
+        wheeler = new javax.swing.JTextField();
+        sumbit = new javax.swing.JToggleButton();
+        jTextField6 = new javax.swing.JTextField();
+>>>>>>> cdf0759e7685da24ea6789cfd511697083599de4
         jLabel4 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jSpinner2 = new javax.swing.JSpinner();
@@ -73,32 +82,42 @@ public class bookingandcancle extends javax.swing.JFrame {
         jLabel9.setText("Vehicle Model");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 110, -1));
 
+<<<<<<< HEAD
         vehicleModelField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 vehicleModelFieldActionPerformed(evt);
             }
         });
         getContentPane().add(vehicleModelField, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 130, -1));
-
-        jTextField2.setText("          Day ");
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, 120, -1));
-
-        jTextField3.setText("         Time");
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+=======
+        model.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                modelActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, 120, -1));
+        getContentPane().add(model, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 130, -1));
+>>>>>>> cdf0759e7685da24ea6789cfd511697083599de4
 
-        jTextField5.setText("4 Wheeler");
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        day.setText("          Day ");
+        getContentPane().add(day, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, 120, -1));
+
+        time.setText("         Time");
+        time.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                timeActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 110, -1));
+        getContentPane().add(time, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, 120, -1));
 
+        wheeler.setText("4 Wheeler");
+        wheeler.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wheelerActionPerformed(evt);
+            }
+        });
+        getContentPane().add(wheeler, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 110, -1));
+
+<<<<<<< HEAD
         SubmitButton.setBackground(new java.awt.Color(0, 102, 102));
         SubmitButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         SubmitButton.setForeground(new java.awt.Color(255, 255, 255));
@@ -111,6 +130,14 @@ public class bookingandcancle extends javax.swing.JFrame {
             }
         });
         getContentPane().add(DescriptionArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 260, 70));
+=======
+        sumbit.setBackground(new java.awt.Color(0, 102, 102));
+        sumbit.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        sumbit.setForeground(new java.awt.Color(255, 255, 255));
+        sumbit.setText("SUBMIT");
+        getContentPane().add(sumbit, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, 120, -1));
+        getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 260, 70));
+>>>>>>> cdf0759e7685da24ea6789cfd511697083599de4
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 102, 102));
@@ -126,17 +153,23 @@ public class bookingandcancle extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+<<<<<<< HEAD
     private void vehicleModelFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleModelFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_vehicleModelFieldActionPerformed
-
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+=======
+    private void modelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modelActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_modelActionPerformed
+>>>>>>> cdf0759e7685da24ea6789cfd511697083599de4
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void timeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_timeActionPerformed
+
+    private void wheelerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wheelerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_wheelerActionPerformed
 
     private void DescriptionAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DescriptionAreaActionPerformed
         // TODO add your handling code here:
@@ -178,8 +211,12 @@ public class bookingandcancle extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+<<<<<<< HEAD
     private javax.swing.JTextField DescriptionArea;
     private javax.swing.JToggleButton SubmitButton;
+=======
+    private javax.swing.JTextField day;
+>>>>>>> cdf0759e7685da24ea6789cfd511697083599de4
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -191,6 +228,7 @@ public class bookingandcancle extends javax.swing.JFrame {
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JSpinner jSpinner2;
+<<<<<<< HEAD
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField5;
@@ -209,4 +247,28 @@ public javax.swing.JToggleButton getSubmitButton(){
 public void Submit(ActionListener listener){
     SubmitButton.addActionListener(listener);
 }
+=======
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField model;
+    private javax.swing.JToggleButton sumbit;
+    private javax.swing.JTextField time;
+    private javax.swing.JTextField wheeler;
+    // End of variables declaration//GEN-END:variables
+public javax.swing.JTextField wheeler(){
+        return wheeler;
+    }
+    public javax.swing.JTextField time(){
+        return time;
+    }
+    public javax.swing.JTextField day(){
+        return day;
+    }
+    public javax.swing.JTextField model(){
+        return model;
+    }
+    public void sumbit(ActionListener listener){
+         sumbit.addActionListener(listener);
+     }
+    
+>>>>>>> cdf0759e7685da24ea6789cfd511697083599de4
 }

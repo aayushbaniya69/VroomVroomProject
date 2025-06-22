@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/view/AdminDashboardView.java</file>
             <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/controller/SellerDashboardController.java</file>
             <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/view/SellerRegistration.java</file>
@@ -42,6 +43,15 @@
             <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/model/Model_Menu.java</file>
             <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/model/SellerData.java</file>
             <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/model/UserData.java</file>
+=======
+            <file>file:/C:/Users/dell/OneDrive%20-%20Softwarica%20College/Desktop/VroomVroomProject/VroomVroomProject/src/vroomvroomproject1/view/License.java</file>
+            <file>file:/C:/Users/dell/OneDrive%20-%20Softwarica%20College/Desktop/VroomVroomProject/VroomVroomProject/src/vroomvroomproject1/view/AdminReports.java</file>
+            <file>file:/C:/Users/dell/OneDrive%20-%20Softwarica%20College/Desktop/VroomVroomProject/VroomVroomProject/src/vroomvroomproject1/view/bookingandcancle.java</file>
+            <file>file:/C:/Users/dell/OneDrive%20-%20Softwarica%20College/Desktop/VroomVroomProject/VroomVroomProject/src/vroomvroomproject1/booking.java</file>
+            <file>file:/C:/Users/dell/OneDrive%20-%20Softwarica%20College/Desktop/VroomVroomProject/VroomVroomProject/src/vroomvroomproject1/VroomVroomProject1.java</file>
+            <file>file:/C:/Users/dell/OneDrive%20-%20Softwarica%20College/Desktop/VroomVroomProject/VroomVroomProject/src/vroomvroomproject1/view/total%20image%20(1).png</file>
+            <file>file:/C:/Users/dell/OneDrive%20-%20Softwarica%20College/Desktop/VroomVroomProject/VroomVroomProject/src/vroomvroomproject1/view/Adminpage.java</file>
+>>>>>>> cdf0759e7685da24ea6789cfd511697083599de4
         </group>
     </open-files>
 </project-private>

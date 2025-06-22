@@ -11,7 +11,11 @@ JAR files manifest file (MANIFEST.MF).
 To run the project from the command line, go to the dist folder and
 type the following:
 
+<<<<<<< HEAD
 java -jar "VroomVroom.jar" 
+=======
+java -jar "VroomProject1.jar" 
+>>>>>>> 77a172186c19c6cf88e3be79f942ed2e89ace96c
 
 To distribute this project, zip up the dist folder (including the lib folder)
 and distribute the ZIP file.

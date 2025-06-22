@@ -2,17 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package Dashboard;
+package javaproject.view;
 
-import javaproject.controller.Vehicle;
+import javaproject.model.Vehicle;
 import java.awt.Image;
 import java.io.File;
-import java.util.ArrayList;
+import java.util.List;
 import javaproject.controller.VehicleController;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -22,41 +23,96 @@ import javax.swing.table.DefaultTableModel;
 public class AdminVehiclePanel extends javax.swing.JPanel {
     private File selectedImageFile;
     private VehicleController controller;
-    DefaultTableModel tableModel;
-    private void loadVehicleList(ArrayList<Vehicle> vehicleList) {
+    
+    private DefaultTableModel tableModel;
+    public AdminVehiclePanel() {
+        initComponents(); 
+        controller = VehicleController.getInstance(); 
+
+        tableModel = (DefaultTableModel) jTable1.getModel();// Load the vehicles into the table
+        loadVehicleList(controller.getAllVehicles()); 
+        jTable1.setRowHeight(150); // Set row height to 80 pixels (you can adjust this as needed)
+
+        
+        jTable1.getColumnModel().getColumn(5).setCellRenderer(new DefaultTableCellRenderer() {
+    @Override
+    public void setValue(Object value) {
+        if (value instanceof ImageIcon) {
+            setIcon((ImageIcon) value);
+            setText("");  // Hide text, only show image
+        } else {
+            super.setValue(value);
+        }
+    }
+});
+
+        
+
+        // Add row selection listener to fill form with vehicle details
+        jTable1.getSelectionModel().addListSelectionListener(e -> {
+            if (!e.getValueIsAdjusting()) {
+                int selectedRow = jTable1.getSelectedRow();
+                if (selectedRow != -1) {
+                    // Get selected vehicle object from controller
+                    Vehicle selectedVehicle = controller.getAllVehicles().get(selectedRow);
+
+                    numberField.setText(selectedVehicle.getVehicleId());
+                    nameField.setText(selectedVehicle.getName());
+                    typeField.setText(selectedVehicle.getType());
+                    priceField.setText(String.valueOf(selectedVehicle.getPrice()));
+                    statusField.setText(selectedVehicle.getStatus());
+
+                    // Preview the image using the image path from Vehicle
+                    String imagePath = selectedVehicle.getImagePath();
+                    if (imagePath != null && !imagePath.isEmpty()) {
+                        File imgFile = new File(imagePath);
+                        if (imgFile.exists()) {
+                            updateImagePreview(imgFile);
+                        } else {
+                            imagePreview.setIcon(null);
+                        }
+                    } else {
+                        imagePreview.setIcon(null);
+                    }
+                }
+            }
+        });
+    }
+    
+    private void loadVehicleList(List<Vehicle> vehicleList) {
     DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-    model.setRowCount(0); // clear old rows
+    model.setRowCount(0);  // Clear existing rows
 
     for (Vehicle v : vehicleList) {
+        // Load and scale image
+        ImageIcon icon = null;
+        if (v.getImagePath() != null && !v.getImagePath().isEmpty()) {
+            File imgFile = new File(v.getImagePath());
+            if (imgFile.exists()) {
+                ImageIcon originalIcon = new ImageIcon(v.getImagePath());
+                Image scaledImage = originalIcon.getImage().getScaledInstance(145, 145, Image.SCALE_SMOOTH); // Scale to fit row height
+                icon = new ImageIcon(scaledImage);
+            }
+        }
+
         Object[] row = {
             v.getVehicleId(),
             v.getName(),
             v.getType(),
             v.getPrice(),
             v.getStatus(),
-            v.getImagePath() // this shows full path; you can hide later if needed
+            icon  // Display image icon in table
         };
         model.addRow(row);
     }
 }
 
 
-    /**
-     * Creates new form AdminVehiclePanel
-     */
-    public AdminVehiclePanel() {
-        initComponents();
-        controller = new VehicleController();
-        tableModel = (DefaultTableModel) jTable1.getModel();
-        loadVehicleList(controller.getAllVehicles()); 
-
+private void updateImagePreview(File imageFile) {
+        ImageIcon icon = new ImageIcon(imageFile.getAbsolutePath());
+        Image scaledImage = icon.getImage().getScaledInstance(imagePreview.getWidth(), imagePreview.getHeight(), Image.SCALE_SMOOTH);
+        imagePreview.setIcon(new ImageIcon(scaledImage));
     }
-
-    /**
-     * This method is called from within the constructor to initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is always
-     * regenerated by the Form Editor.
-     */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -133,6 +189,7 @@ public class AdminVehiclePanel extends javax.swing.JPanel {
         jLabel1.setText("Vehicle Id:");
 
         numberField.setBackground(new java.awt.Color(102, 102, 102));
+        numberField.setForeground(new java.awt.Color(255, 255, 255));
         numberField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 numberFieldActionPerformed(evt);
@@ -145,6 +202,7 @@ public class AdminVehiclePanel extends javax.swing.JPanel {
         jLabel2.setText("Name:");
 
         nameField.setBackground(new java.awt.Color(102, 102, 102));
+        nameField.setForeground(new java.awt.Color(255, 255, 255));
         nameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nameFieldActionPerformed(evt);
@@ -156,6 +214,7 @@ public class AdminVehiclePanel extends javax.swing.JPanel {
         jLabel4.setText("Type:");
 
         typeField.setBackground(new java.awt.Color(102, 102, 102));
+        typeField.setForeground(new java.awt.Color(255, 255, 255));
         typeField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 typeFieldActionPerformed(evt);
@@ -167,6 +226,7 @@ public class AdminVehiclePanel extends javax.swing.JPanel {
         jLabel5.setText("Price:");
 
         priceField.setBackground(new java.awt.Color(102, 102, 102));
+        priceField.setForeground(new java.awt.Color(255, 255, 255));
         priceField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 priceFieldActionPerformed(evt);
@@ -178,6 +238,7 @@ public class AdminVehiclePanel extends javax.swing.JPanel {
         jLabel6.setText("Status:");
 
         statusField.setBackground(new java.awt.Color(102, 102, 102));
+        statusField.setForeground(new java.awt.Color(255, 255, 255));
         statusField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 statusFieldActionPerformed(evt);
@@ -203,6 +264,11 @@ public class AdminVehiclePanel extends javax.swing.JPanel {
         });
 
         editButton.setText("Edit");
+        editButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editButtonActionPerformed(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -333,26 +399,44 @@ public class AdminVehiclePanel extends javax.swing.JPanel {
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         try {
-        String vehicleId = numberField.getText(); // NEW
-        String name = nameField.getText();
-        String type = typeField.getText();
-        double price = Double.parseDouble(priceField.getText());
-        String status = statusField.getText();
-        String imagePath = selectedImageFile != null ? selectedImageFile.getAbsolutePath() : null;
+         String vehicleId = numberField.getText();
+         String name = nameField.getText();
+         String type = typeField.getText();
+         double price = Double.parseDouble(priceField.getText());
+         String status = statusField.getText();
+         
+         // Validate non-empty fields
+         if (vehicleId.isEmpty() || name.isEmpty() || type.isEmpty() || status.isEmpty()) {
+             throw new IllegalArgumentException("All fields must be filled");
+         }
 
-        Vehicle vehicle = new Vehicle(vehicleId, name, type, price, status, imagePath); // PASS ID TOO
+         String imagePath = "Dashboard/images/" + selectedImageFile.getName();
 
-        controller.addVehicle(vehicle);
-        loadVehicleList(controller.getAllVehicles()); // Refresh the table
-        clearForm();
-    } catch (Exception ex) {
-        JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
-    }
+
+         Vehicle vehicle = new Vehicle(vehicleId, name, type, price, status, imagePath); 
+
+         controller.addVehicle(vehicle); // Add the vehicle
+         loadVehicleList(controller.getAllVehicles()); // Refresh the table
+         clearForm(); // Clear the form
+     } catch (Exception ex) {
+         JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
+     }
+
     
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        // TODO add your handling code here:
+        try {
+         String vehicleId = numberField.getText(); // Get the vehicle ID from the form
+         if (vehicleId.isEmpty()) {
+             throw new IllegalArgumentException("Vehicle ID cannot be empty");
+         }
+         controller.deleteVehicle(vehicleId); // Delete the vehicle
+         loadVehicleList(controller.getAllVehicles()); // Refresh the table
+         clearForm(); // Clear the form
+     } catch (Exception ex) {
+         JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
+     }
     }//GEN-LAST:event_deleteButtonActionPerformed
     private void clearForm() {
         numberField.setText("");
@@ -391,13 +475,33 @@ JFileChooser fileChooser = new JFileChooser();
     int result = fileChooser.showOpenDialog(this);
     if (result == JFileChooser.APPROVE_OPTION) {
         selectedImageFile = fileChooser.getSelectedFile();
-
-        // Preview in imagePreview JLabel (scaled to fit nicely)
-        ImageIcon icon = new ImageIcon(selectedImageFile.getAbsolutePath());
-        Image scaledImage = icon.getImage().getScaledInstance(imagePreview.getWidth(), imagePreview.getHeight(), Image.SCALE_SMOOTH);
-        imagePreview.setIcon(new ImageIcon(scaledImage));
-    }        // TODO add your handling code here:
+        // Update image preview
+        updateImagePreview(selectedImageFile); // This is where we call the new method
+    }     
     }//GEN-LAST:event_selectImageActionPerformed
+
+    private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
+        try {
+         String vehicleId = numberField.getText();
+         String name = nameField.getText();
+         String type = typeField.getText();
+         double price = Double.parseDouble(priceField.getText());
+         String status = statusField.getText();
+         String imagePath = selectedImageFile != null ? selectedImageFile.getAbsolutePath() : null;
+
+         // Validate non-empty fields
+         if (vehicleId.isEmpty() || name.isEmpty() || type.isEmpty() || status.isEmpty()) {
+             throw new IllegalArgumentException("All fields must be filled");
+         }
+
+         Vehicle updatedVehicle = new Vehicle(vehicleId, name, type, price, status, imagePath);
+         controller.updateVehicle(vehicleId, updatedVehicle); // Update the vehicle
+         loadVehicleList(controller.getAllVehicles()); // Refresh the table
+         clearForm(); // Clear the form
+     } catch (Exception ex) {
+         JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
+     }
+    }//GEN-LAST:event_editButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

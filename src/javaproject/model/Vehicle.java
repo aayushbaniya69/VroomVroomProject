@@ -42,7 +42,7 @@ public class Vehicle {
         this.type = type;
         this.price = price;
         this.status = status;
-        this.imagePath = imagePath;
+        this.imagePath = imagePath != null ? imagePath : "default-image.png"; // Handle null imagePath
     }
 
     // Getters
@@ -104,7 +104,7 @@ public class Vehicle {
     }
 
     public void setImagePath(String imagePath) {
-        this.imagePath = imagePath;
+        this.imagePath = imagePath != null ? imagePath : "default-image.png"; // Handle null imagePath
     }
 
     // Override toString for easy printing and debugging

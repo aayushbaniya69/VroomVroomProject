@@ -30,9 +30,10 @@ public class VehicleController {
      * Load initial sample data for vehicles.
      */
     private void loadInitialData() {
-        allVehicles.add(new Vehicle("V001", "Honda City", "Car", 50.0, "Available", "images/car.png"));
-        allVehicles.add(new Vehicle("V002", "Suzuki Bike", "Bike", 20.0, "Booked", "images/bike.png"));
-        allVehicles.add(new Vehicle("V003", "Tata Van", "Van", 40.0, "Available", "images/van.png"));
+//        allVehicles.add(new Vehicle("V001", "Ferrari", "Car", 50.0, "Available", "Dashboard/images/Car.png"));
+//        allVehicles.add(new Vehicle("V002", "Kawasaki Ninja H2R", "Bike", 20.0, "Booked", "Dashboard/images/bike.png"));
+//        allVehicles.add(new Vehicle("V003", "Tata Van", "Van", 40.0, "Available", "Dashboard/images/van.png"));
+
     }
 
     /**

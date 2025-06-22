@@ -4,17 +4,83 @@
  */
 package javaproject.view;
 
+import javax.swing.*;
+import java.awt.*;
+import javaproject.controller.VehicleController;
+import javaproject.model.Vehicle;
+
 /**
- *
- * @author ASUS
+ * UserVehiclePanel class displaying a list of vehicles in a scrollable view.
+ * This panel is used in the user dashboard to show available vehicles.
  */
 public class UserVehiclePanel extends javax.swing.JPanel {
+    private JPanel vehicleListPanel;  // Panel that holds individual vehicle cards
 
     /**
      * Creates new form UserVehiclePanel
      */
     public UserVehiclePanel() {
-        initComponents();
+        initComponents();  // Initialize UI components
+        setUpVehicleListPanel();
+        loadVehicles();
+    }
+
+    /**
+     * Load all vehicles from the VehicleController and display them as cards.
+     */
+    private void loadVehicles() {
+        VehicleController controller = VehicleController.getInstance();
+
+        // Loop through all vehicles in the controller
+        for (Vehicle v : controller.getAllVehicles()) {
+            // Create an ImageIcon from the vehicle's image path
+            String imagePath = "/" + v.getImagePath();  // Make sure the path is correct
+            ImageIcon icon = loadImage(imagePath);
+
+            // Create a new vehicle card with the vehicle's details
+            VehicleCardPanel card = new VehicleCardPanel(
+                v.getVehicleId(),
+                v.getName(),
+                String.valueOf(v.getPrice()),
+                v.getStatus(),
+                icon
+            );
+
+            // Add the card to the vehicle list panel
+            vehicleListPanel.add(card);
+        }
+
+        // Refresh UI
+        vehicleListPanel.revalidate();
+        vehicleListPanel.repaint();
+    }
+
+    /**
+     * Load image using the provided path. If the image path is invalid, return a default image.
+     *
+     * @param imagePath The path to the image
+     * @return ImageIcon of the image or default if path is invalid
+     */
+    private ImageIcon loadImage(String imagePath) {
+        try {
+            // Attempt to load the image
+            return new ImageIcon(getClass().getResource(imagePath));
+        } catch (Exception e) {
+            // If image is not found, return a default image
+            return new ImageIcon(getClass().getResource("/Dashboard/images/default.png"));
+        }
+    }
+
+    /**
+     * Set up the vehicle list panel with BoxLayout for vertical arrangement.
+     */
+    private void setUpVehicleListPanel() {
+        vehicleListPanel = new JPanel();
+        vehicleListPanel.setLayout(new BoxLayout(vehicleListPanel, BoxLayout.Y_AXIS));  // Set vertical BoxLayout
+        vehicleListPanel.setPreferredSize(new Dimension(400, 800));  // Optional size for the panel
+
+        // Attach this panel to the scrollPane
+        scrollPane.setViewportView(vehicleListPanel);
     }
 
     /**
@@ -26,31 +92,7 @@ public class UserVehiclePanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel3 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-
-        jPanel3.setBackground(new java.awt.Color(30, 30, 47));
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("VroomVroom");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(811, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jLabel8)
-                .addContainerGap(27, Short.MAX_VALUE))
-        );
+        scrollPane = new javax.swing.JScrollPane();
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -58,21 +100,20 @@ public class UserVehiclePanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1092, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(9, 9, 9)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(542, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 631, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane scrollPane;
     // End of variables declaration//GEN-END:variables
 }

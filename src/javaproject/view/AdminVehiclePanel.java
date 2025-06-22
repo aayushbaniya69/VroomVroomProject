@@ -48,7 +48,7 @@ public class AdminVehiclePanel extends javax.swing.JPanel {
 
         
 
-        // ✅ Add row selection listener to fill form with vehicle details
+        // Add row selection listener to fill form with vehicle details
         jTable1.getSelectionModel().addListSelectionListener(e -> {
             if (!e.getValueIsAdjusting()) {
                 int selectedRow = jTable1.getSelectedRow();
@@ -189,6 +189,7 @@ private void updateImagePreview(File imageFile) {
         jLabel1.setText("Vehicle Id:");
 
         numberField.setBackground(new java.awt.Color(102, 102, 102));
+        numberField.setForeground(new java.awt.Color(255, 255, 255));
         numberField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 numberFieldActionPerformed(evt);
@@ -201,6 +202,7 @@ private void updateImagePreview(File imageFile) {
         jLabel2.setText("Name:");
 
         nameField.setBackground(new java.awt.Color(102, 102, 102));
+        nameField.setForeground(new java.awt.Color(255, 255, 255));
         nameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nameFieldActionPerformed(evt);
@@ -212,6 +214,7 @@ private void updateImagePreview(File imageFile) {
         jLabel4.setText("Type:");
 
         typeField.setBackground(new java.awt.Color(102, 102, 102));
+        typeField.setForeground(new java.awt.Color(255, 255, 255));
         typeField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 typeFieldActionPerformed(evt);
@@ -223,6 +226,7 @@ private void updateImagePreview(File imageFile) {
         jLabel5.setText("Price:");
 
         priceField.setBackground(new java.awt.Color(102, 102, 102));
+        priceField.setForeground(new java.awt.Color(255, 255, 255));
         priceField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 priceFieldActionPerformed(evt);
@@ -234,6 +238,7 @@ private void updateImagePreview(File imageFile) {
         jLabel6.setText("Status:");
 
         statusField.setBackground(new java.awt.Color(102, 102, 102));
+        statusField.setForeground(new java.awt.Color(255, 255, 255));
         statusField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 statusFieldActionPerformed(evt);
@@ -405,7 +410,8 @@ private void updateImagePreview(File imageFile) {
              throw new IllegalArgumentException("All fields must be filled");
          }
 
-         String imagePath = selectedImageFile != null ? selectedImageFile.getAbsolutePath() : null;
+         String imagePath = "Dashboard/images/" + selectedImageFile.getName();
+
 
          Vehicle vehicle = new Vehicle(vehicleId, name, type, price, status, imagePath); 
 

@@ -24,21 +24,28 @@ public class DashboardView extends javax.swing.JFrame {
      */
     public DashboardView() {
         initComponents();
-        contentCardLayout = new CardLayout();
-        userContentPanel.setLayout(contentCardLayout);
-
-// Create and add your panels
-        userVehiclePanel = new UserVehiclePanel(); // this should be your admin vehicle management panel
-        userContentPanel.add(new JPanel(), "Dummy");  // Optional default panel
-        userContentPanel.add(userVehiclePanel, "Vehicle");
-
-// Show dummy at start
-        contentCardLayout.show(userContentPanel, "Dummy");
         
-        userVehicleButton.addActionListener(e -> {
-        contentCardLayout.show(userContentPanel, "Vehicle");
-    });
+    // Apply CardLayout to the main content panel
+    contentCardLayout = new CardLayout();
+    userContentPanel.setLayout(contentCardLayout);
+
+    // Initialize Panels
+    userVehiclePanel = new UserVehiclePanel(); 
+
+    // Add panels to the CardLayout with unique keys
+    userContentPanel.add(new JPanel(), "Dummy");  // optional default
+    userContentPanel.add(userVehiclePanel, "Vehicle");
+
+    // Show default panel first
+    contentCardLayout.show(userContentPanel, "Dummy");
+
+    // Handle Vehicle Button click -> show vehicle panel
+    userVehicleButton.addActionListener(e -> showPanel("Vehicle"));
     }
+    private void showPanel(String name) {
+    contentCardLayout.show(userContentPanel, name);
+}
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -192,10 +199,8 @@ public class DashboardView extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new DashboardView().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new DashboardView().setVisible(true);
         });
     }
 

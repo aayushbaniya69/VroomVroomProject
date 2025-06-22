@@ -71,11 +71,11 @@
                           </Group>
                           <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="jTextField5" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jTextField4" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jTextField3" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jTextField2" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jTextField1" alignment="0" max="32767" attributes="0"/>
+                              <Component id="email" alignment="0" max="32767" attributes="0"/>
+                              <Component id="pannumber" alignment="0" max="32767" attributes="0"/>
+                              <Component id="contactnumber" alignment="0" max="32767" attributes="0"/>
+                              <Component id="address" alignment="0" max="32767" attributes="0"/>
+                              <Component id="fullname" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
@@ -98,30 +98,36 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="fullname" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField2" min="-2" max="-2" attributes="0"/>
+                      <Component id="address" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="contactnumber" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="pannumber" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField5" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="email" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -158,7 +164,7 @@
             <Property name="text" type="java.lang.String" value="Full Name"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1">
+        <Component class="javax.swing.JTextField" name="fullname">
           <Properties>
             <Property name="text" type="java.lang.String" value="Enter your full name"/>
           </Properties>
@@ -174,7 +180,7 @@
             <Property name="text" type="java.lang.String" value="Address"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField2">
+        <Component class="javax.swing.JTextField" name="address">
           <Properties>
             <Property name="text" type="java.lang.String" value="Enter your Address"/>
           </Properties>
@@ -190,7 +196,7 @@
             <Property name="text" type="java.lang.String" value="Contact Number"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField3">
+        <Component class="javax.swing.JTextField" name="contactnumber">
           <Properties>
             <Property name="text" type="java.lang.String" value="Enter your number"/>
           </Properties>
@@ -206,7 +212,7 @@
             <Property name="text" type="java.lang.String" value="Pan Number"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField4">
+        <Component class="javax.swing.JTextField" name="pannumber">
           <Properties>
             <Property name="text" type="java.lang.String" value="Enter your pan number"/>
           </Properties>
@@ -222,7 +228,7 @@
             <Property name="text" type="java.lang.String" value="Email"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField5">
+        <Component class="javax.swing.JTextField" name="email">
           <Properties>
             <Property name="text" type="java.lang.String" value="Enter your Email"/>
           </Properties>
@@ -230,7 +236,7 @@
         <Component class="javax.swing.JTextField" name="ChangePassword">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
+              <Color blue="33" green="33" red="ff" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="1"/>
@@ -244,7 +250,7 @@
         <Component class="javax.swing.JTextField" name="DeleteAccount">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
+              <Color blue="ff" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="1"/>

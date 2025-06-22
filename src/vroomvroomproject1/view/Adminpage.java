@@ -4,6 +4,8 @@
  */
 package vroomvroomproject1.view;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author dell
@@ -30,15 +32,15 @@ public class Adminpage extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        fullname = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        address = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        contactnumber = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        pannumber = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        email = new javax.swing.JTextField();
         ChangePassword = new javax.swing.JTextField();
         DeleteAccount = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
@@ -56,38 +58,38 @@ public class Adminpage extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Full Name");
 
-        jTextField1.setText("Enter your full name");
+        fullname.setText("Enter your full name");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Address");
 
-        jTextField2.setText("Enter your Address");
+        address.setText("Enter your Address");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Contact Number");
 
-        jTextField3.setText("Enter your number");
+        contactnumber.setText("Enter your number");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Pan Number");
 
-        jTextField4.setText("Enter your pan number");
+        pannumber.setText("Enter your pan number");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Email");
 
-        jTextField5.setText("Enter your Email");
+        email.setText("Enter your Email");
 
-        ChangePassword.setBackground(new java.awt.Color(0, 0, 0));
+        ChangePassword.setBackground(new java.awt.Color(255, 51, 51));
         ChangePassword.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         ChangePassword.setForeground(new java.awt.Color(255, 255, 255));
         ChangePassword.setText("Change your Password");
 
-        DeleteAccount.setBackground(new java.awt.Color(0, 0, 0));
+        DeleteAccount.setBackground(new java.awt.Color(0, 0, 255));
         DeleteAccount.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         DeleteAccount.setForeground(new java.awt.Color(255, 255, 255));
         DeleteAccount.setText("Delete your Account");
@@ -124,11 +126,11 @@ public class Adminpage extends javax.swing.JFrame {
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(55, 55, 55)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(email, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pannumber, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(contactnumber, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(address, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(fullname, javax.swing.GroupLayout.Alignment.LEADING))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -144,26 +146,30 @@ public class Adminpage extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(56, 56, 56)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addComponent(jLabel2)
+                        .addGap(30, 30, 30))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(fullname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(address, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(contactnumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pannumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(63, 63, 63)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ChangePassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -229,7 +235,11 @@ public class Adminpage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ChangePassword;
     private javax.swing.JTextField DeleteAccount;
+    private javax.swing.JTextField address;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JTextField contactnumber;
+    private javax.swing.JTextField email;
+    private javax.swing.JTextField fullname;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -237,12 +247,8 @@ public class Adminpage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField pannumber;
     // End of variables declaration//GEN-END:variables
 public javax.swing.JTextField getChangePassword(){
         return ChangePassword;
@@ -250,4 +256,25 @@ public javax.swing.JTextField getChangePassword(){
     public javax.swing.JTextField DeleteAccount(){
         return DeleteAccount;
     }
+    public void ChangePassword(ActionListener listener){
+         ChangePassword.addActionListener(listener);
+     }
+    public void DeleteAccount(ActionListener listener){
+        DeleteAccount.addActionListener(listener);
+     }
+    public void address(ActionListener listener){
+         address.addActionListener(listener);
+     }
+    public void contactnumber(ActionListener listener){
+         contactnumber.addActionListener(listener);
+     }
+    public void email(ActionListener listener){
+         email.addActionListener(listener);
+     }
+    public void fullname(ActionListener listener){
+         fullname.addActionListener(listener);
+     }
+    public void pannumber(ActionListener listener){
+         pannumber.addActionListener(listener);
+     }
 }

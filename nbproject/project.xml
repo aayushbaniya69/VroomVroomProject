@@ -3,11 +3,7 @@
     <type>org.netbeans.modules.java.j2seproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/j2se-project/3">
-<<<<<<< HEAD
             <name>VroomVroomProject</name>
-=======
-            <name>VroomProject1</name>
->>>>>>> 77a172186c19c6cf88e3be79f942ed2e89ace96c
             <source-roots>
                 <root id="src.dir"/>
             </source-roots>

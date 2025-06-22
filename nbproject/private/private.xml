@@ -25,6 +25,20 @@
             <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/view/RegistrationView.java</file>
             <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/view/VroomVroom.java</file>
             <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/controller/BookingController.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/vroomproject1/view/Reset.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/vroomproject1/view/RatingView.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/vroomproject1/view/PaymentView.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/vroomproject1/view/Filter.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/vroomproject1/Controller/ResetPasswordController.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/vroomproject1/Database/DbConnection.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/vroomproject1/Database/MySqlConnection.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/controller/mail/SMTPSMailSender.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/vroomproject1/Model/ResetData.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/vroomvroomproject1/VroomVroomProject1.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/vroomvroomproject1/booking.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/controller/LoginController.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/controller/SellerLoginController.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/dao/UserDao.java</file>
         </group>
     </open-files>
 </project-private>

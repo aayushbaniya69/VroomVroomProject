@@ -5,9 +5,11 @@ import java.awt.event.ActionListener;
 import java.util.Random;
 import javax.swing.JOptionPane;
 import javaproject.controller.LoginController;
-import javaproject.dao.UserDao;
+import vroomproject1.dao.UserDao;
 import javaproject.view.LoginForm;
-import vroomproject1.Controller.Mail.SMTPSMailSender;
+
+
+import vroomproject1.Controller.mail.SMTPSMailSender;
 import vroomproject1.view.ResetView;
 
 public class ResetPasswordController {
@@ -53,7 +55,7 @@ public class ResetPasswordController {
         public void actionPerformed(ActionEvent e) {
             String email = view.getEmailTextField().getText().trim();
             String question = (String) view.getSecurityQuestionComboBox().getSelectedItem();
-            String answer = (String) view.getSecurityAnswerTextField().getSelectedItem();
+            String answer =  view.getSecurityAnswerTextField().getText().trim();
 
 
             if (email.isEmpty() || answer.isEmpty()) {
@@ -99,7 +101,7 @@ public class ResetPasswordController {
         @Override
         public void actionPerformed(ActionEvent e) {
             String email = view.getEmailTextField().getText().trim();
-            String answer = ((String) view.getSecurityAnswerTextField().getSelectedItem()).trim();
+            String answer =  view.getSecurityAnswerTextField().getText().trim();
             String newPass = new String(view.getNewPasswordField().getPassword()).trim();
             String confirmPass = new String(view.getConfirmPasswordField().getPassword()).trim();
 

@@ -120,7 +120,7 @@ public class UserDao {
     public boolean validateSecurityAnswer(String email, String security_question, String security_answer) {
     Connection conn = mySql.openConnection();  // ✅ Use your MySqlConnection instance
     try {
-        String query = "SELECT * FROM RESET WHERE " +
+        String query = "SELECT * FROM REGISTRATION WHERE " +
                        "LOWER(TRIM(email)) = ? AND " +
                        "LOWER(TRIM(security_question)) = ? AND " +
                        "LOWER(TRIM(security_answer)) = ?";
@@ -130,7 +130,7 @@ public class UserDao {
         stmt.setString(3, security_answer.trim().toLowerCase());
 
         ResultSet rs = stmt.executeQuery();
-        return rs.next();
+        return rs.next();  //true if match found
     } catch (Exception e) {
         e.printStackTrace();
         return false;

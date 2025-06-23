@@ -38,7 +38,6 @@ public class ResetView extends javax.swing.JFrame {
         SecurityQuestionLabel = new javax.swing.JLabel();
         SecurityQuestionComboBox = new javax.swing.JComboBox<>();
         SerucityAnswer = new javax.swing.JLabel();
-        SecurityAnswerTextField = new javax.swing.JComboBox<>();
         OTPlabel = new javax.swing.JLabel();
         OTPTextField = new javax.swing.JTextField();
         EnterOtpLabel = new javax.swing.JLabel();
@@ -54,6 +53,7 @@ public class ResetView extends javax.swing.JFrame {
         CPshow = new javax.swing.JButton();
         EnterButton = new javax.swing.JButton();
         OtpsendButton = new javax.swing.JButton();
+        SecurityAnswerTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 0, 153));
@@ -64,8 +64,6 @@ public class ResetView extends javax.swing.JFrame {
         CreateNewPasswordLabel.setText("Create New Password");
 
         DifferentLabel.setText("Your password must be different from previous");
-
-        EmailTextField.setText("jTextField1");
 
         EmailLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         EmailLabel.setText("Email");
@@ -80,12 +78,8 @@ public class ResetView extends javax.swing.JFrame {
         SerucityAnswer.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         SerucityAnswer.setText("Security Answers");
 
-        SecurityAnswerTextField.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         OTPlabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         OTPlabel.setText("OTP");
-
-        OTPTextField.setText("jTextField2");
 
         EnterOtpLabel.setText("Enter you OTP.");
 
@@ -136,13 +130,13 @@ public class ResetView extends javax.swing.JFrame {
                             .addComponent(EmailLabel)
                             .addComponent(EmailTextField)
                             .addComponent(SecurityQuestionComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(SecurityAnswerTextField, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(OTPTextField)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(NewPasswordLabel)
                                 .addComponent(EnterOtpLabel))
                             .addComponent(NewPasswordField, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
-                            .addComponent(ConfirmPasswordField))
+                            .addComponent(ConfirmPasswordField)
+                            .addComponent(SecurityAnswerTextField))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(NPshow)
@@ -186,8 +180,8 @@ public class ResetView extends javax.swing.JFrame {
                 .addComponent(SerucityAnswer)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SecurityAnswerTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(OtpsendButton))
+                    .addComponent(OtpsendButton)
+                    .addComponent(SecurityAnswerTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(OTPlabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -292,7 +286,7 @@ public class ResetView extends javax.swing.JFrame {
     private javax.swing.JButton OtpsendButton;
     private javax.swing.JButton ResetPasswordButton;
     private javax.swing.JLabel SameLabel;
-    private javax.swing.JComboBox<String> SecurityAnswerTextField;
+    private javax.swing.JTextField SecurityAnswerTextField;
     private javax.swing.JComboBox<String> SecurityQuestionComboBox;
     private javax.swing.JLabel SecurityQuestionLabel;
     private javax.swing.JLabel SerucityAnswer;
@@ -311,7 +305,9 @@ public class ResetView extends javax.swing.JFrame {
     public javax.swing.JTextField getOTPTextField(){
         return OTPTextField;
     }
-    
+    public javax.swing.JTextField getSecurityAnswerTextField(){
+        return SecurityAnswerTextField;
+    }
     public javax.swing.JComboBox<String> getSecurityQuestionComboBox(){
         return SecurityQuestionComboBox;
     }

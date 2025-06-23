@@ -51,10 +51,10 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="125" max="-2" attributes="0"/>
+                  <EmptySpace min="125" pref="125" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="SameLabel" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" attributes="0">
+                      <Component id="SameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="ConfirmPasswordLabel" min="-2" max="-2" attributes="0"/>
                               <Component id="CharacterLabel" min="-2" max="-2" attributes="0"/>
@@ -65,7 +65,6 @@
                               <Component id="EmailLabel" min="-2" max="-2" attributes="0"/>
                               <Component id="EmailTextField" alignment="0" max="32767" attributes="0"/>
                               <Component id="SecurityQuestionComboBox" alignment="0" max="32767" attributes="0"/>
-                              <Component id="SecurityAnswerTextField" alignment="0" max="32767" attributes="0"/>
                               <Component id="OTPTextField" alignment="0" max="32767" attributes="0"/>
                               <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                   <Component id="NewPasswordLabel" min="-2" max="-2" attributes="0"/>
@@ -73,6 +72,7 @@
                               </Group>
                               <Component id="NewPasswordField" alignment="0" pref="301" max="32767" attributes="0"/>
                               <Component id="ConfirmPasswordField" alignment="0" max="32767" attributes="0"/>
+                              <Component id="SecurityAnswerTextField" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -128,8 +128,8 @@
                   <Component id="SerucityAnswer" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="SecurityAnswerTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="OtpsendButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="SecurityAnswerTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="OTPlabel" min="-2" max="-2" attributes="0"/>
@@ -208,10 +208,10 @@
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
+                <StringItem index="0" value="What is your nickname?"/>
+                <StringItem index="1" value="What is your favourite color?"/>
+                <StringItem index="2" value="What is your favourite food?"/>
+                <StringItem index="3" value="What is your favourite pet?"/>
               </StringArray>
             </Property>
           </Properties>
@@ -226,21 +226,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Security Answers"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="SecurityAnswerTextField">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
-              </StringArray>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="OTPlabel">
           <Properties>
@@ -295,6 +280,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="ResetPasswordButton">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="cc" red="cc" type="rgb"/>
+            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="1"/>
             </Property>
@@ -303,6 +291,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="BackToLoginButton">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="cc" red="ff" type="rgb"/>
+            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="1"/>
             </Property>
@@ -328,6 +319,8 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Send"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="SecurityAnswerTextField">
         </Component>
       </SubComponents>
     </Container>

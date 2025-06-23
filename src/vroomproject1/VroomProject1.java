@@ -4,16 +4,20 @@
  */
 package vroomproject1;
 
-import javax.swing.JFrame;
-import vroomproject1.Controller.FilterController;
-import vroomproject1.Controller.ResetPasswordController;
-//import vroomproject1.Controller.StripePaymentController;
-//import vroomproject1.Controller.PaymentController;
-//import vroomproject1.Model.StripePaymentModel;
-import vroomproject1.view.Filter;
+//import javax.swing.JFrame;
+////import vroomproject1.Controller.FilterController;
+//import vroomproject1.Controller.ResetPasswordController;
+////import vroomproject1.Controller.StripePaymentController;
+////import vroomproject1.Controller.PaymentController;
+////import vroomproject1.Model.StripePaymentModel;
+//import vroomproject1.view.Filter;
+////import vroomproject1.view.PaymentView;
 //import vroomproject1.view.PaymentView;
-import vroomproject1.view.PaymentView;
-import vroomproject1.view.Reset;
+
+import javaproject.controller.RegistrationController;
+import javaproject.view.RegistrationView;
+import vroomproject1.Controller.ResetPasswordController;
+import vroomproject1.view.ResetView;
 
 /**
  *
@@ -42,11 +46,16 @@ public class VroomProject1 {
 
             // Connect controller
 //            FilterController controller = new FilterController(view);
-   Reset resetView = new Reset();
-                ResetPasswordController controller= new ResetPasswordController(resetView);
-                resetView.setVisible(true);
-        });
+//   ResetView resetView = new ResetView();
+//                ResetPasswordController controller= new ResetPasswordController(resetView);
+//                resetView.setVisible(true);
+//        });
         
+        RegistrationView registrationView = new RegistrationView();
+                RegistrationController controller= new RegistrationController(registrationView);
+                registrationView.setVisible(true);
+        });
+//        
 //        java.awt.EventQueue.invokeLater(new Runnable() {
 //            @Override
 //            public void run() {
@@ -54,15 +63,15 @@ public class VroomProject1 {
 //            }
 //        });
         
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                Reset resetView = new Reset();
-                ResetPasswordController controller= new ResetPasswordController(resetView);
-                resetView.setVisible(true);
-            }
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            @Override
+//            public void run() {
+//                Reset resetView = new Reset();
+//                ResetPasswordController controller= new ResetPasswordController(resetView);
+//                resetView.setVisible(true);
+//            }
             
-        });
+//        });
         
     
     

@@ -5,6 +5,7 @@
 package javaproject.view;
 
 import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
 import javax.swing.JPasswordField;
 
 /**
@@ -398,7 +399,7 @@ if (RePasswordField.getEchoChar() != (char) 0) {
      public javax.swing.JButton getBackToLogin(){
          return BackToLogin;
      }
-     public void backLogin(ActionListener listener){
-         BackToLogin.addActionListener(listener);
+     public void backLogin(MouseListener listener){
+         BackToLogin.addMouseListener(listener);
      }
 }

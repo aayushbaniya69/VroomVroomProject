@@ -98,13 +98,13 @@ public class UserDao {
             mySql.closeConnection(conn);
         }
     }
-    public boolean resetPassword(ResetPasswordRequest reset){
+    public boolean resetPassword(String email,String newPassword){
         String query="Update Registration set password=? where email=?";
         Connection conn=mySql.openConnection();
         try{
             PreparedStatement stmnt=conn.prepareStatement(query); //PrepareStatement more secure 
-            stmnt.setString(1,reset.getPassword());// To set the email value in above query
-            stmnt.setString(2,reset.getEmail()); //To set the password value in above query
+            stmnt.setString(1,email);// To set the email value in above query
+            stmnt.setString(2,newPassword); //To set the password value in above query
             int result=stmnt.executeUpdate(); //Return updated rows
             return result>0; //Return rows then true otherwise false
         }

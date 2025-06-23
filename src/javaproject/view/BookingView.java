@@ -5,6 +5,7 @@
 package javaproject.view;
 
 import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
 
 /**
  *
@@ -244,13 +245,13 @@ public class BookingView extends javax.swing.JFrame {
     public javax.swing.JTextField getTotalAmountField(){
         return TotalAmountField;
     }
-    public void BookButton(ActionListener listener){
-       bookButton.addActionListener(listener); 
+    public void BookButton(MouseListener listener){
+       bookButton.addMouseListener(listener); 
     }
-    public void BackToDashboard(ActionListener listener){
-        BackToDashboardButton.addActionListener(listener);
+    public void BackToDashboard(MouseListener listener){
+        BackToDashboardButton.addMouseListener(listener);
     }
-    public void Logout(ActionListener listener){
-        LogoutButton.addActionListener(listener);
+    public void Logout(MouseListener listener){
+        LogoutButton.addMouseListener(listener);
     }
 }

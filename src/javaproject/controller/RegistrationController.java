@@ -3,6 +3,8 @@ package javaproject.controller;
 import javaproject.view.LoginForm;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javaproject.dao.UserDao;
 import javaproject.model.UserData;
 import javaproject.view.RegistrationView;
@@ -101,15 +103,34 @@ public class RegistrationController {
             }
     }
 } 
-    class BackLogin implements ActionListener{
-
+    class BackLogin implements MouseListener{
         @Override
-        public void actionPerformed(ActionEvent e) {
+        public void mouseClicked(MouseEvent e) {
            System.out.println("Navigating");
            LoginForm login=new LoginForm();
            LoginController loginController=new LoginController(login);
            loginController.open();
            close();
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+            
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+            
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            
         }
         
     }

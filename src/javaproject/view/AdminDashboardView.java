@@ -7,6 +7,7 @@ package javaproject.view;
 
 import java.awt.CardLayout;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
 import javax.swing.JPanel;
 
 
@@ -52,7 +53,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
         adVehicleButton = new javax.swing.JButton();
         adBookingsButton = new javax.swing.JButton();
         adManageUsers = new javax.swing.JButton();
-        adPaymentHistory = new javax.swing.JButton();
+        adminProfileButton = new javax.swing.JButton();
         adLogoutButton = new javax.swing.JButton();
         adminContentPanel = new javax.swing.JPanel();
 
@@ -93,12 +94,12 @@ public class AdminDashboardView extends javax.swing.JFrame {
         adManageUsers.setBorder(null);
         adManageUsers.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
 
-        adPaymentHistory.setBackground(new java.awt.Color(44, 47, 54));
-        adPaymentHistory.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        adPaymentHistory.setForeground(new java.awt.Color(241, 245, 249));
-        adPaymentHistory.setText("AdminProfile");
-        adPaymentHistory.setBorder(null);
-        adPaymentHistory.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        adminProfileButton.setBackground(new java.awt.Color(44, 47, 54));
+        adminProfileButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        adminProfileButton.setForeground(new java.awt.Color(241, 245, 249));
+        adminProfileButton.setText("AdminProfile");
+        adminProfileButton.setBorder(null);
+        adminProfileButton.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
 
         adLogoutButton.setBackground(new java.awt.Color(44, 47, 54));
         adLogoutButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -117,15 +118,16 @@ public class AdminDashboardView extends javax.swing.JFrame {
             adminMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(adminMenuBarLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addGroup(adminMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(adLogoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(adminMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(adVehicleButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(adPaymentHistory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(adBookingsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(adManageUsers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(adminMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(adVehicleButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(adminProfileButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(adBookingsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(adManageUsers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(23, Short.MAX_VALUE))
+            .addGroup(adminMenuBarLayout.createSequentialGroup()
+                .addComponent(adLogoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         adminMenuBarLayout.setVerticalGroup(
             adminMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,10 +141,10 @@ public class AdminDashboardView extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(adManageUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(adPaymentHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 162, Short.MAX_VALUE)
+                .addComponent(adminProfileButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56)
                 .addComponent(adLogoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         adminContentPanel.setLayout(new java.awt.CardLayout());
@@ -161,8 +163,8 @@ public class AdminDashboardView extends javax.swing.JFrame {
             adminMainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(adminMenuBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(adminMainPanelLayout.createSequentialGroup()
-                .addComponent(adminContentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(adminContentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 527, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout adimnBorderPanelLayout = new javax.swing.GroupLayout(adimnBorderPanel);
@@ -243,12 +245,12 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JButton adBookingsButton;
     private javax.swing.JButton adLogoutButton;
     private javax.swing.JButton adManageUsers;
-    private javax.swing.JButton adPaymentHistory;
     private javax.swing.JButton adVehicleButton;
     private javax.swing.JPanel adimnBorderPanel;
     private javax.swing.JPanel adminContentPanel;
     private javax.swing.JPanel adminMainPanel;
     private javax.swing.JPanel adminMenuBar;
+    private javax.swing.JButton adminProfileButton;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 
@@ -258,8 +260,8 @@ public class AdminDashboardView extends javax.swing.JFrame {
  public javax.swing.JButton getVehicle(){
      return adVehicleButton;
  }
- public javax.swing.JButton getPaymentHistory(){
-     return adPaymentHistory;
+ public javax.swing.JButton getAdminProfile(){
+     return adminProfileButton;
  }
  public javax.swing.JButton getManagerUser(){
      return adManageUsers;
@@ -267,17 +269,17 @@ public class AdminDashboardView extends javax.swing.JFrame {
  public javax.swing.JButton getBooking(){
      return adBookingsButton;
  }
- public void BackLogin(ActionListener listener){
-    adLogoutButton.addActionListener(listener);
+ public void BackLogin(MouseListener listener){
+    adLogoutButton.addMouseListener(listener);
      }
- public void booking(ActionListener listener){
-     adBookingsButton.addActionListener(listener);
+ public void booking(MouseListener listener){
+     adBookingsButton.addMouseListener(listener);
  }
- public void manageUsers(ActionListener listener){
-     adManageUsers.addActionListener(listener);
+ public void manageUsers(MouseListener listener){
+     adManageUsers.addMouseListener(listener);
  }
- public void paymentHistory(ActionListener listener){
-     adPaymentHistory.addActionListener(listener);
+ public void adminProfile(MouseListener listener){
+     adminProfileButton.addMouseListener(listener);
  }
  
 }

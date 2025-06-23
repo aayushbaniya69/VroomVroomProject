@@ -1,16 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package javaproject.model;
 
-/**
- *
- * @author ACER
- */
 public class UserData {
-       // private attribute
-    //public methods
     private String registrationId;
     private String firstName;
     private String lastName;
@@ -20,81 +10,109 @@ public class UserData {
     private String rePassword;
     private String contactNumber;
     private String securityAnswer;
-    //Constructor
-    public UserData(String firstName, String lastName, String address, String email,String contactNumber, String password, String rePassword, String securityAnswer){
-        this.firstName=firstName;
-        this.lastName=lastName;
-        this.address=address;
-        this.email=email;
-        this.password=password;
-        this.rePassword=rePassword;
-        this.contactNumber=contactNumber;
-        this.securityAnswer= securityAnswer;
+
+    // Full constructor
+    public UserData(String firstName, String lastName, String address, String email, String contactNumber, String password, String rePassword, String securityAnswer) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.email = email;
+        this.password = password;
+        this.rePassword = rePassword;
+        this.contactNumber = contactNumber;
+        this.securityAnswer = securityAnswer;
     }
-    public UserData(String registrationId,String firstName,String lastName,String password){
-    this.registrationId=registrationId;
-    this.firstName=firstName;
-    this.lastName=lastName;
-    this.password=password;
-}
-     public String getId() {
+
+    // Constructor for profile data
+    public UserData(String firstName, String lastName, String email, String address, String contactNumber) {
+        this(firstName, lastName, address, email, contactNumber, null, null, null);
+    }
+
+    // Constructor for registrationId, firstName, lastName, password
+    public UserData(String registrationId, String firstName, String lastName, String password) {
+        this.registrationId = registrationId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.password = password;
+    }
+
+    // Fixed constructor for firstName, lastName, password
+    public UserData(String firstName, String lastName, String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.password = password;
+    }
+
+    // Getters and Setters
+    public String getRegistrationId() {
         return registrationId;
     }
-    //setters
-    public void setRegistrationId(String registrationId){
-        this.registrationId=registrationId;
+
+    public void setRegistrationId(String registrationId) {
+        this.registrationId = registrationId;
     }
-    public void setFirstName(String firstName){
-        this.firstName=firstName;
+
+    public String getFirstName() {
+        return firstName;
     }
-    public void setLastName(String lastName){
-        this.lastName=lastName;
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
-    public void setAddress(String address){
-        this.address=address;
+
+    public String getLastName() {
+        return lastName;
     }
-    public void setEmail(String email){
-        this.email=email;
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
-    public void setPassword(String password){
-        this.password=password;
+
+    public String getAddress() {
+        return address;
     }
-    public void setRePassword(String rePassword){
-        this.rePassword=rePassword;
+
+    public void setAddress(String address) {
+        this.address = address;
     }
-    public void setContactNumber(String contactNumber){
-        this.contactNumber=contactNumber;
+
+    public String getEmail() {
+        return email;
     }
-    public void setSecurityAnswer(String securityAnswer){
-        this.securityAnswer=securityAnswer;
+
+    public void setEmail(String email) {
+        this.email = email;
     }
-   
-    //getters
-    public String getRegistrationId(){
-        return this.registrationId;
+
+    public String getPassword() {
+        return password;
     }
-    public String getFirstName(){
-        return this.firstName;
+
+    public void setPassword(String password) {
+        this.password = password;
     }
-     public String getLastName(){
-        return this.lastName;
+
+    public String getRePassword() {
+        return rePassword;
     }
-    public String getAddress(){
-        return this.address;
+
+    public void setRePassword(String rePassword) {
+        this.rePassword = rePassword;
     }
-    public String getEmail(){
-        return this.email;
+
+    public String getContactNumber() {
+        return contactNumber;
     }
-    public String getPassword(){
-        return this.password;
+
+    public void setContactNumber(String contactNumber) {
+        this.contactNumber = contactNumber;
     }
-    public String getRePassword(){
-        return this.rePassword;
+
+    public String getSecurityAnswer() {
+        return securityAnswer;
     }
-    public String getContactNumber(){
-        return this.contactNumber;
-    }
-    public String getSecurityAnswer(){
-        return this.securityAnswer;
+
+    public void setSecurityAnswer(String securityAnswer) {
+        this.securityAnswer = securityAnswer;
     }
 }

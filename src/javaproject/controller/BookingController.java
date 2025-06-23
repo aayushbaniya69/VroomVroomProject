@@ -12,6 +12,8 @@ import javaproject.dao.BookingDao;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javaproject.view.DashboardView;
 import javaproject.view.LoginForm;
 
@@ -19,6 +21,7 @@ public class BookingController {
     private BookingView view;
     private BookingDao dao;
     private int loggedInUserId;
+    private String email;
 
     public BookingController(BookingView view) {
         this.view = view;
@@ -29,11 +32,18 @@ public class BookingController {
         BackToDashboard dashboard=new BackToDashboard();
         this.view.BackToDashboard(dashboard);    
     }
+
+    BookingController(BookingView booking, String email) {
+        this.view=view;
+        this.email=email;
+    }
     // Inner class to handle book button click
-    class BookButton implements ActionListener {
+    class BookButton implements MouseListener {
+
+
         @Override
-        public void actionPerformed(ActionEvent e) {
-            try {
+        public void mouseClicked(MouseEvent e) {
+ try {
                 String vehicleInfo = view.getVehicleInfo().getText();
                 String startDate = view.getStartDateField().getText();
                 String endDate = view.getEndDateField().getText();
@@ -66,7 +76,22 @@ public class BookingController {
             } catch (Exception ex) {
                 ex.printStackTrace();
                 JOptionPane.showMessageDialog(null, "Something went wrong!");
-            }
+            }        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
         }
     }
 
@@ -75,26 +100,58 @@ public class BookingController {
         return numVehicles * pricePerVehicle;
     }
 
-class Logout implements ActionListener{
+class Logout implements MouseListener{
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
         LoginForm login=new LoginForm();
         LoginController loginController=new LoginController(login);
         loginController.open();
         close();
-    }
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+        }
     
 }
-class BackToDashboard implements ActionListener{
+class BackToDashboard implements MouseListener{
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
+        @Override
+        public void mouseClicked(MouseEvent e) {
         DashboardView dashboard=new DashboardView();
         DashboardController dashboardController=new DashboardController(dashboard);
         dashboardController.open();
-        close();
-    }
+        close();        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+        }
     
 }
 public void open(){

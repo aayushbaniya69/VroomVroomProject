@@ -4,30 +4,62 @@
  */
 package javaproject.view;
 
-import javax.swing.ImageIcon;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
- *
- * @author ASUS
+ * VehicleCardPanel is a reusable card component displaying a vehicle's details.
+ * Used in UserVehiclePanel to display each vehicle as a card.
  */
 public class VehicleCardPanel extends javax.swing.JPanel {
 
-    /**
-     * Creates new form VehicleCardPanel
-     */
-    public VehicleCardPanel() {
-        initComponents();
-        
-    }
-    public VehicleCardPanel(String vehicleId, String name, String price, String status, ImageIcon image) {
-        initComponents();  // Load UI layout
+    private String vehicleId;
+    private String vehicleName;
+    private String vehiclePrice;
+    private String vehicleStatus;
+    private ImageIcon vehicleImage;
 
-        idLabel.setText("Vehicle ID: " + vehicleId);
-        nameLabel.setText("Model: " + name);
-        priceLabel.setText("Price: Rs. " + price + "/day");
-        statusLabel.setText("Status: " + status);
-        vehicleImageLabel.setIcon(image);
+    public VehicleCardPanel(String vehicleId, String name, String price, String status, ImageIcon image) {
+        this.vehicleId = vehicleId;
+        this.vehicleName = name;
+        this.vehiclePrice = price;
+        this.vehicleStatus = status;
+        this.vehicleImage = image;
+
+        initComponents();
+        setupCard();
     }
+
+    private void setupCard() {
+        idLabel.setText("Vehicle ID: " + vehicleId);
+        nameLabel.setText("Model: " + vehicleName);
+        priceLabel.setText("Price: Rs. " + vehiclePrice + "/day");
+        statusLabel.setText("Status: " + vehicleStatus);
+        vehicleImageLabel.setIcon(vehicleImage);
+
+        // Booking Button Action → open BookingView
+        jButton1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                openBookingView();
+            }
+        });
+    }
+
+    private void openBookingView() {
+        // Create and show BookingView
+        BookingView bookingView = new BookingView();
+
+        // Set vehicle info in booking form
+        bookingView.getVehicleInfo().setText(vehicleName);
+        bookingView.getTotalAmountField().setText("Rs " + vehiclePrice);
+
+        bookingView.setVisible(true);
+    }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

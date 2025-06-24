@@ -54,7 +54,23 @@ public class MySqlConnection implements DbConnection {
             return 0;
         }
     }
+     public static Connection getConnection() throws SQLException {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new SQLException("MySQL JDBC Driver Not Found.", e);
+        }
+        return DriverManager.getConnection(URL, USER, PASSWORD);
+    }
 
-    // Remove the deprecated getConnection method
-    // public Connection getConnection() throws ClassNotFoundException, SQLException { ... }
+    public static void main(String[] args) {
+        try {
+            Connection conn = MySqlConnection.getConnection();
+            System.out.println("Connection Successfull!!");
+            conn.close();
+        } catch (SQLException e) {
+            System.out.println("Connection Unsuccessfull!!");
+        }
+    }
+
 }

@@ -167,6 +167,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="fullNameField">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
@@ -180,6 +183,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="addressField">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
@@ -193,6 +199,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="contactNumberField">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
@@ -206,6 +215,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="panNumberField">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
@@ -219,6 +231,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="emailField">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="updateProfileButton">
           <Properties>

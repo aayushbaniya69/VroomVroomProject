@@ -88,31 +88,16 @@ public class user extends javax.swing.JFrame {
         updateProfileButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         updateProfileButton.setForeground(new java.awt.Color(255, 255, 255));
         updateProfileButton.setText("Update Profile");
-        updateProfileButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateProfileButtonActionPerformed(evt);
-            }
-        });
 
         changePasswordButton.setBackground(new java.awt.Color(0, 0, 204));
         changePasswordButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         changePasswordButton.setForeground(new java.awt.Color(255, 255, 255));
         changePasswordButton.setText("Change Password");
-        changePasswordButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                changePasswordButtonActionPerformed(evt);
-            }
-        });
 
         deleteAccountButton.setBackground(new java.awt.Color(0, 0, 0));
         deleteAccountButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         deleteAccountButton.setForeground(new java.awt.Color(255, 255, 255));
         deleteAccountButton.setText("Delete Account");
-        deleteAccountButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteAccountButtonActionPerformed(evt);
-            }
-        });
 
         backToDashboardButton.setBackground(new java.awt.Color(153, 0, 153));
         backToDashboardButton.setForeground(new java.awt.Color(255, 255, 255));
@@ -209,18 +194,6 @@ public class user extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void changePasswordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changePasswordButtonActionPerformed
-       JOptionPane.showMessageDialog(this, "Button Clicked!");
-    }//GEN-LAST:event_changePasswordButtonActionPerformed
-
-    private void updateProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateProfileButtonActionPerformed
-         JOptionPane.showMessageDialog(this, "Button Clicked!");
-    }//GEN-LAST:event_updateProfileButtonActionPerformed
-
-    private void deleteAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteAccountButtonActionPerformed
-      JOptionPane.showMessageDialog(this, "Button Clicked!");
-    }//GEN-LAST:event_deleteAccountButtonActionPerformed
 
     /**
      * @param args the command line arguments

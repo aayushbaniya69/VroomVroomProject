@@ -28,15 +28,15 @@ public class UserData {
         this(firstName, lastName, address, email, contactNumber, null, null, null);
     }
 
-    // Constructor for registrationId, firstName, lastName, password
-    public UserData(String registrationId, String firstName, String lastName, String password) {
+    // FIX: Modified constructor for login - now includes email
+    public UserData(String registrationId, String firstName, String email, String password) {
         this.registrationId = registrationId;
         this.firstName = firstName;
-        this.lastName = lastName;
+        this.email = email;  // FIX: Make sure email is set
         this.password = password;
     }
 
-    // Fixed constructor for firstName, lastName, password
+    // Constructor for firstName, lastName, password
     public UserData(String firstName, String lastName, String password) {
         this.firstName = firstName;
         this.lastName = lastName;

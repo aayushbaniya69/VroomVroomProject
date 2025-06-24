@@ -60,21 +60,31 @@ public class Adminpage extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Full Name");
 
+        fullNameField.setEnabled(false);
+
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Address");
+
+        addressField.setEnabled(false);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Contact Number");
 
+        contactNumberField.setEnabled(false);
+
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Pan Number");
 
+        panNumberField.setEnabled(false);
+
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Email");
+
+        emailField.setEnabled(false);
 
         updateProfileButton.setBackground(new java.awt.Color(153, 0, 153));
         updateProfileButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -277,11 +287,12 @@ public void changePassword(ActionListener listener){
 public void backToDashboard(ActionListener listener){
     backToDashboardButton.addActionListener(listener);
 }
-//public void setFieldsEnabled(boolean enabled){
-//    nameupdatebox.setEnabled(enabled);
-//    addressupdatebox.setEnabled(enabled);
-//    contactupdatebox.setEnabled(enabled);
-//}
+public void setFieldsEnabled(boolean enabled){
+    fullNameField.setEnabled(enabled);
+    addressField.setEnabled(enabled);
+    contactNumberField.setEnabled(enabled);
+    panNumberField.setEnabled(enabled);
+}
 public void setChangeProfileButtonText(String text) {
         updateProfileButton.setText(text);
     }

@@ -2,6 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package javaproject.dao;
 
 import java.sql.Connection;
@@ -45,36 +49,40 @@ public class UserDao {
             mySql.closeConnection(conn);
         }
     }
-     public UserData login(LoginRequest loginReq){
-        String query="Select * from Registration where email=? and password=?";
-        Connection conn=mySql.openConnection();
-        try{
-            PreparedStatement stmnt=conn.prepareStatement(query);
-            System.out.println("QUEEERY");
-            stmnt.setString(1,loginReq.getEmail()); // To get email and set email to insert
-            stmnt.setString(2,loginReq.getPassword());
-            ResultSet result=stmnt.executeQuery();
-            if(result.next()){
-                System.out.println("Data found");
-                String email=result.getString("email"); // To get the email
-                String firstName=result.getString("firstName");
-                String password=result.getString("password");
-                String registrationId=result.getString("registrationId");
-                UserData user=new UserData(registrationId,firstName,email,password); 
-                return user;
-            }
-            else{
-                return null;
-            }
+  public UserData login(LoginRequest loginReq){
+    String query = "Select * from Registration where email=? and password=?";
+    Connection conn = mySql.openConnection();
+    try{
+        PreparedStatement stmnt = conn.prepareStatement(query);
+        System.out.println("Executing login query for email: " + loginReq.getEmail());
+        stmnt.setString(1, loginReq.getEmail());
+        stmnt.setString(2, loginReq.getPassword());
+        ResultSet result = stmnt.executeQuery();
+        if(result.next()){
+            System.out.println("Login successful - User data found");
+            String email = result.getString("email");
+            String firstName = result.getString("firstName");
+            String password = result.getString("password");
+            String registrationId = result.getString("registrationId");
+            
+            // FIX: Use the corrected constructor that includes email
+            UserData user = new UserData(registrationId, firstName, email, password); 
+            System.out.println("UserData created with email: " + user.getEmail());
+            return user;
         }
-        catch(SQLException e){
-            e.printStackTrace();
+        else{
+            System.out.println("Login failed - No matching user found");
             return null;
         }
-        finally{
-            mySql.closeConnection(conn);
-        }
     }
+    catch(SQLException e){
+        e.printStackTrace();
+        return null;
+    }
+    finally{
+        mySql.closeConnection(conn);
+    }
+}
     public boolean checkEmail(String email){
         String query="Select * from Registration where email=?";
         Connection conn=mySql.openConnection();

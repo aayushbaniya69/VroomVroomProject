@@ -11,38 +11,41 @@ import javaproject.view.BookingView;
 import javaproject.view.DashboardView;
 import javaproject.view.LoginForm;
 import javaproject.view.user;
+import javax.swing.JOptionPane;
 
-/**
- *
- * @author ACER
- */
 public class DashboardController {
 
     DashboardView view;
     UserData user;
     private String email;
-    public DashboardController(DashboardView view,UserData user){
-        this.view=view;
-        this.user=user;
-        //this.firstName=firstname;
-        //this.view.getWelcomeLable().setText("Welcome ");
-        BackLogin BackButton=new BackLogin();
+    
+    // Main constructor - FIXED to extract email from UserData
+    public DashboardController(DashboardView view, UserData user){
+        this.view = view;
+        this.user = user;
+        this.email = user != null ? user.getEmail() : null; // FIX: Extract email from user
+        
+        BackLogin BackButton = new BackLogin();
         this.view.BackButton(BackButton);
-        Booking booking=new Booking();
+        Booking booking = new Booking();
         this.view.bookings(booking);
-        UserProfile userProfile=new UserProfile();
+        UserProfile userProfile = new UserProfile();
         this.view.userProfiles(userProfile);
     }
+    
     public DashboardController(DashboardView view){
-        this.view=view;
+        this.view = view;
     }
-    public DashboardController(DashboardView view,String email){
-        this.view=view;
-        this.email=email;
+    
+    public DashboardController(DashboardView view, String email){
+        this.view = view;
+        this.email = email;
     }
+    
     public void open(){
        view.setVisible(true); 
     }
+    
     public void close(){
         view.dispose();
     }
@@ -58,23 +61,19 @@ public class DashboardController {
         }
 
         @Override
-        public void mousePressed(MouseEvent e) {
-        }
+        public void mousePressed(MouseEvent e) {}
 
         @Override
-        public void mouseReleased(MouseEvent e) {
-        }
+        public void mouseReleased(MouseEvent e) {}
 
         @Override
-        public void mouseEntered(MouseEvent e) {
-        }
+        public void mouseEntered(MouseEvent e) {}
 
         @Override
-        public void mouseExited(MouseEvent e) {
-        }
+        public void mouseExited(MouseEvent e) {}
     }
+    
     class Booking implements MouseListener {
-
         @Override
         public void mouseClicked(MouseEvent e) {
             System.out.println("Booking button");
@@ -85,53 +84,53 @@ public class DashboardController {
         }
 
         @Override
-        public void mousePressed(MouseEvent e) {
-        }
+        public void mousePressed(MouseEvent e) {}
 
         @Override
-        public void mouseReleased(MouseEvent e) {
-        }
+        public void mouseReleased(MouseEvent e) {}
 
         @Override
-        public void mouseEntered(MouseEvent e) {
-        }
+        public void mouseEntered(MouseEvent e) {}
 
         @Override
-        public void mouseExited(MouseEvent e) {
-        }
+        public void mouseExited(MouseEvent e) {}
     }
     
     class UserProfile implements MouseListener {
-
         @Override
         public void mouseClicked(MouseEvent e) {
-            System.out.println("UserProfile button");
+            System.out.println("UserProfile button clicked");
+            
+            // FIX: Better email validation and extraction
+            String userEmail = email;
+            if (userEmail == null || userEmail.trim().isEmpty()) {
+                if (user != null && user.getEmail() != null) {
+                    userEmail = user.getEmail();
+                } else {
+                    JOptionPane.showMessageDialog(view, 
+                        "User email not found. Please login again.", 
+                        "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+            }
+            
+            System.out.println("Opening user profile for email: " + userEmail);
             user userProfile = new user();
-            UserProfileController userProfileController = new UserProfileController(userProfile,email);
+            UserProfileController userProfileController = new UserProfileController(userProfile, userEmail);
             userProfileController.open();
-            System.out.println("Controller");
             close();
         }
 
         @Override
-        public void mousePressed(MouseEvent e) {
-            
-        }
+        public void mousePressed(MouseEvent e) {}
 
         @Override
-        public void mouseReleased(MouseEvent e) {
-            
-        }
+        public void mouseReleased(MouseEvent e) {}
 
         @Override
-        public void mouseEntered(MouseEvent e) {
-            
-        }
+        public void mouseEntered(MouseEvent e) {}
 
         @Override
-        public void mouseExited(MouseEvent e) {
-            
-        }
+        public void mouseExited(MouseEvent e) {}
     }
-}             
-
+}

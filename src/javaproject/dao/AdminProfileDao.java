@@ -8,25 +8,21 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javaproject.database.MySqlConnection;
 import javaproject.model.SellerData;
-import javaproject.model.UserData;
 
 /**
  *
  * @author ACER
  */
 public class AdminProfileDao {
-    MySqlConnection mySql = new MySqlConnection();
     public SellerData getUserByEmail(String email){
     SellerData seller = null;
     String query = "SELECT * FROM SellerRegistration WHERE email = ?";
     
     
 
-    try (Connection conn = mySql.getConnection();
+    try (Connection conn = MySqlConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
 
         stmt.setString(1, email);
@@ -35,9 +31,9 @@ public class AdminProfileDao {
             if (rs.next()) {
                 seller = new SellerData(
                     rs.getString("fullName"),
-                    rs.getString("email"),
                     rs.getString("location"),
-                    rs.getString("contactNumber")
+                    rs.getString("contactNumber"),
+                    rs.getString("email")
                 );
             }
         }
@@ -45,16 +41,14 @@ public class AdminProfileDao {
     } catch (SQLException e) {
         System.err.println("Error fetching user by email from database.");
         e.printStackTrace();
-    }   catch (ClassNotFoundException ex) {
-            Logger.getLogger(AdminProfileDao.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    }
 
     return seller;
 }
      
     public boolean updateUser(SellerData seller) throws ClassNotFoundException {
     String query = "UPDATE SellerRegistration SET fullName = ?, address = ?, contactNumber = ? WHERE email = ?";
-    try (Connection conn = mySql.getConnection();
+    try (Connection conn = MySqlConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
         stmt.setString(1, seller.getFullName());
         stmt.setString(2, seller.getLocation());
@@ -69,7 +63,7 @@ public class AdminProfileDao {
 }
      public boolean changePassword(SellerData seller) throws ClassNotFoundException{
         String query ="UPDATE SellerRegistration SET password=? WHERE email=?";
-        try(Connection conn = mySql.getConnection();
+        try(Connection conn = MySqlConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)){
             stmt.setString(1, seller.getPassword());
             stmt.setString(2,seller.getEmail());
@@ -87,7 +81,7 @@ public class AdminProfileDao {
     }
     Connection conn = null;
     try {
-        conn = mySql.getConnection();
+        conn = MySqlConnection.getConnection();
         conn.setAutoCommit(false); // Start transaction
 
         // Delete the user

@@ -237,9 +237,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Update Profile"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateProfileButtonActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="changePasswordButton">
           <Properties>
@@ -254,9 +251,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Change Password"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="changePasswordButtonActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="deleteAccountButton">
           <Properties>
@@ -271,9 +265,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Delete Account"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deleteAccountButtonActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="backToDashboardButton">
           <Properties>

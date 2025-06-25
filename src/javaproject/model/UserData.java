@@ -23,16 +23,23 @@ public class UserData {
         this.securityAnswer = securityAnswer;
     }
 
-    // Constructor for profile data
+    // FIX: Corrected constructor for profile data - proper parameter order
     public UserData(String firstName, String lastName, String email, String address, String contactNumber) {
-        this(firstName, lastName, address, email, contactNumber, null, null, null);
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;           // FIX: Set email directly
+        this.address = address;       // FIX: Set address directly
+        this.contactNumber = contactNumber;
+        this.password = null;
+        this.rePassword = null;
+        this.securityAnswer = null;
     }
 
-    // FIX: Modified constructor for login - now includes email
+    // Constructor for login - includes email
     public UserData(String registrationId, String firstName, String email, String password) {
         this.registrationId = registrationId;
         this.firstName = firstName;
-        this.email = email;  // FIX: Make sure email is set
+        this.email = email;
         this.password = password;
     }
 
@@ -114,5 +121,16 @@ public class UserData {
 
     public void setSecurityAnswer(String securityAnswer) {
         this.securityAnswer = securityAnswer;
+    }
+
+    // FIX: Add debug method to verify field values
+    public void printDebugInfo() {
+        System.out.println("=== UserData Debug Info ===");
+        System.out.println("Email: '" + email + "'");
+        System.out.println("FirstName: '" + firstName + "'");
+        System.out.println("LastName: '" + lastName + "'");
+        System.out.println("Address: '" + address + "'");
+        System.out.println("ContactNumber: '" + contactNumber + "'");
+        System.out.println("=== End Debug Info ===");
     }
 }

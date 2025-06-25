@@ -260,6 +260,9 @@ public javax.swing.JTextField getUpdateAddress(){
 public javax.swing.JTextField getUpdateEmail(){
     return emailField;
 }
+public javax.swing.JTextField getUpdatePanNumber(){
+    return panNumberField;
+}
 public javax.swing.JTextField getUpdatePhoneNumber(){
     return contactNumberField;
 }

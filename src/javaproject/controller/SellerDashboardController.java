@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package javaproject.controller;
 
 import java.awt.event.MouseEvent;
@@ -11,33 +7,43 @@ import javaproject.view.AdminDashboardView;
 import javaproject.view.BookingView;
 import javaproject.view.SellerLoginForm;
 import javaproject.view.Adminpage;
+import javax.swing.JOptionPane;
 
-/**
- *
- * @author ACER
- */
 public class SellerDashboardController {
     AdminDashboardView view;
     SellerData seller;
     private String email;
 
-    // Constructor with SellerData
+    // FIX: Constructor with SellerData - extract email properly
     public SellerDashboardController(AdminDashboardView view, SellerData seller) {
         this.view = view;
         this.seller = seller;
-        this.email = seller != null ? seller.getEmail() : null; // Initialize email from SellerData
+        this.email = seller != null ? seller.getEmail() : null; // FIX: Extract email from SellerData
+        
+        System.out.println("SellerDashboardController created with SellerData");
+        System.out.println("Email extracted: '" + this.email + "'");
+        
+        initializeListeners();
+    }
+
+    // FIX: Constructor with email
+    public SellerDashboardController(AdminDashboardView view, String email) {
+        this.view = view;
+        this.email = email;
+        
+        System.out.println("SellerDashboardController created with email: '" + this.email + "'");
+        
+        initializeListeners();
+    }
+
+    // FIX: Centralized listener initialization
+    private void initializeListeners() {
         BackLogin backLogin = new BackLogin();
         this.view.BackLogin(backLogin);
         AdminProfile adminProfile = new AdminProfile();
         this.view.adminProfile(adminProfile);
         Booking bookings = new Booking();
         this.view.booking(bookings);
-    }
-
-    // Constructor with email
-    public SellerDashboardController(AdminDashboardView view, String email) {
-        this.view = view;
-        this.email = email; // Initialize email
     }
 
     public void open() {
@@ -48,10 +54,22 @@ public class SellerDashboardController {
         view.dispose();
     }
 
+    // FIX: Add method to test email parameter
+    public void testEmailParameter() {
+        System.out.println("=== SELLER DASHBOARD EMAIL TEST ===");
+        System.out.println("Email field: '" + email + "'");
+        System.out.println("Seller object: " + seller);
+        if (seller != null) {
+            System.out.println("Seller email: '" + seller.getEmail() + "'");
+            System.out.println("Seller fullName: '" + seller.getFullName() + "'");
+        }
+        System.out.println("=== END TEST ===");
+    }
+
     class BackLogin implements MouseListener {
         @Override
         public void mouseClicked(MouseEvent e) {
-            System.out.println("Back button");
+            System.out.println("Back to login button clicked");
             SellerLoginForm login = new SellerLoginForm();
             SellerLoginController loginController = new SellerLoginController(login);
             loginController.open();
@@ -74,10 +92,10 @@ public class SellerDashboardController {
     class Booking implements MouseListener {
         @Override
         public void mouseClicked(MouseEvent e) {
-            System.out.println("Booking Page");
-            BookingView login = new BookingView();
-            BookingController loginController = new BookingController(login);
-            loginController.open();
+            System.out.println("Booking button clicked");
+            BookingView bookingView = new BookingView();
+            BookingController bookingController = new BookingController(bookingView);
+            bookingController.open();
             close();
         }
 
@@ -97,13 +115,24 @@ public class SellerDashboardController {
     class AdminProfile implements MouseListener {
         @Override
         public void mouseClicked(MouseEvent e) {
-            if (email == null) {
-                System.err.println("Error: Email is null in AdminProfile listener");
-                return;
+            System.out.println("Admin Profile button clicked");
+            
+            // FIX: Better email validation and extraction
+            String adminEmail = email;
+            if (adminEmail == null || adminEmail.trim().isEmpty()) {
+                if (seller != null && seller.getEmail() != null) {
+                    adminEmail = seller.getEmail();
+                } else {
+                    JOptionPane.showMessageDialog(view, 
+                        "Admin email not found. Please login again.", 
+                        "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
             }
-            System.out.println("Opening Admin Profile");
+            
+            System.out.println("Opening admin profile for email: '" + adminEmail + "'");
             Adminpage adminPage = new Adminpage();
-            AdminProfileController adminProfileController = new AdminProfileController(adminPage, email);
+            AdminProfileController adminProfileController = new AdminProfileController(adminPage, adminEmail);
             adminProfileController.open();
             close();
         }

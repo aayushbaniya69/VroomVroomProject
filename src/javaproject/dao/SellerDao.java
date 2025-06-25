@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package javaproject.dao;
 
 import java.sql.Connection;
@@ -10,102 +6,119 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javaproject.database.MySqlConnection;
 import javaproject.model.LoginRequest;
-import javaproject.model.ResetPasswordRequest;
 import javaproject.model.SellerData;
 
-/**
- *
- * @author ACER
- */
 public class SellerDao {
-    MySqlConnection mySql=new MySqlConnection();
-    public boolean sellerRegister(SellerData seller){
-        String query="insert into SellerRegistration(fullName,location,Email,contactNumber,password,rePassword,panNumber)values(?,?,?,?,?,?,?)";
-        Connection conn=mySql.openConnection();
-        try{
-            PreparedStatement stmnt=conn.prepareStatement(query);
-            System.out.println("ps");
-            stmnt.setString(1, seller.getFullName());
-            stmnt.setString(2,seller.getLocation());
-            stmnt.setString(3, seller.getEmail());
-            stmnt.setString(4,seller.getContactNumber());
-            stmnt.setString(5,seller.getPassword());
-            stmnt.setString(6,seller.getRePassword());
-            stmnt.setString(7, seller.getPanNumber());
-            int result=stmnt.executeUpdate();
-            return result>0;
-        }
-        catch(SQLException e){
-            e.printStackTrace();
-            return false;
-        }
-        finally{
-            mySql.closeConnection(conn);
-        }
-    }
-     public SellerData loginSeller(LoginRequest loginReq){
-        String query="Select * from SellerRegistration where email=? and password=?";
-        Connection conn=mySql.openConnection();
-        try{
-            PreparedStatement stmnt=conn.prepareStatement(query);
-            stmnt.setString(1,loginReq.getEmail()); // To get email and set email to insert
-            stmnt.setString(2,loginReq.getPassword());
-            ResultSet result=stmnt.executeQuery();
-            if(result.next()){
-                String email=result.getString("email"); // To get the email
-                String name=result.getString("fullName");
-                String password=result.getString("password");
-                String id=result.getString("sellerId");
-                SellerData seller=new SellerData(id,name,email,password); //
-                return seller;
-            }
-            else{
+    
+    public SellerData loginSeller(LoginRequest loginRequest) {
+        System.out.println("=== SELLER LOGIN DAO ===");
+        System.out.println("Email: '" + loginRequest.getEmail() + "'");
+        System.out.println("Password length: " + loginRequest.getPassword().length());
+        
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        
+        try {
+            connection = MySqlConnection.getConnection();
+            if (connection == null) {
+                System.err.println("Database connection is null!");
                 return null;
             }
-        }
-        catch(SQLException e){
+            
+            // Use your actual table name and column names
+            String sql = "SELECT * FROM SellerRegistration WHERE email = ? AND password = ?";
+            statement = connection.prepareStatement(sql);
+            statement.setString(1, loginRequest.getEmail().trim());
+            statement.setString(2, loginRequest.getPassword().trim());
+            
+            System.out.println("Executing SQL: " + sql);
+            
+            resultSet = statement.executeQuery();
+            
+            if (resultSet.next()) {
+                SellerData seller = new SellerData(
+                    resultSet.getString("fullName"),        // Match your column name
+                    resultSet.getString("email"),
+                    resultSet.getString("location"),
+                    resultSet.getString("contactNumber"),   // Match your column name
+                    resultSet.getString("password"),
+                    resultSet.getString("rePassword"),      // Match your column name
+                    resultSet.getString("panNumber")        // Match your column name
+                );
+                
+                System.out.println("Seller login successful!");
+                return seller;
+            } else {
+                System.out.println("No seller found with provided credentials");
+                return null;
+            }
+            
+        } catch (SQLException e) {
+            System.err.println("SQL Exception in loginSeller:");
+            System.err.println("Message: " + e.getMessage());
+            e.printStackTrace();
             return null;
-        }
-        finally{
-            mySql.closeConnection(conn);
+        } catch (Exception e) {
+            System.err.println("Exception in loginSeller: " + e.getMessage());
+            e.printStackTrace();
+            return null;
+        } finally {
+            try {
+                if (resultSet != null) resultSet.close();
+                if (statement != null) statement.close();
+                if (connection != null) connection.close();
+            } catch (SQLException e) {
+                System.err.println("Error closing resources: " + e.getMessage());
+            }
         }
     }
-    public boolean checkEmail(String email){
-        String query="Select * from SellerRegistration where email=?";
-        Connection conn=mySql.openConnection();
-        try{
-            PreparedStatement stmnt=conn.prepareStatement(query);
-            stmnt.setString(1,email);
-            ResultSet result=stmnt.executeQuery(); // Return selected rows
-            if(result.next()){ // Check whether rows return or not
-                return true;
-            }
-            else{
+    
+    public boolean registerSeller(SellerData seller) {
+        System.out.println("=== REGISTER SELLER DAO ===");
+        System.out.println("Registering seller: " + seller.getEmail());
+        
+        Connection connection = null;
+        PreparedStatement statement = null;
+        
+        try {
+            connection = MySqlConnection.getConnection();
+            if (connection == null) {
+                System.err.println("Database connection is null!");
                 return false;
             }
-        }
-        catch(SQLException e){
+            
+            // Use your actual table and column names
+            String sql = "INSERT INTO SellerRegistration (fullName, email, location, contactNumber, password, rePassword, panNumber) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            statement = connection.prepareStatement(sql);
+            
+            statement.setString(1, seller.getFullName());
+            statement.setString(2, seller.getEmail());
+            statement.setString(3, seller.getLocation());
+            statement.setString(4, seller.getContactNumber());
+            statement.setString(5, seller.getPassword());
+            statement.setString(6, seller.getRePassword());
+            statement.setString(7, seller.getPanNumber());
+            
+            System.out.println("Executing registration SQL");
+            
+            int result = statement.executeUpdate();
+            boolean success = result > 0;
+            
+            System.out.println("Registration successful: " + success);
+            return success;
+            
+        } catch (SQLException e) {
+            System.err.println("SQL Exception in registerSeller: " + e.getMessage());
+            e.printStackTrace();
             return false;
-        }
-        finally{
-            mySql.closeConnection(conn);
-        }
-    }
-    public boolean resetPassword(ResetPasswordRequest reset){
-        String query="Update SellerRegistration set password=? where email=?";
-        Connection conn=mySql.openConnection();
-        try{
-            PreparedStatement stmnt=conn.prepareStatement(query); //PrepareStatement more secure 
-            stmnt.setString(1,reset.getPassword());// To set the email value in above query
-            stmnt.setString(2,reset.getEmail()); //To set the password value in above query
-            int result=stmnt.executeUpdate(); //Return updated rows
-            return result>0; //Return rows then true otherwise false
-        }
-        catch(SQLException e){
-            return false;
-        }
-        finally{
-            mySql.closeConnection(conn);
+        } finally {
+            try {
+                if (statement != null) statement.close();
+                if (connection != null) connection.close();
+            } catch (SQLException e) {
+                System.err.println("Error closing resources: " + e.getMessage());
+            }
         }
     }
 }

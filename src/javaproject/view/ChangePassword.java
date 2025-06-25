@@ -70,17 +70,37 @@ public class ChangePassword extends javax.swing.JFrame {
 
         backToDashboardButton.setBackground(new java.awt.Color(204, 204, 0));
         backToDashboardButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        backToDashboardButton.setText("Back To Dashboard");
+        backToDashboardButton.setText("Back To Profile");
+        backToDashboardButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backToDashboardButtonActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Email:");
 
         ShowCurrentPassword.setText("Show");
+        ShowCurrentPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ShowCurrentPasswordActionPerformed(evt);
+            }
+        });
 
         ShowNewPassword.setText("Show");
+        ShowNewPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ShowNewPasswordActionPerformed(evt);
+            }
+        });
 
         ShowConfirmPassword.setText("Show");
+        ShowConfirmPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ShowConfirmPasswordActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -170,6 +190,40 @@ public class ChangePassword extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void ShowCurrentPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowCurrentPasswordActionPerformed
+if (currentPasswordField.getEchoChar() != (char) 0) {
+    currentPasswordField.setEchoChar((char) 0); // Unmask password
+    ShowCurrentPassword.setText("Hide");
+} else {
+    currentPasswordField.setEchoChar('\u2022'); // Mask password again
+    ShowCurrentPassword.setText("Show");
+}         // TODO add your handling code here:
+    }//GEN-LAST:event_ShowCurrentPasswordActionPerformed
+
+    private void ShowNewPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowNewPasswordActionPerformed
+    if (newPasswordField.getEchoChar() != (char) 0) {
+    newPasswordField.setEchoChar((char) 0); // Unmask password
+    ShowNewPassword.setText("Hide");
+} else {
+    newPasswordField.setEchoChar('\u2022'); // Mask password again
+    ShowNewPassword.setText("Show");
+} // TODO add your handling code here:
+    }//GEN-LAST:event_ShowNewPasswordActionPerformed
+
+    private void ShowConfirmPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowConfirmPasswordActionPerformed
+    if (confirmPasswordField.getEchoChar() != (char) 0) {
+    confirmPasswordField.setEchoChar((char) 0); // Unmask password
+    ShowConfirmPassword.setText("Hide");
+} else {
+    confirmPasswordField.setEchoChar('\u2022'); // Mask password again
+    ShowConfirmPassword.setText("Show");
+}     // TODO add your handling code here:
+    }//GEN-LAST:event_ShowConfirmPasswordActionPerformed
+
+    private void backToDashboardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backToDashboardButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_backToDashboardButtonActionPerformed
 
     /**
      * @param args the command line arguments

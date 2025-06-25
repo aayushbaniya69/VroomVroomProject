@@ -1,6 +1,5 @@
 package javaproject.controller;
 
-import javaproject.view.LoginForm;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javaproject.dao.SellerDao;
@@ -81,7 +80,7 @@ public class SellerRegistrationController {
             try {
                 System.out.println("hello");
                 SellerDao sellerDao=new SellerDao();
-                boolean success = sellerDao.sellerRegister(sellerData);
+                boolean success = sellerDao.registerSeller(sellerData);
 
                 if (success) {
                     JOptionPane.showMessageDialog(view, "Registration Successful", "Success", JOptionPane.INFORMATION_MESSAGE);

@@ -13,11 +13,11 @@ import javax.swing.JOptionPane;
 public class UserProfileController {
     private user view;
     private String email;
+    private UserData currentUser; // FIX: Store the original user data
 
     public UserProfileController(user view, String email) {
         this.view = view;
         
-        // FIX: Better email validation
         if (email == null || email.trim().isEmpty()) {
             System.err.println("ERROR: Invalid email provided to UserProfileController");
             JOptionPane.showMessageDialog(view, "Invalid email provided!", "Error", JOptionPane.ERROR_MESSAGE);
@@ -25,13 +25,11 @@ public class UserProfileController {
             return;
         }
         
-        this.email = email.trim(); // Remove any whitespace
-        System.out.println("UserProfileController initialized with email: " + this.email);
+        this.email = email.trim();
+        System.out.println("UserProfileController initialized with email: '" + this.email + "'");
         
-        // Initialize the profile data
         init();
 
-        // Set up event listeners
         OpenDashboard backToDashboard = new OpenDashboard();
         this.view.backToDashboard(backToDashboard);
         
@@ -53,27 +51,39 @@ public class UserProfileController {
         view.dispose();
     }
     
-    // FIX: Enhanced init method with better error handling
     public void init() {
-        System.out.println("Initializing user profile for email: " + email);
+        System.out.println("=== INIT DEBUG ===");
+        System.out.println("Initializing user profile for email: '" + email + "'");
         
         UserProfileDao dao = new UserProfileDao();
         UserData user = dao.getUserByEmail(email);
         
         if (user != null) {
+            this.currentUser = user; // FIX: Store the user data
             System.out.println("User found successfully!");
-            System.out.println("FirstName: " + user.getFirstName());
-            System.out.println("LastName: " + user.getLastName());
-            System.out.println("Email: " + user.getEmail());
-            System.out.println("Address: " + user.getAddress());
-            System.out.println("ContactNumber: " + user.getContactNumber());
             
-            // FIX: Better null handling for form fields
+            // FIX: Debug what we got from database
+            System.out.println("Retrieved from database:");
+            System.out.println("  FirstName: '" + user.getFirstName() + "'");
+            System.out.println("  LastName: '" + user.getLastName() + "'");
+            System.out.println("  Email: '" + user.getEmail() + "'");
+            System.out.println("  Address: '" + user.getAddress() + "'");
+            System.out.println("  ContactNumber: '" + user.getContactNumber() + "'");
+            
+            // Set form fields
             view.getUpdateFirstName().setText(user.getFirstName() != null ? user.getFirstName() : "");
             view.getUpdateLastName().setText(user.getLastName() != null ? user.getLastName() : "");
             view.getUpdateEmail().setText(user.getEmail() != null ? user.getEmail() : "");
             view.getUpdateAddress().setText(user.getAddress() != null ? user.getAddress() : "");
             view.getUpdatePhoneNumber().setText(user.getContactNumber() != null ? user.getContactNumber() : "");
+            
+            // FIX: Debug what we set in form fields
+            System.out.println("Set in form fields:");
+            System.out.println("  FirstName field: '" + view.getUpdateFirstName().getText() + "'");
+            System.out.println("  LastName field: '" + view.getUpdateLastName().getText() + "'");
+            System.out.println("  Email field: '" + view.getUpdateEmail().getText() + "'");
+            System.out.println("  Address field: '" + view.getUpdateAddress().getText() + "'");
+            System.out.println("  Phone field: '" + view.getUpdatePhoneNumber().getText() + "'");
             
             System.out.println("Form fields populated successfully!");
         } else {
@@ -82,6 +92,7 @@ public class UserProfileController {
                 "User Profile not found for email: " + email + "\nPlease check your login.", 
                 "Error", JOptionPane.ERROR_MESSAGE);
         }
+        System.out.println("=== END INIT DEBUG ===");
     }
         
     public class OpenDashboard implements ActionListener {
@@ -102,67 +113,87 @@ public class UserProfileController {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (!isEditing) {
-                // Start editing mode
-                System.out.println("Entering edit mode");
-                originalUser = new UserData(
-                    view.getUpdateFirstName().getText(),
-                    view.getUpdateLastName().getText(),
-                    view.getUpdateEmail().getText(),
-                    view.getUpdateAddress().getText(),
-                    view.getUpdatePhoneNumber().getText(),
-                    null, null, null
-                );
+                System.out.println("=== ENTERING EDIT MODE ===");
+                
+                // FIX: Use the stored currentUser data, not form fields
+                if (currentUser != null) {
+                    originalUser = new UserData(
+                        currentUser.getFirstName(),
+                        currentUser.getLastName(),
+                        currentUser.getEmail(),      // FIX: Use original email
+                        currentUser.getAddress(),
+                        currentUser.getContactNumber()
+                    );
+                    System.out.println("Original user data stored:");
+                    System.out.println("  Email: '" + originalUser.getEmail() + "'");
+                    System.out.println("  Address: '" + originalUser.getAddress() + "'");
+                } else {
+                    System.err.println("ERROR: currentUser is null!");
+                    return;
+                }
+                
                 view.setFieldsEnabled(true);
                 view.getUpdateEmail().setEnabled(false); // Email should not be editable
                 isEditing = true;
                 view.setChangeProfileButtonText("Save Changes");
                 System.out.println("Edit mode enabled");
+                
             } else {
-                // Save changes mode
+                System.out.println("=== SAVING CHANGES ===");
+                
                 int response = JOptionPane.showConfirmDialog(view, 
                     "Do you want to save the changes?", 
                     "Confirm Save", 
                     JOptionPane.YES_NO_OPTION);
                     
                 if (response == JOptionPane.YES_OPTION) {
-                    System.out.println("Saving profile changes");
+                    System.out.println("User confirmed save");
                     
-                    // Check if there are any changes
-                    boolean hasChanges = !view.getUpdateFirstName().getText().equals(originalUser.getFirstName()) ||
-                                        !view.getUpdateLastName().getText().equals(originalUser.getLastName()) ||
-                                        !view.getUpdateAddress().getText().equals(originalUser.getAddress()) ||
-                                        !view.getUpdatePhoneNumber().getText().equals(originalUser.getContactNumber());
-
-                    if (hasChanges) {
-                        UserData updatedUser = new UserData(
-                            view.getUpdateFirstName().getText(),
-                            view.getUpdateLastName().getText(),
-                            view.getUpdateEmail().getText(),
-                            view.getUpdateAddress().getText(),
-                            view.getUpdatePhoneNumber().getText(),
-                            null, null, null
-                        );
+                    // FIX: Create updated user with ORIGINAL email, not from form
+                    String updatedFirstName = view.getUpdateFirstName().getText().trim();
+                    String updatedLastName = view.getUpdateLastName().getText().trim();
+                    String updatedAddress = view.getUpdateAddress().getText().trim();
+                    String updatedPhone = view.getUpdatePhoneNumber().getText().trim();
+                    
+                    System.out.println("Form values to save:");
+                    System.out.println("  FirstName: '" + updatedFirstName + "'");
+                    System.out.println("  LastName: '" + updatedLastName + "'");
+                    System.out.println("  Address: '" + updatedAddress + "'");
+                    System.out.println("  Phone: '" + updatedPhone + "'");
+                    System.out.println("  Email (original): '" + email + "'");
+                    
+                    // FIX: Use the original email parameter, not from form
+                    UserData updatedUser = new UserData(
+                        updatedFirstName,
+                        updatedLastName,
+                        email,              // FIX: Use original email parameter
+                        updatedAddress,
+                        updatedPhone
+                    );
+                    
+                    System.out.println("Created UserData object for update:");
+                    updatedUser.printDebugInfo();
+                    
+                    UserProfileDao dao = new UserProfileDao();
+                    if (dao.updateUser(updatedUser)) {
+                        JOptionPane.showMessageDialog(view, 
+                            "Profile updated successfully!", 
+                            "Success", 
+                            JOptionPane.INFORMATION_MESSAGE);
+                        System.out.println("Profile updated successfully");
                         
-                        UserProfileDao dao = new UserProfileDao();
-                        if (dao.updateUser(updatedUser)) {
-                            JOptionPane.showMessageDialog(view, 
-                                "Profile updated successfully!", 
-                                "Success", 
-                                JOptionPane.INFORMATION_MESSAGE);
-                            System.out.println("Profile updated successfully");
-                            originalUser = updatedUser;
-                        } else {
-                            JOptionPane.showMessageDialog(view, 
-                                "Failed to update profile! Please try again.", 
-                                "Error", 
-                                JOptionPane.ERROR_MESSAGE);
-                            System.err.println("Failed to update profile");
-                            
-                            // Restore original values
-                            restoreOriginalValues();
-                        }
+                        // Update currentUser with new data
+                        currentUser = updatedUser;
+                        originalUser = updatedUser;
                     } else {
-                        System.out.println("No changes detected");
+                        JOptionPane.showMessageDialog(view, 
+                            "Failed to update profile! Please try again.", 
+                            "Error", 
+                            JOptionPane.ERROR_MESSAGE);
+                        System.err.println("Failed to update profile");
+                        
+                        // Restore original values
+                        restoreOriginalValues();
                     }
                     
                     // Exit edit mode
@@ -194,7 +225,7 @@ public class UserProfileController {
     class ChangePass implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            System.out.println("Opening change password dialog");
+            System.out.println("Opening change password dialog with email: " + email);
             ChangePassword changePasswordView = new ChangePassword();
             ChangePasswordController changePassController = new ChangePasswordController(changePasswordView, email);
             changePassController.open();
@@ -215,7 +246,12 @@ public class UserProfileController {
                 System.out.println("Attempting to delete account for email: " + email);
                 
                 UserProfileDao dao = new UserProfileDao();
-                UserData userToDelete = dao.getUserByEmail(email);
+                
+                // FIX: Use currentUser if available, otherwise create from email
+                UserData userToDelete = currentUser;
+                if (userToDelete == null) {
+                    userToDelete = dao.getUserByEmail(email);
+                }
                 
                 if (userToDelete == null) {
                     JOptionPane.showMessageDialog(view, 

@@ -1,88 +1,101 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package javaproject.model;
 
-/**
- *
- * @author ACER
- */
 public class SellerData {
-    // private attribute
-    private String sellerId;
     private String fullName;
-    private String location;
     private String email;
+    private String location;
+    private String contactNumber;
     private String password;
     private String rePassword;
-    private String contactNumber;
     private String panNumber;
-    //Constructor
-    public SellerData(String fullName, String email,String location,String contactNumber, String password, String rePassword, String panNumber){
-        this.fullName=fullName;
-        this.location=location;
-        this.email=email;
-        this.password=password;
-        this.rePassword=rePassword;
-        this.contactNumber=contactNumber;
-        this.panNumber= panNumber;
+    
+    // Empty constructor
+    public SellerData() {
     }
-    public SellerData(String sellerId,String fullName,String email,String password){
-        this.sellerId=sellerId;
-        this.fullName=fullName;
-        this.email=email;
-        this.password=password;
+    
+    // Constructor with 4 parameters (for profile updates - no password)
+    public SellerData(String fullName, String email, String location, String contactNumber) {
+        this.fullName = fullName;
+        this.email = email;
+        this.location = location;
+        this.contactNumber = contactNumber;
     }
-    //setters
-    public void setUserId(String sellerId){
-        this.sellerId=sellerId;
+    
+    // Constructor with 5 parameters (for login and password operations)
+    public SellerData(String fullName, String email, String location, String contactNumber, String password) {
+        this.fullName = fullName;
+        this.email = email;
+        this.location = location;
+        this.contactNumber = contactNumber;
+        this.password = password;
     }
-    public void setFirstName(String fullName){
-        this.fullName=fullName;
+    
+    // Constructor with 7 parameters (for seller registration and complete data)
+    public SellerData(String fullName, String email, String location, String contactNumber, String password, String rePassword, String panNumber) {
+        this.fullName = fullName;
+        this.email = email;
+        this.location = location;
+        this.contactNumber = contactNumber;
+        this.password = password;
+        this.rePassword = rePassword;
+        this.panNumber = panNumber;
     }
-    public void setAddress(String location){
-        this.location=location;
+    
+    // Getters
+    public String getFullName() {
+        return fullName;
     }
-    public void setEmail(String email){
-        this.email=email;
+    
+    public String getEmail() {
+        return email;
     }
-    public void setPassword(String password){
-        this.password=password;
+    
+    public String getLocation() {
+        return location;
     }
-    public void setRePassword(String rePassword){
-        this.rePassword=rePassword;
+    
+    public String getContactNumber() {
+        return contactNumber;
     }
-    public void setContactNumber(String contactNumber){
-        this.contactNumber=contactNumber;
+    
+    public String getPassword() {
+        return password;
     }
-    public void setSecurityAnswer(String panNumber){
-        this.panNumber=panNumber;
+    
+    public String getRePassword() {
+        return rePassword;
     }
-   
-    //getters
-    public String getSellerId(){
-        return this.sellerId;
+    
+    public String getPanNumber() {
+        return panNumber;
     }
-    public String getFullName(){
-        return this.fullName;
+    
+    // Setters
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
-    public String getLocation(){
-        return this.location;
+    
+    public void setEmail(String email) {
+        this.email = email;
     }
-    public String getEmail(){
-        return this.email;
+    
+    public void setLocation(String location) {
+        this.location = location;
     }
-    public String getPassword(){
-        return this.password;
+    
+    public void setContactNumber(String contactNumber) {
+        this.contactNumber = contactNumber;
     }
-    public String getRePassword(){
-        return this.rePassword;
+    
+    public void setPassword(String password) {
+        this.password = password;
     }
-    public String getContactNumber(){
-        return this.contactNumber;
+    
+    public void setRePassword(String rePassword) {
+        this.rePassword = rePassword;
     }
-    public String getPanNumber(){
-        return this.panNumber;
+    
+    public void setPanNumber(String panNumber) {
+        this.panNumber = panNumber;
     }
 }

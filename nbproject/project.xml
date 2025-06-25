@@ -4,7 +4,10 @@
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/j2se-project/3">
             <name>VroomVroomProject</name>
+<<<<<<< HEAD
             <explicit-platform explicit-source-supported="true"/>
+=======
+>>>>>>> d37ff916924a5797f4fea0955e62a4358615b46b
             <source-roots>
                 <root id="src.dir"/>
             </source-roots>

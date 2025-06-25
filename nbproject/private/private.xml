@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/ASUS/VroomVroomProject/src/javaproject/controller/VehicleController.java</file>
             <file>file:/C:/Users/ASUS/VroomVroomProject/src/javaproject/view/LoginForm.java</file>
             <file>file:/C:/Users/ASUS/VroomVroomProject/src/javaproject/view/RegistrationView.java</file>
@@ -35,6 +36,10 @@
             <file>file:/C:/Users/ASUS/VroomVroomProject/src/javaproject/model/Booking.java</file>
             <file>file:/C:/Users/ASUS/VroomVroomProject/src/javaproject/view/SellerRegistration.java</file>
             <file>file:/C:/Users/ASUS/VroomVroomProject/src/javaproject/view/Adminpage.java</file>
+=======
+            <file>file:/C:/Users/Dell/OneDrive/Desktop/VroomVroomProject%202/VroomVroomProject/src/vroomproject1/Controller/ResetPasswordController.java</file>
+            <file>file:/C:/Users/Dell/OneDrive/Desktop/VroomVroomProject%202/VroomVroomProject/src/vroomproject1/view/ResetView.java</file>
+>>>>>>> d37ff916924a5797f4fea0955e62a4358615b46b
         </group>
     </open-files>
 </project-private>

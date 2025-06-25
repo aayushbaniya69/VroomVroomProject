@@ -23,7 +23,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="adimnBorderPanel" alignment="0" max="32767" attributes="0"/>
+          <Component id="adimnBorderPanel" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -48,8 +48,8 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                  <Component id="adminMainPanel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="23" max="32767" attributes="0"/>
+                  <Component id="adminMainPanel" min="-2" pref="1551" max="-2" attributes="0"/>
+                  <EmptySpace pref="29" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -58,7 +58,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   <Component id="adminMainPanel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="24" max="32767" attributes="0"/>
+                  <EmptySpace pref="26" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -77,7 +77,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="adminMenuBar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="adminContentPanel" min="-2" pref="1204" max="-2" attributes="0"/>
+                      <Component id="adminContentPanel" min="-2" pref="1313" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -85,10 +85,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="adminMenuBar" max="32767" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="adminContentPanel" min="-2" pref="527" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="adminContentPanel" alignment="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -106,20 +103,24 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="adVehicleButton" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
-                              <Component id="adminProfileButton" alignment="0" max="32767" attributes="0"/>
-                              <Component id="adBookingsButton" alignment="0" max="32767" attributes="0"/>
-                              <Component id="adManageUsers" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="adVehicleButton" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="adminProfileButton" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="adBookingsButton" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="adManageUsers" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="adLogoutButton" min="-2" pref="203" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace pref="23" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="adLogoutButton" min="-2" pref="203" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -136,9 +137,9 @@
                           <Component id="adManageUsers" min="-2" pref="38" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="adminProfileButton" min="-2" pref="38" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                          <Component id="adLogoutButton" min="-2" pref="38" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
+                          <Component id="adLogoutButton" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="124" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -162,7 +163,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="f9" green="f5" red="f1" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Vehicles"/>
+                    <Property name="text" type="java.lang.String" value=" Vehicles"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>
                     </Property>
@@ -183,12 +184,15 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="f9" green="f5" red="f1" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Bookings"/>
+                    <Property name="text" type="java.lang.String" value=" Bookings"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="10"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="adBookingsButtonActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="adManageUsers">
                   <Properties>
@@ -201,12 +205,15 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="f9" green="f5" red="f1" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Manage Users"/>
+                    <Property name="text" type="java.lang.String" value=" Manage Users"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="10"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="adManageUsersActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="adminProfileButton">
                   <Properties>
@@ -219,7 +226,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="f9" green="f5" red="f1" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="AdminProfile"/>
+                    <Property name="text" type="java.lang.String" value=" AdminProfile"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>
                     </Property>

@@ -31,11 +31,9 @@ public class UserVehiclePanel extends javax.swing.JPanel {
     private void loadVehicles() {
         VehicleController controller = VehicleController.getInstance();
 
-        // Loop through all vehicles in the controller
         for (Vehicle v : controller.getAllVehicles()) {
-            // Create an ImageIcon from the vehicle's image path
-            String imagePath = "/" + v.getImagePath();  // Make sure the path is correct
-            ImageIcon icon = loadImage(imagePath);
+            // Load image from file path, scaled nicely
+            ImageIcon icon = loadImage(v.getImagePath());
 
             // Create a new vehicle card with the vehicle's details
             VehicleCardPanel card = new VehicleCardPanel(
@@ -56,31 +54,56 @@ public class UserVehiclePanel extends javax.swing.JPanel {
     }
 
     /**
-     * Load image using the provided path. If the image path is invalid, return a default image.
-     *
-     * @param imagePath The path to the image
-     * @return ImageIcon of the image or default if path is invalid
+     * Load image from file system path.
+     * If the image is not found, loads a default image from resources.
+     * @param imagePath Absolute or relative file path to image
+     * @return ImageIcon, scaled to 200x150
      */
     private ImageIcon loadImage(String imagePath) {
         try {
-            // Attempt to load the image
-            return new ImageIcon(getClass().getResource(imagePath));
+            java.io.File imgFile = new java.io.File(imagePath);
+            if (imgFile.exists()) {
+                ImageIcon originalIcon = new ImageIcon(imagePath);
+                Image scaled = originalIcon.getImage().getScaledInstance(200, 150, Image.SCALE_SMOOTH);
+                return new ImageIcon(scaled);
+            } else {
+                // fallback to default image from resources
+                return getDefaultImageIcon();
+            }
         } catch (Exception e) {
-            // If image is not found, return a default image
-            return new ImageIcon(getClass().getResource("/Dashboard/images/default.png"));
+            return getDefaultImageIcon();
+        }
+    }
+
+    private ImageIcon getDefaultImageIcon() {
+        try {
+            ImageIcon defaultIcon = new ImageIcon(getClass().getResource("/Dashboard/images/default.png"));
+            Image scaled = defaultIcon.getImage().getScaledInstance(200, 150, Image.SCALE_SMOOTH);
+            return new ImageIcon(scaled);
+        } catch (Exception e) {
+            // If even default image fails, just return empty icon
+            return new ImageIcon();
         }
     }
 
     /**
-     * Set up the vehicle list panel with BoxLayout for vertical arrangement.
+     * Set up the vehicle list panel with vertical BoxLayout.
      */
     private void setUpVehicleListPanel() {
         vehicleListPanel = new JPanel();
-        vehicleListPanel.setLayout(new BoxLayout(vehicleListPanel, BoxLayout.Y_AXIS));  // Set vertical BoxLayout
-        vehicleListPanel.setPreferredSize(new Dimension(400, 800));  // Optional size for the panel
+        vehicleListPanel.setLayout(new BoxLayout(vehicleListPanel, BoxLayout.Y_AXIS));
+        vehicleListPanel.setPreferredSize(new Dimension(1100, 800));  // Adjust width as needed
 
-        // Attach this panel to the scrollPane
         scrollPane.setViewportView(vehicleListPanel);
+    }
+
+    /**
+     * Clears current vehicle cards and reloads from controller.
+     * Call this method to refresh vehicles after changes.
+     */
+    public void refreshVehicleList() {
+        vehicleListPanel.removeAll();
+        loadVehicles();
     }
 
     /**

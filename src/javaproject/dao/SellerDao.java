@@ -158,4 +158,66 @@ public class SellerDao {
             }
         }
     }
+    // Add these methods to your existing UserDao.java
+
+public boolean validateSecurityAnswer(String email, String question, String answer) {
+    Connection connection = null;
+    PreparedStatement statement = null;
+    ResultSet resultSet = null;
+    
+    try {
+        connection = mySql.openConnection();
+        String sql = "SELECT * FROM Registration WHERE email = ? AND securityAnswer = ?";
+        statement = connection.prepareStatement(sql);
+        statement.setString(1, email);
+        statement.setString(2, answer);
+        
+        resultSet = statement.executeQuery();
+        return resultSet.next();
+        
+    } catch (SQLException e) {
+        System.err.println("Error validating security answer: " + e.getMessage());
+        return false;
+    } finally {
+        try {
+            if (resultSet != null) resultSet.close();
+            if (statement != null) statement.close();
+            if (connection != null) connection.close();
+        } catch (SQLException e) {
+            System.err.println("Error closing resources: " + e.getMessage());
+        }
+    }
+}
+
+public boolean resetPassword(String email, String newPassword) {
+    Connection connection = null;
+    PreparedStatement statement = null;
+    
+    try {
+        connection = mySql.openConnection();
+        String sql = "UPDATE Registration SET password=?, rePassword=? WHERE email=?";
+        statement = connection.prepareStatement(sql);
+        
+        statement.setString(1, newPassword);
+        statement.setString(2, newPassword);
+        statement.setString(3, email);
+        
+        int result = statement.executeUpdate();
+        System.out.println("User password reset for: " + email);
+        return result > 0;
+        
+    } catch (SQLException e) {
+        System.err.println("Error resetting user password: " + e.getMessage());
+        return false;
+    } finally {
+        try {
+            if (statement != null) statement.close();
+            if (connection != null) connection.close();
+        } catch (SQLException e) {
+            System.err.println("Error closing resources: " + e.getMessage());
+        }
+    }
+}
+
+
 }

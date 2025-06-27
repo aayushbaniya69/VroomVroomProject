@@ -6,9 +6,9 @@ import javaproject.dao.AdminProfileDao;
 import javaproject.model.SellerData;
 import javaproject.view.AdminDashboardView;
 import javaproject.view.ChangePassword;
-import javaproject.view.SellerLoginForm;
 import javax.swing.JOptionPane;
 import javaproject.view.Adminpage;
+import javaproject.view.LoginForm;
 
 public class AdminProfileController {
     private Adminpage view;
@@ -307,8 +307,8 @@ public class AdminProfileController {
                     
                     // FIX: Return to SELLER login screen, not user login
                     view.dispose();
-                    SellerLoginForm sellerLogin = new SellerLoginForm();
-                    SellerLoginController loginController = new SellerLoginController(sellerLogin);
+                    LoginForm sellerLogin = new LoginForm();
+                    LoginController loginController = new LoginController(sellerLogin);
                     loginController.open();
                 } else {
                     JOptionPane.showMessageDialog(view, 

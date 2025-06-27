@@ -5,8 +5,8 @@ import java.awt.event.MouseListener;
 import javaproject.model.SellerData;
 import javaproject.view.AdminDashboardView;
 import javaproject.view.BookingView;
-import javaproject.view.SellerLoginForm;
 import javaproject.view.Adminpage;
+import javaproject.view.LoginForm;
 import javax.swing.JOptionPane;
 
 public class SellerDashboardController {
@@ -70,8 +70,8 @@ public class SellerDashboardController {
         @Override
         public void mouseClicked(MouseEvent e) {
             System.out.println("Back to login button clicked");
-            SellerLoginForm login = new SellerLoginForm();
-            SellerLoginController loginController = new SellerLoginController(login);
+            LoginForm login = new LoginForm();
+            LoginController loginController = new LoginController(login);
             loginController.open();
             close();
         }

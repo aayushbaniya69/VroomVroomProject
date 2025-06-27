@@ -48,6 +48,8 @@ public class LoginForm extends javax.swing.JFrame {
         RegisterForm1 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         RegisterForm = new javax.swing.JLabel();
+        RegisterForm2 = new javax.swing.JLabel();
+        AdminRegister = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -147,7 +149,7 @@ public class LoginForm extends javax.swing.JFrame {
 
         RegisterForm1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         RegisterForm1.setForeground(new java.awt.Color(204, 204, 204));
-        RegisterForm1.setText("Don't have an account? ");
+        RegisterForm1.setText("Don't have an user account? ");
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LoginPage/Screenshot (166) (2).png"))); // NOI18N
         jLabel10.setText("jLabel10");
@@ -157,6 +159,14 @@ public class LoginForm extends javax.swing.JFrame {
         RegisterForm.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         RegisterForm.setForeground(new java.awt.Color(255, 0, 0));
         RegisterForm.setText("Register");
+
+        RegisterForm2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        RegisterForm2.setForeground(new java.awt.Color(204, 204, 204));
+        RegisterForm2.setText("Don't have an admin account? ");
+
+        AdminRegister.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        AdminRegister.setForeground(new java.awt.Color(255, 0, 0));
+        AdminRegister.setText("Register");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -186,6 +196,12 @@ public class LoginForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(RegisterForm, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(136, 136, 136))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(RegisterForm2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(AdminRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(147, 147, 147))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -209,6 +225,10 @@ public class LoginForm extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegisterForm1)
                     .addComponent(RegisterForm))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(RegisterForm2)
+                    .addComponent(AdminRegister))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
@@ -286,12 +306,14 @@ private boolean isPasswordVisible = false;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel AdminRegister;
     private javax.swing.JTextField EmailField;
     private javax.swing.JLabel ForgotPassword;
     private javax.swing.JButton LoginButton;
     private javax.swing.JPasswordField Password_Field;
     private javax.swing.JLabel RegisterForm;
     private javax.swing.JLabel RegisterForm1;
+    private javax.swing.JLabel RegisterForm2;
     private javax.swing.JButton ShowButton;
     private javax.swing.JColorChooser jColorChooser1;
     private javax.swing.JLabel jLabel1;
@@ -319,5 +341,8 @@ private boolean isPasswordVisible = false;
 }
     public void registerPage(MouseListener listener){ //forgot password is label so mouselistener is added
     RegisterForm.addMouseListener(listener);
+}
+     public void adminRegisterPage(MouseListener listener){ //forgot password is label so mouselistener is added
+    AdminRegister.addMouseListener(listener);
 }
 }

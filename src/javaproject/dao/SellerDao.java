@@ -9,6 +9,7 @@ import javaproject.model.LoginRequest;
 import javaproject.model.SellerData;
 
 public class SellerDao {
+    private MySqlConnection mySql = new MySqlConnection();
     
     public SellerData loginSeller(LoginRequest loginRequest) {
         System.out.println("=== SELLER LOGIN DAO ===");
@@ -20,7 +21,7 @@ public class SellerDao {
         ResultSet resultSet = null;
         
         try {
-            connection = MySqlConnection.getConnection();
+            connection = mySql.openConnection();
             if (connection == null) {
                 System.err.println("Database connection is null!");
                 return null;
@@ -38,13 +39,13 @@ public class SellerDao {
             
             if (resultSet.next()) {
                 SellerData seller = new SellerData(
-                    resultSet.getString("fullName"),        // Match your column name
+                    resultSet.getString("fullName"),        
                     resultSet.getString("email"),
                     resultSet.getString("location"),
-                    resultSet.getString("contactNumber"),   // Match your column name
+                    resultSet.getString("contactNumber"),   
                     resultSet.getString("password"),
-                    resultSet.getString("rePassword"),      // Match your column name
-                    resultSet.getString("panNumber")        // Match your column name
+                    resultSet.getString("rePassword"),      
+                    resultSet.getString("panNumber")        
                 );
                 
                 System.out.println("Seller login successful!");
@@ -74,21 +75,23 @@ public class SellerDao {
         }
     }
     
+    // FIX: Complete registerSeller method with PAN number
     public boolean registerSeller(SellerData seller) {
         System.out.println("=== REGISTER SELLER DAO ===");
         System.out.println("Registering seller: " + seller.getEmail());
+        System.out.println("PAN Number: '" + seller.getPanNumber() + "'");
         
         Connection connection = null;
         PreparedStatement statement = null;
         
         try {
-            connection = MySqlConnection.getConnection();
+            connection = mySql.openConnection();
             if (connection == null) {
                 System.err.println("Database connection is null!");
                 return false;
             }
             
-            // Use your actual table and column names
+            // FIX: Include panNumber in INSERT statement
             String sql = "INSERT INTO SellerRegistration (fullName, email, location, contactNumber, password, rePassword, panNumber) VALUES (?, ?, ?, ?, ?, ?, ?)";
             statement = connection.prepareStatement(sql);
             
@@ -98,14 +101,16 @@ public class SellerDao {
             statement.setString(4, seller.getContactNumber());
             statement.setString(5, seller.getPassword());
             statement.setString(6, seller.getRePassword());
-            statement.setString(7, seller.getPanNumber());
+            statement.setString(7, seller.getPanNumber()); // FIX: Include PAN number
             
-            System.out.println("Executing registration SQL");
+            System.out.println("Executing registration SQL with PAN: " + seller.getPanNumber());
             
             int result = statement.executeUpdate();
             boolean success = result > 0;
             
             System.out.println("Registration successful: " + success);
+            System.out.println("Rows affected: " + result);
+            
             return success;
             
         } catch (SQLException e) {
@@ -114,6 +119,38 @@ public class SellerDao {
             return false;
         } finally {
             try {
+                if (statement != null) statement.close();
+                if (connection != null) connection.close();
+            } catch (SQLException e) {
+                System.err.println("Error closing resources: " + e.getMessage());
+            }
+        }
+    }
+    
+    // FIX: Add method to check if email already exists
+    public boolean emailExists(String email) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        
+        try {
+            connection = mySql.openConnection();
+            String sql = "SELECT COUNT(*) FROM SellerRegistration WHERE email = ?";
+            statement = connection.prepareStatement(sql);
+            statement.setString(1, email);
+            
+            resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                return resultSet.getInt(1) > 0;
+            }
+            return false;
+            
+        } catch (SQLException e) {
+            System.err.println("Error checking email existence: " + e.getMessage());
+            return false;
+        } finally {
+            try {
+                if (resultSet != null) resultSet.close();
                 if (statement != null) statement.close();
                 if (connection != null) connection.close();
             } catch (SQLException e) {

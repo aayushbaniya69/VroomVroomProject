@@ -12,8 +12,8 @@ import javaproject.dao.SellerDao;
 import javaproject.model.LoginRequest;
 import javaproject.model.SellerData;
 import javaproject.view.AdminDashboardView;
-import javaproject.view.ForgotPasswordView;
-import javaproject.view.SellerLoginForm;
+import javaproject.view.LoginForm;
+import javaproject.view.ResetView;
 import javaproject.view.SellerRegistration;
 import javax.swing.JOptionPane;
 
@@ -22,11 +22,11 @@ import javax.swing.JOptionPane;
  * @author ACER
  */
 public class SellerLoginController {
-    SellerLoginForm view=new SellerLoginForm();
-    public SellerLoginController(SellerLoginForm view){
+    LoginForm view=new LoginForm();
+    public SellerLoginController(LoginForm view){
         this.view=view;
         LoginSeller loginUser=new LoginSeller();
-        this.view.LoginSeller(loginUser);
+        this.view.LoginUser(loginUser);
         ForgotPassword forgotPassword=new ForgotPassword();
         this.view.forgotPassword(forgotPassword) ;
         Register registerPage=new Register();
@@ -72,7 +72,7 @@ class ForgotPassword implements MouseListener{
 
      @Override
         public void mouseClicked(MouseEvent e) {
-            ForgotPasswordView forgotPassword=new ForgotPasswordView();
+            ResetView forgotPassword=new ResetView();
             ForgotPasswordController forgotPasswordController=new ForgotPasswordController(forgotPassword);
             forgotPasswordController.open();
             close();

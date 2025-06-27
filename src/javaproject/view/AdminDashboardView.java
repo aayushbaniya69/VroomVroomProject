@@ -60,6 +60,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         adimnBorderPanel.setBackground(new java.awt.Color(30, 30, 47));
+        adimnBorderPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         adminMainPanel.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -156,7 +157,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
                 .addComponent(adminProfileButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(81, 81, 81)
                 .addComponent(adLogoutButton)
-                .addContainerGap(124, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         adminContentPanel.setLayout(new java.awt.CardLayout());
@@ -173,37 +174,22 @@ public class AdminDashboardView extends javax.swing.JFrame {
         );
         adminMainPanelLayout.setVerticalGroup(
             adminMainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(adminContentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 750, Short.MAX_VALUE)
             .addComponent(adminMenuBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(adminContentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout adimnBorderPanelLayout = new javax.swing.GroupLayout(adimnBorderPanel);
-        adimnBorderPanel.setLayout(adimnBorderPanelLayout);
-        adimnBorderPanelLayout.setHorizontalGroup(
-            adimnBorderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(adimnBorderPanelLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(adminMainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1551, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
-        );
-        adimnBorderPanelLayout.setVerticalGroup(
-            adimnBorderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(adimnBorderPanelLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(adminMainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
-        );
+        adimnBorderPanel.add(adminMainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 20, 1551, 750));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(adimnBorderPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(adimnBorderPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1602, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(adimnBorderPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(adimnBorderPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 792, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 

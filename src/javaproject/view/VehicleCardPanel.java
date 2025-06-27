@@ -77,8 +77,6 @@ public class VehicleCardPanel extends javax.swing.JPanel {
         statusLabel = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
-        vehicleImageLabel.setText("jLabel1");
-
         idLabel.setText("Vehicle Id:");
 
         nameLabel.setText("Name:");

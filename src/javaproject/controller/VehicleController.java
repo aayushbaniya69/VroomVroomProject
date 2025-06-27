@@ -1,5 +1,6 @@
 package javaproject.controller;
 
+import java.io.File;
 import javaproject.model.Vehicle;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,11 +31,12 @@ public class VehicleController {
      * Load initial sample data for vehicles.
      */
     private void loadInitialData() {
-//        allVehicles.add(new Vehicle("V001", "Ferrari", "Car", 50.0, "Available", "Dashboard/images/Car.png"));
-//        allVehicles.add(new Vehicle("V002", "Kawasaki Ninja H2R", "Bike", 20.0, "Booked", "Dashboard/images/bike.png"));
-//        allVehicles.add(new Vehicle("V003", "Tata Van", "Van", 40.0, "Available", "Dashboard/images/van.png"));
+    allVehicles.add(new Vehicle("V001", "Ferrari", "Car", 50.0, "Available", new File("src/Dashboard/images/Car.png").getAbsolutePath()));
+    allVehicles.add(new Vehicle("V002", "Kawasaki Ninja H2R", "Bike", 20.0, "Booked", new File("src/Dashboard/images/bike.jpg").getAbsolutePath()));
+    allVehicles.add(new Vehicle("V003", "Tata Van", "Van", 40.0, "Available", new File("src/Dashboard/images/van.jpg").getAbsolutePath()));
+}
 
-    }
+
 
     /**
      * Get the singleton instance of VehicleController.

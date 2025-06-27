@@ -1,142 +1,102 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package javaproject.view;
 
-import javax.swing.*;
 import java.awt.*;
+import java.io.File;
 import javaproject.controller.VehicleController;
 import javaproject.model.Vehicle;
+import javax.swing.*;
 
 /**
- * UserVehiclePanel class displaying a list of vehicles in a scrollable view.
- * This panel is used in the user dashboard to show available vehicles.
+ * UserVehiclePanel displays a scrollable list of vehicles as cards for the user dashboard.
  */
-public class UserVehiclePanel extends javax.swing.JPanel {
-    private JPanel vehicleListPanel;  // Panel that holds individual vehicle cards
+public class UserVehiclePanel extends JPanel {
 
-    /**
-     * Creates new form UserVehiclePanel
-     */
+    private JScrollPane scrollPane;
+    private JPanel vehicleListPanel;
+
     public UserVehiclePanel() {
-        initComponents();  // Initialize UI components
+        initComponents();
         setUpVehicleListPanel();
         loadVehicles();
     }
 
     /**
-     * Load all vehicles from the VehicleController and display them as cards.
+     * Initializes layout and scrollPane container.
      */
-    private void loadVehicles() {
-        VehicleController controller = VehicleController.getInstance();
+    private void initComponents() {
+        scrollPane = new JScrollPane();
 
-        for (Vehicle v : controller.getAllVehicles()) {
-            // Load image from file path, scaled nicely
-            ImageIcon icon = loadImage(v.getImagePath());
-
-            // Create a new vehicle card with the vehicle's details
-            VehicleCardPanel card = new VehicleCardPanel(
-                v.getVehicleId(),
-                v.getName(),
-                String.valueOf(v.getPrice()),
-                v.getStatus(),
-                icon
-            );
-
-            // Add the card to the vehicle list panel
-            vehicleListPanel.add(card);
-        }
-
-        // Refresh UI
-        vehicleListPanel.revalidate();
-        vehicleListPanel.repaint();
+        setLayout(new BorderLayout());
+        add(scrollPane, BorderLayout.CENTER);
     }
 
     /**
-     * Load image from file system path.
-     * If the image is not found, loads a default image from resources.
-     * @param imagePath Absolute or relative file path to image
-     * @return ImageIcon, scaled to 200x150
-     */
-    private ImageIcon loadImage(String imagePath) {
-        try {
-            java.io.File imgFile = new java.io.File(imagePath);
-            if (imgFile.exists()) {
-                ImageIcon originalIcon = new ImageIcon(imagePath);
-                Image scaled = originalIcon.getImage().getScaledInstance(200, 150, Image.SCALE_SMOOTH);
-                return new ImageIcon(scaled);
-            } else {
-                // fallback to default image from resources
-                return getDefaultImageIcon();
-            }
-        } catch (Exception e) {
-            return getDefaultImageIcon();
-        }
-    }
-
-    private ImageIcon getDefaultImageIcon() {
-        try {
-            ImageIcon defaultIcon = new ImageIcon(getClass().getResource("/Dashboard/images/default.png"));
-            Image scaled = defaultIcon.getImage().getScaledInstance(200, 150, Image.SCALE_SMOOTH);
-            return new ImageIcon(scaled);
-        } catch (Exception e) {
-            // If even default image fails, just return empty icon
-            return new ImageIcon();
-        }
-    }
-
-    /**
-     * Set up the vehicle list panel with vertical BoxLayout.
+     * Sets up the panel that holds all vehicle cards.
      */
     private void setUpVehicleListPanel() {
         vehicleListPanel = new JPanel();
         vehicleListPanel.setLayout(new BoxLayout(vehicleListPanel, BoxLayout.Y_AXIS));
-        vehicleListPanel.setPreferredSize(new Dimension(1100, 800));  // Adjust width as needed
+        vehicleListPanel.setBackground(Color.WHITE);
 
         scrollPane.setViewportView(vehicleListPanel);
     }
 
     /**
-     * Clears current vehicle cards and reloads from controller.
-     * Call this method to refresh vehicles after changes.
+     * Loads all vehicles from the controller and adds their cards to the list.
      */
-    public void refreshVehicleList() {
+    private void loadVehicles() {
         vehicleListPanel.removeAll();
-        loadVehicles();
+
+        for (Vehicle vehicle : VehicleController.getInstance().getAllVehicles()) {
+            ImageIcon icon = loadImage(vehicle.getImagePath());
+            VehicleCardPanel card = new VehicleCardPanel(
+                    vehicle.getVehicleId(),
+                    vehicle.getName(),
+                    String.valueOf(vehicle.getPrice()),
+                    vehicle.getStatus(),
+                    icon
+            );
+            vehicleListPanel.add(card);
+        }
+
+        vehicleListPanel.revalidate();
+        vehicleListPanel.repaint();
     }
 
     /**
-     * This method is called from within the constructor to initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is always
-     * regenerated by the Form Editor.
+     * Refreshes the UI with updated list of vehicles.
+     * Call this after adding/removing vehicles.
      */
-    @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    public void refreshVehicleCards() {
+        loadVehicles();  // loadVehicles already handles clearing and repainting
+    }
 
-        scrollPane = new javax.swing.JScrollPane();
+    /**
+     * Loads and scales image from the given path.
+     * If image doesn't exist, falls back to default.
+     */
+    private ImageIcon loadImage(String imagePath) {
+        try {
+            File imgFile = new File(imagePath);
+            if (imgFile.exists()) {
+                ImageIcon icon = new ImageIcon(imgFile.getAbsolutePath());
+                Image scaled = icon.getImage().getScaledInstance(200, 150, Image.SCALE_SMOOTH);
+                return new ImageIcon(scaled);
+            }
+        } catch (Exception ignored) {}
+        return getDefaultImageIcon();
+    }
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1092, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 631, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-    }// </editor-fold>//GEN-END:initComponents
-
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane scrollPane;
-    // End of variables declaration//GEN-END:variables
+    /**
+     * Loads a default placeholder image in case actual image fails.
+     */
+    private ImageIcon getDefaultImageIcon() {
+        try {
+            ImageIcon icon = new ImageIcon(getClass().getResource("/Dashboard/images/default.png"));
+            Image scaled = icon.getImage().getScaledInstance(200, 150, Image.SCALE_SMOOTH);
+            return new ImageIcon(scaled);
+        } catch (Exception e) {
+            return new ImageIcon(); // blank icon fallback
+        }
+    }
 }

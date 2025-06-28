@@ -49,6 +49,14 @@
             <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/dao/VehicleDaoImpl.java</file>
             <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/database/DbConnection.java</file>
             <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/src/javaproject/view/VehicleCardPanel.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/test/test/UserDaoTestIT.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/test/booking%20(2)%20(1).png</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/test/test/SellerDaoTestIT.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/test/test/BookingDaoTestIT.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/test/test/AdminProfileDaoTestIT.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/test/test/UserProfileDaoTestIT.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/test/test/VehicleDaoTestIT.java</file>
+            <file>file:/C:/Users/ACER/Documents/NetBeansProjects/vroom/test/test/VehicleDaoImplTestIT.java</file>
         </group>
     </open-files>
 </project-private>

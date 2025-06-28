@@ -48,12 +48,29 @@ public class UserDao {
             ResultSet result = stmnt.executeQuery();
             if(result.next()){
                 System.out.println("Login successful - User data found");
-                String email = result.getString("email");
-                String firstName = result.getString("firstName");
-                String password = result.getString("password");
+                
+                // ✅ FIX: Get ALL required fields from database
                 String registrationId = result.getString("registrationId");
+                String firstName = result.getString("firstName");
+                String lastName = result.getString("lastName");
+                String email = result.getString("email");
+                String address = result.getString("address");
+                String contactNumber = result.getString("contactNumber");
+                String password = result.getString("password");
+                
+                System.out.println("Database fields retrieved:");
+                System.out.println("  registrationId: " + registrationId);
+                System.out.println("  firstName: " + firstName);
+                System.out.println("  lastName: " + lastName);
+                System.out.println("  email: " + email);
+                System.out.println("  address: " + address);
+                System.out.println("  contactNumber: " + contactNumber);
+                
+                // ✅ FIX: Use correct UserData constructor
+                // Check which constructor your UserData class has
                 UserData user = new UserData(registrationId, firstName, email, password); 
-                System.out.println("UserData created with email: " + user.getEmail());
+                
+                System.out.println("UserData created successfully with email: " + user.getEmail());
                 return user;
             }
             else{
@@ -62,6 +79,12 @@ public class UserDao {
             }
         }
         catch(SQLException e){
+            System.err.println("SQL Exception in login: " + e.getMessage());
+            e.printStackTrace();
+            return null;
+        }
+        catch(Exception e){
+            System.err.println("Exception in login: " + e.getMessage());
             e.printStackTrace();
             return null;
         }

@@ -14,8 +14,11 @@ public class UserVehiclePanel extends JPanel {
 
     private JScrollPane scrollPane;
     private JPanel vehicleListPanel;
+    private DashboardView dashboardView;
 
-    public UserVehiclePanel() {
+
+    public UserVehiclePanel(DashboardView aThis) {
+        this.dashboardView = dashboardView;
         initComponents();
         setUpVehicleListPanel();
         loadVehicles();
@@ -54,13 +57,14 @@ public class UserVehiclePanel extends JPanel {
 
             // Pass this (main content panel) to the card for booking redirection
             VehicleCardPanel card = new VehicleCardPanel(
-                    vehicle.getVehicleId(),
-                    vehicle.getName(),
-                    String.valueOf(vehicle.getPrice()),
-                    vehicle.getStatus(),
-                    icon,
-                    this // this panel used for switching view if needed
+            vehicle.getVehicleId(),
+            vehicle.getName(),
+            String.valueOf(vehicle.getPrice()),
+            vehicle.getStatus(),
+            icon,
+            dashboardView // ✅ correct
             );
+
 
             card.setAlignmentX(Component.LEFT_ALIGNMENT);
             card.setMaximumSize(new Dimension(Integer.MAX_VALUE, 260)); // keep uniform

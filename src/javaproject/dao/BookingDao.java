@@ -1,21 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package javaproject.dao;
+
 import javaproject.model.Booking;
-import java.sql.*;
 import javaproject.database.MySqlConnection;
-/**
- *
- * @author ACER
- */
+import java.sql.*;
+
 public class BookingDao {
-    MySqlConnection mySql=new MySqlConnection();
+    MySqlConnection mySql = new MySqlConnection();
+
     public boolean insertBooking(Booking booking) {
         String query = "INSERT INTO bookings(user_id, vehicle_info, start_date, end_date, number_of_vehicles, total_amount) VALUES (?, ?, ?, ?, ?, ?)";
-        Connection conn=mySql.openConnection();
-        try (
+        
+        try (Connection conn = mySql.openConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
 
             stmt.setInt(1, booking.getUserId());
@@ -27,7 +22,9 @@ public class BookingDao {
 
             int result = stmt.executeUpdate();
             return result > 0;
+
         } catch (SQLException e) {
+            System.err.println("❌ Booking insert failed: " + e.getMessage());
             return false;
         }
     }

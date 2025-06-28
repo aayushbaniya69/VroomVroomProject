@@ -6,14 +6,15 @@ import javax.swing.*;
 import javaproject.controller.VehicleController;
 import javaproject.model.Vehicle;
 
+/**
+ * UserVehiclePanel displays all vehicles as scrollable cards using VehicleCardPanel.
+ */
 public class UserVehiclePanel extends JPanel {
 
     private JScrollPane scrollPane;
     private JPanel vehicleListPanel;
-    
 
     public UserVehiclePanel() {
-
         initComponents();
         setUpVehicleListPanel();
         loadVehicles();
@@ -30,8 +31,9 @@ public class UserVehiclePanel extends JPanel {
         vehicleListPanel.setLayout(new BoxLayout(vehicleListPanel, BoxLayout.Y_AXIS));
         vehicleListPanel.setBackground(Color.WHITE);
         vehicleListPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
         scrollPane.setViewportView(vehicleListPanel);
-        scrollPane.getVerticalScrollBar().setUnitIncrement(16);
+        scrollPane.getVerticalScrollBar().setUnitIncrement(16); // smoother scrolling
     }
 
     private void loadVehicles() {
@@ -41,18 +43,18 @@ public class UserVehiclePanel extends JPanel {
             ImageIcon icon = loadImage(vehicle.getImagePath());
 
             VehicleCardPanel card = new VehicleCardPanel(
-    vehicle.getVehicleId(),
-    vehicle.getName(),
-    String.valueOf(vehicle.getPrice()),
-    vehicle.getStatus(),
-    icon
-);
-
+                    vehicle.getVehicleId(),
+                    vehicle.getName(),
+                    String.valueOf(vehicle.getPrice()),
+                    vehicle.getStatus(),
+                    icon
+            );
 
             card.setAlignmentX(Component.LEFT_ALIGNMENT);
             card.setMaximumSize(new Dimension(Integer.MAX_VALUE, 260));
+
             vehicleListPanel.add(card);
-            vehicleListPanel.add(Box.createRigidArea(new Dimension(0, 10)));
+            vehicleListPanel.add(Box.createRigidArea(new Dimension(0, 10))); // spacing between cards
         }
 
         vehicleListPanel.revalidate();
@@ -68,6 +70,7 @@ public class UserVehiclePanel extends JPanel {
                 return new ImageIcon(scaled);
             }
         } catch (Exception ignored) {}
+
         return getDefaultImageIcon();
     }
 
@@ -77,7 +80,7 @@ public class UserVehiclePanel extends JPanel {
             Image scaled = icon.getImage().getScaledInstance(200, 150, Image.SCALE_SMOOTH);
             return new ImageIcon(scaled);
         } catch (Exception e) {
-            return new ImageIcon();
+            return new ImageIcon(); // blank fallback if even default image is missing
         }
     }
 }

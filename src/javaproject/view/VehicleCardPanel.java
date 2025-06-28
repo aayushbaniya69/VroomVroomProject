@@ -1,7 +1,10 @@
 package javaproject.view;
 
-import java.awt.*;
+import javaproject.controller.BookingController;
+import javaproject.view.BookingView;
+
 import javax.swing.*;
+import java.awt.*;
 
 /**
  * VehicleCardPanel displays individual vehicle info as a card
@@ -34,13 +37,11 @@ public class VehicleCardPanel extends JPanel {
         setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
         setBackground(Color.WHITE);
 
-        // Top: Image
         JLabel imageLabel = new JLabel(vehicleImage);
         imageLabel.setHorizontalAlignment(SwingConstants.CENTER);
         imageLabel.setPreferredSize(new Dimension(350, 150));
         add(imageLabel, BorderLayout.NORTH);
 
-        // Center: Info
         JPanel infoPanel = new JPanel();
         infoPanel.setLayout(new BoxLayout(infoPanel, BoxLayout.Y_AXIS));
         infoPanel.setBackground(Color.WHITE);
@@ -51,7 +52,6 @@ public class VehicleCardPanel extends JPanel {
         infoPanel.add(new JLabel("Status: " + vehicleStatus));
         add(infoPanel, BorderLayout.CENTER);
 
-        // Bottom: Book button
         JButton bookButton = new JButton("Book Now");
         bookButton.setBackground(new Color(0, 120, 215));
         bookButton.setForeground(Color.WHITE);
@@ -68,7 +68,6 @@ public class VehicleCardPanel extends JPanel {
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         buttonPanel.setBackground(Color.WHITE);
         buttonPanel.add(bookButton);
-
         add(buttonPanel, BorderLayout.SOUTH);
     }
 
@@ -79,10 +78,10 @@ public class VehicleCardPanel extends JPanel {
         BookingView bookingView = new BookingView();
         bookingView.getVehicleInfo().setText(vehicleName);
         bookingView.getTotalAmountField().setText("Rs " + vehiclePrice);
-        bookingView.setLocationRelativeTo(null);
-        bookingView.setVisible(true);
 
-        // ✅ Close the Dashboard or parent JFrame containing this panel
+        BookingController controller = new BookingController(bookingView);
+        controller.open();
+
         Window parentWindow = SwingUtilities.getWindowAncestor(this);
         if (parentWindow != null) {
             parentWindow.dispose();

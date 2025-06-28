@@ -5,8 +5,8 @@
 package javaproject.view;
 
 import java.awt.CardLayout;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
+import javaproject.controller.HomeController;
 import javax.swing.JPanel;
 
 /**
@@ -14,38 +14,60 @@ import javax.swing.JPanel;
  * @author ACER
  */
 public class DashboardView extends javax.swing.JFrame {
-     private CardLayout contentCardLayout;
+    private CardLayout contentCardLayout;
+    private int loggedInUserId;
 
     // Add your panels and buttons (make sure they're initialized in initComponents)
     private UserVehiclePanel userVehiclePanel;
-    
 
     /**
      * Creates new form DashboardView
      */
     public DashboardView() {
+    this(1);  // Default userId = 1 for testing
+}
+    public DashboardView(int userId) {
+        this.loggedInUserId = userId;
         initComponents();
-        
-    // Set layout to simple BorderLayout instead of CardLayout
-userContentPanel.setLayout(new java.awt.BorderLayout());
 
-// Create vehicle panel and add it directly
-userVehiclePanel = new UserVehiclePanel();
-userContentPanel.add(userVehiclePanel, java.awt.BorderLayout.CENTER);
+        // Default home panel on launch
+        showHomePanel();
 
-// Show vehicle panel when button is clicked
-userVehicleButton.addActionListener(e -> {
-    userContentPanel.removeAll();
-    userVehiclePanel = new UserVehiclePanel(); // Reload in case of updates
-    userContentPanel.add(userVehiclePanel, java.awt.BorderLayout.CENTER);
-    userContentPanel.revalidate();
-    userContentPanel.repaint();
-});
+        // Set layout to simple BorderLayout instead of CardLayout
+        userContentPanel.setLayout(new java.awt.BorderLayout());
+
+        // Create vehicle panel and add it directly
+        userVehiclePanel = new UserVehiclePanel();
+        userContentPanel.add(userVehiclePanel, java.awt.BorderLayout.CENTER);
+
+        // Show vehicle panel when button is clicked
+        userVehicleButton.addActionListener(e -> {
+            userContentPanel.removeAll();
+            userVehiclePanel = new UserVehiclePanel(); // Reload in case of updates
+            userContentPanel.add(userVehiclePanel, java.awt.BorderLayout.CENTER);
+            userContentPanel.revalidate();
+            userContentPanel.repaint();
+        });
+
+        // Show home panel when HomeButton clicked
+        HomeButton.addActionListener(e -> {
+            showHomePanel();
+        });
     }
 
     private void showPanel(String name) {
-    contentCardLayout.show(userContentPanel, name);
-}
+        contentCardLayout.show(userContentPanel, name);
+    }
+
+    private void showHomePanel() {
+        UserHomePanel homePanel = new UserHomePanel();
+        new HomeController(homePanel, loggedInUserId);
+
+        userContentPanel.removeAll();
+        userContentPanel.add(homePanel);
+        userContentPanel.revalidate();
+        userContentPanel.repaint();
+    }
 
 
     /**
@@ -199,7 +221,7 @@ userVehicleButton.addActionListener(e -> {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new DashboardView().setVisible(true);
+            new DashboardView(1).setVisible(true);  // <-- Pass dummy userId = 1 here for testing
         });
     }
 

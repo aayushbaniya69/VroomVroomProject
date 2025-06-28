@@ -3,7 +3,6 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ASUS/VroomVroomProject/src/javaproject/controller/VehicleController.java</file>
             <file>file:/C:/Users/ASUS/VroomVroomProject/src/javaproject/view/LoginForm.java</file>
             <file>file:/C:/Users/ASUS/VroomVroomProject/src/javaproject/view/RegistrationView.java</file>
             <file>file:/C:/Users/ASUS/VroomVroomProject/src/javaproject/controller/LoginController.java</file>
@@ -54,6 +53,11 @@
             <file>file:/C:/Users/ASUS/VroomVroomProject/src/javaproject/view/ForgotPasswordView.java</file>
             <file>file:/C:/Users/ASUS/VroomVroomProject/src/javaproject/view/VroomVroom.java</file>
             <file>file:/C:/Users/ASUS/VroomVroomProject/src/javaproject/view/user.java</file>
+            <file>file:/C:/Users/ASUS/VroomVroomProject/src/javaproject/view/UserHomePanel.java</file>
+            <file>file:/C:/Users/ASUS/VroomVroomProject/src/javaproject/controller/HomeController.java</file>
+            <file>file:/C:/Users/ASUS/VroomVroomProject/src/javaproject/dao/HomeBookingDao.java</file>
+            <file>file:/C:/Users/ASUS/VroomVroomProject/src/javaproject/controller/VehicleController.java</file>
+            <file>file:/C:/Users/ASUS/VroomVroomProject/src/javaproject/model/MenuType.java</file>
         </group>
     </open-files>
 </project-private>

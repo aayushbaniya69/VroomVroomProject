@@ -71,6 +71,11 @@ public class BookingView extends javax.swing.JFrame {
 
         bookButton.setBackground(new java.awt.Color(204, 0, 0));
         bookButton.setText("Book");
+        bookButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bookButtonMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -170,6 +175,10 @@ public class BookingView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void bookButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bookButtonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bookButtonMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -233,6 +242,7 @@ public class BookingView extends javax.swing.JFrame {
     public javax.swing.JTextField getTotalAmountField(){
         return TotalAmountField;
     }
+    // Methods to attach MouseListeners for buttons
     public void BookButton(MouseListener listener){
        bookButton.addMouseListener(listener); 
     }
@@ -242,4 +252,5 @@ public class BookingView extends javax.swing.JFrame {
     public void Logout(MouseListener listener){
         LogoutButton.addMouseListener(listener);
     }
+    
 }

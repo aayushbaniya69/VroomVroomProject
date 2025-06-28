@@ -27,8 +27,6 @@ public class DashboardController {
         
         BackLogin BackButton = new BackLogin();
         this.view.BackButton(BackButton);
-        Booking booking = new Booking();
-        this.view.bookings(booking);
         UserProfile userProfile = new UserProfile();
         this.view.userProfiles(userProfile);
     }

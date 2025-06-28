@@ -236,9 +236,7 @@ public class DashboardView extends javax.swing.JFrame {
     private javax.swing.JButton userVehicleButton;
     // End of variables declaration//GEN-END:variables
 
-public javax.swing.JButton getBookingButton(){
-    return BookingButton;
-}
+
 public javax.swing.JButton getHomeButton(){
     return HomeButton;
 }
@@ -257,9 +255,7 @@ public javax.swing.JButton getUserProfile(){
 public void BackButton(MouseListener listener){
     LogoutButton.addMouseListener(listener);
 }
-public void bookings(MouseListener listener){
-    BookingButton.addMouseListener(listener);
-}
+
 public void userProfiles(MouseListener listener){
     userProfileButton.addMouseListener(listener);
 }

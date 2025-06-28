@@ -61,7 +61,7 @@ public class LoginForm extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(44, 47, 54));
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Username:");
+        jLabel1.setText("Email:");
 
         EmailField.setBackground(new java.awt.Color(102, 102, 102));
         EmailField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N

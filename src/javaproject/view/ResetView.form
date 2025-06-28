@@ -26,16 +26,16 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-          </Group>
+          <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -50,41 +50,6 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="125" pref="125" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="SameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="ConfirmPasswordLabel" min="-2" max="-2" attributes="0"/>
-                              <Component id="CharacterLabel" min="-2" max="-2" attributes="0"/>
-                              <Component id="OTPlabel" min="-2" max="-2" attributes="0"/>
-                              <Component id="SerucityAnswer" min="-2" max="-2" attributes="0"/>
-                              <Component id="SecurityQuestionLabel" min="-2" max="-2" attributes="0"/>
-                              <Component id="ForOtpLabel" min="-2" max="-2" attributes="0"/>
-                              <Component id="EmailLabel" min="-2" max="-2" attributes="0"/>
-                              <Component id="EmailTextField" alignment="0" max="32767" attributes="0"/>
-                              <Component id="SecurityQuestionComboBox" alignment="0" max="32767" attributes="0"/>
-                              <Component id="OTPTextField" alignment="0" max="32767" attributes="0"/>
-                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                  <Component id="NewPasswordLabel" min="-2" max="-2" attributes="0"/>
-                                  <Component id="EnterOtpLabel" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="NewPasswordField" alignment="0" pref="301" max="32767" attributes="0"/>
-                              <Component id="ConfirmPasswordField" alignment="0" max="32767" attributes="0"/>
-                              <Component id="SecurityAnswerTextField" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="NPshow" min="-2" max="-2" attributes="0"/>
-                              <Component id="CPshow" min="-2" max="-2" attributes="0"/>
-                              <Component id="EnterButton" min="-2" max="-2" attributes="0"/>
-                              <Component id="OtpsendButton" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
-                  <EmptySpace min="0" pref="36" max="32767" attributes="0"/>
-              </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -105,6 +70,38 @@
                       </Group>
                   </Group>
               </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="125" pref="125" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="NewPasswordField" min="-2" pref="293" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="NPshow" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="SameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="ConfirmPasswordLabel" min="-2" max="-2" attributes="0"/>
+                              <Component id="OTPlabel" min="-2" max="-2" attributes="0"/>
+                              <Component id="ForOtpLabel" min="-2" max="-2" attributes="0"/>
+                              <Component id="EmailLabel" min="-2" max="-2" attributes="0"/>
+                              <Component id="EmailTextField" alignment="0" max="32767" attributes="0"/>
+                              <Component id="OTPTextField" alignment="0" max="32767" attributes="0"/>
+                              <Component id="NewPasswordLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="ConfirmPasswordField" alignment="0" pref="301" max="32767" attributes="0"/>
+                              <Component id="EnterOtpLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="CPshow" min="-2" max="-2" attributes="0"/>
+                              <Component id="EnterButton" min="-2" max="-2" attributes="0"/>
+                              <Component id="OtpsendButton" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Component id="CharacterLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="0" pref="48" max="32767" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -117,52 +114,44 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="EmailLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="EmailTextField" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="EmailTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="OtpsendButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="ForOtpLabel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="SecurityQuestionLabel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="SecurityQuestionComboBox" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="SerucityAnswer" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="OtpsendButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="SecurityAnswerTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="OTPlabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="OTPTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="EnterButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="EnterOtpLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="EnterOtpLabel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="NewPasswordLabel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="NewPasswordField" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="NPshow" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="CharacterLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="ConfirmPasswordLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="ConfirmPasswordField" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="CPshow" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="ConfirmPasswordField" min="-2" max="-2" attributes="0"/>
+                      <Component id="CPshow" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="SameLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="ResetPasswordButton" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="BackToLoginButton" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="46" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -196,37 +185,6 @@
             <Property name="text" type="java.lang.String" value="Enter Your Email for otp."/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="SecurityQuestionLabel">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="12" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Security Questions"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="SecurityQuestionComboBox">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="What is your nickname?"/>
-                <StringItem index="1" value="What is your favourite color?"/>
-                <StringItem index="2" value="What is your favourite food?"/>
-                <StringItem index="3" value="What is your favourite pet?"/>
-              </StringArray>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
-        </Component>
-        <Component class="javax.swing.JLabel" name="SerucityAnswer">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="12" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Security Answers"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JLabel" name="OTPlabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -251,13 +209,10 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JPasswordField" name="NewPasswordField">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jPasswordField1"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="CharacterLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Password must be atleast 8 character. "/>
+            <Property name="text" type="java.lang.String" value="Password must be at least 6 characters long."/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="ConfirmPasswordLabel">
@@ -269,9 +224,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JPasswordField" name="ConfirmPasswordField">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jPasswordField2"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="SameLabel">
           <Properties>
@@ -319,8 +271,6 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Send"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="SecurityAnswerTextField">
         </Component>
       </SubComponents>
     </Container>

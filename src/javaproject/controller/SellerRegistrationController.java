@@ -47,7 +47,8 @@ public class SellerRegistrationController {
             String namePattern = "^[a-zA-Z ]+$";
             String emailPattern = "^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$";
             String phoneNumberPattern = "^\\d{10}$";
-            String panPattern = "^[A-Z]{5}[0-9]{4}[A-Z]{1}$"; // Standard PAN format
+            // ✅ UPDATED: Simple PAN validation - only numbers allowed
+            String panPattern = "^[0-9]+$"; // Only digits allowed
 
             // Validate fields
             if (fullName.isEmpty() || !fullName.matches(namePattern)) {
@@ -80,20 +81,15 @@ public class SellerRegistrationController {
                 return;
             }
 
+            // ✅ UPDATED: Simplified PAN validation
             if (panNumber.isEmpty()) {
-                JOptionPane.showMessageDialog(view, "PAN number is required.");
+                JOptionPane.showMessageDialog(view, "PAN number is required.", "Missing PAN Number", JOptionPane.ERROR_MESSAGE);
                 return;
             }
 
-            // Optional: Validate PAN format
             if (!panNumber.matches(panPattern)) {
-                int choice = JOptionPane.showConfirmDialog(view, 
-                    "PAN number format seems incorrect. Standard format is ABCDE1234F.\nDo you want to continue anyway?", 
-                    "PAN Format Warning", 
-                    JOptionPane.YES_NO_OPTION);
-                if (choice != JOptionPane.YES_OPTION) {
-                    return;
-                }
+                JOptionPane.showMessageDialog(view, "PAN number must contain only numbers.", "Invalid PAN Number", JOptionPane.ERROR_MESSAGE);
+                return;
             }
 
             // Check if email already exists
@@ -118,18 +114,23 @@ public class SellerRegistrationController {
                 boolean success = sellerDao.registerSeller(sellerData);
 
                 if (success) {
-                    JOptionPane.showMessageDialog(view, "Registration Successful!\nPAN Number: " + panNumber, "Success", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(view, 
+                        "✅ Registration Successful!\n\n" +
+                        "PAN Number: " + panNumber + "\n" +
+                        "Email: " + email, 
+                        "Registration Complete", 
+                        JOptionPane.INFORMATION_MESSAGE);
                     LoginForm loginView = new LoginForm();
                     LoginController sellerLoginController = new LoginController(loginView);
                     sellerLoginController.open();
                     close();
                 } else {
-                    JOptionPane.showMessageDialog(view, "Registration failed! Please try again.", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(view, "❌ Registration failed! Please try again.", "Registration Error", JOptionPane.ERROR_MESSAGE);
                 }
             } catch (Exception ex) {
                 System.err.println("Exception during registration: " + ex.getMessage());
                 ex.printStackTrace();
-                JOptionPane.showMessageDialog(view, "Database error: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(view, "❌ Database error: " + ex.getMessage(), "System Error", JOptionPane.ERROR_MESSAGE);
             }
         }
     }

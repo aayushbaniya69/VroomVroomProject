@@ -2,9 +2,10 @@ package javaproject.view;
 
 import java.awt.*;
 import java.io.File;
+import javax.swing.*;
+
 import javaproject.controller.VehicleController;
 import javaproject.model.Vehicle;
-import javax.swing.*;
 
 /**
  * UserVehiclePanel displays a scrollable list of vehicles as cards for the user dashboard.
@@ -21,24 +22,25 @@ public class UserVehiclePanel extends JPanel {
     }
 
     /**
-     * Initializes layout and scrollPane container.
+     * Initializes layout and adds scrollPane to the main panel.
      */
     private void initComponents() {
         scrollPane = new JScrollPane();
-
         setLayout(new BorderLayout());
         add(scrollPane, BorderLayout.CENTER);
     }
 
     /**
-     * Sets up the panel that holds all vehicle cards.
+     * Sets up the internal panel that holds vehicle cards vertically.
      */
     private void setUpVehicleListPanel() {
         vehicleListPanel = new JPanel();
         vehicleListPanel.setLayout(new BoxLayout(vehicleListPanel, BoxLayout.Y_AXIS));
         vehicleListPanel.setBackground(Color.WHITE);
+        vehicleListPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // spacing
 
         scrollPane.setViewportView(vehicleListPanel);
+        scrollPane.getVerticalScrollBar().setUnitIncrement(16); // smooth scroll
     }
 
     /**
@@ -49,14 +51,21 @@ public class UserVehiclePanel extends JPanel {
 
         for (Vehicle vehicle : VehicleController.getInstance().getAllVehicles()) {
             ImageIcon icon = loadImage(vehicle.getImagePath());
+
+            // Pass this (main content panel) to the card for booking redirection
             VehicleCardPanel card = new VehicleCardPanel(
                     vehicle.getVehicleId(),
                     vehicle.getName(),
                     String.valueOf(vehicle.getPrice()),
                     vehicle.getStatus(),
-                    icon
+                    icon,
+                    this // this panel used for switching view if needed
             );
+
+            card.setAlignmentX(Component.LEFT_ALIGNMENT);
+            card.setMaximumSize(new Dimension(Integer.MAX_VALUE, 260)); // keep uniform
             vehicleListPanel.add(card);
+            vehicleListPanel.add(Box.createRigidArea(new Dimension(0, 10))); // spacing
         }
 
         vehicleListPanel.revalidate();
@@ -64,16 +73,14 @@ public class UserVehiclePanel extends JPanel {
     }
 
     /**
-     * Refreshes the UI with updated list of vehicles.
-     * Call this after adding/removing vehicles.
+     * Public method to refresh the panel content after add/delete.
      */
     public void refreshVehicleCards() {
-        loadVehicles();  // loadVehicles already handles clearing and repainting
+        loadVehicles();
     }
 
     /**
-     * Loads and scales image from the given path.
-     * If image doesn't exist, falls back to default.
+     * Loads image from file and scales it; uses default if missing.
      */
     private ImageIcon loadImage(String imagePath) {
         try {
@@ -84,11 +91,12 @@ public class UserVehiclePanel extends JPanel {
                 return new ImageIcon(scaled);
             }
         } catch (Exception ignored) {}
+
         return getDefaultImageIcon();
     }
 
     /**
-     * Loads a default placeholder image in case actual image fails.
+     * Returns default placeholder image.
      */
     private ImageIcon getDefaultImageIcon() {
         try {
@@ -96,7 +104,7 @@ public class UserVehiclePanel extends JPanel {
             Image scaled = icon.getImage().getScaledInstance(200, 150, Image.SCALE_SMOOTH);
             return new ImageIcon(scaled);
         } catch (Exception e) {
-            return new ImageIcon(); // blank icon fallback
+            return new ImageIcon(); // fallback blank icon
         }
     }
 }

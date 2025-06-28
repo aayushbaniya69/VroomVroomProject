@@ -4,39 +4,42 @@ import java.awt.*;
 import javax.swing.*;
 
 /**
- * VehicleCardPanel displays individual vehicle info as a card.
+ * VehicleCardPanel displays individual vehicle info as a card,
+ * and opens BookingView in a new window if available.
  */
 public class VehicleCardPanel extends JPanel {
+
     private final String vehicleId;
     private final String vehicleName;
     private final String vehiclePrice;
     private final String vehicleStatus;
     private final ImageIcon vehicleImage;
+    private final JPanel mainContentPanel;
 
-    public VehicleCardPanel(String vehicleId, String name, String price, String status, ImageIcon image) {
+    public VehicleCardPanel(String vehicleId, String name, String price, String status, ImageIcon image, JPanel mainContentPanel) {
         this.vehicleId = vehicleId;
         this.vehicleName = name;
         this.vehiclePrice = price;
         this.vehicleStatus = status;
         this.vehicleImage = image;
+        this.mainContentPanel = mainContentPanel;
 
-        setupCard();
+        initCardUI();
     }
 
-    private void setupCard() {
+    private void initCardUI() {
         setLayout(new BorderLayout());
         setPreferredSize(new Dimension(350, 250));
         setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
         setBackground(Color.WHITE);
 
-        // Image at the top
-        JLabel imageLabel = new JLabel();
+        // Top: Vehicle image
+        JLabel imageLabel = new JLabel(vehicleImage);
         imageLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        imageLabel.setIcon(vehicleImage);
         imageLabel.setPreferredSize(new Dimension(350, 150));
         add(imageLabel, BorderLayout.NORTH);
 
-        // Info panel at the center
+        // Center: Vehicle info
         JPanel infoPanel = new JPanel();
         infoPanel.setLayout(new BoxLayout(infoPanel, BoxLayout.Y_AXIS));
         infoPanel.setBackground(Color.WHITE);
@@ -49,25 +52,35 @@ public class VehicleCardPanel extends JPanel {
 
         add(infoPanel, BorderLayout.CENTER);
 
-        // Book Now button at bottom
+        // Bottom: Book Now button
         JButton bookButton = new JButton("Book Now");
         bookButton.setBackground(new Color(0, 120, 215));
         bookButton.setForeground(Color.WHITE);
         bookButton.setFocusPainted(false);
         bookButton.setBorder(BorderFactory.createEmptyBorder(5, 15, 5, 15));
 
-        // Action: open BookingView
-        bookButton.addActionListener(e -> openBookingView());
+        // Disable button if not available
+        if (!"Available".equalsIgnoreCase(vehicleStatus)) {
+            bookButton.setEnabled(false);
+            bookButton.setToolTipText("Vehicle is not available for booking.");
+        }
 
-        JPanel buttonPanel = new JPanel();
+        // Show BookingView in a new window
+        bookButton.addActionListener(e -> openBookingWindow());
+
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         buttonPanel.setBackground(Color.WHITE);
         buttonPanel.add(bookButton);
 
         add(buttonPanel, BorderLayout.SOUTH);
     }
 
-    private void openBookingView() {
+    /**
+     * Opens the booking screen as a separate window.
+     */
+    private void openBookingWindow() {
         BookingView bookingView = new BookingView();
+
         bookingView.getVehicleInfo().setText(vehicleName);
         bookingView.getTotalAmountField().setText("Rs " + vehiclePrice);
         bookingView.setVisible(true);

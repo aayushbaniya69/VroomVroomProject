@@ -27,27 +27,30 @@ public class DashboardView extends javax.swing.JFrame {
     this(1);  // Default userId = 1 for testing
 }
     public DashboardView(int userId) {
-        this.loggedInUserId = userId;
-        initComponents();
+    this.loggedInUserId = userId;
+    initComponents();
 
-        // Default home panel on launch
-        showHomePanel();
+    // ✅ Set layout before showing any panel
+    userContentPanel.setLayout(new java.awt.BorderLayout());
 
-        // Set layout to simple BorderLayout instead of CardLayout
-        userContentPanel.setLayout(new java.awt.BorderLayout());
+    // ✅ Show Home Panel at launch
+    showHomePanel();
 
-        // Create vehicle panel and add it directly
-        userVehiclePanel = new UserVehiclePanel();
+    // ✅ Show vehicle panel when button is clicked
+    userVehicleButton.addActionListener(e -> {
+        userContentPanel.removeAll();
+        userVehiclePanel = new UserVehiclePanel(); // Reload in case of updates
         userContentPanel.add(userVehiclePanel, java.awt.BorderLayout.CENTER);
+        userContentPanel.revalidate();
+        userContentPanel.repaint();
+    });
 
-        // Show vehicle panel when button is clicked
-        userVehicleButton.addActionListener(e -> {
-            userContentPanel.removeAll();
-            userVehiclePanel = new UserVehiclePanel(); // Reload in case of updates
-            userContentPanel.add(userVehiclePanel, java.awt.BorderLayout.CENTER);
-            userContentPanel.revalidate();
-            userContentPanel.repaint();
-        });
+    // ✅ Show Home Panel on Home button click
+    HomeButton.addActionListener(e -> {
+        showHomePanel();
+    });
+
+
 
         // Show home panel when HomeButton clicked
         HomeButton.addActionListener(e -> {
@@ -84,7 +87,6 @@ public class DashboardView extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         HomeButton = new javax.swing.JButton();
         userVehicleButton = new javax.swing.JButton();
-        BookingButton = new javax.swing.JButton();
         userProfileButton = new javax.swing.JButton();
         LogoutButton = new javax.swing.JButton();
 
@@ -110,13 +112,11 @@ public class DashboardView extends javax.swing.JFrame {
         userVehicleButton.setText("Vehicles");
         userVehicleButton.setBorder(null);
         userVehicleButton.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-
-        BookingButton.setBackground(new java.awt.Color(44, 47, 54));
-        BookingButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        BookingButton.setForeground(new java.awt.Color(241, 245, 249));
-        BookingButton.setText("My Bookings");
-        BookingButton.setBorder(null);
-        BookingButton.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        userVehicleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userVehicleButtonActionPerformed(evt);
+            }
+        });
 
         userProfileButton.setBackground(new java.awt.Color(44, 47, 54));
         userProfileButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -146,8 +146,7 @@ public class DashboardView extends javax.swing.JFrame {
                             .addComponent(HomeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(userProfileButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(userVehicleButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BookingButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(userVehicleButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -157,11 +156,9 @@ public class DashboardView extends javax.swing.JFrame {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(66, 66, 66)
                 .addComponent(HomeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(26, 26, 26)
                 .addComponent(userVehicleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(BookingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(26, 26, 26)
                 .addComponent(userProfileButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(LogoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -176,21 +173,25 @@ public class DashboardView extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(userContentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1033, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(userContentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1151, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(userContentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 690, Short.MAX_VALUE)
+                    .addComponent(userContentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 736, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void userVehicleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userVehicleButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userVehicleButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -226,7 +227,6 @@ public class DashboardView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BookingButton;
     private javax.swing.JButton HomeButton;
     private javax.swing.JButton LogoutButton;
     private javax.swing.JLabel jLabel2;

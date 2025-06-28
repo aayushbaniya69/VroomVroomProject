@@ -7,15 +7,15 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class MySqlConnection implements DbConnection {
-    private static final String URL = "jdbc:mysql://localhost:3306/vroomvroom?useSSL=false&serverTimezone=Asia/Kathmandu";
+
+    private static final String url = "jdbc:mysql://localhost:3306/vroomvroom?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Kathmandu";
     private static final String USER = "root";
     private static final String PASSWORD = "123456";
 
     @Override
     public Connection openConnection() {
         try {
-            // Remove Class.forName as SPI handles driver loading in Connector/J 9.2.0
-            return DriverManager.getConnection(URL, USER, PASSWORD);
+            return DriverManager.getConnection(url, USER, PASSWORD);
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
@@ -54,23 +54,22 @@ public class MySqlConnection implements DbConnection {
             return 0;
         }
     }
-     public static Connection getConnection() throws SQLException {
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-        } catch (ClassNotFoundException e) {
-            throw new SQLException("MySQL JDBC Driver Not Found.", e);
-        }
-        return DriverManager.getConnection(URL, USER, PASSWORD);
+
+    public static Connection getConnection() throws SQLException {
+        // No need for Class.forName() in Connector/J 8+ (including 9.x)
+        return DriverManager.getConnection(url, USER, PASSWORD);
     }
 
     public static void main(String[] args) {
-        try {
-            Connection conn = MySqlConnection.getConnection();
-            System.out.println("Connection Successfull!!");
-            conn.close();
+        try (Connection conn = MySqlConnection.getConnection()) {
+            if (conn != null) {
+                System.out.println("✅ Connection Successful!");
+            } else {
+                System.out.println("❌ Connection returned null.");
+            }
         } catch (SQLException e) {
-            System.out.println("Connection Unsuccessfull!!");
+            System.out.println("❌ Connection Unsuccessful!");
+            e.printStackTrace();
         }
     }
-
 }

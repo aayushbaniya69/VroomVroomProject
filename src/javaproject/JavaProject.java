@@ -4,14 +4,8 @@
  */
 package javaproject;
 
-import javaproject.controller.BookingController;
 import javaproject.controller.LoginController;
-import javaproject.controller.RegistrationController;
-import javaproject.controller.SellerRegistrationController;
-import javaproject.view.BookingView;
 import javaproject.view.LoginForm;
-import javaproject.view.RegistrationView;
-import javaproject.view.SellerRegistration;
 
 
 

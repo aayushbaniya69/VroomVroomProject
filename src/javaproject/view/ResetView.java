@@ -38,9 +38,6 @@ public class ResetView extends javax.swing.JFrame {
         EmailTextField = new javax.swing.JTextField();
         EmailLabel = new javax.swing.JLabel();
         ForOtpLabel = new javax.swing.JLabel();
-        SecurityQuestionLabel = new javax.swing.JLabel();
-        SecurityQuestionComboBox = new javax.swing.JComboBox<>();
-        SerucityAnswer = new javax.swing.JLabel();
         OTPlabel = new javax.swing.JLabel();
         OTPTextField = new javax.swing.JTextField();
         EnterOtpLabel = new javax.swing.JLabel();
@@ -56,7 +53,6 @@ public class ResetView extends javax.swing.JFrame {
         CPshow = new javax.swing.JButton();
         EnterButton = new javax.swing.JButton();
         OtpsendButton = new javax.swing.JButton();
-        SecurityAnswerTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 0, 153));
@@ -73,14 +69,6 @@ public class ResetView extends javax.swing.JFrame {
 
         ForOtpLabel.setText("Enter Your Email for otp.");
 
-        SecurityQuestionLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        SecurityQuestionLabel.setText("Security Questions");
-
-        SecurityQuestionComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "What is your nickname?", "What is your favourite color?", "What is your favourite food?", "What is your favourite pet?" }));
-
-        SerucityAnswer.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        SerucityAnswer.setText("Security Answers");
-
         OTPlabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         OTPlabel.setText("OTP");
 
@@ -89,14 +77,10 @@ public class ResetView extends javax.swing.JFrame {
         NewPasswordLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         NewPasswordLabel.setText("New Password");
 
-        NewPasswordField.setText("jPasswordField1");
-
-        CharacterLabel.setText("Password must be atleast 8 character. ");
+        CharacterLabel.setText("Password must be at least 6 characters long.");
 
         ConfirmPasswordLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         ConfirmPasswordLabel.setText("Confirm Password");
-
-        ConfirmPasswordField.setText("jPasswordField2");
 
         SameLabel.setText("Both password must be same.");
 
@@ -120,35 +104,6 @@ public class ResetView extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(125, 125, 125)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(SameLabel)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(ConfirmPasswordLabel)
-                            .addComponent(CharacterLabel)
-                            .addComponent(OTPlabel)
-                            .addComponent(SerucityAnswer)
-                            .addComponent(SecurityQuestionLabel)
-                            .addComponent(ForOtpLabel)
-                            .addComponent(EmailLabel)
-                            .addComponent(EmailTextField)
-                            .addComponent(SecurityQuestionComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(OTPTextField)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(NewPasswordLabel)
-                                .addComponent(EnterOtpLabel))
-                            .addComponent(NewPasswordField, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
-                            .addComponent(ConfirmPasswordField)
-                            .addComponent(SecurityAnswerTextField))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(NPshow)
-                            .addComponent(CPshow)
-                            .addComponent(EnterButton)
-                            .addComponent(OtpsendButton))))
-                .addGap(0, 36, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,6 +118,32 @@ public class ResetView extends javax.swing.JFrame {
                             .addComponent(BackToLoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(ResetPasswordButton, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(183, 183, 183))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(125, 125, 125)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(NewPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(NPshow))
+                    .addComponent(SameLabel)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(ConfirmPasswordLabel)
+                            .addComponent(OTPlabel)
+                            .addComponent(ForOtpLabel)
+                            .addComponent(EmailLabel)
+                            .addComponent(EmailTextField)
+                            .addComponent(OTPTextField)
+                            .addComponent(NewPasswordLabel)
+                            .addComponent(ConfirmPasswordField, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
+                            .addComponent(EnterOtpLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(CPshow)
+                            .addComponent(EnterButton)
+                            .addComponent(OtpsendButton)))
+                    .addComponent(CharacterLabel))
+                .addGap(0, 48, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -174,62 +155,54 @@ public class ResetView extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(EmailLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(EmailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(EmailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(OtpsendButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ForOtpLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SecurityQuestionLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SecurityQuestionComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(SerucityAnswer)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(OtpsendButton)
-                    .addComponent(SecurityAnswerTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(OTPlabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(OTPTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(EnterButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(EnterOtpLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(EnterOtpLabel)
+                .addGap(18, 18, 18)
                 .addComponent(NewPasswordLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(NewPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(NPshow))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(CharacterLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(ConfirmPasswordLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(ConfirmPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CPshow))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(SameLabel)
                 .addGap(18, 18, 18)
                 .addComponent(ResetPasswordButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(BackToLoginButton)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -291,10 +264,6 @@ public class ResetView extends javax.swing.JFrame {
     private javax.swing.JButton OtpsendButton;
     private javax.swing.JButton ResetPasswordButton;
     private javax.swing.JLabel SameLabel;
-    private javax.swing.JTextField SecurityAnswerTextField;
-    private javax.swing.JComboBox<String> SecurityQuestionComboBox;
-    private javax.swing.JLabel SecurityQuestionLabel;
-    private javax.swing.JLabel SerucityAnswer;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
@@ -309,12 +278,6 @@ public class ResetView extends javax.swing.JFrame {
     }
     public javax.swing.JTextField getOTPTextField(){
         return OTPTextField;
-    }
-    public javax.swing.JTextField getSecurityAnswerTextField(){
-        return SecurityAnswerTextField;
-    }
-    public javax.swing.JComboBox<String> getSecurityQuestionComboBox(){
-        return SecurityQuestionComboBox;
     }
     public javax.swing.JButton getOtpsendButton(){
         return OtpsendButton;

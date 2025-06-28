@@ -70,22 +70,28 @@ public class UserDao {
         }
     }
     
+    /**
+     * ✅ FIXED: Check if email exists in Registration table
+     */
     public boolean checkEmail(String email){
-        String query = "Select * from Registration where email=?";
+        String query = "SELECT * FROM Registration WHERE email = ?";
         Connection conn = mySql.openConnection();
         try{
             PreparedStatement stmnt = conn.prepareStatement(query);
-            stmnt.setString(1, email);
+            stmnt.setString(1, email.trim());
             ResultSet result = stmnt.executeQuery();
             
-            if(result.next()){
-                return true;
+            boolean found = result.next();
+            if (found) {
+                System.out.println("✅ User email found: " + email);
+            } else {
+                System.out.println("❌ User email not found: " + email);
             }
-            else{
-                return false;
-            }
+            
+            return found;
         }
         catch(SQLException e){
+            System.err.println("Error checking user email: " + e.getMessage());
             e.printStackTrace();
             return false;
         }
@@ -94,58 +100,42 @@ public class UserDao {
         }
     }
     
-    // FIX: Enhanced resetPassword method with detailed debugging
-    public boolean resetPassword(String email, String newPassword){
-        if (email == null || email.trim().isEmpty() || newPassword == null || newPassword.trim().isEmpty()) {
-            System.err.println("ERROR: Invalid email or password for reset");
-            return false;
-        }
-
-        String query = "UPDATE Registration SET password=?, rePassword=? WHERE email=?";
-        Connection conn = mySql.openConnection();
+    /**
+     * ✅ FIXED: Reset password for user
+     */
+    public boolean resetPassword(String email, String newPassword) {
+        Connection connection = null;
+        PreparedStatement statement = null;
         
-        if (conn == null) {
-            System.err.println("ERROR: Failed to open database connection for password reset");
-            return false;
-        }
-
-        System.out.println("=== RESET PASSWORD DEBUG ===");
-        System.out.println("Email: '" + email + "'");
-        System.out.println("New Password Length: " + newPassword.length());
-        System.out.println("SQL Query: " + query);
-
-        try{
-            PreparedStatement stmnt = conn.prepareStatement(query);
-            stmnt.setString(1, newPassword); // password
-            stmnt.setString(2, newPassword); // rePassword (same as password)
-            stmnt.setString(3, email);       // WHERE email = ?
+        try {
+            connection = mySql.openConnection();
+            String sql = "UPDATE Registration SET password=?, rePassword=? WHERE email=?";
+            statement = connection.prepareStatement(sql);
             
-            System.out.println("Executing password reset query...");
-            int result = stmnt.executeUpdate();
-            System.out.println("Password reset result - rows affected: " + result);
+            statement.setString(1, newPassword);
+            statement.setString(2, newPassword);
+            statement.setString(3, email);
             
-            if (result == 0) {
-                // Check if user exists
-                String checkQuery = "SELECT COUNT(*) FROM Registration WHERE email = ?";
-                PreparedStatement checkStmt = conn.prepareStatement(checkQuery);
-                checkStmt.setString(1, email);
-                ResultSet rs = checkStmt.executeQuery();
-                if (rs.next()) {
-                    int count = rs.getInt(1);
-                    System.err.println("User exists check: " + count + " users found with email '" + email + "'");
-                }
-                checkStmt.close();
+            int result = statement.executeUpdate();
+            
+            if (result > 0) {
+                System.out.println("✅ User password reset successfully for: " + email);
+            } else {
+                System.out.println("❌ User password reset failed for: " + email);
             }
             
             return result > 0;
-        }
-        catch(SQLException e){
-            System.err.println("ERROR: SQL Exception in resetPassword: " + e.getMessage());
-            e.printStackTrace();
+            
+        } catch (SQLException e) {
+            System.err.println("Error resetting user password: " + e.getMessage());
             return false;
-        }
-        finally{
-            mySql.closeConnection(conn);
+        } finally {
+            try {
+                if (statement != null) statement.close();
+                if (connection != null) connection.close();
+            } catch (SQLException e) {
+                System.err.println("Error closing resources: " + e.getMessage());
+            }
         }
     }
 }

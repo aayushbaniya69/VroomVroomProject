@@ -158,4 +158,80 @@ public class SellerDao {
             }
         }
     }
+    // Add these methods to your existing UserDao.java
+
+public boolean validateSecurityAnswer(String email, String question, String answer) {
+    // Since SellerRegistration table doesn't have security question/answer,
+    // we'll just check if email exists
+    Connection connection = null;
+    PreparedStatement statement = null;
+    ResultSet resultSet = null;
+    
+    try {
+        connection = mySql.openConnection();
+        String sql = "SELECT * FROM SellerRegistration WHERE email = ?";
+        statement = connection.prepareStatement(sql);
+        statement.setString(1, email);
+        
+        resultSet = statement.executeQuery();
+        boolean found = resultSet.next();
+        
+        if (found) {
+            System.out.println("✅ Seller email found: " + email);
+        } else {
+            System.out.println("❌ Seller email not found: " + email);
+        }
+        
+        return found;
+        
+    } catch (SQLException e) {
+        System.err.println("Error validating seller email: " + e.getMessage());
+        return false;
+    } finally {
+        try {
+            if (resultSet != null) resultSet.close();
+            if (statement != null) statement.close();
+            if (connection != null) connection.close();
+        } catch (SQLException e) {
+            System.err.println("Error closing resources: " + e.getMessage());
+        }
+    }
+}
+
+public boolean updatePassword(String email, String newPassword) {
+    Connection connection = null;
+    PreparedStatement statement = null;
+    
+    try {
+        connection = mySql.openConnection();
+        String sql = "UPDATE SellerRegistration SET password=?, rePassword=? WHERE email=?";
+        statement = connection.prepareStatement(sql);
+        
+        statement.setString(1, newPassword);
+        statement.setString(2, newPassword);
+        statement.setString(3, email);
+        
+        int result = statement.executeUpdate();
+        
+        if (result > 0) {
+            System.out.println("✅ Seller password updated successfully for: " + email);
+        } else {
+            System.out.println("❌ Seller password update failed for: " + email);
+        }
+        
+        return result > 0;
+        
+    } catch (SQLException e) {
+        System.err.println("Error updating seller password: " + e.getMessage());
+        return false;
+    } finally {
+        try {
+            if (statement != null) statement.close();
+            if (connection != null) connection.close();
+        } catch (SQLException e) {
+            System.err.println("Error closing resources: " + e.getMessage());
+        }
+    }
+
+}
 }

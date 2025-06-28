@@ -26,24 +26,23 @@ public class DashboardView extends javax.swing.JFrame {
     public DashboardView() {
         initComponents();
         
-    // Apply CardLayout to the main content panel
-    contentCardLayout = new CardLayout();
-    userContentPanel.setLayout(contentCardLayout);
+    // Set layout to simple BorderLayout instead of CardLayout
+userContentPanel.setLayout(new java.awt.BorderLayout());
 
-    // Initialize Panels
-    userVehiclePanel = new UserVehiclePanel(this); // Pass DashboardView to allow switching
- 
+// Create vehicle panel and add it directly
+userVehiclePanel = new UserVehiclePanel();
+userContentPanel.add(userVehiclePanel, java.awt.BorderLayout.CENTER);
 
-    // Add panels to the CardLayout with unique keys
-    userContentPanel.add(new JPanel(), "Dummy");  // optional default
-    userContentPanel.add(userVehiclePanel, "Vehicle");
-
-    // Show default panel first
-    contentCardLayout.show(userContentPanel, "Dummy");
-
-    // Handle Vehicle Button click -> show vehicle panel
-    userVehicleButton.addActionListener(e -> showPanel("Vehicle"));
+// Show vehicle panel when button is clicked
+userVehicleButton.addActionListener(e -> {
+    userContentPanel.removeAll();
+    userVehiclePanel = new UserVehiclePanel(); // Reload in case of updates
+    userContentPanel.add(userVehiclePanel, java.awt.BorderLayout.CENTER);
+    userContentPanel.revalidate();
+    userContentPanel.repaint();
+});
     }
+
     private void showPanel(String name) {
     contentCardLayout.show(userContentPanel, name);
 }

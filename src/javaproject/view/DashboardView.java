@@ -31,7 +31,8 @@ public class DashboardView extends javax.swing.JFrame {
     userContentPanel.setLayout(contentCardLayout);
 
     // Initialize Panels
-    userVehiclePanel = new UserVehiclePanel(); 
+    userVehiclePanel = new UserVehiclePanel(this); // Pass DashboardView to allow switching
+ 
 
     // Add panels to the CardLayout with unique keys
     userContentPanel.add(new JPanel(), "Dummy");  // optional default
@@ -241,5 +242,9 @@ public void bookings(MouseListener listener){
 public void userProfiles(MouseListener listener){
     userProfileButton.addMouseListener(listener);
 }
+public JPanel getUserContentPanel() {
+    return userContentPanel;
+}
+
 }
 

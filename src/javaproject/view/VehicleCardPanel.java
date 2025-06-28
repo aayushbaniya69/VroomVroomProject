@@ -4,8 +4,8 @@ import java.awt.*;
 import javax.swing.*;
 
 /**
- * VehicleCardPanel displays individual vehicle info as a card,
- * and opens BookingView in a new window if available.
+ * VehicleCardPanel displays individual vehicle info as a card
+ * and switches to BookingView inside the Dashboard.
  */
 public class VehicleCardPanel extends JPanel {
 
@@ -14,15 +14,15 @@ public class VehicleCardPanel extends JPanel {
     private final String vehiclePrice;
     private final String vehicleStatus;
     private final ImageIcon vehicleImage;
-    private final JPanel mainContentPanel;
+    private final DashboardView dashboardView;
 
-    public VehicleCardPanel(String vehicleId, String name, String price, String status, ImageIcon image, JPanel mainContentPanel) {
+    public VehicleCardPanel(String vehicleId, String name, String price, String status, ImageIcon image, DashboardView dashboardView) {
         this.vehicleId = vehicleId;
         this.vehicleName = name;
         this.vehiclePrice = price;
         this.vehicleStatus = status;
         this.vehicleImage = image;
-        this.mainContentPanel = mainContentPanel;
+        this.dashboardView = dashboardView;
 
         initCardUI();
     }
@@ -44,12 +44,10 @@ public class VehicleCardPanel extends JPanel {
         infoPanel.setLayout(new BoxLayout(infoPanel, BoxLayout.Y_AXIS));
         infoPanel.setBackground(Color.WHITE);
         infoPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-
         infoPanel.add(new JLabel("ID: " + vehicleId));
         infoPanel.add(new JLabel("Model: " + vehicleName));
         infoPanel.add(new JLabel("Price: Rs. " + vehiclePrice + "/day"));
         infoPanel.add(new JLabel("Status: " + vehicleStatus));
-
         add(infoPanel, BorderLayout.CENTER);
 
         // Bottom: Book Now button
@@ -59,14 +57,12 @@ public class VehicleCardPanel extends JPanel {
         bookButton.setFocusPainted(false);
         bookButton.setBorder(BorderFactory.createEmptyBorder(5, 15, 5, 15));
 
-        // Disable button if not available
         if (!"Available".equalsIgnoreCase(vehicleStatus)) {
             bookButton.setEnabled(false);
             bookButton.setToolTipText("Vehicle is not available for booking.");
         }
 
-        // Show BookingView in a new window
-        bookButton.addActionListener(e -> openBookingWindow());
+        bookButton.addActionListener(e -> openBookingPanel());
 
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         buttonPanel.setBackground(Color.WHITE);
@@ -76,13 +72,16 @@ public class VehicleCardPanel extends JPanel {
     }
 
     /**
-     * Opens the booking screen as a separate window.
+     * Switch the content panel in Dashboard to BookingView
      */
-    private void openBookingWindow() {
+    private void openBookingPanel() {
         BookingView bookingView = new BookingView();
-
         bookingView.getVehicleInfo().setText(vehicleName);
         bookingView.getTotalAmountField().setText("Rs " + vehiclePrice);
-        bookingView.setVisible(true);
+
+        JPanel contentPanel = dashboardView.getUserContentPanel();
+        contentPanel.add(bookingView, "Booking");
+        CardLayout cl = (CardLayout) contentPanel.getLayout();
+        cl.show(contentPanel, "Booking");
     }
 }

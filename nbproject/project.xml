@@ -3,8 +3,12 @@
     <type>org.netbeans.modules.java.j2seproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/j2se-project/3">
+<<<<<<< HEAD
             <name>VroomVroomProject</name>
             <explicit-platform explicit-source-supported="true"/>
+=======
+            <name>VroomProject1</name>
+>>>>>>> 6fabad5e42e5e96ba95925199e293bc0168dd1b2
             <source-roots>
                 <root id="src.dir"/>
             </source-roots>

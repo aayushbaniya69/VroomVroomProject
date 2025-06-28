@@ -5,7 +5,7 @@ import javax.swing.*;
 
 /**
  * VehicleCardPanel displays individual vehicle info as a card
- * and switches to BookingView inside the Dashboard.
+ * and opens BookingView directly in a new JFrame when booked.
  */
 public class VehicleCardPanel extends JPanel {
 
@@ -14,32 +14,33 @@ public class VehicleCardPanel extends JPanel {
     private final String vehiclePrice;
     private final String vehicleStatus;
     private final ImageIcon vehicleImage;
-    private final DashboardView dashboardView;
 
-    public VehicleCardPanel(String vehicleId, String name, String price, String status, ImageIcon image, DashboardView dashboardView) {
+    public VehicleCardPanel(String vehicleId, String name, String price, String status, ImageIcon image) {
         this.vehicleId = vehicleId;
         this.vehicleName = name;
         this.vehiclePrice = price;
         this.vehicleStatus = status;
         this.vehicleImage = image;
-        this.dashboardView = dashboardView;
 
         initCardUI();
     }
 
+    /**
+     * Initializes the card layout and components.
+     */
     private void initCardUI() {
         setLayout(new BorderLayout());
         setPreferredSize(new Dimension(350, 250));
         setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
         setBackground(Color.WHITE);
 
-        // Top: Vehicle image
+        // Top: Image
         JLabel imageLabel = new JLabel(vehicleImage);
         imageLabel.setHorizontalAlignment(SwingConstants.CENTER);
         imageLabel.setPreferredSize(new Dimension(350, 150));
         add(imageLabel, BorderLayout.NORTH);
 
-        // Center: Vehicle info
+        // Center: Info
         JPanel infoPanel = new JPanel();
         infoPanel.setLayout(new BoxLayout(infoPanel, BoxLayout.Y_AXIS));
         infoPanel.setBackground(Color.WHITE);
@@ -50,7 +51,7 @@ public class VehicleCardPanel extends JPanel {
         infoPanel.add(new JLabel("Status: " + vehicleStatus));
         add(infoPanel, BorderLayout.CENTER);
 
-        // Bottom: Book Now button
+        // Bottom: Book button
         JButton bookButton = new JButton("Book Now");
         bookButton.setBackground(new Color(0, 120, 215));
         bookButton.setForeground(Color.WHITE);
@@ -59,10 +60,10 @@ public class VehicleCardPanel extends JPanel {
 
         if (!"Available".equalsIgnoreCase(vehicleStatus)) {
             bookButton.setEnabled(false);
-            bookButton.setToolTipText("Vehicle is not available for booking.");
+            bookButton.setToolTipText("Vehicle is not available.");
         }
 
-        bookButton.addActionListener(e -> openBookingPanel());
+        bookButton.addActionListener(e -> openBookingWindow());
 
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         buttonPanel.setBackground(Color.WHITE);
@@ -72,16 +73,19 @@ public class VehicleCardPanel extends JPanel {
     }
 
     /**
-     * Switch the content panel in Dashboard to BookingView
+     * Opens the BookingView window and closes the current parent window.
      */
-    private void openBookingPanel() {
+    private void openBookingWindow() {
         BookingView bookingView = new BookingView();
         bookingView.getVehicleInfo().setText(vehicleName);
         bookingView.getTotalAmountField().setText("Rs " + vehiclePrice);
+        bookingView.setLocationRelativeTo(null);
+        bookingView.setVisible(true);
 
-        JPanel contentPanel = dashboardView.getUserContentPanel();
-        contentPanel.add(bookingView, "Booking");
-        CardLayout cl = (CardLayout) contentPanel.getLayout();
-        cl.show(contentPanel, "Booking");
+        // ✅ Close the Dashboard or parent JFrame containing this panel
+        Window parentWindow = SwingUtilities.getWindowAncestor(this);
+        if (parentWindow != null) {
+            parentWindow.dispose();
+        }
     }
 }
